@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { TrackedLink } from "@/components/tracked-link";
 import { CuratedCaseGallery } from "@/components/case-gallery";
-import { PUBLISHED_DATE, SITE_URL, UPDATED_DATE } from "@/lib/site";
+import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_NAME, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Zęby w Turcji – leczenie, możliwości i świadomy wybór",
@@ -29,6 +29,17 @@ export default function Home() {
     <section className="shell section-space"><div className="section-heading"><div><p className="eyebrow">Przed decyzją</p><h2>Sprawdź więcej niż efekt na zdjęciu</h2></div></div><div className="decision-grid"><Link href="/opinie"><span>Opinie</span><h3>Jak odróżnić doświadczenie pacjenta od reklamy</h3><p>Lista sygnałów wiarygodności i czerwonych flag.</p></Link><Link href="/przed-i-po"><span>Przed i po</span><h3>Jak odpowiedzialnie oceniać metamorfozy</h3><p>Zdjęcie nie pokazuje diagnozy, funkcji ani trwałości.</p></Link><Link href="/jak-wybrac-klinike"><span>Klinika</span><h3>Co zweryfikować przed wpłatą</h3><p>Lekarz, podmiot, plan, materiały i opieka po powrocie.</p></Link></div></section>
     <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Wstępna ocena</p><h2>Sprawdź, jakie informacje są potrzebne do wyceny</h2><p>Przygotuj krótki opis potrzeby. Nie wysyłaj zdjęć ani dokumentacji przez niepotwierdzone kanały.</p><TrackedLink href="/kontakt" event="home_bottom_cta" className="button button-light">Poproś o plan leczenia</TrackedLink></div></section>
     <section className="shell editorial-strip"><p><strong>Autor:</strong> Redakcja serwisu</p><p><strong>Publikacja:</strong> {PUBLISHED_DATE}</p><p><strong>Ostatnia aktualizacja:</strong> {UPDATED_DATE}</p><p><strong>Recenzja medyczna:</strong> jeszcze nieprzeprowadzona</p><Link href="/polityka-redakcyjna">Standard redakcyjny</Link></section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "Zęby w Turcji – możliwości leczenia i świadoma decyzja", url: SITE_URL, inLanguage: "pl-PL", datePublished: "2026-09-18", dateModified: "2026-09-19" }) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      name: "Zęby w Turcji – możliwości leczenia i świadoma decyzja",
+      url: SITE_URL,
+      inLanguage: "pl-PL",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      author: { "@type": "Organization", name: `Redakcja serwisu ${SITE_NAME}`, url: `${SITE_URL}/o-nas` },
+      datePublished: PUBLISHED_ISO_DATE,
+      dateModified: UPDATED_ISO_DATE
+    }) }} />
   </main>;
 }

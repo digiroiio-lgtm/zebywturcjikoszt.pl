@@ -1,5 +1,8 @@
 export const SITE_NAME = "Zęby w Turcji";
-export const SITE_URL = "https://zebywturcjikoszt-pl-gv8i.vercel.app";
+const FALLBACK_SITE_URL = "https://zebywturcjikoszt-pl-gv8i.vercel.app";
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
+export const PUBLISHED_ISO_DATE = "2026-09-18";
+export const UPDATED_ISO_DATE = "2026-09-19";
 export const PUBLISHED_DATE = "18 września 2026";
 export const UPDATED_DATE = "19 września 2026";
 
