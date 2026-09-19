@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
 import { PUBLISHED_DATE, SITE_URL, UPDATED_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
+import { BeforeAfterCaseHub } from "./case-gallery";
+import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
   koszt: [
@@ -74,14 +77,18 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
-            {page.sections.map((section) => <section className="content-section" key={section.title}>
+            {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.bullets && <ul className="check-list">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
               {section.cards && <div className="cards">{section.cards.map((card) => <div className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.text}</p></div>)}</div>}
               {section.table && <div className="table-wrap"><table><thead><tr>{section.table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row) => <tr key={row.join("|")}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div>}
               <SectionVisual slug={page.slug} sectionTitle={section.title} />
-            </section>)}
+            </section>
+              {page.slug === "przed-i-po" && section.title === "Jak czytać materiał przed i po" && <BeforeAfterCaseHub />}
+              {page.slug === "antalya" && section.title === "Przed wyjazdem" && <AntalyaJourneyImages />}
+              {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
+            </Fragment>)}
             {page.form && <section className="content-section"><h2>Formularz wstępnej oceny</h2><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
             {page.sources && <section className="content-section sources"><h2>Źródła i dalsza lektura</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}

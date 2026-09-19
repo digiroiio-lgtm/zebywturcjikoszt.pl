@@ -7,15 +7,24 @@ import { trackEvent } from "./tracked-link";
 export function LeadForm({ enabled }: { enabled: boolean }) {
   const started = useRef(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  function startForm() { if (!started.current) { started.current = true; trackEvent("form_start"); } }
+  function getLeadContext() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      lead_source: params.get("lead_source") ?? "OGZ-PL",
+      cta_location: params.get("cta_location") ?? "contact_page",
+      source_page_path: params.get("page_path") ?? window.location.pathname,
+      case_reference: params.get("case_reference") ?? ""
+    };
+  }
+  function startForm() { if (!started.current) { started.current = true; trackEvent("form_start", getLeadContext()); } }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!enabled) return;
     setStatus("sending");
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
+    const data = { ...Object.fromEntries(new FormData(form)), ...getLeadContext() };
     const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    if (response.ok) { trackEvent("form_submit"); setStatus("sent"); form.reset(); } else { setStatus("error"); }
+    if (response.ok) { trackEvent("form_submit", getLeadContext()); setStatus("sent"); form.reset(); } else { setStatus("error"); }
   }
   return (
     <form className="lead-form" onFocus={startForm} onSubmit={submit}>

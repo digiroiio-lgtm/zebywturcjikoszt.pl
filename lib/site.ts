@@ -206,7 +206,7 @@ export const pages: Record<string, PageContent> = {
     description: "Jak odpowiedzialnie oceniać zdjęcia zębów przed i po leczeniu w Turcji oraz o co zapytać przed podjęciem decyzji.",
     eyebrow: "Efekty leczenia", h1: "Zęby w Turcji przed i po",
     lead: "Zdjęcia mogą pokazać zmianę estetyczną, ale nie pokazują pełnej diagnozy, funkcji zgryzu, trwałości ani przebiegu leczenia.",
-    answer: "Nie publikujemy niezweryfikowanych metamorfoz. Autoryzowane przypadki zostaną dodane dopiero po potwierdzeniu zgody pacjenta, zakresu leczenia i informacji klinicznych potrzebnych do uczciwego opisu.",
+    answer: "Galeria pokazuje przykładowe zmiany wyglądu uśmiechu. Ponieważ same obrazy nie potwierdzają metody, diagnozy ani czasu leczenia, przypadki bez zweryfikowanych metadanych opisujemy neutralnie i nie przypisujemy im konkretnej procedury.",
     sections: [
       { title: "Jak czytać materiał przed i po", bullets: ["sprawdź, czy zdjęcia wykonano w podobnym świetle i ustawieniu", "zapytaj, jaki dokładnie zakres leczenia przedstawiono", "odróżnij efekt tymczasowy od ostatecznej odbudowy", "nie oceniaj zdrowia tkanek wyłącznie na podstawie fotografii", "pamiętaj, że indywidualny wynik może być inny"] },
       { title: "Czego zdjęcie nie wyjaśnia", cards: [
@@ -215,13 +215,13 @@ export const pages: Record<string, PageContent> = {
         { title: "Czas", text: "Efekt bez daty kontroli nie mówi, jak odbudowa zachowuje się po leczeniu." },
         { title: "Ryzyko", text: "Fotografia nie informuje o ograniczeniach, powikłaniach i alternatywach." }
       ]},
-      { title: "Standard publikacji przypadków", paragraphs: ["Każdy przyszły przypadek będzie wymagał autoryzacji, opisu zakresu leczenia, dat oraz jasnej informacji, że rezultat jest indywidualny. Materiały stockowe nie będą przedstawiane jako pacjenci kliniki."] }
+      { title: "Standard publikacji przypadków", paragraphs: ["Dodatkowe informacje kliniczne zostaną przypisane do przypadku dopiero po potwierdzeniu zakresu leczenia i dat. Każdy rezultat jest indywidualny, a materiały stockowe nie są przedstawiane jako pacjenci kliniki."] }
     ],
     faq: [
-      { question: "Dlaczego nie ma jeszcze galerii?", answer: "Nie otrzymaliśmy autoryzowanych i zweryfikowanych materiałów klinicznych, dlatego nie tworzymy fikcyjnych przypadków." },
+      { question: "Dlaczego przypadki mają neutralne opisy?", answer: "Dostępne obrazy nie zawierają wystarczających metadanych, aby rzetelnie podać diagnozę, metodę, liczbę odbudów lub czas leczenia. Nie uzupełniamy tych informacji domysłami." },
       { question: "Czy zdjęcie wystarczy do wyboru kliniki?", answer: "Nie. Powinno być tylko jednym z elementów oceny obok kwalifikacji lekarzy, planu leczenia, dokumentacji i opieki po zabiegu." }
     ],
-    ctaLabel: "Sprawdź, jak wybrać klinikę", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
+    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "before_after_hero_cta", ctaHref: "/kontakt?lead_source=OGZ-PL&cta_location=before_after_hero&page_path=%2Fprzed-i-po"
   },
   antalya: {
     slug: "antalya", title: "Leczenie zębów w Antalyi – plan wyjazdu i wizyt",

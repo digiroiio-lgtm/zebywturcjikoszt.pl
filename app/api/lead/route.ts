@@ -16,8 +16,12 @@ export async function POST(request: NextRequest) {
   const contact = String(body.contact ?? "").trim();
   const message = String(body.message ?? "").trim();
   const consent = body.consent === "on";
+  const leadSource = String(body.lead_source ?? "OGZ-PL").slice(0, 40);
+  const ctaLocation = String(body.cta_location ?? "contact_page").slice(0, 80);
+  const sourcePagePath = String(body.source_page_path ?? "/kontakt").slice(0, 160);
+  const caseReference = String(body.case_reference ?? "").slice(0, 80);
   if (!allowedTreatments.has(treatment) || !allowedMethods.has(contactMethod) || !name || !contact || !consent || name.length > 80 || contact.length > 160 || message.length > 1200) return NextResponse.json({ error: "Sprawdź wymagane pola." }, { status: 400 });
-  const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}) }, body: JSON.stringify({ treatment, contactMethod, name, contact, message, consent: true, source: "zebywturcjikoszt.pl" }), cache: "no-store" });
+  const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}) }, body: JSON.stringify({ treatment, contactMethod, name, contact, message, consent: true, source: "zebywturcjikoszt.pl", lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath, case_reference: caseReference }), cache: "no-store" });
   if (!response.ok) return NextResponse.json({ error: "Nie udało się przekazać zgłoszenia." }, { status: 502 });
   return NextResponse.json({ ok: true });
 }
