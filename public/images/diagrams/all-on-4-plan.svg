@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Kwalifikacja przed wyborem All-on-4</title><desc id="desc">Schemat pokazuje diagnostykę, cztery punkty podparcia i odbudowę jako kolejne elementy planu, a nie gotowy pakiet.</desc>
+  <rect width="640" height="360" rx="28" fill="#e8f4f1"/><path d="M104 114c70-72 362-72 432 0" fill="none" stroke="#075b54" stroke-width="16" stroke-linecap="round"/>
+  <g stroke="#087f72" stroke-width="9" stroke-linecap="round"><path d="M177 115l20 112M279 94l8 133M361 94l-8 133M463 115l-20 112"/></g>
+  <path d="M120 252c82 50 318 50 400 0" fill="none" stroke="#fff" stroke-width="42" stroke-linecap="round"/><path d="M120 252c82 50 318 50 400 0" fill="none" stroke="#087f72" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#075b54"><circle cx="197" cy="227" r="9"/><circle cx="287" cy="227" r="9"/><circle cx="353" cy="227" r="9"/><circle cx="443" cy="227" r="9"/></g>
+</svg>

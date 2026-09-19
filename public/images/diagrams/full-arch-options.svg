@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Możliwe kierunki pełnej odbudowy</title><desc id="desc">Rozgałęziony schemat przypomina, że plan może zakładać zachowanie zębów, uzupełnienie braków albo odbudowę pełnego łuku.</desc>
+  <rect width="640" height="360" rx="28" fill="#f6f2e9"/><g fill="none" stroke="#96c9c1" stroke-width="5"><path d="M320 98v54M130 152h380M130 152v52M320 152v52M510 152v52"/></g>
+  <g fill="#fff" stroke="#087f72" stroke-width="4"><rect x="235" y="46" width="170" height="72" rx="18"/><rect x="48" y="204" width="164" height="92" rx="18"/><rect x="238" y="204" width="164" height="92" rx="18"/><rect x="428" y="204" width="164" height="92" rx="18"/></g>
+  <g fill="none" stroke="#075b54" stroke-width="7" stroke-linecap="round"><path d="M278 82h84"/><path d="M93 251h74M104 238l-11 13 11 13"/><path d="M283 251h74M346 238l11 13-11 13"/><path d="M473 251h74M510 232v38"/></g>
+</svg>

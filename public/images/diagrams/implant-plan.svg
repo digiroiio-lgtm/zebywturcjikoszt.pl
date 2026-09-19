@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Etapy planowania implantu</title><desc id="desc">Schemat prowadzi od dokumentacji przez kwalifikację i leczenie do odbudowy.</desc>
+  <rect width="640" height="360" rx="28" fill="#f6f2e9"/><path d="M92 180h456" stroke="#b8d7d1" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#fff" stroke="#087f72" stroke-width="5"><circle cx="100" cy="180" r="38"/><circle cx="247" cy="180" r="38"/><circle cx="394" cy="180" r="38"/><circle cx="541" cy="180" r="38"/></g>
+  <g fill="none" stroke="#075b54" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M82 167h36v29H82zM89 159h22"/><path d="M231 181l11 11 23-27"/><path d="M384 158h20l8 18-18 29-18-29z"/><path d="M523 190c6-28 30-28 36 0M530 174h22"/></g>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Weryfikacja opinii i kliniki</title><desc id="desc">Lupa nad kartą opinii symbolizuje sprawdzenie źródła, kontekstu i szczegółów.</desc>
+  <rect width="640" height="360" rx="28" fill="#e8f4f1"/><rect x="118" y="68" width="310" height="224" rx="22" fill="#fff" stroke="#087f72" stroke-width="4"/>
+  <g fill="#96c9c1"><circle cx="174" cy="128" r="26"/><rect x="216" y="109" width="152" height="14" rx="7"/><rect x="216" y="137" width="112" height="12" rx="6"/><rect x="158" y="192" width="210" height="12" rx="6"/><rect x="158" y="221" width="180" height="12" rx="6"/></g>
+  <circle cx="433" cy="210" r="68" fill="#f6f2e9" stroke="#075b54" stroke-width="10"/><path d="M482 260l58 58" stroke="#075b54" stroke-width="16" stroke-linecap="round"/><path d="M405 211l20 20 37-45" fill="none" stroke="#087f72" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

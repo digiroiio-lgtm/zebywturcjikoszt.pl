@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Plan leczenia i podróży do Antalyi</title><desc id="desc">Trzy etapy przedstawiają przygotowanie przed wyjazdem, wizyty na miejscu oraz opiekę po powrocie.</desc>
+  <rect width="640" height="360" rx="28" fill="#f6f2e9"/><path d="M92 180h456" stroke="#96c9c1" stroke-width="5" stroke-dasharray="9 10"/>
+  <g fill="#fff" stroke="#087f72" stroke-width="4"><circle cx="116" cy="180" r="58"/><circle cx="320" cy="180" r="58"/><circle cx="524" cy="180" r="58"/></g>
+  <g fill="none" stroke="#075b54" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M88 167h56v42H88zM101 158h30"/><path d="M292 190l31-42 25 42zM320 163v42"/><path d="M494 183l24 22 34-48M496 157h33"/></g>
+</svg>

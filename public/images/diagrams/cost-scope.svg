@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Elementy pełnego kosztu leczenia</title><desc id="desc">Cztery połączone karty symbolizują leczenie, materiały, podróż i opiekę po leczeniu.</desc>
+  <rect width="640" height="360" rx="28" fill="#e8f4f1"/><path d="M96 180h448" stroke="#96c9c1" stroke-width="4" stroke-dasharray="8 10"/>
+  <g fill="#fff" stroke="#087f72" stroke-width="3"><rect x="54" y="116" width="116" height="128" rx="18"/><rect x="192" y="116" width="116" height="128" rx="18"/><rect x="330" y="116" width="116" height="128" rx="18"/><rect x="468" y="116" width="116" height="128" rx="18"/></g>
+  <g fill="none" stroke="#075b54" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M88 164h48M88 188h34M88 212h42"/><path d="M224 174l26-18 26 18v38h-52zM238 212v-22h24v22"/><path d="M355 204h66l-12-42h-42zM368 204v14M408 204v14"/><path d="M498 185l18 18 36-43M501 222h50"/></g>
+</svg>

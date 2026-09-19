@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Standard porównywania zdjęć przed i po</title><desc id="desc">Dwa identyczne kadry, oświetlenie i ustawienie aparatu pokazują warunki uczciwego porównania.</desc>
+  <rect width="640" height="360" rx="28" fill="#f6f2e9"/><g fill="#fff" stroke="#087f72" stroke-width="4"><rect x="58" y="76" width="228" height="208" rx="20"/><rect x="354" y="76" width="228" height="208" rx="20"/></g>
+  <g fill="none" stroke="#96c9c1" stroke-width="5" stroke-dasharray="8 8"><path d="M172 76v208M58 180h228M468 76v208M354 180h228"/></g>
+  <g fill="none" stroke="#075b54" stroke-width="8" stroke-linecap="round"><path d="M115 201c30-31 84-31 114 0M411 201c30-31 84-31 114 0"/><path d="M305 180h30"/></g><path d="M326 170l12 10-12 10" fill="none" stroke="#075b54" stroke-width="6" stroke-linejoin="round"/>
+</svg>
