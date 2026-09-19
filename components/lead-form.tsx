@@ -4,16 +4,28 @@ import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { trackEvent } from "./tracked-link";
 
-export function LeadForm({ enabled }: { enabled: boolean }) {
+export type LeadContext = {
+  leadSource?: string;
+  ctaLocation?: string;
+  sourcePagePath?: string;
+  caseReference?: string;
+};
+
+export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?: LeadContext }) {
   const started = useRef(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   function getLeadContext() {
     const params = new URLSearchParams(window.location.search);
     return {
-      lead_source: params.get("lead_source") ?? "OGZ-PL",
-      cta_location: params.get("cta_location") ?? "contact_page",
-      source_page_path: params.get("page_path") ?? window.location.pathname,
-      case_reference: params.get("case_reference") ?? ""
+      lead_source: context.leadSource ?? params.get("lead_source") ?? "OGZ-PL",
+      cta_location: context.ctaLocation ?? params.get("cta_location") ?? "contact_page",
+      source_page_path: context.sourcePagePath ?? params.get("page_path") ?? window.location.pathname,
+      case_reference: context.caseReference ?? params.get("case_reference") ?? "",
+      utm_source: params.get("utm_source") ?? "",
+      utm_medium: params.get("utm_medium") ?? "",
+      utm_campaign: params.get("utm_campaign") ?? "",
+      utm_content: params.get("utm_content") ?? "",
+      utm_term: params.get("utm_term") ?? ""
     };
   }
   function startForm() { if (!started.current) { started.current = true; trackEvent("form_start", getLeadContext()); } }

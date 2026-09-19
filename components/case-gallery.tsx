@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { TrackedLink } from "./tracked-link";
+import { InPageLeadCta } from "./in-page-lead-cta";
 
 type CaseAsset = { reference: string; src: string; label: string };
 
@@ -9,7 +10,7 @@ const cases: CaseAsset[] = Array.from({ length: 20 }, (_, index) => {
   return {
     reference: `before-after${number}`,
     src: `/images/diagrams/before-after${number}.webp`,
-    label: `Przykładowa metamorfoza ${String(number).padStart(2, "0")}`
+    label: `Metamorfoza ${number}`
   };
 });
 
@@ -22,15 +23,8 @@ function assessmentHref(location: string, pagePath: string, caseReference?: stri
 function CaseCard({ item, priority = false }: { item: CaseAsset; priority?: boolean }) {
   return <figure className="case-card">
     <Image src={item.src} alt="Porównanie uśmiechu przed i po leczeniu stomatologicznym" width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
-    <figcaption><strong>{item.label}</strong><span>Zakres zastosowanego leczenia nie został opisany w metadanych obrazu.</span></figcaption>
+    <figcaption><strong>{item.label}</strong><span>Zakres leczenia nie został jeszcze zweryfikowany.</span></figcaption>
   </figure>;
-}
-
-function CaseCta({ title, label, location, caseReference }: { title: string; label: string; location: string; caseReference?: string }) {
-  return <aside className="case-cta">
-    <div><p className="mini-label">Indywidualna ocena</p><h3>{title}</h3><p>Fotografia pokazuje zmianę wizualną, ale nie diagnozę, zgryz, stan kości ani długoterminowe rokowanie.</p></div>
-    <TrackedLink href={assessmentHref(location, "/przed-i-po", caseReference)} event="visual_assessment_cta" tracking={{ lead_source: "OGZ-PL", cta_location: location, case_reference: caseReference ?? "" }} className="button">{label}</TrackedLink>
-  </aside>;
 }
 
 export function CuratedCaseGallery() {
@@ -42,14 +36,16 @@ export function CuratedCaseGallery() {
   </section>;
 }
 
-export function BeforeAfterCaseHub() {
+export function BeforeAfterCaseHub({ formEnabled }: { formEnabled: boolean }) {
   return <section className="case-hub" aria-labelledby="case-hub-title">
     <div className="case-hub-heading"><p className="eyebrow">Biblioteka wizualna</p><h2 id="case-hub-title">Przykładowe metamorfozy</h2><p>Rezultaty różnią się między pacjentami. Zdjęcia nie pozwalają ustalić kwalifikacji do leczenia; potrzebne są diagnostyka i konsultacja.</p></div>
     <div className="case-grid">{cases.slice(0, 4).map((item) => <CaseCard item={item} key={item.reference} />)}</div>
-    <CaseCta title="Zastanawiasz się, jakie możliwości dotyczą Twojego przypadku?" label="Poproś o wstępną ocenę" location="before_after_cases_1_4" caseReference="before-after4" />
+    <InPageLeadCta title="Zastanawiasz się, jakie możliwości dotyczą Twojego przypadku?" text="Opisz krótko swoją sytuację, aby rozpocząć wstępną ocenę możliwego zakresu leczenia." buttonLabel="Poproś o wstępną ocenę" location="before_after_cases_1_4" caseReference="before-after4" formEnabled={formEnabled} />
     <div className="case-grid">{cases.slice(4, 10).map((item) => <CaseCard item={item} key={item.reference} />)}</div>
-    <CaseCta title="Chcesz poznać możliwy zakres leczenia i elementy wyceny?" label="Sprawdź swój przypadek" location="before_after_cases_5_10" caseReference="before-after10" />
-    <div className="case-grid">{cases.slice(10).map((item) => <CaseCard item={item} key={item.reference} />)}</div>
-    <CaseCta title="Zdjęcie to początek pytań, nie gotowy plan leczenia" label="Przejdź do wstępnej oceny" location="before_after_cases_final" caseReference="before-after20" />
+    <InPageLeadCta title="Chcesz poznać możliwy zakres leczenia i elementy wyceny?" text="Wstępny opis potrzeby pomoże przygotować właściwe pytania przed diagnostyką i konsultacją." buttonLabel="Sprawdź swój przypadek" location="before_after_cases_5_10" caseReference="before-after10" formEnabled={formEnabled} />
+    <div className="case-grid">{cases.slice(10, 16).map((item) => <CaseCard item={item} key={item.reference} />)}</div>
+    <aside className="case-education"><p className="mini-label">Jak czytać rezultaty</p><h3>Porównuj zmianę, ale pytaj o plan</h3><p>Podobny efekt wizualny może wynikać z różnych metod. Zdjęcia warto oceniać razem z opisem zakresu leczenia, datą wykonania i informacją o kontroli.</p></aside>
+    <div className="case-grid">{cases.slice(16).map((item) => <CaseCard item={item} key={item.reference} />)}</div>
+    <InPageLeadCta title="Chcesz sprawdzić możliwości dla swojego uśmiechu?" text="Każdy przypadek jest inny. Opisz krótko swoją sytuację, aby rozpocząć wstępną ocenę możliwości leczenia." buttonLabel="Sprawdź mój przypadek" location="before_after_cases_final" caseReference="before-after20" formEnabled={formEnabled} final />
   </section>;
 }

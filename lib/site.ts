@@ -26,6 +26,7 @@ export type PageContent = {
   ctaEvent?: string;
   ctaHref?: string;
   schemaType?: "MedicalWebPage" | "WebPage";
+  medicalReview?: { name: string; credentials: string; reviewedDate: string };
   noindex?: boolean;
   form?: boolean;
 };
