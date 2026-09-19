@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
-import { PUBLISHED_DATE, SITE_URL, UPDATED_DATE } from "@/lib/site";
+import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_NAME, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
@@ -64,7 +64,19 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     { "@type": "ListItem", position: 1, name: "Strona główna", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: page.h1, item: pageUrl }
   ]};
-  const pageSchema = { "@context": "https://schema.org", "@type": page.schemaType ?? "WebPage", name: page.h1, description: page.description, url: pageUrl, datePublished: "2026-09-18", dateModified: "2026-09-19", author: { "@type": "Organization", name: "Redakcja serwisu Zęby w Turcji" } };
+  const pageSchema = {
+    "@context": "https://schema.org",
+    "@type": page.schemaType ?? "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    name: page.h1,
+    description: page.description,
+    url: pageUrl,
+    inLanguage: "pl-PL",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    datePublished: PUBLISHED_ISO_DATE,
+    dateModified: UPDATED_ISO_DATE,
+    author: { "@type": "Organization", name: `Redakcja serwisu ${SITE_NAME}`, url: `${SITE_URL}/o-nas` }
+  };
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   return (
     <>
