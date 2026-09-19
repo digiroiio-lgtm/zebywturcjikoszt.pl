@@ -27,7 +27,7 @@ export function LeadForm({ enabled }: { enabled: boolean }) {
         <label>Telefon, WhatsApp lub e-mail<input name="contact" autoComplete="email" maxLength={160} required disabled={!enabled} /></label>
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-      <label className="consent"><input type="checkbox" name="consent" required disabled={!enabled} /> <span>Akceptuję <Link href="/polityka-prywatnosci/">politykę prywatności</Link> i proszę o kontakt w sprawie mojego zapytania.</span></label>
+      <label className="consent"><input type="checkbox" name="consent" required disabled={!enabled} /> <span>Akceptuję <Link href="/polityka-prywatnosci">politykę prywatności</Link> i proszę o kontakt w sprawie mojego zapytania.</span></label>
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Czekamy na potwierdzenie administratora danych i bezpiecznego odbiorcy wiadomości.</p>}
       <button className="button" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : "Poproś o wstępną ocenę"}</button>
       {status === "sent" && <p role="status" className="success">Dziękujemy. Zgłoszenie zostało wysłane.</p>}

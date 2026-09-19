@@ -26,3 +26,17 @@
 - `whatsapp_click` and `phone_click` are reserved until verified destinations exist.
 
 Events contain only the event name and page path. Health descriptions and contact data are never sent as analytics parameters.
+
+## Phase 2.2 implementation
+
+- Canonicals, sitemap entries, schema URLs and internal links use the same slashless URL convention.
+- The root layout no longer supplies a canonical to 404 pages.
+- MedicalWebPage is limited to cost and substantive treatment pages; other pages use WebPage.
+- `/opinie` and `/przed-i-po` guide CTAs point to `/jak-wybrac-klinike`.
+- The mobile menu includes an assessment CTA.
+- Contextual related-guide links reinforce canonical intent owners.
+- `/koszt` contains a quote-comparison and price-publication methodology guide.
+- `/cala-szczeka` contains a non-diagnostic decision guide.
+- `/jak-wybrac-klinike` contains a 20-question pre-deposit checklist.
+- No prices, reviewers, providers, guarantees or patient evidence were invented.
+- Sources are added only when they directly support the adjacent dental, clinical or treatment-travel claim. Domain authority alone is not a reason to cite a source.

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: "Zęby w Turcji – koszt i leczenie w Antalyi", template: `%s | ${SITE_NAME}` },
   description: "Rzetelny przewodnik po leczeniu zębów w Turcji: koszty, implanty, licówki, pełna odbudowa i plan wyjazdu do Antalyi.",
-  alternates: { canonical: "/" },
   openGraph: { type: "website", locale: "pl_PL", siteName: SITE_NAME, title: "Zęby w Turcji – koszt i leczenie w Antalyi", description: "Sprawdź możliwości leczenia, koszty i zasady bezpiecznego wyboru kliniki.", url: SITE_URL },
   twitter: { card: "summary", title: "Zęby w Turcji", description: "Koszty, leczenie i świadomy wybór kliniki w Turcji." }
 };

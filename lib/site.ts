@@ -1,6 +1,7 @@
 export const SITE_NAME = "Zęby w Turcji";
 export const SITE_URL = "https://zebywturcjikoszt-pl-gv8i.vercel.app";
-export const UPDATED_DATE = "18 września 2026";
+export const PUBLISHED_DATE = "18 września 2026";
+export const UPDATED_DATE = "19 września 2026";
 
 export type ContentSection = {
   title: string;
@@ -23,6 +24,8 @@ export type PageContent = {
   sources?: { label: string; href: string }[];
   ctaLabel?: string;
   ctaEvent?: string;
+  ctaHref?: string;
+  schemaType?: "MedicalWebPage" | "WebPage";
   noindex?: boolean;
   form?: boolean;
 };
@@ -36,6 +39,7 @@ export const pages: Record<string, PageContent> = {
     h1: "Ile kosztują zęby w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
     answer: "Nie publikujemy orientacyjnych kwot jako obietnicy ceny. Cennik dla pacjentów z Polski oraz warunki pakietów wymagają jeszcze pisemnego potwierdzenia. Do tego czasu najuczciwszą odpowiedzią jest indywidualna wycena po ocenie przypadku.",
+    schemaType: "MedicalWebPage",
     sections: [
       { title: "Co powinno znaleźć się w wycenie", cards: [
         { title: "Zakres kliniczny", text: "Rozpoznanie, proponowane leczenie, liczba zębów lub implantów oraz możliwe alternatywy." },
@@ -44,6 +48,19 @@ export const pages: Record<string, PageContent> = {
         { title: "Koszty poza leczeniem", text: "Lot, pobyt, transfery, badania i opieka po powrocie powinny być opisane osobno." }
       ]},
       { title: "Dlaczego dwie wyceny mogą się różnić", paragraphs: ["Sama liczba koron lub implantów nie wystarcza do porównania ofert. Różnice mogą wynikać z diagnostyki, przygotowania jamy ustnej, rodzaju pracy protetycznej, konieczności leczenia zachowawczego albo warunków kostnych."], bullets: ["porównuj ten sam zakres leczenia, a nie tylko cenę końcową", "sprawdź, czy wycena obejmuje elementy tymczasowe i ostateczne", "zapytaj, co stanie się, gdy plan zmieni się po badaniu na miejscu", "ustal zasady kontroli i opieki po powrocie do Polski"] },
+      { title: "Jak porównać dwie wyceny leczenia", paragraphs: ["Wpisz dane z obu ofert obok siebie. Jeżeli którejś informacji brakuje, poproś o jej uzupełnienie na piśmie przed wpłatą zaliczki."], table: { headers: ["Element porównania", "Co powinno być podane", "Dlaczego ma znaczenie"], rows: [
+        ["Rozpoznanie i zakres", "które zęby, jaki problem i proponowane leczenie", "bez tego dwie oferty mogą dotyczyć innego zakresu"],
+        ["Liczba i rodzaj odbudów", "implanty, łączniki, korony, mosty, licówki lub proteza", "sama liczba „zębów” nie opisuje planu"],
+        ["Materiały i systemy", "producent implantu, rodzaj ceramiki i pracy protetycznej", "wpływają na możliwość serwisu i porównywalność ofert"],
+        ["Prace tymczasowe", "czy są w cenie i na jak długo są planowane", "rozwiązanie tymczasowe nie jest pracą docelową"],
+        ["Etapy i wizyty", "liczba pobytów, kontroli i przewidywany porządek leczenia", "wpływają na koszt podróży i urlopu"],
+        ["Leczenie dodatkowe", "ekstrakcje, leczenie kanałowe, odbudowa kości i diagnostyka", "mogą istotnie zmienić kwotę po badaniu"],
+        ["Pobyt i transport", "hotel, transfery, loty i warunki pakietu", "nie należy zakładać, że są automatycznie wliczone"],
+        ["Opieka po powrocie", "kontakt, kontrole, korekty i sytuacje nagłe", "określa realną ciągłość opieki"],
+        ["Gwarancja i reklamacje", "zakres, wyłączenia, terminy i koszty ponownego wyjazdu", "samo słowo „gwarancja” nie opisuje odpowiedzialności"],
+        ["Cena końcowa", "waluta, zakres, warunki zmiany i termin ważności", "pozwala porównać pełny koszt, a nie kwotę reklamową"]
+      ]}},
+      { title: "Jak będą publikowane dane cenowe", paragraphs: ["Kwota może zostać opublikowana dopiero po potwierdzeniu źródła, waluty, dokładnego zakresu, elementów wliczonych i niewliczonych, warunków zastosowania oraz daty ostatniej weryfikacji. Do czasu otrzymania takich danych serwis nie przelicza cen na PLN i nie tworzy orientacyjnego cennika."] },
       { title: "Koszt według rodzaju leczenia", table: { headers: ["Potrzeba", "Właściwa strona", "Co ustala cenę"], rows: [
         ["Brak pojedynczego zęba lub kilku zębów", "Implanty", "diagnostyka, liczba implantów, odbudowa protetyczna"],
         ["Zmiana kształtu lub koloru uśmiechu", "Licówki", "materiał, liczba zębów, stan szkliwa i zgryzu"],
@@ -66,6 +83,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Leczenie implantologiczne", h1: "Implanty zębów w Turcji",
     lead: "Implant zastępuje korzeń brakującego zęba i stanowi podporę dla odbudowy protetycznej. Sam wyjazd nie przesądza o kwalifikacji ani liczbie potrzebnych etapów.",
     answer: "Plan implantologiczny powinien wynikać z badania, obrazowania i oceny ogólnego stanu zdrowia. Cena ma sens dopiero wtedy, gdy wiadomo, jaki system, odbudowa i zakres procedur obejmuje.",
+    schemaType: "MedicalWebPage",
     sections: [
       { title: "Typowy porządek planowania", cards: [
         { title: "1. Dokumentacja", text: "Wywiad, zdjęcia i badania obrazowe pomagają przygotować wstępną ocenę." },
@@ -91,6 +109,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Stomatologia estetyczna", h1: "Licówki w Turcji",
     lead: "Licówki mogą zmieniać wygląd przedniej powierzchni zębów. Decyzja powinna uwzględniać stan szkliwa, zgryz, zdrowie dziąseł i rozwiązania mniej inwazyjne.",
     answer: "Licówki nie są uniwersalnym sposobem na każdy problem estetyczny. Przed leczeniem potrzebna jest diagnoza, omówienie zakresu preparacji zębów, materiału oraz oczekiwanego efektu.",
+    schemaType: "MedicalWebPage",
     sections: [
       { title: "Pytania, które warto zadać", bullets: ["dlaczego w tym przypadku proponowane są licówki", "czy są dostępne mniej inwazyjne alternatywy", "które zęby wymagają leczenia, a które jedynie zmiany estetycznej", "jaki materiał zostanie użyty i jak wygląda plan koloru oraz kształtu", "jak będzie chroniony zgryz i jak planowane są kontrole"] },
       { title: "Cena licówek w Turcji", paragraphs: ["Nie publikujemy ceny do czasu potwierdzenia aktualnej oferty dla pacjentów z Polski. Rzetelna wycena powinna określać liczbę licówek, materiał, przygotowanie zębów, prace tymczasowe oraz ewentualne leczenie poprzedzające."] },
@@ -114,6 +133,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
     lead: "„Cała szczęka” to opis potrzeby pacjenta, a nie nazwa jednego zabiegu. W zależności od stanu zębów i kości plan może dotyczyć zachowania własnych zębów, implantów albo odbudowy protetycznej.",
     answer: "Nie można wybrać All-on-4, All-on-6, koron ani pojedynczych implantów wyłącznie na podstawie ceny. Najpierw trzeba ustalić, które zęby można zachować i jaki cel funkcjonalny ma leczenie.",
+    schemaType: "MedicalWebPage",
     sections: [
       { title: "Możliwe kierunki leczenia", table: { headers: ["Sytuacja", "Możliwy kierunek", "Co wymaga oceny"], rows: [
         ["Własne zęby możliwe do zachowania", "leczenie i odbudowy na zębach", "stan tkanek, zgryz, rokowanie każdego zęba"],
@@ -122,6 +142,14 @@ export const pages: Record<string, PageContent> = {
         ["Cel głównie estetyczny", "leczenie zachowawcze, ortodoncja, licówki lub korony", "zdrowie zębów i stopień ingerencji"]
       ]}},
       { title: "All-on-4 i All-on-6 nie są synonimami", paragraphs: ["Nazwy odnoszą się do różnych koncepcji podparcia pełnołukowej odbudowy implantoprotetycznej. Liczba implantów nie powinna być wybierana jako pakiet marketingowy. Decyzja należy do lekarza po diagnostyce i ocenie obciążeń."] },
+      { title: "Przewodnik decyzyjny: od potrzeby do właściwej konsultacji", paragraphs: ["Poniższa tabela nie kwalifikuje do zabiegu. Pomaga ustalić, jakie pytanie powinno zostać wyjaśnione przez lekarza przed porównywaniem metod i cen."], table: { headers: ["Sytuacja wyjściowa", "Pierwsze pytanie kliniczne", "Właściwy następny krok"], rows: [
+        ["Własne zęby nadal są obecne", "które zęby mają dobre rokowanie i mogą zostać zachowane?", "plan zachowawczy lub protetyczny przed rozmową o usuwaniu zębów"],
+        ["Brakuje pojedynczych zębów", "czy uzupełnienie powinno być oparte na implancie, moście czy rozwiązaniu ruchomym?", "konsultacja dotycząca implantów i alternatyw"],
+        ["Brakuje większości zębów", "czy problem dotyczy jednego odcinka, całego łuku czy obu łuków?", "pełna diagnostyka funkcji, kości i rokowania pozostałych zębów"],
+        ["Pacjent nie ma zębów", "jaki typ odbudowy stałej lub ruchomej jest możliwy?", "porównanie rozwiązań, a nie wybór liczby implantów z reklamy"],
+        ["Główny cel jest estetyczny", "czy problem można rozwiązać mniej inwazyjnie?", "ocena zgryzu, szkliwa, dziąseł i alternatyw dla koron"],
+        ["Rozważane jest All-on-4", "czy warunki anatomiczne i protetyczne uzasadniają tę koncepcję?", "osobna kwalifikacja do All-on-4 po diagnostyce"]
+      ]}},
       { title: "Jak przygotować się do wstępnej oceny", bullets: ["opisz, które zęby sprawiają problem i jakie leczenie było wykonywane wcześniej", "przygotuj aktualne badania obrazowe, jeśli je posiadasz", "podaj przyjmowane leki i istotne informacje zdrowotne bez publikowania ich w kanałach marketingowych", "poproś o warianty planu, zakres etapów oraz koszty dodatkowe"] }
     ],
     faq: [
@@ -137,6 +165,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Pełnołukowa odbudowa", h1: "All-on-4 w Turcji",
     lead: "All-on-4 to koncepcja pełnołukowej odbudowy protetycznej opartej na czterech implantach. Nie jest automatycznym rozwiązaniem dla każdej osoby z brakami zębowymi.",
     answer: "Najważniejsza jest kwalifikacja do leczenia, a nie sama nazwa pakietu. Plan powinien określać diagnostykę, system implantologiczny, rodzaj pracy tymczasowej i ostatecznej oraz opiekę po leczeniu.",
+    schemaType: "MedicalWebPage",
     sections: [
       { title: "Co wymaga indywidualnej oceny", bullets: ["stan kości i tkanek miękkich", "stan pozostałych zębów i powód ich ewentualnego usunięcia", "zgryz, obciążenia i nawyki", "choroby ogólne, leki i czynniki ryzyka", "możliwość utrzymania higieny odbudowy"] },
       { title: "Nie porównuj wyłącznie ceny pakietu", paragraphs: ["Dwie oferty All-on-4 mogą obejmować inne systemy implantów, materiały, diagnostykę, odbudowy tymczasowe i docelowe. Poproś o rozpisanie wszystkich elementów oraz procedury na wypadek zmiany planu po badaniu klinicznym."] },
@@ -170,7 +199,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy publikujecie prawdziwe opinie?", answer: "Nie publikujemy opinii, dopóki nie będzie można zweryfikować ich autentyczności, zgody na publikację i relacji komercyjnej." },
       { question: "Gdzie szukać niezależnych sygnałów?", answer: "Warto porównać wiele źródeł, sprawdzić profil opiniującego, daty, odpowiedzi kliniki oraz informacje o lekarzach i podmiocie leczniczym." }
     ],
-    ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta"
+    ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   "przed-i-po": {
     slug: "przed-i-po", title: "Zęby w Turcji przed i po – jak oceniać efekty leczenia",
@@ -192,7 +221,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Dlaczego nie ma jeszcze galerii?", answer: "Nie otrzymaliśmy autoryzowanych i zweryfikowanych materiałów klinicznych, dlatego nie tworzymy fikcyjnych przypadków." },
       { question: "Czy zdjęcie wystarczy do wyboru kliniki?", answer: "Nie. Powinno być tylko jednym z elementów oceny obok kwalifikacji lekarzy, planu leczenia, dokumentacji i opieki po zabiegu." }
     ],
-    ctaLabel: "Sprawdź, jak wybrać klinikę", ctaEvent: "clinic_check_cta"
+    ctaLabel: "Sprawdź, jak wybrać klinikę", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   antalya: {
     slug: "antalya", title: "Leczenie zębów w Antalyi – plan wyjazdu i wizyt",
@@ -227,6 +256,28 @@ export const pages: Record<string, PageContent> = {
     sections: [
       { title: "Lista kontroli przed wpłatą", bullets: ["pełna nazwa i adres podmiotu wykonującego leczenie", "imię, nazwisko, specjalizacja i możliwość weryfikacji lekarza", "pisemny plan z alternatywami i kosztami dodatkowymi", "nazwa materiałów i systemów, które zostaną użyte", "zasady przechowywania i przekazania dokumentacji", "opieka po leczeniu, reklamacje i sytuacje nagłe", "jasne warunki zaliczki, odwołania i zwrotu"] },
       { title: "Kto odpowiada za co", paragraphs: ["Jeżeli w procesie uczestniczy pośrednik, koordynator lub strona informacyjna, poproś o jasne rozdzielenie odpowiedzialności organizacyjnej i klinicznej. Decyzje medyczne powinien podejmować uprawniony lekarz, a umowa wskazywać właściwy podmiot."] },
+      { title: "20 pytań przed wpłatą zaliczki", paragraphs: ["Odpowiedzi powinny być możliwe do zachowania w wiadomości, planie leczenia albo warunkach umowy. Brak odpowiedzi nie przesądza o jakości leczenia, ale wymaga wyjaśnienia przed decyzją."], bullets: [
+        "jaka jest pełna nazwa prawna i adres placówki wykonującej leczenie?",
+        "kto jest stroną umowy z pacjentem?",
+        "jak nazywa się lekarz prowadzący i gdzie można zweryfikować jego uprawnienia?",
+        "kto przygotował wstępny plan: lekarz czy koordynator sprzedaży?",
+        "jakiej dokumentacji potrzeba przed podróżą?",
+        "które elementy planu mogą zmienić się po badaniu na miejscu?",
+        "które zęby wymagają leczenia i dlaczego?",
+        "które własne zęby można zachować?",
+        "jakie mniej inwazyjne alternatywy zostały rozważone?",
+        "jakie implanty, materiały i prace protetyczne zostaną użyte?",
+        "co obejmuje cena, a co może być dopłatą?",
+        "ile wizyt i oddzielnych wyjazdów może być potrzebnych?",
+        "czy plan obejmuje rozwiązanie tymczasowe i docelowe?",
+        "jakie ryzyka i ograniczenia są istotne w tym przypadku?",
+        "kto udziela pomocy w razie problemu podczas pobytu?",
+        "kto odpowiada za kontrolę i pomoc po powrocie do Polski?",
+        "jakie dokumenty, zdjęcia i dane materiałów otrzyma pacjent po leczeniu?",
+        "jakie są warunki gwarancji, jej wyłączenia i wymagane kontrole?",
+        "kto pokrywa leczenie lub podróż, jeżeli potrzebna jest korekta?",
+        "jakie są zasady zaliczki, odwołania, zwrotu i reklamacji?"
+      ] },
       { title: "Czerwone flagi", cards: [
         { title: "Plan bez diagnostyki", text: "Ostateczna obietnica leczenia bez badania i dokumentacji." },
         { title: "Brak nazwisk", text: "Nie wiadomo, kto będzie leczył i jakie ma kwalifikacje." },
@@ -265,7 +316,7 @@ export const pages: Record<string, PageContent> = {
     lead: "Treści mają pomagać w podjęciu świadomej decyzji, a nie zastępować diagnozę lub konsultację z lekarzem dentystą.",
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
     sections: [
-      { title: "Zasady publikacji", bullets: ["preferujemy źródła urzędowe, organizacje zawodowe i literaturę naukową", "nie tworzymy nieistniejących ekspertów, cen, opinii ani statystyk", "korygujemy błędy i aktualizujemy treści, gdy zmieniają się dane", "ujawniamy cel komercyjny i relacje z usługodawcami"] },
+      { title: "Zasady publikacji", bullets: ["każde źródło musi bezpośrednio potwierdzać konkretną informację, przy której zostało podane; sam autorytet domeny nie wystarcza", "w sprawach dotyczących polskich pacjentów w pierwszej kolejności korzystamy z właściwych polskich i unijnych instytucji, wytycznych organizacji stomatologicznych oraz wysokiej jakości literatury dentystycznej", "nie tworzymy nieistniejących ekspertów, cen, opinii ani statystyk", "korygujemy błędy i aktualizujemy treści, gdy zmieniają się dane", "ujawniamy cel komercyjny i relacje z usługodawcami"] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
   },
@@ -310,6 +361,6 @@ export const pages: Record<string, PageContent> = {
 };
 
 export const primaryNav = [
-  { label: "Koszt", href: "/koszt/" }, { label: "Implanty", href: "/implanty/" }, { label: "Licówki", href: "/licowki/" },
-  { label: "Cała szczęka", href: "/cala-szczeka/" }, { label: "Opinie", href: "/opinie/" }, { label: "Przed i po", href: "/przed-i-po/" }, { label: "Antalya", href: "/antalya/" }
+  { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Licówki", href: "/licowki" },
+  { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "Opinie", href: "/opinie" }, { label: "Przed i po", href: "/przed-i-po" }, { label: "Antalya", href: "/antalya" }
 ];
