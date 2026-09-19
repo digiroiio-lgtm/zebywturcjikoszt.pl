@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const allowedTreatments = new Set(["Implanty", "Licówki", "Cała szczęka", "All-on-4", "Inne / nie wiem"]);
-const allowedMethods = new Set(["Telefon", "WhatsApp", "E-mail"]);
+function validPhone(value: string) {
+  return /^[+\d][\d\s().-]{6,39}$/.test(value) && value.replace(/\D/g, "").length >= 7;
+}
+
+function validEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
 
 export async function POST(request: NextRequest) {
   const endpoint = process.env.LEAD_WEBHOOK_URL;
@@ -10,10 +15,11 @@ export async function POST(request: NextRequest) {
   if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ error: "Nieprawidłowe źródło." }, { status: 403 });
   const body = await request.json().catch(() => null) as Record<string, unknown> | null;
   if (!body || body.website) return NextResponse.json({ ok: true });
-  const treatment = String(body.treatment ?? "");
-  const contactMethod = String(body.contactMethod ?? "");
   const name = String(body.name ?? "").trim();
-  const contact = String(body.contact ?? "").trim();
+  const phone = String(body.phone ?? "").trim();
+  const whatsapp = String(body.whatsapp ?? "").trim();
+  const email = String(body.email ?? "").trim();
+  const country = String(body.country ?? "").trim();
   const message = String(body.message ?? "").trim();
   const consent = body.consent === "on";
   const leadSource = String(body.lead_source ?? "OGZ-PL").slice(0, 40);
@@ -25,8 +31,8 @@ export async function POST(request: NextRequest) {
   const utmCampaign = String(body.utm_campaign ?? "").slice(0, 160);
   const utmContent = String(body.utm_content ?? "").slice(0, 160);
   const utmTerm = String(body.utm_term ?? "").slice(0, 160);
-  if (!allowedTreatments.has(treatment) || !allowedMethods.has(contactMethod) || !name || !contact || !consent || name.length > 80 || contact.length > 160 || message.length > 1200) return NextResponse.json({ error: "Sprawdź wymagane pola." }, { status: 400 });
-  const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}) }, body: JSON.stringify({ treatment, contactMethod, name, contact, message, consent: true, source: "zebywturcjikoszt.pl", lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath, case_reference: caseReference, utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign, utm_content: utmContent, utm_term: utmTerm }), cache: "no-store" });
+  if (!name || !validPhone(phone) || !validPhone(whatsapp) || !validEmail(email) || !country || !consent || name.length > 80 || email.length > 254 || country.length > 100 || message.length > 1200) return NextResponse.json({ error: "Sprawdź wymagane pola." }, { status: 400 });
+  const response = await fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json", ...(process.env.LEAD_WEBHOOK_TOKEN ? { Authorization: `Bearer ${process.env.LEAD_WEBHOOK_TOKEN}` } : {}) }, body: JSON.stringify({ name, phone, whatsapp, email, country, message, contact: phone, consent: true, source: "zebywturcjikoszt.pl", lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath, case_reference: caseReference, utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign, utm_content: utmContent, utm_term: utmTerm }), cache: "no-store" });
   if (!response.ok) return NextResponse.json({ error: "Nie udało się przekazać zgłoszenia." }, { status: 502 });
   return NextResponse.json({ ok: true });
 }

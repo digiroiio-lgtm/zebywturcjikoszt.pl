@@ -41,11 +41,12 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
   return (
     <form className="lead-form" onFocus={startForm} onSubmit={submit}>
       <div className="form-grid">
-        <label>Jakiego leczenia szukasz?<select name="treatment" required disabled={!enabled} onChange={() => trackEvent("treatment_selected")}><option value="">Wybierz</option><option>Implanty</option><option>Licówki</option><option>Cała szczęka</option><option>All-on-4</option><option>Inne / nie wiem</option></select></label>
-        <label>Preferowany kontakt<select name="contactMethod" required disabled={!enabled}><option value="">Wybierz</option><option>Telefon</option><option>WhatsApp</option><option>E-mail</option></select></label>
-        <label className="full">Krótko opisz, czego potrzebujesz<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} placeholder="Bez załączników i szczegółowej dokumentacji medycznej." /></label>
-        <label>Imię<input name="name" autoComplete="name" maxLength={80} required disabled={!enabled} /></label>
-        <label>Telefon, WhatsApp lub e-mail<input name="contact" autoComplete="email" maxLength={160} required disabled={!enabled} /></label>
+        <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} /></label>
+        <label>Telefon *<input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} placeholder="np. +48 123 456 789" /></label>
+        <label>Numer WhatsApp *<input name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} placeholder="np. +48 123 456 789" /></label>
+        <label>E-mail *<input name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} required disabled={!enabled} /></label>
+        <label className="full">Kraj *<input name="country" type="text" autoComplete="country-name" maxLength={100} required disabled={!enabled} /></label>
+        <label className="full">Wiadomość<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} placeholder="Napisz krótko, w czym możemy pomóc." /></label>
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <label className="consent"><input type="checkbox" name="consent" required disabled={!enabled} /> <span>Akceptuję <Link href="/polityka-prywatnosci">politykę prywatności</Link> i proszę o kontakt w sprawie mojego zapytania.</span></label>
