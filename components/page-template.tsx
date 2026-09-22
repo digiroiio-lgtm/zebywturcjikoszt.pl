@@ -33,7 +33,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/koszt", label: "Pełny koszt leczenia", text: "Porównaj oferty według zakresu, etapów i opieki po powrocie." }
   ],
   "all-on-4": [
-    { href: "/cala-szczeka", label: "Cała szczęka", text: "Zobacz inne możliwe kierunki leczenia pełnego łuku." },
+    { href: "/cala-szczeka", label: "Cała szczęka", text: "Poznaj inne możliwości odbudowy całego łuku zębowego." },
     { href: "/implanty", label: "Implanty", text: "Poznaj szerszy kontekst leczenia implantologicznego." },
     { href: "/koszt", label: "Porównanie ofert", text: "Sprawdź elementy, które powinny znaleźć się w wycenie." }
   ],
@@ -43,7 +43,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/koszt", label: "Porównanie wycen", text: "Nie oceniaj oferty tylko na podstawie opinii i ceny końcowej." }
   ],
   "przed-i-po": [
-    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Zdjęcia uzupełnij weryfikacją lekarza i planu." },
+    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Sprawdź także lekarza i plan leczenia." },
     { href: "/opinie", label: "Jak oceniać opinie", text: "Odróżnij relację pacjenta od materiału reklamowego." }
   ],
   antalya: [
@@ -91,7 +91,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
         <section className="page-hero"><div className="shell narrow"><Breadcrumbs current={page.h1} /><p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{page.ctaLabel && <TrackedLink href={page.ctaHref ?? "/kontakt"} event={page.ctaEvent ?? "page_cta"} className="button">{page.ctaLabel}</TrackedLink>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
-            <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.answer}</p></section>
+            <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2>{section.title}</h2>
@@ -110,9 +110,9 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
-          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{reviewer && review.reviewStatus === "reviewed" ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {review.reviewDate}</dd></div> : review.reviewStatus === "review-pending" ? <div><dt>Recenzja medyczna</dt><dd>Data przeglądu wymaga potwierdzenia. Imienne oznaczenie recenzji nie zostało jeszcze opublikowane.</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
+          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{reviewer && review.reviewStatus === "reviewed" ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {review.reviewDate}</dd></div> : review.reviewStatus === "review-pending" ? <div><dt>Recenzja medyczna</dt><dd>Data recenzji jest w trakcie potwierdzania.</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
         </article>
-        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Plan zaczyna się od właściwych pytań</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Przejdź do wstępnej oceny</TrackedLink></div></section>}
+        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Poproś o wstępną ocenę</TrackedLink></div></section>}
       </main>
     </>
   );

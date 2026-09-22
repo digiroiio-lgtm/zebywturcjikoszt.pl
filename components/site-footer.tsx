@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div><p className="footer-heading">Świadoma decyzja</p><Link href="/jak-wybrac-klinike">Jak wybrać klinikę</Link><Link href="/opinie">Jak oceniać opinie</Link><Link href="/przed-i-po">Przed i po</Link><Link href="/antalya">Plan wyjazdu</Link></div>
         <div><p className="footer-heading">O serwisie</p><Link href="/o-nas">O nas</Link><Link href="/kontakt">Kontakt</Link><Link href="/polityka-redakcyjna">Polityka redakcyjna</Link><Link href="/weryfikacja-medyczna">Weryfikacja medyczna</Link><Link href="/eksperci">Eksperci</Link><Link href="/polityka-prywatnosci">Prywatność</Link><Link href="/cookies">Cookies</Link><Link href="/regulamin">Regulamin</Link><Link href="/reklamacje">Reklamacje</Link></div>
       </div>
-      <div className="shell footer-bottom">© 2026 Zęby w Turcji. Informacje aktualizowane z zachowaniem zasad transparentności.</div>
+      <div className="shell footer-bottom">© 2026 Zęby w Turcji. Sprawdź, jak powstają i kiedy są aktualizowane nasze treści.</div>
     </footer>
   );
 }

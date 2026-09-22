@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function AntalyaJourneyImages() {
   return <figure className="context-image-panel">
-    <div className="context-image-copy"><p className="mini-label">Plan podróży</p><h3>Antalya jest częścią logistyki, nie planu medycznego</h3><p>Lot i pobyt warto organizować dopiero po potwierdzeniu harmonogramu wizyt, marginesu na kontrolę oraz sposobu kontaktu po powrocie.</p></div>
+    <div className="context-image-copy"><p className="mini-label">Plan podróży</p><h3>Zaplanuj podróż wokół leczenia</h3><p>Przed rezerwacją lotu ustal terminy wizyt, zostaw czas na kontrolę i dowiedz się, jak skontaktować się z kliniką po powrocie do Polski.</p></div>
     <div className="context-image-grid">
       <Image src="/images/diagrams/setp-03.jpeg" alt="Samolot nad wybrzeżem w regionie Antalyi" width={240} height={240} sizes="(max-width: 760px) 50vw, 240px" />
       <Image src="/images/diagrams/setp-04.jpeg" alt="Wybrzeże i zabudowa Antalyi" width={240} height={240} sizes="(max-width: 760px) 50vw, 240px" />

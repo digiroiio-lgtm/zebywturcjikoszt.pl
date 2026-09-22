@@ -29,7 +29,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
     }
   },
   implanty: {
-    "Typowy porządek planowania": {
+    "Jak planuje się leczenie implantologiczne?": {
       src: "/images/diagrams/implant-plan.svg",
       alt: "Cztery etapy planowania implantu od dokumentacji do odbudowy",
       eyebrow: "Kolejność ma znaczenie",
@@ -47,7 +47,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
     }
   },
   "cala-szczeka": {
-    "Możliwe kierunki leczenia": {
+    "Możliwe rozwiązania": {
       src: "/images/diagrams/full-arch-options.svg",
       alt: "Schemat możliwych kierunków leczenia pełnego łuku",
       eyebrow: "Najpierw diagnoza",
@@ -70,20 +70,20 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
       alt: "Trzy etapy wyjazdu: przygotowanie, leczenie na miejscu i opieka po powrocie",
       eyebrow: "Ciągłość opieki",
       title: "Wyjazd obejmuje więcej niż czas spędzony w klinice",
-      caption: "Przygotowanie, harmonogram na miejscu i plan po powrocie powinny tworzyć jeden udokumentowany proces."
+      caption: "Przygotowanie, harmonogram na miejscu i opieka po powrocie powinny być ustalone przed wyjazdem."
     }
   },
   opinie: {
-    "Sygnały wiarygodnej opinii": {
+    "Na co zwrócić uwagę w opinii": {
       src: "/images/diagrams/review-check.svg",
       alt: "Lupa i znacznik weryfikacji nad kartą opinii",
       eyebrow: "Sprawdź kontekst",
-      title: "Opinia jest sygnałem, nie dowodem medycznym",
+      title: "Opinia nie zastępuje informacji od lekarza",
       caption: "Weryfikuj źródło, datę, opis zakresu leczenia oraz ewentualną relację komercyjną."
     }
   },
   "jak-wybrac-klinike": {
-    "Lista kontroli przed wpłatą": {
+    "Co sprawdzić przed wpłatą": {
       src: "/images/diagrams/clinic-check.svg",
       alt: "Klinika połączona z informacjami o lekarzu, planie i opiece po leczeniu",
       eyebrow: "Przed zaliczką",
