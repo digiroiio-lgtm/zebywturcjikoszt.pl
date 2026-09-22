@@ -17,7 +17,14 @@ function normalisePath(href) {
   return clean.length > 1 ? clean.replace(/\/+$/, "") : clean;
 }
 
-const files = (await readdir(appDir)).filter((name) => name.endsWith(".html") && name !== "_not-found.html");
+async function htmlFiles(directory, prefix = "") {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const groups = await Promise.all(entries.map(async (entry) => entry.isDirectory()
+    ? htmlFiles(path.join(directory, entry.name), `${prefix}${entry.name}/`)
+    : entry.name.endsWith(".html") && entry.name !== "_not-found.html" ? [`${prefix}${entry.name}`] : []));
+  return groups.flat();
+}
+const files = await htmlFiles(appDir);
 if (!files.includes("index.html")) fail("Missing prerendered homepage.");
 
 const routeFiles = new Map(files.map((file) => [file === "index.html" ? "/" : `/${file.slice(0, -5)}`, file]));
@@ -73,7 +80,11 @@ for (const [route, file] of routeFiles) {
   }
 
   for (const block of matches(html, /<script type="application\/ld\+json">([^<]+)<\/script>/g)) {
-    try { JSON.parse(block); } catch { fail(`${route}: invalid JSON-LD.`); }
+    try {
+      const data = JSON.parse(block);
+      if (data.reviewedBy && !html.includes("Treść zweryfikowana pod kątem informacji stomatologicznych")) fail(`${route}: reviewedBy requires visible medical review attribution.`);
+      if (data.reviewedBy && !knownRoutes.has(normalisePath(new URL(data.reviewedBy["@id"]).pathname))) fail(`${route}: reviewedBy has no published expert profile.`);
+    } catch { fail(`${route}: invalid JSON-LD.`); }
   }
 }
 

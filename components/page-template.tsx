@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
 import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
+import { reviewFor, approvedReviewer } from "@/lib/medical-review";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
@@ -60,6 +61,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
 export function PageTemplate({ page, formEnabled }: { page: PageContent; formEnabled: boolean }) {
   const pageUrl = `${SITE_URL}/${page.slug}`;
   const related = contextualLinks[page.slug] ?? [];
+  const review = reviewFor(page.slug, UPDATED_ISO_DATE);
+  const reviewer = approvedReviewer(review);
   const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Strona główna", item: SITE_URL },
     { "@type": "ListItem", position: 2, name: page.h1, item: pageUrl }
@@ -74,9 +77,9 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     inLanguage: "pl-PL",
     isPartOf: { "@id": `${SITE_URL}/#website` },
     datePublished: PUBLISHED_ISO_DATE,
-    dateModified: UPDATED_ISO_DATE,
+    dateModified: review.lastUpdated,
     author: { "@id": `${SITE_URL}/#organization` },
-    ...(page.medicalReview ? { reviewedBy: { "@id": `${SITE_URL}${page.medicalReview.profileUrl}#person` } } : {})
+    ...(reviewer ? { reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
   };
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   return (
@@ -107,7 +110,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
-          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{page.medicalReview?.verificationUrl && page.medicalReview.profileUrl ? <div><dt>Recenzja medyczna</dt><dd><Link href={page.medicalReview.profileUrl}>{page.medicalReview.name}</Link>, {page.medicalReview.credentials}<br />{page.medicalReview.reviewedDate}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
+          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{reviewer && review.reviewStatus === "reviewed" ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {review.reviewDate}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
         </article>
         {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Plan zaczyna się od właściwych pytań</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Przejdź do wstępnej oceny</TrackedLink></div></section>}
       </main>
