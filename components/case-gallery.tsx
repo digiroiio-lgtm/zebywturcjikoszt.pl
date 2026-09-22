@@ -3,7 +3,8 @@ import Link from "next/link";
 import { TrackedLink } from "./tracked-link";
 import { InPageLeadCta } from "./in-page-lead-cta";
 
-type CaseAsset = { reference: string; src: string; label: string };
+import type { VerifiedCase } from "@/lib/evidence";
+type CaseAsset = { reference: string; src: string; label: string; verified?: VerifiedCase };
 
 const cases: CaseAsset[] = Array.from({ length: 20 }, (_, index) => {
   const number = index + 1;
@@ -22,8 +23,8 @@ function assessmentHref(location: string, pagePath: string, caseReference?: stri
 
 function CaseCard({ item, priority = false }: { item: CaseAsset; priority?: boolean }) {
   return <figure className="case-card">
-    <Image src={item.src} alt="Porównanie uśmiechu przed i po leczeniu stomatologicznym" width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
-    <figcaption><strong>{item.label}</strong><span>Zakres leczenia nie został jeszcze zweryfikowany.</span></figcaption>
+    <Image src={item.src} alt={`Zdjęcia oznaczone jako ${item.label}: porównanie wyglądu uśmiechu; metoda leczenia niepotwierdzona`} width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
+    <figcaption><strong>{item.label}</strong><span>{item.verified?.status === "verified" ? item.verified.treatment : "Zakres leczenia nie został jeszcze zweryfikowany."}</span></figcaption>
   </figure>;
 }
 

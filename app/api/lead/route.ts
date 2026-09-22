@@ -10,7 +10,7 @@ function validEmail(value: string) {
 
 export async function POST(request: NextRequest) {
   const endpoint = process.env.LEAD_WEBHOOK_URL;
-  if (!endpoint) return NextResponse.json({ error: "Formularz nie jest aktywny." }, { status: 503 });
+  if (!endpoint || process.env.CONTACT_PROCESS_VERIFIED !== "true") return NextResponse.json({ error: "Formularz nie jest aktywny." }, { status: 503 });
   const origin = request.headers.get("origin");
   if (origin && origin !== request.nextUrl.origin) return NextResponse.json({ error: "Nieprawidłowe źródło." }, { status: 403 });
   const body = await request.json().catch(() => null) as Record<string, unknown> | null;

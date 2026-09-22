@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
-import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_NAME, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
+import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
@@ -75,7 +75,8 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     isPartOf: { "@id": `${SITE_URL}/#website` },
     datePublished: PUBLISHED_ISO_DATE,
     dateModified: UPDATED_ISO_DATE,
-    author: { "@type": "Organization", name: `Redakcja serwisu ${SITE_NAME}`, url: `${SITE_URL}/o-nas` }
+    author: { "@id": `${SITE_URL}/#organization` },
+    ...(page.medicalReview ? { reviewedBy: { "@id": `${SITE_URL}${page.medicalReview.profileUrl}#person` } } : {})
   };
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   return (
@@ -103,10 +104,10 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             </Fragment>)}
             {page.form && <section className="content-section"><h2>Formularz wstępnej oceny</h2><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
-            {page.sources && <section className="content-section sources"><h2>Źródła i dalsza lektura</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
+            {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
-          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{page.medicalReview ? <div><dt>Recenzja medyczna</dt><dd>{page.medicalReview.name}, {page.medicalReview.credentials}<br />{page.medicalReview.reviewedDate}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link></aside>
+          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{page.medicalReview?.verificationUrl && page.medicalReview.profileUrl ? <div><dt>Recenzja medyczna</dt><dd><Link href={page.medicalReview.profileUrl}>{page.medicalReview.name}</Link>, {page.medicalReview.credentials}<br />{page.medicalReview.reviewedDate}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
         </article>
         {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Plan zaczyna się od właściwych pytań</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Przejdź do wstępnej oceny</TrackedLink></div></section>}
       </main>

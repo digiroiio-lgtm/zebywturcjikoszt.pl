@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { TrackedLink } from "@/components/tracked-link";
 import { CuratedCaseGallery } from "@/components/case-gallery";
-import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_NAME, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
+import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Zęby w Turcji – leczenie, możliwości i świadomy wybór",
@@ -37,7 +37,7 @@ export default function Home() {
       url: SITE_URL,
       inLanguage: "pl-PL",
       isPartOf: { "@id": `${SITE_URL}/#website` },
-      author: { "@type": "Organization", name: `Redakcja serwisu ${SITE_NAME}`, url: `${SITE_URL}/o-nas` },
+      author: { "@id": `${SITE_URL}/#organization` },
       datePublished: PUBLISHED_ISO_DATE,
       dateModified: UPDATED_ISO_DATE
     }) }} />

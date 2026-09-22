@@ -20,6 +20,7 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
       lead_source: context.leadSource ?? params.get("lead_source") ?? "OGZ-PL",
       cta_location: context.ctaLocation ?? params.get("cta_location") ?? "contact_page",
       source_page_path: context.sourcePagePath ?? params.get("page_path") ?? window.location.pathname,
+      landing_page: window.location.pathname,
       case_reference: context.caseReference ?? params.get("case_reference") ?? "",
       utm_source: params.get("utm_source") ?? "",
       utm_medium: params.get("utm_medium") ?? "",
@@ -28,7 +29,7 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
       utm_term: params.get("utm_term") ?? ""
     };
   }
-  function startForm() { if (!started.current) { started.current = true; trackEvent("form_start", getLeadContext()); } }
+  function startForm() { if (!started.current) { started.current = true; trackEvent("contact_start"); } }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!enabled) return;
@@ -36,7 +37,7 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
     const form = event.currentTarget;
     const data = { ...Object.fromEntries(new FormData(form)), ...getLeadContext() };
     const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    if (response.ok) { trackEvent("form_submit", getLeadContext()); setStatus("sent"); form.reset(); } else { setStatus("error"); }
+    if (response.ok) { trackEvent("contact_submit"); setStatus("sent"); form.reset(); } else { setStatus("error"); }
   }
   return (
     <form className="lead-form" onFocus={startForm} onSubmit={submit}>
@@ -46,6 +47,7 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
         <label>Numer WhatsApp *<input name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} placeholder="np. +48 123 456 789" /></label>
         <label>E-mail *<input name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} required disabled={!enabled} /></label>
         <label className="full">Kraj *<input name="country" type="text" autoComplete="country-name" maxLength={100} required disabled={!enabled} /></label>
+        <label className="full">Rodzaj leczenia <select name="treatment_interest" disabled={!enabled} defaultValue=""><option value="">Wybierz, jeśli wiesz</option><option value="implanty">Implanty</option><option value="licowki">Licówki</option><option value="cala-szczeka">Pełna odbudowa</option><option value="inne">Inne / nie wiem</option></select></label>
         <label className="full">Wiadomość<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} placeholder="Napisz krótko, w czym możemy pomóc." /></label>
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />

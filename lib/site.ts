@@ -1,5 +1,5 @@
 export const SITE_NAME = "Zęby w Turcji";
-const FALLBACK_SITE_URL = "https://zebywturcjikoszt-pl-gv8i.vercel.app";
+const FALLBACK_SITE_URL = "https://zebywturcjikoszt.pl";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
 export const PUBLISHED_ISO_DATE = "2026-09-18";
 export const UPDATED_ISO_DATE = "2026-09-19";
@@ -29,7 +29,7 @@ export type PageContent = {
   ctaEvent?: string;
   ctaHref?: string;
   schemaType?: "MedicalWebPage" | "WebPage";
-  medicalReview?: { name: string; credentials: string; reviewedDate: string };
+  medicalReview?: { name: string; credentials: string; reviewedDate: string; profileUrl: string; verificationUrl: string };
   noindex?: boolean;
   form?: boolean;
 };
@@ -321,6 +321,7 @@ export const pages: Record<string, PageContent> = {
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
     sections: [
       { title: "Zasady publikacji", bullets: ["każde źródło musi bezpośrednio potwierdzać konkretną informację, przy której zostało podane; sam autorytet domeny nie wystarcza", "w sprawach dotyczących polskich pacjentów w pierwszej kolejności korzystamy z właściwych polskich i unijnych instytucji, wytycznych organizacji stomatologicznych oraz wysokiej jakości literatury dentystycznej", "nie tworzymy nieistniejących ekspertów, cen, opinii ani statystyk", "korygujemy błędy i aktualizujemy treści, gdy zmieniają się dane", "ujawniamy cel komercyjny i relacje z usługodawcami"] },
+      { title: "Zgłaszanie i dokumentowanie korekt", paragraphs: ["Jeżeli zauważysz błąd merytoryczny lub nieaktualną informację, skontaktuj się z nami przez stronę kontaktową. Redakcja rejestruje zgłoszenie, sprawdza źródło i zakres poprawki oraz aktualizuje datę strony dopiero po wprowadzeniu istotnej zmiany. Treści kliniczne wymagają ponownej oceny odpowiednio wykwalifikowanej osoby, zanim zostaną oznaczone jako zweryfikowane."] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
   },
@@ -331,6 +332,7 @@ export const pages: Record<string, PageContent> = {
     answer: "Na dzień aktualizacji serwisu nie potwierdzono imiennego recenzenta medycznego. Żadna strona nie jest przedstawiana jako formalnie zweryfikowana medycznie.",
     sections: [
       { title: "Planowany proces", bullets: ["potwierdzenie tożsamości i kwalifikacji recenzenta", "ocena definicji, ryzyk, alternatyw i ograniczeń", "weryfikacja źródeł oraz zgodności treści z widoczną ofertą", "udokumentowanie daty recenzji i zakresu zmian"] },
+      { title: "Zakres i aktualizacja recenzji", paragraphs: ["Recenzent z potwierdzonymi kwalifikacjami ocenia definicje, wskazania, ograniczenia, ryzyko i zgodność przywołanych źródeł. Ocena artykułu nie stanowi diagnozy pacjenta ani potwierdzenia jakości konkretnej kliniki. Po istotnej zmianie informacji medycznej status recenzji musi zostać zweryfikowany ponownie; błędy można zgłaszać przez stronę kontaktową."] },
       { title: "Czego serwis nie robi", paragraphs: ["Serwis nie diagnozuje, nie kwalifikuje do zabiegu i nie udziela indywidualnej porady medycznej. Ostateczną decyzję podejmuje pacjent wspólnie z uprawnionym lekarzem po badaniu."] }
     ]
   },
