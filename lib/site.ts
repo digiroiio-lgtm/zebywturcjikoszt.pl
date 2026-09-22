@@ -325,13 +325,14 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   "weryfikacja-medyczna": {
-    slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady planowanej weryfikacji medycznej treści stomatologicznych oraz aktualny status recenzji.",
+    slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady weryfikacji medycznej treści stomatologicznych i status recenzji poszczególnych stron.",
     eyebrow: "Bezpieczeństwo informacji", h1: "Weryfikacja medyczna",
     lead: "Treści medyczne powinny zostać ocenione przez osobę o potwierdzonych kwalifikacjach przed oznaczeniem ich jako zweryfikowane.",
-    answer: "Na dzień aktualizacji serwisu nie potwierdzono imiennego recenzenta medycznego. Żadna strona nie jest przedstawiana jako formalnie zweryfikowana medycznie.",
+    answer: "Autor redakcyjny przygotowuje tekst; recenzent medyczny sprawdza informacje stomatologiczne. Status jest przypisywany osobno każdej stronie wraz z datą rzeczywistej recenzji. Bez potwierdzonej daty nie publikujemy imiennego oznaczenia „zweryfikowano”.",
     sections: [
+      { title: "Autor i recenzent", paragraphs: ["Redakcja serwisu pozostaje autorem treści. Recenzent medyczny sprawdza odpowiedniość merytoryczną informacji stomatologicznych na konkretnej stronie; nie staje się jej autorem przez samą recenzję. Statusy obejmują treść bez recenzji, przegląd oczekujący na pełną dokumentację oraz treść zweryfikowaną z podaną datą i nazwiskiem recenzenta."] },
       { title: "Planowany proces", bullets: ["potwierdzenie tożsamości i kwalifikacji recenzenta", "ocena definicji, ryzyk, alternatyw i ograniczeń", "weryfikacja źródeł oraz zgodności treści z widoczną ofertą", "udokumentowanie daty recenzji i zakresu zmian"] },
-      { title: "Zakres i aktualizacja recenzji", paragraphs: ["Recenzent z potwierdzonymi kwalifikacjami ocenia definicje, wskazania, ograniczenia, ryzyko i zgodność przywołanych źródeł. Ocena artykułu nie stanowi diagnozy pacjenta ani potwierdzenia jakości konkretnej kliniki. Po istotnej zmianie informacji medycznej status recenzji musi zostać zweryfikowany ponownie; błędy można zgłaszać przez stronę kontaktową."] },
+      { title: "Zakres i aktualizacja recenzji", paragraphs: ["Recenzent z potwierdzonymi kwalifikacjami ocenia definicje, wskazania, ograniczenia, ryzyko i zgodność przywołanych źródeł. Ocena artykułu nie stanowi diagnozy pacjenta, indywidualnej porady, zalecenia leczenia dla każdego czytelnika, gwarancji wyniku ani poparcia wszystkich komercyjnych informacji w serwisie. Po istotnej zmianie informacji medycznej status recenzji musi zostać zweryfikowany ponownie; błędy można zgłaszać przez stronę kontaktową."] },
       { title: "Czego serwis nie robi", paragraphs: ["Serwis nie diagnozuje, nie kwalifikuje do zabiegu i nie udziela indywidualnej porady medycznej. Ostateczną decyzję podejmuje pacjent wspólnie z uprawnionym lekarzem po badaniu."] }
     ]
   },
