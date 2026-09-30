@@ -4,6 +4,7 @@ import Image from "next/image";
 import { TrackedLink } from "@/components/tracked-link";
 import { CuratedCaseGallery } from "@/components/case-gallery";
 import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL } from "@/lib/site";
+import { siteMedicalReviewer } from "@/lib/evidence";
 
 export const metadata: Metadata = {
   title: { absolute: "Leczenie zębów w Turcji – Ceny, implanty i korony" },
@@ -34,7 +35,7 @@ export default function Home() {
     <section className="shell section-space"><div className="section-heading"><div><p className="eyebrow">Przed decyzją</p><h2>Zdjęcia to tylko część informacji</h2></div></div><div className="decision-grid"><Link href="/opinie"><span>Opinie</span><h3>Jak odróżnić doświadczenie pacjenta od reklamy</h3><p>Na co zwrócić uwagę, czytając opinie.</p></Link><Link href="/przed-i-po"><span>Przed i po</span><h3>Co naprawdę pokazują zdjęcia przed i po</h3><p>Zdjęcie nie pokazuje diagnozy, funkcji ani trwałości.</p></Link><Link href="/jak-wybrac-klinike"><span>Klinika</span><h3>Co zweryfikować przed wpłatą</h3><p>Sprawdź lekarza, plan leczenia i opiekę po powrocie do Polski.</p></Link></div></section>
     <section className="shell section-space home-travel" aria-labelledby="home-travel-title"><div className="section-heading"><div><p className="eyebrow">Organizacja wyjazdu</p><h2 id="home-travel-title">Jak zaplanować leczenie w Antalyi?</h2></div><p>Sprawdź, jak przygotować wyjazd, zaplanować wizyty i ustalić opiekę po powrocie do Polski.</p></div><Link className="treatment-card home-travel-card" href="/antalya"><div className="treatment-visual"><Image src="/images/diagrams/antalya-journey.svg" alt="Etapy wyjazdu na leczenie do Antalyi" width={640} height={360} sizes="(max-width: 760px) 100vw, 460px" /></div><div><h3>Leczenie w Antalyi</h3><p>Jak przygotować wyjazd, wizyty i opiekę po powrocie.</p><b>Przeczytaj przewodnik →</b></div></Link></section>
     <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Wstępna ocena</p><h2>Sprawdź, jakie informacje są potrzebne do wyceny</h2><p>Opisz krótko, jakie leczenie rozważasz. Zdjęcia i dokumentację medyczną przekaż dopiero bezpiecznym kanałem.</p><TrackedLink href="/kontakt" event="home_bottom_cta" className="button button-light">Zapytaj o plan leczenia</TrackedLink></div></section>
-    <section className="shell editorial-strip"><p><strong>Autor:</strong> Redakcja serwisu</p><p><strong>Publikacja:</strong> {PUBLISHED_DATE}</p><p><strong>Ostatnia aktualizacja:</strong> {PRICING_UPDATED_DATE}</p><p><strong>Recenzja medyczna:</strong> jeszcze nieprzeprowadzona</p><Link href="/polityka-redakcyjna">Standard redakcyjny</Link></section>
+    <section className="shell editorial-strip"><p><strong>Autor:</strong> Redakcja serwisu</p><p><strong>Publikacja:</strong> {PUBLISHED_DATE}</p><p><strong>Ostatnia aktualizacja:</strong> {PRICING_UPDATED_DATE}</p><p><strong>Recenzent medyczny serwisu:</strong> <Link href={siteMedicalReviewer.profileUrl}>Lek. dent. {siteMedicalReviewer.name}</Link> · Akdeniz Dental, Antalya</p><p><strong>Recenzja medyczna:</strong> jeszcze nieprzeprowadzona</p><Link href="/polityka-redakcyjna">Standard redakcyjny</Link></section>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
