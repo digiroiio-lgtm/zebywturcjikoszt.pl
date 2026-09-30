@@ -1,7 +1,7 @@
 import { formatEur, formatPln, PRICING_UPDATED_ISO_DATE } from "./pricing";
 
 export const SITE_NAME = "Zęby w Turcji";
-const FALLBACK_SITE_URL = "https://zebywturcjikoszt.pl";
+const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
 export const PUBLISHED_ISO_DATE = "2026-09-18";
 export const UPDATED_ISO_DATE = "2026-09-19";
