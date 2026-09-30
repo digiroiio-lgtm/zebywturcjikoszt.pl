@@ -12,7 +12,7 @@ export function TrustPanel({ review, reviewer, published = PUBLISHED_ISO_DATE }:
   const reviewed = reviewer && review.reviewStatus === "reviewed";
   const status = reviewed ? "Treść zweryfikowana medycznie" : review.reviewStatus === "review-pending" ? "Recenzja: oczekuje na potwierdzenie daty" : "Recenzja: jeszcze nieprzeprowadzona";
   return <aside className="trust-panel" aria-label="Informacje o treści">
-    <p className="trust-reviewer"><span className="mini-label">Recenzent medyczny serwisu</span><Link href={siteMedicalReviewer.profileUrl}>Lek. dent. {siteMedicalReviewer.name}</Link><br />Akdeniz Dental, Antalya</p>
+    <p className="trust-reviewer"><span className="mini-label">{reviewed ? "Recenzja medyczna tej strony" : "Recenzent medyczny serwisu"}</span><Link href={reviewed ? reviewer.profileUrl : siteMedicalReviewer.profileUrl}>Lek. dent. {reviewed ? reviewer.name : siteMedicalReviewer.name}</Link><br />Akdeniz Dental, Antalya{reviewed && <><br />Zweryfikowano: <time dateTime={review.reviewDate}>{polishDate(review.reviewDate)}</time></>}</p>
     <details className="trust-details">
       <summary><span className="mini-label">Informacje o treści</span><span className="trust-summary-status">{status}</span><span className="trust-summary-action">Autor, daty i zasady weryfikacji</span></summary>
       <div className="trust-panel-body">
