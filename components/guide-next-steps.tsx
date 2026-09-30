@@ -1,0 +1,13 @@
+import { guideAssessmentHref, guideHref } from "@/lib/guides";
+import { TrackedLink } from "./tracked-link";
+const nextSteps: Record<string, { href: string; label: string }[]> = {
+  "leczenie-zebow-w-turcji": [{ href: "/implanty", label: "Implanty: kwalifikacja i etapy" }, { href: "/licowki", label: "Licówki: materiały i możliwości" }, { href: "/cala-szczeka", label: "Odbudowa całej szczęki" }, { href: "/all-on-4", label: "All-on-4: plan i koszty" }],
+  "licowki-czy-korony": [{ href: "/licowki", label: "Licówki w Turcji" }, { href: "/korony-cyrkonowe", label: "Korony cyrkonowe: cena i zakres" }],
+  "calkowity-koszt-wyjazdu": [{ href: "/antalya", label: "Przygotowanie wyjazdu do Antalyi" }, { href: "/poradniki/pakiety-leczenia-zebow", label: "Sprawdź zakres pakietu" }],
+  "pakiety-leczenia-zebow": [{ href: "/all-on-4", label: "All-on-4: elementy wyceny" }, { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu" }],
+  "opieka-po-leczeniu": [{ href: "/implanty", label: "Implanty: etapy leczenia" }, { href: "/jak-wybrac-klinike", label: "Wybór kliniki i zasady opieki" }]
+};
+export function GuideNextSteps({ source }: { source: string }) {
+  const key = source.split("/").at(-1)!;
+  return <nav className="content-section" aria-label="Kolejny krok po poradniku"><h2>Co zrobić dalej?</h2><p>Przejdź do tematu, który odpowiada Twojej potrzebie, albo poproś o wstępną wycenę. Ostateczny zakres ustala lekarz po badaniu.</p><div className="related-grid">{(nextSteps[key] ?? []).map((item) => <TrackedLink key={item.href} href={guideHref(item.href, source)} event={["/implanty", "/licowki", "/korony-cyrkonowe", "/cala-szczeka", "/all-on-4"].includes(item.href) ? "guide_to_treatment" : "guide_open"} tracking={{ guide_source: source, destination_path: item.href }}><strong>{item.label}</strong></TrackedLink>)}</div><div className="button-row"><TrackedLink href={guideAssessmentHref(source, "guide_next_steps")} event="guide_contact_cta" tracking={{ guide_source: source, cta_location: "guide_next_steps", lead_source: "OGZ-PL" }} className="button">Poproś o wstępną wycenę</TrackedLink><TrackedLink href={guideHref("/koszt", source)} event="guide_to_pricing" tracking={{ guide_source: source, destination_path: "/koszt" }} className="text-link">Zobacz ceny leczenia</TrackedLink></div></nav>;
+}

@@ -16,7 +16,7 @@ const lead = {
   name: "Test Contact", phone: "+48 123 456 789", whatsapp: "+48 123 456 789",
   email: "test@example.com", country: "Polska", message: "",
   lead_source: "OGZ-PL", cta_location: "before_after_cases_final",
-  source_page_path: "/przed-i-po", landing_page: "/kontakt", case_reference: "before-after20",
+  guide_source: "/poradniki/calkowity-koszt-wyjazdu", source_page_path: "/przed-i-po", landing_page: "/kontakt", case_reference: "before-after20",
   utm_source: "google", utm_medium: "cpc", utm_campaign: "consultation"
 };
 
