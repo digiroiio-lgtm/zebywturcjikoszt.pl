@@ -296,3 +296,6 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 @media (max-width: 760px) { .clinical-team-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .clinical-team-page a:focus-visible, .expert-profile a:focus-visible { outline: 3px solid var(--green-dark); outline-offset: 4px; }
+
+.faq-hub a:focus-visible, .faq-list summary:focus-visible { outline: 3px solid var(--green-dark); outline-offset: 4px; }
+.faq-hub section, .faq-list details, #faq { scroll-margin-top: 110px; }

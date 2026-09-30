@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
   description: "Poznaj 12 dentystów Akdeniz Dental w Antalyi: wykształcenie, obszary pracy i oficjalne profile. Sprawdź także rolę recenzenta medycznego serwisu.",
   alternates: { canonical: "/nasi-lekarze" },
+  openGraph: { title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki partnerskiej, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
+  twitter: { card: "summary", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki partnerskiej w Antalyi i oficjalne profile lekarzy." },
 };
 export default function ClinicalTeam() {
   const url = `${SITE_URL}/nasi-lekarze`;

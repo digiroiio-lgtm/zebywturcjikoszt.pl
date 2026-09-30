@@ -11,7 +11,7 @@ export function generateStaticParams() { return verifiedExperts.map(({ slug }) =
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const expert = verifiedExperts.find((item) => item.slug === slug);
-  return expert ? { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: `Profil recenzenta medycznego serwisu: ${expert.name}, dentysta i właściciel Akdeniz Dental w Antalyi. Biografia, źródła i status recenzji treści.`, openGraph: { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography, url: expert.profileUrl, type: "profile" }, alternates: { canonical: expert.profileUrl } } : {};
+  return expert ? { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: `Profil recenzenta medycznego serwisu: ${expert.name}, dentysta i właściciel Akdeniz Dental w Antalyi. Biografia, źródła i status recenzji treści.`, openGraph: { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography, url: expert.profileUrl, type: "profile" }, twitter: { card: "summary", title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography }, alternates: { canonical: expert.profileUrl } } : {};
 }
 export default async function ExpertProfile({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
