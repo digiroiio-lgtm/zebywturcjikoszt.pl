@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
-import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL, UPDATED_DATE, UPDATED_ISO_DATE } from "@/lib/site";
+import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { reviewFor, approvedReviewer } from "@/lib/medical-review";
 import { LeadForm } from "./lead-form";
@@ -9,6 +9,7 @@ import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
 import { BeforeAfterCaseHub } from "./case-gallery";
 import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
+import { TrustPanel } from "./trust-panel";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
   koszt: [
@@ -105,12 +106,12 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
               {page.slug === "antalya" && section.title === "Przed wyjazdem" && <AntalyaJourneyImages />}
               {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
             </Fragment>)}
-            {page.form && <section className="content-section"><h2>Formularz wstępnej oceny</h2><LeadForm enabled={formEnabled} /></section>}
+            {page.form && <section className="content-section" id="assessment-form"><h2>Formularz wstępnej oceny</h2><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
-          <aside className="trust-panel" aria-label="Informacje o treści"><p className="mini-label">Transparentność</p><dl><div><dt>Autor</dt><dd>Redakcja serwisu</dd></div><div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div><div><dt>Aktualizacja</dt><dd>{UPDATED_DATE}</dd></div>{reviewer && review.reviewStatus === "reviewed" ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {review.reviewDate}</dd></div> : review.reviewStatus === "review-pending" ? <div><dt>Recenzja medyczna</dt><dd>Data recenzji jest w trakcie potwierdzania.</dd></div> : <div><dt>Recenzja medyczna</dt><dd>Jeszcze nieprzeprowadzona</dd></div>}</dl><p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p><Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></aside>
+          <TrustPanel review={review} reviewer={reviewer} />
         </article>
         {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Poproś o wstępną ocenę</TrackedLink></div></section>}
       </main>
