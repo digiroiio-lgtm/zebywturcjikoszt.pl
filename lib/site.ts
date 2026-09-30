@@ -347,7 +347,7 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   kontakt: {
-    slug: "kontakt", title: "Kontakt i wstępna ocena leczenia", description: "Wybierz interesujące Cię leczenie i przygotuj bezpieczne zapytanie o indywidualną ocenę oraz wycenę.",
+    slug: "kontakt", lastUpdated: PRICING_UPDATED_ISO_DATE, title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną konsultację. Podaj imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie dodaj wiadomość.",
     eyebrow: "Następny krok", h1: "Poproś o wstępną ocenę leczenia",
     lead: "W formularzu możesz krótko opisać, jakie leczenie rozważasz i o co chcesz zapytać. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz potwierdzonego bezpiecznego kanału.",
     answer: "Formularz jest obecnie niedostępny. Prosimy nie przesyłać dokumentacji medycznej przez inne kanały, zanim nie zostanie wskazany bezpieczny sposób jej przekazania.",

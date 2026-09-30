@@ -93,12 +93,13 @@ h3 { font-size:19px; }
 .content-layout-cases .trust-panel { position:static; }
 .case-lead-dialog { width:min(720px,calc(100% - 32px)); max-height:90vh; padding:0; border:0; border-radius:18px; background:white; color:var(--ink); box-shadow:0 30px 90px rgba(0,0,0,.28); }
 .case-lead-dialog::backdrop { background:rgba(8,30,28,.66); backdrop-filter:blur(4px); }
-.case-lead-dialog-inner { position:relative; overflow-y:auto; max-height:90vh; padding:34px; }
+.case-lead-dialog-inner { position:relative; overflow-y:auto; max-height:90vh; padding:40px 32px 32px; background:#f8fafc; }
 .case-lead-dialog h2 { margin-bottom:10px; font-size:34px; }
 .dialog-intro { margin:0 48px 24px 0; color:var(--muted); }
 .dialog-close { position:absolute; top:18px; right:18px; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:white; color:var(--ink); font-size:27px; line-height:1; cursor:pointer; }
 .dialog-close:hover { border-color:var(--green); color:var(--green-dark); }
-.case-lead-dialog .lead-form { padding:24px; box-shadow:none; }
+.case-lead-dialog .lead-form { padding:0; box-shadow:none; }
+.case-lead-dialog .lead-form h2 { padding-right:40px; }
 body:has(.case-lead-dialog[open]) { overflow:hidden; }
 .context-image-panel { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.9fr); gap:28px; align-items:center; margin:-34px 0 68px; padding:24px; border:1px solid var(--line); border-radius:16px; background:#f8fbfa; }
 .context-image-copy h3 { margin-bottom:12px; font-size:24px; }
@@ -191,14 +192,21 @@ tr:last-child td { border-bottom:0; }
 .price-highlight-card h3 { min-height:44px; margin-bottom:12px; }
 .price-highlight-card strong { font-size:30px; line-height:1.2; }
 .price-highlight-card span { color:var(--green-dark); font-size:20px; font-weight:800; }
-.lead-form { padding:28px; border:1px solid var(--line); border-radius:16px; background:white; }
-.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-.form-grid label,.consent { display:grid; gap:7px; font-size:14px; font-weight:700; }
+.lead-form { padding:40px 32px; border:0; border-radius:16px; background:#f8fafc; color:#111827; }
+.lead-form h2 { margin-bottom:18px; font-family:Arial,Helvetica,sans-serif; font-size:clamp(28px,3.5vw,40px); font-weight:700; line-height:1.2; letter-spacing:-.025em; }
+.consultation-intro { margin:0 0 40px; color:#4b5563; font-size:20px; line-height:1.5; }
+.form-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; }
+.form-grid label { display:grid; gap:10px; min-width:0; font-size:20px; line-height:1.4; font-weight:500; color:#374151; }
 .form-grid .full { grid-column:1/-1; }
 input,select,textarea { width:100%; padding:12px 13px; border:1px solid #b9c9c6; border-radius:8px; background:white; color:var(--ink); }
 input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16); border-color:var(--green); }
-.consent { grid-template-columns:20px 1fr; align-items:start; margin:20px 0; font-weight:400; }
-.consent input { width:18px; margin-top:4px; }
+.lead-form input,.lead-form select,.lead-form textarea { min-width:0; min-height:64px; padding:16px 20px; border:1.5px solid #d1d5db; border-radius:12px; background:white; color:#111827; font-size:20px; line-height:1.45; }
+.lead-form input::placeholder,.lead-form textarea::placeholder { color:#9ca3af; opacity:1; }
+.lead-form textarea { min-height:172px; resize:vertical; }
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus { outline:3px solid rgba(30,64,175,.18); border-color:#1e40af; }
+.lead-form .consultation-submit { width:100%; min-height:76px; margin-top:36px; gap:10px; padding:16px 22px; border-radius:20px; background:#1e40af; color:white; font-size:22px; line-height:1.3; box-shadow:none; }
+.lead-form .consultation-submit:hover { background:#1e3a8a; }
+.form-privacy { margin:14px 0 0; text-align:center; color:#6b7280; font-size:12px; }
 .form-notice { padding:14px; border-radius:8px; background:#fff5d8; color:#624d18; font-size:14px; }
 .honeypot { position:absolute; left:-9999px; }
 .success { color:var(--green-dark); font-weight:800; }
@@ -234,7 +242,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   .section-space,.soft-section { padding-block:65px; } .treatment-card { min-height:auto; } .treatment-card h3 { margin-top:25px; } .treatment-card p { min-height:auto; }
   .content-layout { padding-block:48px 70px; } .cards,.form-grid,.related-grid,.visual-guide,.context-image-panel { grid-template-columns:1fr; } .form-grid .full { grid-column:auto; }
   .visual-proof-actions,.case-cta { align-items:stretch; flex-direction:column; } .visual-proof-actions .button,.case-cta .button { width:100%; } .case-card figcaption { padding:11px 13px 13px; }
-  .case-lead-dialog { width:100%; max-width:none; max-height:92dvh; margin:auto 0 0; border-radius:18px 18px 0 0; } .case-lead-dialog-inner { max-height:92dvh; padding:28px 18px 24px; } .case-lead-dialog h2 { font-size:30px; } .dialog-intro { margin-right:38px; } .case-lead-dialog .lead-form { padding:18px; }
+  .case-lead-dialog { width:100%; max-width:none; max-height:92dvh; margin:auto 0 0; border-radius:18px 18px 0 0; } .case-lead-dialog-inner { max-height:92dvh; padding:28px 18px 24px; } .case-lead-dialog h2 { font-size:30px; } .dialog-intro { margin-right:38px; } .case-lead-dialog .lead-form { padding:0; }
   .footer-grid { grid-template-columns:1fr 1fr; } .footer-grid>div:first-child,.footer-grid>div:last-child { grid-column:1/-1; } .footer-grid>div:last-child { grid-template-columns:1fr 1fr; }
   .editorial-strip a { width:100%; margin-left:0; }
 }
@@ -250,3 +258,12 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 .price-category { margin:28px 0; scroll-margin-top:110px; }
 .quote-confirmation { padding:24px; border:1px solid var(--line); border-radius:16px; background:var(--sand); }
 #zakres-implantu, #zakres-wyceny, #cena-calkowita, #przykladowe-sumy { scroll-margin-top:110px; }
+
+@media (max-width:760px) {
+  .lead-form { padding:28px 20px; }
+  .form-grid { gap:22px; }
+  .form-grid label { font-size:18px; }
+  .lead-form input,.lead-form select,.lead-form textarea { font-size:18px; min-height:60px; padding:14px 16px; }
+  .consultation-intro { margin-bottom:30px; font-size:18px; }
+  .lead-form .consultation-submit { min-height:68px; margin-top:28px; font-size:20px; }
+}

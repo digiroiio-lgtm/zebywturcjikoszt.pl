@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useId, useRef, useState } from "react";
+import { countries } from "@/lib/countries";
 import { trackEvent } from "./tracked-link";
 
 export type LeadContext = {
@@ -11,7 +12,10 @@ export type LeadContext = {
   caseReference?: string;
 };
 
-export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?: LeadContext }) {
+export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolean; context?: LeadContext; headingId?: string }) {
+  const generatedId = useId();
+  const titleId = headingId ?? `${generatedId}-consultation-title`;
+  const descriptionId = `${generatedId}-consultation-description`;
   const started = useRef(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   function getLeadContext() {
@@ -36,24 +40,27 @@ export function LeadForm({ enabled, context = {} }: { enabled: boolean; context?
     setStatus("sending");
     const form = event.currentTarget;
     const data = { ...Object.fromEntries(new FormData(form)), ...getLeadContext() };
-    const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-    if (response.ok) { trackEvent("contact_submit"); setStatus("sent"); form.reset(); } else { setStatus("error"); }
+    try {
+      const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      if (response.ok) { trackEvent("contact_submit"); setStatus("sent"); form.reset(); } else { setStatus("error"); }
+    } catch { setStatus("error"); }
   }
   return (
-    <form className="lead-form" onFocus={startForm} onSubmit={submit}>
+    <form className="lead-form" aria-labelledby={titleId} aria-describedby={descriptionId} onFocus={startForm} onSubmit={submit}>
+      <h2 id={titleId}>Poproś o bezpłatną konsultację</h2>
+      <p id={descriptionId} className="consultation-intro">Wypełnij formularz, a skontaktujemy się z Tobą w ciągu 24 godzin, aby umówić bezpłatną konsultację telefoniczną, przez rozmowę wideo lub WhatsApp.</p>
       <div className="form-grid">
-        <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} /></label>
+        <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} placeholder="Twoje imię i nazwisko" /></label>
         <label>Telefon *<input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} placeholder="np. +48 123 456 789" /></label>
         <label>Numer WhatsApp *<input name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} placeholder="np. +48 123 456 789" /></label>
-        <label>E-mail *<input name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} required disabled={!enabled} /></label>
-        <label className="full">Kraj *<input name="country" type="text" autoComplete="country-name" maxLength={100} required disabled={!enabled} /></label>
-        <label className="full">Rodzaj leczenia <select name="treatment_interest" disabled={!enabled} defaultValue=""><option value="">Wybierz, jeśli wiesz</option><option value="implanty">Implanty</option><option value="licowki">Licówki</option><option value="cala-szczeka">Pełna odbudowa</option><option value="inne">Inne / nie wiem</option></select></label>
-        <label className="full">Wiadomość<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} placeholder="Napisz krótko, w czym możemy pomóc." /></label>
+        <label>E-mail *<input name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} required disabled={!enabled} placeholder="twoj@email.com" /></label>
+        <label className="full">Kraj *<select name="country" autoComplete="country-name" required disabled={!enabled} defaultValue=""><option value="" disabled>Wybierz swój kraj...</option>{countries.map((country) => <option key={country.code} value={country.label}>{country.label}</option>)}</select></label>
+        <label className="full">Wiadomość<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} placeholder="Opisz swoje oczekiwania dotyczące leczenia lub pytania, które chcesz zadać..." /></label>
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-      <label className="consent"><input type="checkbox" name="consent" required disabled={!enabled} /> <span>Akceptuję <Link href="/polityka-prywatnosci">politykę prywatności</Link> i proszę o kontakt w sprawie mojego zapytania.</span></label>
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
-      <button className="button" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : "Poproś o wstępną ocenę"}</button>
+      <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną konsultację <span aria-hidden="true">→</span></>}</button>
+      <p className="form-privacy"><Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
       {status === "sent" && <p role="status" className="success">Dziękujemy. Zgłoszenie zostało wysłane.</p>}
       {status === "error" && <p role="alert" className="error">Nie udało się wysłać zgłoszenia. Spróbuj ponownie później.</p>}
     </form>
