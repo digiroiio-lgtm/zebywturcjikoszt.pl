@@ -17,5 +17,5 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const page = pages[slug];
   if (!page) notFound();
-  return <PageTemplate page={page} formEnabled={Boolean(process.env.LEAD_WEBHOOK_URL && process.env.CONTACT_PROCESS_VERIFIED === "true")} />;
+  return <PageTemplate page={page} formEnabled={process.env.CONTACT_FORM_ENABLED !== "false"} />;
 }
