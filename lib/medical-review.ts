@@ -10,11 +10,12 @@ export type ReviewState =
 // Retain the approval evidence outside this public repository and reference it here.
 // The site operator confirmed clinician approval for these four pages in the
 // conversation on 2026-09-30 and supplied 2026-09-30 as the actual review date.
+// The operator assigned implanty and all-on-4 specifically to Mehmet Onur Merey.
 export const pageReviews: Record<string, ReviewState> = {
-  implanty: { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
+  implanty: { reviewStatus: "reviewed", reviewer: "mehmet-onur-merey", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
   licowki: { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
   "cala-szczeka": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
-  "all-on-4": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" }
+  "all-on-4": { reviewStatus: "reviewed", reviewer: "mehmet-onur-merey", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" }
 };
 
 export function reviewFor(slug: string, lastUpdated: string): ReviewState {
