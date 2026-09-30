@@ -34,6 +34,10 @@ h2 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(30px,4vw,44px)
 h3 { font-size:19px; }
 .hero-lead,.lead { max-width:720px; color:var(--muted); font-size:clamp(18px,2.2vw,22px); }
 .hero-lead { margin-bottom:30px; }
+.hero-partner { margin:0 0 24px; color:var(--ink); font-size:18px; font-weight:800; }
+.home-hero .hero-lead { margin-bottom:18px; }
+main:has(.home-hero) a:focus-visible { outline:3px solid var(--green-dark); outline-offset:5px; }
+main:has(.home-hero) .closing-cta a:focus-visible { outline-color:white; }
 .button-row { display:flex; align-items:center; flex-wrap:wrap; gap:20px; }
 .microcopy { max-width:620px; margin-top:22px; color:var(--muted); font-size:13px; }
 .hero-panel { padding:34px; border:1px solid rgba(255,255,255,.7); border-radius:22px; background:rgba(255,255,255,.8); box-shadow:var(--shadow); }
@@ -56,6 +60,9 @@ h3 { font-size:19px; }
 .treatment-card h3 { margin:0 0 12px; font-size:24px; }
 .treatment-card p { min-height:75px; color:var(--muted); }
 .treatment-card b { color:var(--green-dark); font-size:14px; }
+.home-travel-card { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:32px; align-items:center; min-height:0; }
+.home-travel-card .treatment-visual { margin-bottom:0; }
+.home-travel-card p { min-height:0; }
 .soft-section { padding:90px 0; background:var(--sand); }
 .split-section { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
 .split-section p { color:var(--muted); }
@@ -242,6 +249,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   body:has(.case-lead-dialog[open]) .mobile-assessment-bar { display:none; }
   .shell { width:min(100% - 28px,1180px); } .site-header .button-small { display:none; } .mobile-menu { margin-left:auto; } .home-hero { padding-block:58px; }
   .hero-grid,.section-heading,.split-section { grid-template-columns:1fr; gap:34px; } h1 { font-size:42px; } .treatment-grid,.decision-grid,.case-grid,.case-grid-featured { grid-template-columns:1fr; }
+  .home-travel-card { grid-template-columns:1fr; gap:0; }
   .section-space,.soft-section { padding-block:65px; } .treatment-card { min-height:auto; } .treatment-card h3 { margin-top:25px; } .treatment-card p { min-height:auto; }
   .content-layout { padding-block:48px 70px; } .cards,.form-grid,.related-grid,.visual-guide,.context-image-panel { grid-template-columns:1fr; } .form-grid .full { grid-column:auto; }
   .visual-proof-actions,.case-cta { align-items:stretch; flex-direction:column; } .visual-proof-actions .button,.case-cta .button { width:100%; } .case-card figcaption { padding:11px 13px 13px; }
