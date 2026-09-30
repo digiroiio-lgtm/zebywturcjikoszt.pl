@@ -18,7 +18,8 @@ export const pageReviews: Record<string, ReviewState> = {
 };
 
 export function reviewFor(slug: string, lastUpdated: string): ReviewState {
-  return pageReviews[slug] ?? { reviewStatus: "not-reviewed", lastUpdated };
+  const state = pageReviews[slug];
+  return state ? { ...state, lastUpdated: state.lastUpdated > lastUpdated ? state.lastUpdated : lastUpdated } : { reviewStatus: "not-reviewed", lastUpdated };
 }
 
 export function approvedReviewer(state: ReviewState): VerifiedExpert | null {

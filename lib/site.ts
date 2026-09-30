@@ -1,3 +1,5 @@
+import { formatEur, formatPln, PRICING_UPDATED_ISO_DATE } from "./pricing";
+
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://zebywturcjikoszt.pl";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
@@ -31,17 +33,19 @@ export type PageContent = {
   schemaType?: "MedicalWebPage" | "WebPage";
   noindex?: boolean;
   form?: boolean;
+  lastUpdated?: string;
 };
 
 export const pages: Record<string, PageContent> = {
   koszt: {
+    lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "koszt",
     title: "Ile kosztują zęby w Turcji? Ceny i zakres leczenia",
-    description: "Jak czytać wycenę leczenia zębów w Turcji, co wpływa na koszt i jakie elementy powinien zawierać indywidualny plan leczenia.",
+    description: "Cennik 24 zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.",
     eyebrow: "Koszt leczenia",
     h1: "Ile kosztują zęby w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
-    answer: "Nie podajemy jeszcze konkretnych kwot. Ceny i zakres pakietów dla pacjentów z Polski wymagają pisemnego potwierdzenia. Wycena konkretnego przypadku zależy od oceny dokumentacji i planu leczenia.",
+    answer: "Cennik kliniki obejmuje 24 pozycje, od zabiegów na dziąsłach po implanty i znieczulenie ogólne. Kwoty podajemy w EUR oraz orientacyjnie w PLN przy kursie 1 EUR = 4,37 PLN. Pełny koszt zależy od indywidualnego planu leczenia.",
     schemaType: "MedicalWebPage",
     sections: [
       { title: "Co powinno znaleźć się w wycenie", cards: [
@@ -63,7 +67,7 @@ export const pages: Record<string, PageContent> = {
         ["Gwarancja i reklamacje", "zakres, wyłączenia, terminy i koszty ponownego wyjazdu", "samo słowo „gwarancja” nie opisuje odpowiedzialności"],
         ["Cena końcowa", "waluta, zakres, warunki zmiany i termin ważności", "pozwala porównać pełny koszt, a nie kwotę reklamową"]
       ]}},
-      { title: "Dlaczego nie podajemy jeszcze cen?", paragraphs: ["Kwota może zostać opublikowana dopiero po potwierdzeniu źródła, waluty, dokładnego zakresu, elementów wliczonych i niewliczonych, warunków zastosowania oraz daty ostatniej weryfikacji. Do czasu otrzymania takich danych serwis nie przelicza cen na PLN i nie tworzy orientacyjnego cennika."] },
+      { title: "Jak czytać ceny w EUR i PLN", paragraphs: ["Ceny w euro pochodzą z cennika kliniki przekazanego do publikacji 30 września 2026. Kwoty w złotych są orientacyjnym przeliczeniem po kursie 1 EUR = 4,37 PLN z 30.09.2026, 09:11 UTC. Kurs nie jest aktualizowany automatycznie i może różnić się od kursu stosowanego przy płatności.", "Kwoty dotyczą nazwanych pozycji. W indywidualnej wycenie należy potwierdzić jednostkę rozliczenia, liczbę zabiegów, zakres materiałów oraz elementy wliczone i dodatkowo płatne. Lista nie podaje jednej ceny całego wyjazdu ani pakietu pełnej odbudowy."] },
       { title: "Od czego zależy cena różnych rodzajów leczenia?", table: { headers: ["Potrzeba", "Właściwa strona", "Co ustala cenę"], rows: [
         ["Brak pojedynczego zęba lub kilku zębów", "Implanty", "diagnostyka, liczba implantów, odbudowa protetyczna"],
         ["Zmiana kształtu lub koloru uśmiechu", "Licówki", "materiał, liczba zębów, stan szkliwa i zgryzu"],
@@ -73,13 +77,14 @@ export const pages: Record<string, PageContent> = {
       { title: "Turcja czy Polska: porównuj cały proces", paragraphs: ["Porównanie powinno obejmować nie tylko zabieg, ale również podróż, liczbę wizyt, możliwe korekty, opiekę po leczeniu i sposób postępowania w razie komplikacji. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie."] }
     ],
     faq: [
-      { question: "Czy na stronie jest aktualny cennik?", answer: "Nie. Cennik dla rynku polskiego nie został jeszcze zweryfikowany, dlatego nie publikujemy kwot, które mogłyby wprowadzać w błąd." },
+      { question: "Czy na stronie jest aktualny cennik?", answer: "Tak. Publikujemy 24 pozycje z cennika kliniki przekazanego 30.09.2026, w EUR i orientacyjnie w PLN. Data cennika i kurs przeliczenia są widoczne przy tabeli. Indywidualna oferta określa pełny zakres leczenia." },
       { question: "Czy wystarczy wiadomość, żeby otrzymać wycenę?", answer: "Wstępna ocena może pomóc określić możliwy zakres, ale ostateczny plan wymaga dokumentacji i oceny klinicznej przez uprawnionego lekarza dentystę." },
       { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie można tego zakładać. Każda oferta powinna jednoznacznie wskazywać, które elementy są wliczone, a które pacjent organizuje i opłaca oddzielnie." }
     ],
     ctaLabel: "Poproś o indywidualną wycenę", ctaEvent: "cost_page_cta"
   },
   implanty: {
+    lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "implanty",
     title: "Implanty zębów w Turcji – proces, koszt i kwalifikacja",
     description: "Implanty zębów w Turcji: na czym polega leczenie, od czego zależy koszt, jakie pytania zadać klinice i jak wygląda kwalifikacja.",
@@ -98,7 +103,7 @@ export const pages: Record<string, PageContent> = {
       { title: "Implant nie jest jedyną możliwością", paragraphs: ["W zależności od sytuacji klinicznej alternatywą może być most, proteza lub inne postępowanie. Strona nie kwalifikuje do leczenia i nie zastępuje konsultacji z lekarzem dentystą."] }
     ],
     faq: [
-      { question: "Ile kosztuje implant zęba w Turcji?", answer: "Zweryfikowana cena dla polskiej oferty nie została jeszcze przekazana. Na koszt wpływa cały plan, nie tylko śruba implantologiczna." },
+      { question: "Ile kosztuje implant zęba w Turcji?", answer: `Implant Aiser lub Medentika: ${formatEur(450)} (około ${formatPln(450)}); implant Straumann: ${formatEur(900)} (około ${formatPln(900)}). Cennik nie potwierdza automatycznie włączenia korony, łącznika, diagnostyki ani dodatkowych zabiegów; pełny zakres określa indywidualna wycena.` },
       { question: "Czy implanty wymagają dwóch wyjazdów?", answer: "Nie da się tego potwierdzić bez planu leczenia. Liczba etapów i wizyt zależy od sytuacji klinicznej oraz rodzaju odbudowy." },
       { question: "Czy każdy może mieć implant?", answer: "Nie. Kwalifikację przeprowadza lekarz po ocenie stanu jamy ustnej, warunków anatomicznych, zdrowia ogólnego i czynników ryzyka." }
     ],
@@ -106,6 +111,7 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Skonsultuj możliwość leczenia implantologicznego", ctaEvent: "implant_cta"
   },
   licowki: {
+    lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "licowki",
     title: "Licówki w Turcji – cena, planowanie i świadomy wybór",
     description: "Licówki w Turcji: czym są, kiedy bywają rozważane, jak ocenić plan estetyczny i od czego zależy indywidualna cena.",
@@ -115,7 +121,7 @@ export const pages: Record<string, PageContent> = {
     schemaType: "MedicalWebPage",
     sections: [
       { title: "Pytania, które warto zadać", bullets: ["dlaczego w tym przypadku proponowane są licówki", "czy są dostępne mniej inwazyjne alternatywy", "które zęby wymagają leczenia, a które jedynie zmiany estetycznej", "jaki materiał zostanie użyty i jak wygląda plan koloru oraz kształtu", "jak będzie chroniony zgryz i jak planowane są kontrole"] },
-      { title: "Cena licówek w Turcji", paragraphs: ["Nie publikujemy ceny do czasu potwierdzenia aktualnej oferty dla pacjentów z Polski. Rzetelna wycena powinna określać liczbę licówek, materiał, przygotowanie zębów, prace tymczasowe oraz ewentualne leczenie poprzedzające."] },
+      { title: "Cena licówek w Turcji", paragraphs: [`Licówka kompozytowa kosztuje ${formatEur(130)} (około ${formatPln(130)}). W cenniku występują też E-max za ${formatEur(225)} i pozycja „Veneer kuron” za ${formatEur(400)}; dokładny rodzaj tych odbudów należy potwierdzić z kliniką. Wycenę trzeba dopasować do liczby zębów, materiału, przygotowania oraz ewentualnego wcześniejszego leczenia.`] },
       { title: "Licówka, korona czy bonding", cards: [
         { title: "Licówka", text: "Odbudowuje głównie widoczną powierzchnię zęba. Wymaga indywidualnej kwalifikacji." },
         { title: "Korona", text: "Obejmuje większą część zęba i ma inne wskazania niż licówka." },
@@ -131,6 +137,7 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Poproś o ocenę estetyczną", ctaEvent: "licowki_cta"
   },
   "cala-szczeka": {
+    lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "cala-szczeka", title: "Zęby w Turcji – cała szczęka i pełna odbudowa uzębienia",
     description: "Co może oznaczać leczenie całej szczęki w Turcji: implanty, korony, All-on-4, All-on-6 i indywidualna rekonstrukcja.",
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
@@ -163,6 +170,7 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Skonsultuj pełną odbudowę uzębienia", ctaEvent: "full_mouth_cta"
   },
   "all-on-4": {
+    lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "all-on-4", title: "All-on-4 w Turcji – kwalifikacja, etapy i koszt",
     description: "All-on-4 w Turcji: czym jest pełnołukowa odbudowa na czterech implantach, jak wygląda kwalifikacja i co powinien zawierać plan.",
     eyebrow: "Pełnołukowa odbudowa", h1: "All-on-4 w Turcji",
@@ -176,7 +184,7 @@ export const pages: Record<string, PageContent> = {
     ],
     faq: [
       { question: "Czy All-on-4 oznacza zęby w jeden dzień?", answer: "Nie należy utożsamiać nazwy metody z gwarancją konkretnego harmonogramu. Możliwość zastosowania odbudowy tymczasowej i czas leczenia zależą od kwalifikacji." },
-      { question: "Ile kosztuje All-on-4 w Turcji?", answer: "Aktualna cena dla polskiej oferty nie została zweryfikowana. Porównując wyceny, trzeba sprawdzić pełny zakres, materiały i liczbę etapów." },
+      { question: "Ile kosztuje All-on-4 w Turcji?", answer: "Przekazany cennik podaje ceny poszczególnych implantów i procedur, ale nie zawiera ceny kompletnego pakietu All-on-4. Koszt pełnego leczenia wymaga ustalenia systemu implantów, pracy tymczasowej i docelowej, diagnostyki oraz liczby etapów." },
       { question: "Czy All-on-4 i cała szczęka to to samo?", answer: "Nie. „Cała szczęka” opisuje problem lub zakres leczenia, a All-on-4 jest jedną z możliwych koncepcji pełnołukowej odbudowy." }
     ],
     ctaLabel: "Zapytaj o kwalifikację do All-on-4", ctaEvent: "all_on_4_cta"
