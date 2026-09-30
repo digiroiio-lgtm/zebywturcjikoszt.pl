@@ -1,12 +1,13 @@
 # Keyword → intent → canonical URL map
 
-Updated: 2026-09-18
+Updated: 2026-09-30
 
 | Canonical URL | Primary query / intent | Secondary and supporting queries | Decision |
 |---|---|---|---|
 | `/` | zęby w Turcji / broad commercial investigation | leczenie zębów w Turcji, Antalya, koszt, możliwości | PRIMARY |
 | `/koszt` | zęby w Turcji koszt | cena, cennik, ile kosztują zęby w Turcji, Turcja czy Polska | PRIMARY; all price variants MERGED |
 | `/implanty` | implanty zębów w Turcji | implanty w Turcji, implanty cena | PRIMARY; no separate `/implanty/koszt` |
+| `/korony-cyrkonowe` | korony cyrkonowe w Turcji | korona cyrkonowa cena, ceny EUR / PLN, korona a licówka | PRIMARY; clinic unit price supplied, distinct commercial scope |
 | `/licowki` | licówki w Turcji | licówki cena, zęby w Turcji licówki | PRIMARY |
 | `/cala-szczeka` | zęby w Turcji cała szczęka | pełna rekonstrukcja, ile kosztuje cała szczęka, All-on-6 supporting | PRIMARY |
 | `/all-on-4` | All-on-4 Turcja | zęby w Turcji All-on-4 | PRIMARY |
@@ -20,7 +21,7 @@ Updated: 2026-09-18
 - `/czy-warto`: MERGED into `/jak-wybrac-klinike`.
 - `/turcja-czy-polska`: MERGED into `/koszt`.
 - `/na-raty`: DEFERRED until a verified finance/payment product and distinct demand exist.
-- `/korony-cyrkonowe`: DEFERRED until verified service data and distinct search demand exist.
+- `/korony-cyrkonowe`: PUBLISHED at the operator’s request after receipt of the clinic unit price. Owns crown scope and crown price questions; no search-volume claim is made.
 - `/all-on-6`: DEFERRED until verified availability and distinct GSC/SERP evidence exist.
 - `/bonding`: DEFERRED; insufficient distinct commercial evidence for launch.
 
@@ -36,3 +37,12 @@ Updated: 2026-09-18
 | `/jak-wybrac-klinike` vs `/opinie` | MEDIUM | Provider due diligence vs review-source literacy | LOW |
 
 No HIGH-overlap pair is published.
+
+## Commercial pricing scope
+
+- `/koszt` owns the complete 24-item list, grouped into five anchored categories. Each item appears once.
+- Treatment pages answer their own price and inclusion questions; category links do not create duplicate landing pages.
+- Arithmetic subtotals use the central EUR prices and the disclosed dated PLN conversion. They are not confirmed quotes or complete package prices.
+- Implant scope must distinguish the implant, abutment, crown, diagnostics and temporary work. Unconfirmed inclusions are explicitly identified.
+- Full-arch and All-on-4 package totals remain unpublished until written scope, included and excluded services, date, validity and approval are supplied.
+- New crown content has its actual publication date and remains medically unreviewed until an evidenced page review is recorded.

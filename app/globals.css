@@ -12,7 +12,7 @@ button,input,select,textarea { font:inherit; }
 .header-inner { min-height:76px; display:flex; align-items:center; gap:28px; }
 .brand { display:inline-flex; align-items:center; gap:10px; font-size:18px; font-weight:800; text-decoration:none; white-space:nowrap; }
 .brand-mark { width:34px; height:34px; display:grid; place-items:center; color:white; background:var(--green); border-radius:10px 10px 15px 10px; font-family:Georgia,serif; }
-.desktop-nav { display:flex; align-items:center; justify-content:center; gap:22px; margin-left:auto; }
+.desktop-nav { display:flex; align-items:center; justify-content:center; gap:16px; margin-left:auto; }
 .desktop-nav a { font-size:14px; font-weight:700; text-decoration:none; color:#294340; }
 .desktop-nav a:hover { color:var(--green); }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 22px; border:0; border-radius:10px; background:var(--green); color:white; text-decoration:none; font-weight:800; cursor:pointer; box-shadow:0 10px 25px rgba(8,127,114,.18); }
@@ -213,7 +213,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 .footer-note { color:#96adaa; font-size:13px; }
 .footer-heading { margin:0 0 8px; color:white; font-weight:900; }
 .footer-bottom { margin-top:50px; padding-block:22px; border-top:1px solid #29413f; color:#829c98; font-size:12px; }
-@media (max-width:1050px) {
+@media (max-width:1150px) {
   .desktop-nav { display:none; } .header-inner>.button { margin-left:auto; } .mobile-menu { display:block; position:relative; margin-left:0; }
   .mobile-menu summary { cursor:pointer; font-weight:800; list-style:none; } .mobile-menu nav { position:absolute; right:0; top:38px; width:230px; display:grid; padding:14px; border:1px solid var(--line); border-radius:10px; background:white; box-shadow:var(--shadow); }
   .mobile-menu nav a { padding:10px; text-decoration:none; font-weight:700; } .mobile-menu nav .mobile-nav-cta { margin-top:8px; border-radius:8px; background:var(--green); color:white; text-align:center; } .content-layout { grid-template-columns:1fr; gap:28px; } .trust-panel { position:static; padding:18px; box-shadow:none; }
@@ -243,3 +243,10 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   .footer-grid { grid-template-columns:1fr; } .footer-grid>div { grid-column:1/-1; } .footer-grid>div:last-child { grid-template-columns:1fr; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms !important; } }
+
+.price-category-nav { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
+.price-category-nav a { display:block; padding:10px 14px; border:1px solid var(--line); border-radius:10px; font-size:14px; font-weight:700; text-decoration:none; background:var(--mint); }
+.price-category-nav a:hover { border-color:var(--green); }
+.price-category { margin:28px 0; scroll-margin-top:110px; }
+.quote-confirmation { padding:24px; border:1px solid var(--line); border-radius:16px; background:var(--sand); }
+#zakres-implantu, #zakres-wyceny, #cena-calkowita, #przykladowe-sumy { scroll-margin-top:110px; }

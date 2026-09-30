@@ -34,6 +34,7 @@ export type PageContent = {
   noindex?: boolean;
   form?: boolean;
   lastUpdated?: string;
+  published?: string;
 };
 
 export const pages: Record<string, PageContent> = {
@@ -83,11 +84,43 @@ export const pages: Record<string, PageContent> = {
     ],
     ctaLabel: "Poproś o indywidualną wycenę", ctaEvent: "cost_page_cta"
   },
+  "korony-cyrkonowe": {
+    slug: "korony-cyrkonowe", published: PRICING_UPDATED_ISO_DATE, lastUpdated: PRICING_UPDATED_ISO_DATE,
+    title: "Korony cyrkonowe w Turcji: cena 150 EUR, zakres i wycena",
+    description: "Korona cyrkonowa w Turcji: 150 EUR, około 655,50 PLN. Sprawdź zakres ceny, przykładowe sumy, różnicę między koroną a licówką i pytania przed wyceną.",
+    eyebrow: "Korony i protetyka", h1: "Korony cyrkonowe w Turcji: cena i zakres leczenia",
+    lead: "W cenniku kliniki korona cyrkonowa kosztuje 150 EUR, czyli orientacyjnie 655,50 PLN przy kursie 4,37. Cena pozycji nie określa całego planu leczenia. Przed decyzją potwierdź liczbę koron, ich zastosowanie i usługi wliczone w wycenę.",
+    answer: "Korona jest odbudową obejmującą ząb; może też stanowić część odbudowy na implancie. Korona cyrkonowa i licówka to różne pozycje. Wybór odbudowy powinien wynikać z oceny lekarza, a nie wyłącznie ceny lub oczekiwanego koloru uśmiechu.",
+    schemaType: "MedicalWebPage",
+    sections: [
+      { title: "Korona, licówka czy korona na implancie?", table: { headers: ["Odbudowa", "Co oznacza", "Co ustalić przed wyceną"], rows: [
+        ["Korona na własnym zębie", "Odbudowa obejmująca ząb, rozważana m.in. przy jego osłabieniu lub uszkodzeniu.", "Rokowanie zęba, zakres przygotowania i ewentualne leczenie przed koroną."],
+        ["Licówka", "Odbudowa głównie przedniej powierzchni zęba; ma inny zakres niż korona.", "Dlaczego ta metoda jest proponowana i jakie są alternatywy."],
+        ["Korona na implancie", "Część protetyczna oparta na implancie, z elementem łączącym.", "Czy podana cena obejmuje odbudowę na konkretnym systemie oraz łącznik."]
+      ]}},
+      { title: "Co ustalić o materiale i przygotowaniu", bullets: ["dokładny rodzaj korony cyrkonowej i sposób jej wykonania", "które zęby wymagają odbudowy i dlaczego", "zakres przygotowania zębów i możliwe alternatywy", "czy wkład, leczenie kanałowe lub korona tymczasowa są potrzebne i dodatkowo płatne", "jak uzgadniane są kolor, kształt, zgryz i ewentualne korekty"] },
+      { title: "Jak porównać oferty na kilka koron", paragraphs: ["Porównuj tę samą liczbę i rodzaj koron oraz te same etapy. Zapytaj, czy oferta obejmuje przygotowanie, prace tymczasowe, wykonanie i osadzenie koron, a także kontrole. Większa liczba koron nie jest automatycznie właściwym planem leczenia.", "Sama cena 150 EUR nie potwierdza liczby wizyt, długości pobytu, gwarancji ani ceny wszystkich usług. Te informacje powinny być zawarte w indywidualnym planie i pisemnej ofercie."] },
+      { title: "Kontrole i opieka po powrocie", paragraphs: ["Przed wyjazdem ustal, kto prowadzi kontrolę, jak zgłosić problem i jakie są warunki korekty. Poproś o dokumentację zastosowanych materiałów oraz wskazówki dotyczące higieny. Nie zakładaj, że ponowna podróż, naprawa lub wymiana są automatycznie bezpłatne."] }
+    ],
+    faq: [
+      { question: "Ile kosztuje korona cyrkonowa w Turcji?", answer: `Pozycja w cenniku kosztuje ${formatEur(150)}, około ${formatPln(150)} przy kursie 1 EUR = 4,37 PLN z 30.09.2026. Jednostkę rozliczenia i zakres należy potwierdzić w indywidualnej ofercie.` },
+      { question: "Czy 150 EUR obejmuje całe leczenie zęba?", answer: "Cennik tego nie potwierdza. Diagnostyka, przygotowanie, ewentualne leczenie kanałowe, wkład i prace tymczasowe wymagają określenia w planie oraz wycenie." },
+      { question: "Czy korona cyrkonowa jest licówką?", answer: "Nie. Korona obejmuje ząb, a licówka odbudowuje głównie jego przednią powierzchnię. Nazwa materiału E-max ani pozycja „Veneer kuron” nie określają jednoznacznie zakresu odbudowy; zapytaj klinikę o dokładny opis." },
+      { question: "Czy ta cena dotyczy korony na implancie?", answer: "Lista nie potwierdza zastosowania tej pozycji na implancie ani włączenia łącznika. Potrzebne jest potwierdzenie systemu implantologicznego, rodzaju odbudowy i ceny wszystkich elementów." },
+      { question: "Czy można od razu wybrać pakiet 10 lub 20 koron?", answer: "Liczbę koron ustala lekarz po ocenie zębów i alternatyw. Mnożenie ceny pozycji pokazuje jedynie sumę arytmetyczną, nie kwalifikację ani potwierdzoną cenę pakietu." }
+    ],
+    sources: [
+      { label: "American Dental Association: korony zębowe", href: "https://www.mouthhealthy.org/all-topics-a-z/crowns" },
+      { label: "American Dental Association: licówki", href: "https://www.mouthhealthy.org/all-topics-a-z/veneers" },
+      { label: "FDA: implant, łącznik i odbudowa protetyczna", href: "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know" }
+    ],
+    ctaLabel: "Zapytaj o zakres wyceny koron", ctaEvent: "zirconia_crown_cta"
+  },
   implanty: {
     lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "implanty",
     title: "Implanty zębów w Turcji – proces, koszt i kwalifikacja",
-    description: "Implanty zębów w Turcji: na czym polega leczenie, od czego zależy koszt, jakie pytania zadać klinice i jak wygląda kwalifikacja.",
+    description: "Implanty w Turcji: Aiser i Medentika 450 EUR, Straumann 900 EUR. Ceny w PLN, zakres implantu, łącznika i korony oraz przykładowe sumy i pełna wycena.",
     eyebrow: "Leczenie implantologiczne", h1: "Implanty zębów w Turcji",
     lead: "Implant zastępuje korzeń brakującego zęba i stanowi podporę dla odbudowy protetycznej. To, czy implant będzie odpowiedni i ile wizyt będzie potrzebnych, zależy od oceny lekarza.",
     answer: "Plan implantologiczny powinien wynikać z badania, obrazowania i oceny ogólnego stanu zdrowia. Cenę można rzetelnie ocenić dopiero wtedy, gdy wiadomo, jaki system implantów, odbudowę i zabiegi obejmuje plan.",
@@ -107,7 +140,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy implanty wymagają dwóch wyjazdów?", answer: "Nie da się tego potwierdzić bez planu leczenia. Liczba etapów i wizyt zależy od sytuacji klinicznej oraz rodzaju odbudowy." },
       { question: "Czy każdy może mieć implant?", answer: "Nie. Kwalifikację przeprowadza lekarz po ocenie stanu jamy ustnej, warunków anatomicznych, zdrowia ogólnego i czynników ryzyka." }
     ],
-    sources: [{ label: "American Dental Association: informacje dla pacjentów o implantach", href: "https://www.mouthhealthy.org/all-topics-a-z/implants" }],
+    sources: [{ label: "American Dental Association: informacje dla pacjentów o implantach", href: "https://www.mouthhealthy.org/all-topics-a-z/implants" }, { label: "FDA: elementy systemu implantologicznego", href: "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know" }],
     ctaLabel: "Skonsultuj możliwość leczenia implantologicznego", ctaEvent: "implant_cta"
   },
   licowki: {
@@ -375,6 +408,6 @@ export const pages: Record<string, PageContent> = {
 };
 
 export const primaryNav = [
-  { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Licówki", href: "/licowki" },
+  { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Licówki", href: "/licowki" }, { label: "Korony", href: "/korony-cyrkonowe" },
   { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "Opinie", href: "/opinie" }, { label: "Przed i po", href: "/przed-i-po" }, { label: "Antalya", href: "/antalya" }
 ];
