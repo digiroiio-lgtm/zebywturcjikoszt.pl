@@ -14,6 +14,7 @@ export default function PatientFAQ() {
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / Pytania i odpowiedzi</nav>
     <p className="eyebrow">Pytania pacjentów</p><h1>{title}</h1><p className="lead">Znajdź odpowiedź i przejdź do przewodnika z pełnym kontekstem, cenami oraz źródłami.</p>
     <p>Odpowiedzi pochodzą z istniejących przewodników. Status recenzji medycznej dotyczy wskazanej strony źródłowej, a nie automatycznie całego zestawienia. Indywidualny plan ustala lekarz po badaniu.</p>
+    <p><Link className="text-link" href="/poradniki">Poradniki dla pacjentów z Polski →</Link></p>
     <nav aria-label="Tematy pytań"><ul>{faqGroups.map((page) => <li key={page.slug}><a href={`#${page.slug}`}>{page.h1}</a></li>)}</ul></nav>
     {faqGroups.map((page) => <section className="content-section" id={page.slug} key={page.slug}><h2>{page.h1}</h2><p><Link className="text-link" href={`/${page.slug}`}>Pełny przewodnik, źródła i status recenzji →</Link></p><div className="faq-list">{page.faq!.map((faq, index) => <details id={`${page.slug}-${index + 1}`} key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p><Link className="text-link" href={`/${page.slug}#faq-${index + 1}`}>Zobacz odpowiedź w przewodniku →</Link></details>)}</div></section>)}
     <p>Autor zestawienia: Redakcja serwisu. Publikacja: <time dateTime={FAQ_PUBLISHED_DATE}>30 września 2026</time>. <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></p>

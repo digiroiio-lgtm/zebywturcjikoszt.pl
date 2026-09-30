@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { GuideNextSteps } from "./guide-next-steps";
+import { GuidePrices } from "./guide-prices";
+import { guideAssessmentHref } from "@/lib/guides";
 import { Fragment } from "react";
 import type { PageContent } from "@/lib/site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
@@ -70,14 +73,15 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   ]
 };
 
-export function PageTemplate({ page, formEnabled }: { page: PageContent; formEnabled: boolean }) {
+export function PageTemplate({ page, formEnabled, guide = false }: { page: PageContent; formEnabled: boolean; guide?: boolean }) {
   const pageUrl = `${SITE_URL}/${page.slug}`;
   const related = contextualLinks[page.slug] ?? [];
   const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const reviewer = approvedReviewer(review);
   const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Strona główna", item: SITE_URL },
-    { "@type": "ListItem", position: 2, name: page.h1, item: pageUrl }
+    ...(guide ? [{ "@type": "ListItem", position: 2, name: "Poradniki", item: `${SITE_URL}/poradniki` }] : []),
+    { "@type": "ListItem", position: guide ? 3 : 2, name: page.h1, item: pageUrl }
   ]};
   const pageSchema = {
     "@context": "https://schema.org",
@@ -95,19 +99,22 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     ...(page.faq?.length ? { hasPart: { "@id": `${pageUrl}#faq` } } : {}),
     ...(reviewer && review.reviewStatus === "reviewed" ? { lastReviewed: review.reviewDate, reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
   };
+  const articleSchema = guide ? { "@context": "https://schema.org", "@type": "Article", "@id": `${pageUrl}#article`, headline: page.h1, description: page.description, url: pageUrl, mainEntityOfPage: { "@id": `${pageUrl}#webpage` }, inLanguage: "pl-PL", datePublished: page.published, dateModified: page.lastUpdated, author: { "@id": `${SITE_URL}/#organization` }, publisher: { "@id": `${SITE_URL}/#organization` }, citation: page.sources?.map((source) => source.href.startsWith("/") ? `${SITE_URL}${source.href}` : source.href) } : null;
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`, url: `${pageUrl}#faq`, inLanguage: "pl-PL", isPartOf: { "@id": `${pageUrl}#webpage` }, mainEntity: page.faq.map((item, index) => ({ "@type": "Question", "@id": `${pageUrl}#faq-${index + 1}`, url: `${pageUrl}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
+      {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <main>
-        <section className="page-hero"><div className="shell narrow"><Breadcrumbs current={page.h1} /><p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{page.ctaLabel && <TrackedLink href={page.ctaHref ?? "/kontakt"} event={page.ctaEvent ?? "page_cta"} className="button">{page.ctaLabel}</TrackedLink>}</div></section>
+        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{guide && <p className="hero-partner">Klinika partnerska: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
+            {guide && <GuidePrices />}
             <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2>{section.title}</h2>
@@ -124,11 +131,13 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
-            {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
+            {guide && <GuideNextSteps source={`/${page.slug}`} />}
+            {!page.form && <nav className="content-section" aria-label="Biblioteka poradników"><Link className="text-link" href="/poradniki">Wszystkie poradniki dla pacjentów z Polski →</Link>{!guide && <p><Link href="/poradniki/leczenie-zebow-w-turcji">Od czego zacząć?</Link> · <Link href="/poradniki/calkowity-koszt-wyjazdu">Budżet całego wyjazdu</Link> · <Link href="/poradniki/opieka-po-leczeniu">Opieka po powrocie do Polski</Link></p>}</nav>}
+            {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <TrackedLink href={item.href} key={item.href} event={item.href.startsWith("/koszt") ? "guide_to_pricing" : ["/implanty", "/korony-cyrkonowe", "/licowki", "/cala-szczeka", "/all-on-4"].some((href) => item.href.split("#")[0] === href) ? "guide_to_treatment" : "guide_open"} tracking={{ destination_path: item.href.split("#")[0] }}><strong>{item.label}</strong><span>{item.text}</span></TrackedLink>)}</div></nav>}
           </div>
           <TrustPanel review={review} reviewer={reviewer} published={page.published} />
         </article>
-        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Poproś o wstępną ocenę</TrackedLink></div></section>}
+        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href={guideAssessmentHref(`/${page.slug}`, guide ? "guide_bottom" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_bottom" } : undefined} className="button button-light">Poproś o wstępną wycenę</TrackedLink></div></section>}
       </main>
     </>
   );

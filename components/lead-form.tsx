@@ -38,6 +38,7 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       cta_location: context.ctaLocation ?? params.get("cta_location") ?? "contact_page",
       source_page_path: context.sourcePagePath ?? params.get("page_path") ?? window.location.pathname,
       landing_page: window.location.pathname,
+      guide_source: params.get("guide_source") ?? "",
       case_reference: context.caseReference ?? params.get("case_reference") ?? "",
       utm_source: params.get("utm_source") ?? "",
       utm_medium: params.get("utm_medium") ?? "",
@@ -46,7 +47,7 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       utm_term: params.get("utm_term") ?? ""
     };
   }
-  function startForm() { if (!started.current) { started.current = true; trackEvent("contact_start"); } }
+  function startForm() { if (!started.current) { started.current = true; trackEvent("contact_start", getLeadContext()); } }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!enabled || submitting.current || status === "sent") return;
@@ -76,9 +77,13 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
     }
   }
   return (
-    <form className="lead-form" aria-labelledby={titleId} aria-describedby={descriptionId} aria-busy={status === "sending"} onFocus={startForm} onSubmit={submit}>
-      <h2 id={titleId}>Poproś o bezpłatną konsultację</h2>
-      <p id={descriptionId} className="consultation-intro">Wypełnij formularz, a skontaktujemy się z Tobą w ciągu 24 godzin, aby umówić bezpłatną konsultację telefoniczną, przez rozmowę wideo lub WhatsApp.</p>
+    <form className="lead-form" aria-labelledby={titleId} aria-describedby={descriptionId} aria-busy={status === "sending"} onInvalid={(event) => {
+      const field = event.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+      const labels: Record<string, string> = { name: "Podaj imię i nazwisko.", phone: "Podaj numer telefonu.", whatsapp: "Podaj numer WhatsApp.", email: "Podaj prawidłowy adres e-mail.", country: "Wybierz kraj.", message: "Sprawdź długość wiadomości." };
+      field.setCustomValidity(labels[field.name] ?? "Uzupełnij wymagane pole.");
+    }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
+      <h2 id={titleId}>Poproś o wstępną wycenę</h2>
+      <p id={descriptionId} className="consultation-intro">Opisz po polsku swoje potrzeby i poproś o wstępną wycenę. Skontaktujemy się z Tobą, aby ustalić potrzebne informacje; ostateczny plan leczenia wymaga badania przez lekarza.</p>
       <div className="form-grid" hidden={status === "sent"}>
         <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Twoje imię i nazwisko" />{fieldError("name")}</label>
         <label>Telefon *<input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} {...errorProps("phone")} placeholder="np. +48 123 456 789" />{fieldError("phone")}</label>
@@ -89,9 +94,9 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
-      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną konsultację <span aria-hidden="true">→</span></>}</button>}
+      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o wstępną wycenę <span aria-hidden="true">→</span></>}</button>}
       <p className="form-privacy">Zgłoszenie jest przesyłane przez Formspree. <Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
-      {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić bezpłatną konsultację.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
+      {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną wycenę.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
       {status === "error" && <p ref={feedbackRef} tabIndex={-1} role="alert" className="error">{errorMessage}</p>}
     </form>
   );

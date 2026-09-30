@@ -1,3 +1,4 @@
+import { newGuides } from "./guides";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { approvedReviewer, reviewFor } from "./medical-review";
 import { verifiedExperts } from "./evidence";
@@ -6,11 +7,11 @@ import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, priceIt
 export const FAQ_PATH = "/pytania-i-odpowiedzi";
 export const FAQ_PUBLISHED_DATE = "2026-09-30";
 const guideSlugs = ["koszt", "implanty", "korony-cyrkonowe", "licowki", "cala-szczeka", "all-on-4", "antalya", "jak-wybrac-klinike", "opinie", "przed-i-po"];
-export const patientGuides = guideSlugs.map((slug) => pages[slug]);
+export const patientGuides = [...guideSlugs.map((slug) => pages[slug]), ...Object.values(newGuides)];
 export const faqGroups = patientGuides.filter((page) => page.faq?.length);
 
 export function reviewSummary(slug: string) {
-  const page = pages[slug];
+  const page = pages[slug] ?? Object.values(newGuides).find((guide) => guide.slug === slug)!;
   const state = reviewFor(slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const expert = approvedReviewer(state);
   return expert && state.reviewStatus === "reviewed"
@@ -23,7 +24,7 @@ const pricingScope = "Ceny dotyczą pozycji z cennika kliniki, nie automatycznie
 export function llmsIndex() {
   return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Canonical origin: " + SITE_URL + ".", pricingScope,
     "Skład zespołu nie oznacza recenzji wszystkich treści. Status i data recenzji są przypisane konkretnej stronie. Zdjęcia przed i po nie mają jeszcze potwierdzonego zakresu klinicznego.",
-    "", "## Przewodniki dla pacjentów", ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
+    "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
     "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki partnerskiej i źródła zawodowe.`,
     ...verifiedExperts.map((expert) => `- [${expert.name}](${SITE_URL}${expert.profileUrl}): profil recenzenta i lista faktycznie zrecenzowanych stron.`),
     `- [Weryfikacja medyczna](${SITE_URL}/weryfikacja-medyczna): zasady i zakres recenzji.`, `- [Polityka redakcyjna](${SITE_URL}/polityka-redakcyjna): autorstwo, źródła i aktualizacje.`,

@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
   const leadSource = String(body.lead_source ?? "OGZ-PL").slice(0, 40);
   const ctaLocation = String(body.cta_location ?? "contact_page").slice(0, 80);
   const sourcePagePath = String(body.source_page_path ?? "/kontakt").slice(0, 160);
+  const guideSource = String(body.guide_source ?? "").slice(0, 160);
   const landingPage = String(body.landing_page ?? "/kontakt").slice(0, 160);
   const caseReference = String(body.case_reference ?? "").slice(0, 80);
   const utmSource = String(body.utm_source ?? "").slice(0, 120);
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest) {
         _subject: "Nowe zapytanie o konsultację | leczeniezebowwturcji.pl",
         contact: phone, contact_requested: true, source: "leczeniezebowwturcji.pl",
         lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath,
-        source_page_path: sourcePagePath, landing_page: landingPage, case_reference: caseReference,
+        guide_source: guideSource, source_page_path: sourcePagePath, landing_page: landingPage, case_reference: caseReference,
         utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign,
         utm_content: utmContent, utm_term: utmTerm
       }),
