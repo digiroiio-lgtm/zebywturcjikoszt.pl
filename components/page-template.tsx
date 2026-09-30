@@ -91,9 +91,11 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     datePublished: page.published ?? PUBLISHED_ISO_DATE,
     dateModified: review.lastUpdated,
     author: { "@id": `${SITE_URL}/#organization` },
-    ...(reviewer ? { reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
+    ...(page.sources?.length ? { citation: page.sources.map((source) => ({ "@type": "CreativeWork", name: source.label, url: source.href })) } : {}),
+    ...(page.faq?.length ? { hasPart: { "@id": `${pageUrl}#faq` } } : {}),
+    ...(reviewer && review.reviewStatus === "reviewed" ? { lastReviewed: review.reviewDate, reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
   };
-  const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: page.faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
+  const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`, url: `${pageUrl}#faq`, inLanguage: "pl-PL", isPartOf: { "@id": `${pageUrl}#webpage` }, mainEntity: page.faq.map((item, index) => ({ "@type": "Question", "@id": `${pageUrl}#faq-${index + 1}`, url: `${pageUrl}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -120,7 +122,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
               {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
             </Fragment>)}
             {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
-            {page.faq && <section className="content-section"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
+            {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
