@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { formatEur, formatPln, PRICING_UPDATED_DATE, pricesForPage, priceItems, priceCategories, priceById } from "@/lib/pricing";
 
 export function PriceList({ slug }: { slug: string }) {
@@ -20,10 +21,10 @@ export function PriceList({ slug }: { slug: string }) {
   </section>;
 }
 
-export function PriceHighlights() {
+export function PriceHighlights({ children }: { children?: ReactNode }) {
   const ids = ["zirconia-crown", "composite-veneer", "aiser"];
   return <section className="shell section-space price-highlights" aria-labelledby="price-highlights-title"><div className="section-heading"><div><p className="eyebrow">Cennik kliniki · EUR / PLN</p><h2 id="price-highlights-title">Przykładowe ceny leczenia</h2></div><p>Ceny poszczególnych pozycji. Kwoty w złotych są orientacyjne przy kursie 1 EUR = 4,37 PLN z 30.09.2026.</p></div><div className="price-highlight-grid">{ids.map((id) => {
     const item = priceItems.find((price) => price.id === id)!;
     return <Link key={id} href={id === "zirconia-crown" ? "/korony-cyrkonowe" : id === "aiser" ? "/implanty#zakres-implantu" : "/licowki#cennik"} className="price-highlight-card"><h3>{item.label}</h3><strong>{formatEur(item.eur)}</strong><span>≈ {formatPln(item.eur)}</span></Link>;
-  })}</div><Link className="text-link" href="/koszt#cennik">Sprawdź pełny cennik 24 zabiegów →</Link></section>;
+  })}</div><Link className="text-link" href="/koszt#cennik">Sprawdź pełny cennik 24 zabiegów →</Link>{children}</section>;
 }
