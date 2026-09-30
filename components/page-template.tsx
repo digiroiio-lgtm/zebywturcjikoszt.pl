@@ -11,25 +11,35 @@ import { BeforeAfterCaseHub } from "./case-gallery";
 import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
+import { TreatmentCostScope } from "./treatment-cost-scope";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
+  "korony-cyrkonowe": [
+    { href: "/koszt", label: "Pełny cennik", text: "Sprawdź ceny dodatkowego leczenia i zasady wyceny." },
+    { href: "/licowki", label: "Licówki a korony", text: "Porównaj różne rodzaje odbudowy." },
+    { href: "/implanty#zakres-implantu", label: "Korona na implancie", text: "Sprawdź elementy pełnej odbudowy na implancie." }
+  ],
   koszt: [
+    { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
     { href: "/implanty", label: "Koszt implantów", text: "Sprawdź, co składa się na pełny plan implantologiczny." },
     { href: "/licowki", label: "Koszt licówek", text: "Zobacz, od czego zależy zakres i cena leczenia estetycznego." },
     { href: "/cala-szczeka", label: "Cała szczęka", text: "Poznaj różne drogi pełnej odbudowy uzębienia." },
     { href: "/all-on-4", label: "All-on-4", text: "Sprawdź, dlaczego nazwa metody nie wystarcza do porównania ofert." }
   ],
   implanty: [
+    { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
     { href: "/koszt", label: "Jak porównać wyceny", text: "Porównaj zakres, materiały, etapy i opiekę po leczeniu." },
     { href: "/cala-szczeka", label: "Pełna odbudowa", text: "Zobacz, kiedy potrzeba pacjenta wykracza poza pojedyncze implanty." },
     { href: "/all-on-4", label: "All-on-4", text: "Przejdź do osobnego przewodnika po pełnołukowej odbudowie." }
   ],
   licowki: [
+    { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
     { href: "/koszt", label: "Jak czytać wycenę", text: "Sprawdź zakres, materiał i możliwe koszty dodatkowe." },
     { href: "/przed-i-po", label: "Jak oceniać efekty", text: "Dowiedz się, czego nie pokazują same fotografie." },
     { href: "/jak-wybrac-klinike", label: "Wybór kliniki", text: "Przejdź przez pytania o lekarza, plan i alternatywy." }
   ],
   "cala-szczeka": [
+    { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
     { href: "/implanty", label: "Implanty", text: "Poznaj ogólne zasady kwalifikacji do leczenia implantologicznego." },
     { href: "/all-on-4", label: "All-on-4", text: "Sprawdź szczegóły jednej z możliwych koncepcji pełnołukowych." },
     { href: "/koszt", label: "Pełny koszt leczenia", text: "Porównaj oferty według zakresu, etapów i opieki po powrocie." }
@@ -78,7 +88,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
     url: pageUrl,
     inLanguage: "pl-PL",
     isPartOf: { "@id": `${SITE_URL}/#website` },
-    datePublished: PUBLISHED_ISO_DATE,
+    datePublished: page.published ?? PUBLISHED_ISO_DATE,
     dateModified: review.lastUpdated,
     author: { "@id": `${SITE_URL}/#organization` },
     ...(reviewer ? { reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
@@ -96,6 +106,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
+            <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -113,7 +124,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
           </div>
-          <TrustPanel review={review} reviewer={reviewer} />
+          <TrustPanel review={review} reviewer={reviewer} published={page.published} />
         </article>
         {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href="/kontakt" event={page.ctaEvent ?? "page_cta"} className="button button-light">Poproś o wstępną ocenę</TrackedLink></div></section>}
       </main>

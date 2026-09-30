@@ -17,6 +17,7 @@ import { PRICING_UPDATED_DATE, PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
 const treatments = [
   { href: "/koszt", label: "Koszt leczenia", text: "Co wpływa na cenę i jak porównać pełny zakres wyceny.", image: "/images/diagrams/cost-scope.svg", alt: "Elementy pełnego kosztu leczenia" },
   { href: "/implanty", label: "Implanty", text: "Kwalifikacja, etapy, odbudowa i pytania do kliniki.", image: "/images/diagrams/implant-plan.svg", alt: "Etapy planowania leczenia implantologicznego" },
+  { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "150 EUR za pozycję: zakres, dodatkowe koszty i przykładowe sumy.", image: "/images/diagrams/veneer-options.svg", alt: "Porównanie odbudów estetycznych" },
   { href: "/licowki", label: "Licówki", text: "Plan estetyczny, materiały i alternatywy dla licówek.", image: "/images/diagrams/veneer-options.svg", alt: "Porównanie metod odbudowy estetycznej" },
   { href: "/cala-szczeka", label: "Cała szczęka", text: "Dlaczego pełna odbudowa nie oznacza jednego zabiegu.", image: "/images/diagrams/full-arch-options.svg", alt: "Możliwe kierunki pełnej odbudowy" },
   { href: "/all-on-4", label: "All-on-4", text: "Na czym polega koncepcja i co decyduje o kwalifikacji.", image: "/images/diagrams/all-on-4-plan.svg", alt: "Schemat koncepcji All-on-4" },

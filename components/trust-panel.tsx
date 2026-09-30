@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { VerifiedExpert } from "@/lib/evidence";
 import type { ReviewState } from "@/lib/medical-review";
-import { PUBLISHED_DATE } from "@/lib/site";
+import { PUBLISHED_ISO_DATE } from "@/lib/site";
 
 function polishDate(date: string) {
   return new Intl.DateTimeFormat("pl-PL", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T00:00:00Z`));
 }
 
-export function TrustPanel({ review, reviewer }: { review: ReviewState; reviewer: VerifiedExpert | null }) {
+export function TrustPanel({ review, reviewer, published = PUBLISHED_ISO_DATE }: { review: ReviewState; reviewer: VerifiedExpert | null; published?: string }) {
   const reviewed = reviewer && review.reviewStatus === "reviewed";
   const status = reviewed ? "Treść zweryfikowana medycznie" : review.reviewStatus === "review-pending" ? "Recenzja: oczekuje na potwierdzenie daty" : "Recenzja: jeszcze nieprzeprowadzona";
   return <aside className="trust-panel" aria-label="Informacje o treści">
@@ -16,7 +16,7 @@ export function TrustPanel({ review, reviewer }: { review: ReviewState; reviewer
       <div className="trust-panel-body">
         <dl>
           <div><dt>Autor</dt><dd>Redakcja serwisu</dd></div>
-          <div><dt>Publikacja</dt><dd>{PUBLISHED_DATE}</dd></div>
+          <div><dt>Publikacja</dt><dd>{polishDate(published)}</dd></div>
           <div><dt>Aktualizacja</dt><dd>{polishDate(review.lastUpdated)}</dd></div>
           {reviewed ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {polishDate(review.reviewDate)}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>{review.reviewStatus === "review-pending" ? "Data recenzji jest w trakcie potwierdzania." : "Jeszcze nieprzeprowadzona"}</dd></div>}
         </dl>

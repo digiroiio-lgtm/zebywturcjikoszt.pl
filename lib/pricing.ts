@@ -37,8 +37,27 @@ const implantIds = ["straumann", "aiser", "medentika", "implant-removal", "sinus
 const restorationIds = ["composite-veneer", "emax", "veneer-crown", "zirconia-crown", "bleaching"];
 const fullArchIds = ["straumann", "aiser", "medentika", "zirconia-crown", "sinus-lift", "bone-graft", "complicated-extraction", "sedation", "general-anesthesia"];
 
+export const priceCategories = [
+  { id: "korony-licowki", label: "Korony, licówki i odbudowy", ids: ["zirconia-crown", "composite-veneer", "emax", "veneer-crown", "composite-filling", "fiber-post"] },
+  { id: "implanty-chirurgia", label: "Implanty i chirurgia", ids: ["aiser", "medentika", "straumann", "implant-removal", "sinus-lift", "bone-graft", "complicated-extraction", "frenectomy"] },
+  { id: "leczenie-dziasel", label: "Leczenie zębów i dziąseł", ids: ["root-canal", "retreatment", "curettage", "gingivectomy"] },
+  { id: "higiena-estetyka", label: "Higiena, estetyka i pozostałe zabiegi", ids: ["full-mouth-cleaning", "bleaching", "night-guard", "masseter-botox"] },
+  { id: "znieczulenie", label: "Sedacja i znieczulenie", ids: ["sedation", "general-anesthesia"] }
+];
+
+export function priceById(id: string): PriceItem {
+  const item = priceItems.find((price) => price.id === id);
+  if (!item) throw new Error(`Unknown price: ${id}`);
+  return item;
+}
+
+/** Arithmetic subtotals only. No package or included services have been confirmed. */
+export function priceSubtotal(lines: { id: string; quantity: number }[]) {
+  return lines.reduce((sum, line) => sum + priceById(line.id).eur * line.quantity, 0);
+}
+
 export function pricesForPage(slug: string): PriceItem[] {
-  const ids = slug === "implanty" ? implantIds : slug === "licowki" ? restorationIds : ["cala-szczeka", "all-on-4"].includes(slug) ? fullArchIds : null;
+  const ids = slug === "korony-cyrkonowe" ? ["zirconia-crown", "fiber-post", "root-canal", "night-guard"] : slug === "implanty" ? implantIds : slug === "licowki" ? restorationIds : ["cala-szczeka", "all-on-4"].includes(slug) ? fullArchIds : null;
   if (slug === "koszt") return priceItems;
   return ids ? ids.map((id) => priceItems.find((item) => item.id === id)!) : [];
 }
