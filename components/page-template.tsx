@@ -10,6 +10,7 @@ import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
 import { BeforeAfterCaseHub } from "./case-gallery";
 import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
+import { PriceList } from "./price-list";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
   koszt: [
@@ -62,7 +63,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
 export function PageTemplate({ page, formEnabled }: { page: PageContent; formEnabled: boolean }) {
   const pageUrl = `${SITE_URL}/${page.slug}`;
   const related = contextualLinks[page.slug] ?? [];
-  const review = reviewFor(page.slug, UPDATED_ISO_DATE);
+  const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const reviewer = approvedReviewer(review);
   const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Strona główna", item: SITE_URL },
@@ -94,6 +95,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
+            <PriceList slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
