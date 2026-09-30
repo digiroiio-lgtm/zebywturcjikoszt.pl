@@ -350,7 +350,7 @@ export const pages: Record<string, PageContent> = {
     slug: "kontakt", lastUpdated: PRICING_UPDATED_ISO_DATE, title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną konsultację. Podaj imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie dodaj wiadomość.",
     eyebrow: "Następny krok", h1: "Poproś o wstępną ocenę leczenia",
     lead: "W formularzu możesz krótko opisać, jakie leczenie rozważasz i o co chcesz zapytać. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz potwierdzonego bezpiecznego kanału.",
-    answer: "Formularz jest obecnie niedostępny. Prosimy nie przesyłać dokumentacji medycznej przez inne kanały, zanim nie zostanie wskazany bezpieczny sposób jej przekazania.",
+    answer: "Podaj dane kontaktowe i krótko opisz, czego potrzebujesz. Zgłoszenie jest przesyłane przez Formspree. Plan leczenia ustala lekarz po badaniu; nie przesyłaj dokumentacji medycznej przez formularz.",
     sections: [{ title: "Przygotuj przed kontaktem", bullets: ["rodzaj leczenia, które rozważasz", "krótki opis problemu bez zbędnych danych zdrowotnych", "preferowany sposób kontaktu", "pytania o koszt, etapy i organizację wyjazdu"] }],
     form: true
   },
@@ -380,11 +380,11 @@ export const pages: Record<string, PageContent> = {
   "polityka-prywatnosci": {
     slug: "polityka-prywatnosci", title: "Polityka prywatności", description: "Informacje o przetwarzaniu danych w serwisie Zęby w Turcji.",
     eyebrow: "Dokument prawny", h1: "Polityka prywatności",
-    lead: "Formularz kontaktowy nie jest aktywny do czasu potwierdzenia administratora danych i bezpiecznego odbiorcy zgłoszeń.",
-    answer: "Obecna wersja serwisu nie przyjmuje danych przez formularz. Dane administratora, podstawy przetwarzania, okresy przechowywania i prawa użytkownika wymagają uzupełnienia przed uruchomieniem pozyskiwania leadów.",
+    lead: "Formularz służy do przesłania zapytania o konsultację i danych umożliwiających odpowiedź.",
+    answer: "Zgłoszenia są przekazywane przez Formspree. Formularz obejmuje imię i nazwisko, telefon, numer WhatsApp, adres e-mail, kraj i opcjonalną wiadomość oraz informacje o stronie i kampanii, z której pochodzi zapytanie. Nie przesyłaj zdjęć ani dokumentacji medycznej.",
     sections: [
-      { title: "Aktualny zakres", bullets: ["brak aktywnego przesyłania formularza", "brak przesyłania zdjęć i dokumentacji medycznej", "brak potwierdzonego narzędzia analitycznego", "brak sprzedaży danych użytkowników"] },
-      { title: "Przed uruchomieniem kontaktu", paragraphs: ["Dokument zostanie uzupełniony o pełne dane administratora, odbiorców danych, transfery, zabezpieczenia, prawa użytkownika i kontakt w sprawach prywatności."] }
+      { title: "Aktualny zakres", bullets: ["przesyłanie zapytań kontaktowych przez Formspree", "brak przesyłania zdjęć i dokumentacji medycznej", "brak potwierdzonego narzędzia analitycznego", "brak sprzedaży danych użytkowników"] },
+      { title: "Dokumentacja do uzupełnienia", paragraphs: ["Pełne dane administratora, odbiorcy danych, podstawy przetwarzania, okresy przechowywania, transfery, prawa użytkownika i kontakt w sprawach prywatności wymagają uzupełnienia przez operatora serwisu."] }
     ], noindex: true
   },
   cookies: {
