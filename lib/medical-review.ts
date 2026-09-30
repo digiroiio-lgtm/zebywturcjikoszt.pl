@@ -27,9 +27,9 @@ export function approvedReviewer(state: ReviewState): VerifiedExpert | null {
   return verifiedExperts.find((expert) => expert.slug === state.reviewer) ?? null;
 }
 
-export function reviewedPagesBy(reviewerSlug: string, lastUpdated: string, pages: Record<string, { h1: string }>) {
-  return Object.entries(pages).filter(([slug]) => {
-    const state = reviewFor(slug, lastUpdated);
+export function reviewedPagesBy(reviewerSlug: string, lastUpdated: string, pages: Record<string, { h1: string; lastUpdated?: string }>) {
+  return Object.entries(pages).filter(([slug, page]) => {
+    const state = reviewFor(slug, page.lastUpdated ?? lastUpdated);
     return approvedReviewer(state)?.slug === reviewerSlug;
   }).map(([slug, page]) => ({ slug, title: page.h1 }));
 }
