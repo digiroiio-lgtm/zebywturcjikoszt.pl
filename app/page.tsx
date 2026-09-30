@@ -6,8 +6,8 @@ import { CuratedCaseGallery } from "@/components/case-gallery";
 import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Zęby w Turcji – leczenie, możliwości i świadomy wybór",
-  description: "Przewodnik dla osób z Polski rozważających leczenie zębów w Turcji: możliwości, koszty, Antalya, wybór kliniki i przygotowanie do konsultacji.",
+  title: { absolute: "Leczenie zębów w Turcji – Ceny, implanty i korony" },
+  description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.",
   alternates: { canonical: "/" }
 };
 
