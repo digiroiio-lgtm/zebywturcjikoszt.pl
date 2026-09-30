@@ -8,10 +8,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Zęby w Turcji – koszt i leczenie w Antalyi", template: `%s | ${SITE_NAME}` },
-  description: "Rzetelny przewodnik po leczeniu zębów w Turcji: koszty, implanty, licówki, pełna odbudowa i plan wyjazdu do Antalyi.",
+  title: { default: "Leczenie zębów w Turcji – Ceny, implanty i korony", template: `%s | ${SITE_NAME}` },
+  description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.",
   robots: { index: true, follow: true },
-  openGraph: { type: "website", locale: "pl_PL", siteName: SITE_NAME, title: "Zęby w Turcji – koszt i leczenie w Antalyi", description: "Sprawdź możliwości leczenia, koszty i zasady bezpiecznego wyboru kliniki.", url: SITE_URL },
+  openGraph: { type: "website", locale: "pl_PL", siteName: SITE_NAME, title: "Leczenie zębów w Turcji – Ceny, implanty i korony", description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.", url: SITE_URL },
   twitter: { card: "summary", title: "Zęby w Turcji", description: "Koszty, leczenie i świadomy wybór kliniki w Turcji." }
 };
 
