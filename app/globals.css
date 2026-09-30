@@ -283,3 +283,16 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   .consultation-intro { margin-bottom:30px; font-size:18px; }
   .lead-form .consultation-submit { min-height:68px; margin-top:28px; font-size:20px; }
 }
+
+/* Team cards use the existing card palette and responsive breakpoints. */
+.clinical-team-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+.clinical-team-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: white; scroll-margin-top: 110px; }
+.clinical-team-portrait { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.clinical-team-body { padding: 24px; overflow-wrap: anywhere; }
+.clinical-team-body h2 { font-size: 28px; }
+.clinical-team-body .text-link { display: block; margin-top: 16px; }
+.reviewer-portrait { display: block; width: min(300px, 100%); height: auto; border-radius: 16px; margin-block: 24px; }
+@media (max-width: 1000px) { .clinical-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .clinical-team-grid { grid-template-columns: minmax(0, 1fr); } }
+
+.clinical-team-page a:focus-visible, .expert-profile a:focus-visible { outline: 3px solid var(--green-dark); outline-offset: 4px; }
