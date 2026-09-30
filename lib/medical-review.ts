@@ -8,13 +8,13 @@ export type ReviewState =
 
 // Record a review here only after the clinician actually checks the named page.
 // Retain the approval evidence outside this public repository and reference it here.
-// Approval is reported for these pages, but the actual review date is absent.
-// Keep them pending until that date is supplied and recorded per page.
+// The site operator confirmed clinician approval for these four pages in the
+// conversation on 2026-09-30 and supplied 2026-09-30 as the actual review date.
 export const pageReviews: Record<string, ReviewState> = {
-  implanty: { reviewStatus: "review-pending", lastUpdated: "2026-09-19" },
-  licowki: { reviewStatus: "review-pending", lastUpdated: "2026-09-19" },
-  "cala-szczeka": { reviewStatus: "review-pending", lastUpdated: "2026-09-19" },
-  "all-on-4": { reviewStatus: "review-pending", lastUpdated: "2026-09-19" }
+  implanty: { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
+  licowki: { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
+  "cala-szczeka": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
+  "all-on-4": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" }
 };
 
 export function reviewFor(slug: string, lastUpdated: string): ReviewState {
