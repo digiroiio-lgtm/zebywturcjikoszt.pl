@@ -119,7 +119,7 @@ export function PageTemplate({ page, formEnabled }: { page: PageContent; formEna
               {page.slug === "antalya" && section.title === "Przed wyjazdem" && <AntalyaJourneyImages />}
               {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
             </Fragment>)}
-            {page.form && <section className="content-section" id="assessment-form"><h2>Formularz wstępnej oceny</h2><LeadForm enabled={formEnabled} /></section>}
+            {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>}
             {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <Link href={item.href} key={item.href}><strong>{item.label}</strong><span>{item.text}</span></Link>)}</div></nav>}
