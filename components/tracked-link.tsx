@@ -22,7 +22,7 @@ export function TrackedLink({ href, event, className, children, tracking }: { hr
     if (!href.startsWith("/") || href.startsWith("//")) return;
     const incoming = new URLSearchParams(window.location.search);
     const url = new URL(href, window.location.origin);
-    for (const key of ["guide_source", ...(href.startsWith("/kontakt") ? ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"] : [])]) {
+    for (const key of ["guide_source", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
       if (incoming.has(key) && (!url.searchParams.has(key) || (key === "guide_source" && href.startsWith("/kontakt") && !window.location.pathname.startsWith("/poradniki")))) url.searchParams.set(key, incoming.get(key)!);
     }
     setDestination(url.pathname + url.search + url.hash);
