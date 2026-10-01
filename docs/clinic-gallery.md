@@ -2,7 +2,7 @@
 
 Route: `/antalya-akdeniz-dental-clinic`
 
-The requested `.jpeg` files were absent from all fetched repository refs on 2026-10-01. The corresponding numbered `.jpg` originals were imported from the official clinic gallery: https://akdenizdental.com/research-style-1.html. Each photograph was visually inspected before writing its Polish alt text. No changes to the scene or medical claims were added. The 07 and 07b files show two crops of the same entrance.
+The requested JPEGs were uploaded to `public/images/diagrams` on main during implementation (commit a42bac3). Optimized assets are generated directly from those uploaded files. The corresponding numbered photographs are also published in the official clinic gallery: https://akdenizdental.com/research-style-1.html. Each photograph was visually inspected before writing its Polish alt text. No changes to the scene or medical claims were added. The 07 and 07b files show two crops of the same entrance.
 
 | Requested file | Optimized public URL | Polish caption |
 | --- | --- | --- |
