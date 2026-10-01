@@ -39,6 +39,9 @@ const titleOwners = new Map();
 
 if (!sitemapOrigin) fail("Sitemap has no absolute URLs.");
 if (!robots.includes("Sitemap:")) fail("robots.txt does not advertise the sitemap.");
+for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) {
+  if (!robots.includes(`User-Agent: ${bot}`)) fail(`robots.txt lacks an explicit rule for ${bot}.`);
+}
 if (new Set(sitemapUrls).size !== sitemapUrls.length) fail("Sitemap contains duplicate URLs.");
 
 for (const [route, file] of routeFiles) {
@@ -53,6 +56,9 @@ for (const [route, file] of routeFiles) {
   if (titles.length !== 1 || !titles[0].trim()) fail(`${route}: expected one non-empty title.`);
   if (descriptions.length !== 1 || !descriptions[0].trim()) fail(`${route}: expected one non-empty meta description.`);
   if (canonicals.length !== 1) fail(`${route}: expected exactly one canonical.`);
+  if (!/<meta property="og:image" content="[^"]+"/.test(html)) fail(`${route}: missing og:image.`);
+  if (!/<meta name="twitter:card" content="summary_large_image"/.test(html)) fail(`${route}: twitter:card is not summary_large_image.`);
+  if (!/<link rel="icon"/.test(html)) fail(`${route}: missing favicon link.`);
   if (h1Count !== 1) fail(`${route}: expected exactly one h1, found ${h1Count}.`);
 
   if (canonicals[0]) {
@@ -75,7 +81,7 @@ for (const [route, file] of routeFiles) {
 
   for (const href of matches(html, /href="(\/[^"]*)"/g)) {
     const linkedRoute = normalisePath(href);
-    if (linkedRoute.startsWith("/_next/") || linkedRoute.startsWith("/api/")) continue;
+    if (linkedRoute.startsWith("/_next/") || linkedRoute.startsWith("/api/") || ["/icon", "/apple-icon", "/manifest.webmanifest", "/opengraph-image", "/twitter-image"].includes(linkedRoute)) continue;
     if (!knownRoutes.has(linkedRoute)) fail(`${route}: broken internal link to ${linkedRoute}.`);
   }
 

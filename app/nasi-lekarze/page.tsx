@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-team";
 import { SITE_URL } from "@/lib/site";
+import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
   description: "Poznaj 12 dentystów Akdeniz Dental w Antalyi: wykształcenie, obszary pracy i oficjalne profile. Sprawdź także rolę recenzenta medycznego serwisu.",
   alternates: { canonical: "/nasi-lekarze" },
-  openGraph: { title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki partnerskiej, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
-  twitter: { card: "summary", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki partnerskiej w Antalyi i oficjalne profile lekarzy." },
+  openGraph: { images: OG_IMAGES, title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki partnerskiej, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
+  twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki partnerskiej w Antalyi i oficjalne profile lekarzy." },
 };
 export default function ClinicalTeam() {
   const url = `${SITE_URL}/nasi-lekarze`;
