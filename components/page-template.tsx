@@ -62,6 +62,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/opinie", label: "Jak oceniać opinie", text: "Odróżnij relację pacjenta od materiału reklamowego." }
   ],
   antalya: [
+    { href: "/antalya-akdeniz-dental-clinic", label: "Akdeniz Dental Antalya", text: "Zobacz recepcję, poczekalnię i gabinety kliniki partnerskiej." },
     { href: "/koszt", label: "Koszt całego wyjazdu", text: "Uwzględnij leczenie, podróż, pobyt i możliwe korekty." },
     { href: "/jak-wybrac-klinike", label: "Wybór kliniki", text: "Sprawdź placówkę i odpowiedzialność przed rezerwacją lotu." },
     { href: "/implanty", label: "Implanty", text: "Zobacz, dlaczego leczenie może wymagać więcej niż jednego pobytu." }

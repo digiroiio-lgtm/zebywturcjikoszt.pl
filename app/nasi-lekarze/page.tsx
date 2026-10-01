@@ -24,6 +24,7 @@ export default function ClinicalTeam() {
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / Nasi lekarze</nav>
     <p className="eyebrow">Klinika partnerska</p><h1>Nasi lekarze</h1>
     <p className="lead">Poznaj lekarzy stomatologów współpracującej z nami kliniki Akdeniz Dental w Antalyi. Sprawdź ich wykształcenie, doświadczenie kliniczne oraz obszary, którymi zajmują się w codziennej praktyce.</p>
+    <p><Link className="text-link" href="/antalya-akdeniz-dental-clinic">Zobacz zdjęcia kliniki Akdeniz Dental w Antalyi →</Link></p>
     <p>Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Obszary pracy nie są równoznaczne z niezależnie potwierdzonym tytułem specjalisty. Zdjęcia przedstawiają lekarzy wskazanych w tych profilach.</p>
     <div className="clinical-team-grid">{clinicalTeam.map((doctor) => <article className="clinical-team-card" id={doctor.slug} key={doctor.slug}>
       <Image src={doctor.imageUrl} alt={`Lek. dent. ${doctor.name} – Akdeniz Dental`} width={600} height={600} sizes="(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw" className="clinical-team-portrait" />

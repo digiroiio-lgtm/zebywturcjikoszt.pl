@@ -1,3 +1,4 @@
+import { CLINIC_PATH, CLINIC_TITLE, CLINIC_SUMMARY, CLINIC_UPDATED, CLINIC_GALLERY_SOURCE, clinicImages } from "./clinic-gallery";
 import { newGuides } from "./guides";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { approvedReviewer, reviewFor } from "./medical-review";
@@ -25,7 +26,7 @@ export function llmsIndex() {
   return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Canonical origin: " + SITE_URL + ".", pricingScope,
     "Skład zespołu nie oznacza recenzji wszystkich treści. Status i data recenzji są przypisane konkretnej stronie. Zdjęcia przed i po nie mają jeszcze potwierdzonego zakresu klinicznego.",
     "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
-    "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki partnerskiej i źródła zawodowe.`,
+    "", "## Klinika partnerska", `- [${CLINIC_TITLE}](${SITE_URL}${CLINIC_PATH}): ${CLINIC_SUMMARY}`, "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki partnerskiej i źródła zawodowe.`,
     ...verifiedExperts.map((expert) => `- [${expert.name}](${SITE_URL}${expert.profileUrl}): profil recenzenta i lista faktycznie zrecenzowanych stron.`),
     `- [Weryfikacja medyczna](${SITE_URL}/weryfikacja-medyczna): zasady i zakres recenzji.`, `- [Polityka redakcyjna](${SITE_URL}/polityka-redakcyjna): autorstwo, źródła i aktualizacje.`,
     "", "## Optional", `- [Pełny tekst przewodników](${SITE_URL}/llms-full.txt): tekst z tych samych danych co widoczne strony, z cenami, źródłami i datami recenzji.`, `- [Dane o pochodzeniu treści](${SITE_URL}/content-provenance.json): rekordy źródeł i recenzji poszczególnych stron.`, `- [Sitemap](${SITE_URL}/sitemap.xml): adresy stron przeznaczonych do indeksowania.`, `- [Kontakt](${SITE_URL}/kontakt): zapytania o konsultację; nie przesyłaj dokumentacji medycznej przez formularz.`, ""].join("\n");
@@ -40,5 +41,5 @@ export function llmsFull() {
   ].join("\n"));
   return [`# ${SITE_NAME}: przewodniki dla pacjentów`, `> ${context}`, "", "Ten tekst jest generowany z danych widocznych przewodników. Pierwszeństwo ma aktualna strona pod adresem canonical; informacje nie kwalifikują pacjenta do leczenia.",
     "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`, pricingScope,
-    "| Pozycja | EUR |", "| --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} |`), "", ...sections].join("\n");
+    "| Pozycja | EUR |", "| --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} |`), "", `## ${CLINIC_TITLE}`, `Canonical URL: ${SITE_URL}${CLINIC_PATH}`, `Aktualizacja strony: ${CLINIC_UPDATED}.`, CLINIC_SUMMARY, `Źródło zdjęć: ${CLINIC_GALLERY_SOURCE}`, ...clinicImages.map((image) => `- ${image.title}: ${image.alt} Zdjęcie: ${SITE_URL}${image.src}`), "", ...sections].join("\n");
 }
