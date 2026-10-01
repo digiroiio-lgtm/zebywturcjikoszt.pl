@@ -7,6 +7,7 @@ import type { PageContent } from "@/lib/site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { reviewFor, approvedReviewer } from "@/lib/medical-review";
+import { PRICING_UPDATED_ISO_DATE, priceItems } from "@/lib/pricing";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
@@ -95,15 +96,19 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
     datePublished: page.published ?? PUBLISHED_ISO_DATE,
     dateModified: review.lastUpdated,
     author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    speakable: { "@type": "SpeakableSpecification", cssSelector: [".page-hero h1", ".direct-answer"] },
     ...(page.sources?.length ? { citation: page.sources.map((source) => ({ "@type": "CreativeWork", name: source.label, url: source.href })) } : {}),
     ...(page.faq?.length ? { hasPart: { "@id": `${pageUrl}#faq` } } : {}),
     ...(reviewer && review.reviewStatus === "reviewed" ? { lastReviewed: review.reviewDate, reviewedBy: { "@id": `${SITE_URL}${reviewer.profileUrl}/#person` } } : {})
   };
   const articleSchema = guide ? { "@context": "https://schema.org", "@type": "Article", "@id": `${pageUrl}#article`, headline: page.h1, description: page.description, url: pageUrl, mainEntityOfPage: { "@id": `${pageUrl}#webpage` }, inLanguage: "pl-PL", datePublished: page.published, dateModified: page.lastUpdated, author: { "@id": `${SITE_URL}/#organization` }, publisher: { "@id": `${SITE_URL}/#organization` }, citation: page.sources?.map((source) => source.href.startsWith("/") ? `${SITE_URL}${source.href}` : source.href) } : null;
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`, url: `${pageUrl}#faq`, inLanguage: "pl-PL", isPartOf: { "@id": `${pageUrl}#webpage` }, mainEntity: page.faq.map((item, index) => ({ "@type": "Question", "@id": `${pageUrl}#faq-${index + 1}`, url: `${pageUrl}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
+  const priceSchema = page.slug === "koszt" ? { "@context": "https://schema.org", "@type": "ItemList", "@id": `${pageUrl}#cennik`, name: "Cennik kliniki Akdeniz Dental (pozycje w EUR)", itemListElement: priceItems.map((item, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Offer", name: item.label, price: item.eur.toFixed(2), priceCurrency: "EUR", validFrom: PRICING_UPDATED_ISO_DATE, description: "Cena pozycji z cennika kliniki, nie ceny całkowitej leczenia ani pakietu.", seller: { "@type": "Organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" } } })) } : null;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {priceSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
@@ -111,7 +116,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
         <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{guide && <p className="hero-partner">Klinika partnerska: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
-            <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">Najważniejsze przed decyzją</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
+            <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
             {guide && <GuidePrices />}

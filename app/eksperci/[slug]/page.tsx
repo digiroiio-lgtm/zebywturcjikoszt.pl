@@ -6,12 +6,13 @@ import { notFound } from "next/navigation";
 import { verifiedExperts } from "@/lib/evidence";
 import { SITE_URL, UPDATED_ISO_DATE, pages } from "@/lib/site";
 import { reviewedPagesBy } from "@/lib/medical-review";
+import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
 export const dynamicParams = false;
 export function generateStaticParams() { return verifiedExperts.map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const expert = verifiedExperts.find((item) => item.slug === slug);
-  return expert ? { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: `Profil recenzenta medycznego serwisu: ${expert.name}, dentysta i właściciel Akdeniz Dental w Antalyi. Biografia, źródła i status recenzji treści.`, openGraph: { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography, url: expert.profileUrl, type: "profile" }, twitter: { card: "summary", title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography }, alternates: { canonical: expert.profileUrl } } : {};
+  return expert ? { title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: `Profil recenzenta medycznego serwisu: ${expert.name}, dentysta i właściciel Akdeniz Dental w Antalyi. Biografia, źródła i status recenzji treści.`, openGraph: { images: OG_IMAGES, title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography, url: expert.profileUrl, type: "profile" }, twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: `Lek. dent. ${expert.name} – Recenzent medyczny`, description: expert.introduction ?? expert.biography }, alternates: { canonical: expert.profileUrl } } : {};
 }
 export default async function ExpertProfile({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

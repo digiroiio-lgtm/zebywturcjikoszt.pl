@@ -9,7 +9,8 @@ const full = read('llms-full.txt.body');
 for (const path of ['llms.txt', 'llms-full.txt']) {
   const meta = JSON.parse(read(path + '.meta'));
   assert.equal(meta.status, 200);
-  assert.equal(meta.headers['x-robots-tag'], 'noindex');
+  assert.equal(meta.headers['x-robots-tag'], undefined);
+  assert.equal(meta.headers['content-language'], 'pl');
   assert.match(meta.headers['content-type'], /^text\/plain/);
 }
 assert.match(index, /^# /);

@@ -24,6 +24,7 @@ export type PageContent = {
   h1: string;
   lead: string;
   answer: string;
+  answerTitle?: string;
   sections: ContentSection[];
   faq?: { question: string; answer: string }[];
   sources?: { label: string; href: string }[];
