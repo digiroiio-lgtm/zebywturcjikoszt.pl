@@ -21,7 +21,7 @@ async function htmlFiles(directory, prefix = "") {
   const entries = await readdir(directory, { withFileTypes: true });
   const groups = await Promise.all(entries.map(async (entry) => entry.isDirectory()
     ? htmlFiles(path.join(directory, entry.name), `${prefix}${entry.name}/`)
-    : entry.name.endsWith(".html") && entry.name !== "_not-found.html" ? [`${prefix}${entry.name}`] : []));
+    : entry.name.endsWith(".html") && !["_not-found.html", "_global-error.html"].includes(entry.name) ? [`${prefix}${entry.name}`] : []));
   return groups.flat();
 }
 const files = await htmlFiles(appDir);
