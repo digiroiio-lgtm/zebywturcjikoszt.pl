@@ -172,7 +172,7 @@ export const pages: Record<string, PageContent> = {
   },
   "cala-szczeka": {
     lastUpdated: PRICING_UPDATED_ISO_DATE,
-    slug: "cala-szczeka", title: "Zęby w Turcji – cała szczęka i pełna odbudowa uzębienia",
+    slug: "cala-szczeka", title: "Cała szczęka w Turcji – pełna odbudowa uzębienia",
     description: "Co może oznaczać leczenie całej szczęki w Turcji: implanty, korony, All-on-4, All-on-6 i indywidualna rekonstrukcja.",
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
     lead: "„Cała szczęka” to opis potrzeby pacjenta, a nie nazwa jednego zabiegu. W zależności od stanu zębów i kości plan może dotyczyć zachowania własnych zębów, implantów albo odbudowy protetycznej.",
