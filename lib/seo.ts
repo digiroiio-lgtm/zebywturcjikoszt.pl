@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { PageContent } from "./site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "./site";
-import { CLINIC_GEO, CLINIC_ID, CLINIC_NAME, CLINIC_URL, clinicProfiles } from "./clinic-profiles";
+import { CLINIC_ADDRESS, CLINIC_GEO, CLINIC_ID, CLINIC_NAME, CLINIC_URL, clinicProfiles } from "./clinic-profiles";
 
 export const AI_TEXT_HEADERS = {
   "Content-Type": "text/plain; charset=utf-8",
@@ -41,6 +41,7 @@ export const clinicSchema = {
   name: CLINIC_NAME,
   alternateName: "Antalya Akdeniz Dental Clinic",
   url: CLINIC_URL,
+  address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
   sameAs: clinicProfiles.map((profile) => profile.href)
