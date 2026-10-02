@@ -42,6 +42,15 @@ if (!robots.includes("Sitemap:")) fail("robots.txt does not advertise the sitema
 for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) {
   if (!robots.includes(`User-Agent: ${bot}`)) fail(`robots.txt lacks an explicit rule for ${bot}.`);
 }
+const llms = await readFile(path.join(appDir, "llms.txt.body"), "utf8");
+for (const url of matches(llms, /\]\((https:\/\/[^)\s]+)\)/g)) {
+  const parsed = new URL(url);
+  if (parsed.origin !== sitemapOrigin) continue;
+  const linked = normalisePath(parsed.pathname);
+  if (/^\/(llms-full\.txt|content-provenance\.json|sitemap\.xml)$/.test(linked)) continue;
+  if (!sitemapPaths.has(linked)) fail(`llms.txt links to ${linked}, which is not in the sitemap.`);
+}
+if (!sitemap.includes("image:loc")) fail("Sitemap contains no image entries.");
 if (new Set(sitemapUrls).size !== sitemapUrls.length) fail("Sitemap contains duplicate URLs.");
 
 for (const [route, file] of routeFiles) {
@@ -61,6 +70,11 @@ for (const [route, file] of routeFiles) {
   if (!/<meta property="og:image" content="[^"]+"/.test(html)) fail(`${route}: missing og:image.`);
   if (!/<meta name="twitter:card" content="summary_large_image"/.test(html)) fail(`${route}: twitter:card is not summary_large_image.`);
   if (!/<link rel="icon"/.test(html)) fail(`${route}: missing favicon link.`);
+  const answer = html.match(/class="direct-answer"[^>]*>.*?<\/h2><p>(.*?)<\/p>/s);
+  if (!noindex && answer) {
+    const words = answer[1].replace(/<[^>]+>/g, " ").trim().split(/\s+/).length;
+    if (words < 12 || words > 60) fail(`${route}: short answer block has ${words} words (expected 12-60).`);
+  }
   if (h1Count !== 1) fail(`${route}: expected exactly one h1, found ${h1Count}.`);
 
   if (canonicals[0]) {

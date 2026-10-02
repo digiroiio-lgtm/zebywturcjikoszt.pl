@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "indexnow": "node scripts/indexnow.mjs",
     "audit:seo": "node scripts/validate-seo.mjs",
     "test:lead": "node scripts/verify-lead.mjs",
     "verify": "npm run lint && npm run typecheck && npm run test:lead && npm run build && npm run audit:seo && npm run test:ai && npm run test:guides",

@@ -16,6 +16,7 @@ import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
+import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
@@ -106,9 +107,11 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
   const articleSchema = guide ? { "@context": "https://schema.org", "@type": "Article", "@id": `${pageUrl}#article`, headline: page.h1, description: page.description, url: pageUrl, mainEntityOfPage: { "@id": `${pageUrl}#webpage` }, inLanguage: "pl-PL", datePublished: page.published, dateModified: page.lastUpdated, author: { "@id": `${SITE_URL}/#organization` }, publisher: { "@id": `${SITE_URL}/#organization` }, citation: page.sources?.map((source) => source.href.startsWith("/") ? `${SITE_URL}${source.href}` : source.href) } : null;
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`, url: `${pageUrl}#faq`, inLanguage: "pl-PL", isPartOf: { "@id": `${pageUrl}#webpage` }, mainEntity: page.faq.map((item, index) => ({ "@type": "Question", "@id": `${pageUrl}#faq-${index + 1}`, url: `${pageUrl}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
   const priceSchema = page.slug === "koszt" ? { "@context": "https://schema.org", "@type": "ItemList", "@id": `${pageUrl}#cennik`, name: "Cennik kliniki Akdeniz Dental (pozycje w EUR)", itemListElement: priceItems.map((item, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Offer", name: item.label, price: item.eur.toFixed(2), priceCurrency: "EUR", validFrom: PRICING_UPDATED_ISO_DATE, description: "Cena pozycji z cennika kliniki, nie ceny całkowitej leczenia ani pakietu.", seller: { "@type": "Organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" } } })) } : null;
+  const gallerySchema = page.slug === "przed-i-po" ? { "@context": "https://schema.org", "@type": "ImageGallery", "@id": `${pageUrl}#galeria`, name: "Zdjęcia przed i po", url: pageUrl, inLanguage: "pl-PL", image: caseImages.map((item) => ({ "@type": "ImageObject", contentUrl: `${SITE_URL}${item.src}`, name: `${item.label}: uśmiech przed i po`, description: "Zdjęcie przed i po leczeniu. Zakres leczenia nie został zweryfikowany; wynik jest indywidualny.", width: 700, height: 700, encodingFormat: "image/webp" })) } : null;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {gallerySchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />}
       {priceSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
       {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}

@@ -237,6 +237,8 @@ export const pages: Record<string, PageContent> = {
         { title: "Brak źródła", text: "Zrzuty ekranu bez daty, profilu i możliwości sprawdzenia kontekstu." },
         { title: "Presja sprzedażowa", text: "Opinia połączona z ograniczoną czasowo ofertą lub nakłanianiem do szybkiej wpłaty." }
       ]},
+      { title: "Jak porównywać źródła opinii", bullets: ["sprawdź kilka niezależnych serwisów, a nie jeden profil wskazany przez organizatora", "zwróć uwagę na rozkład ocen i daty, nie tylko na średnią", "przeczytaj także oceny negatywne i odpowiedzi kliniki na nie", "sprawdź, czy serwis informuje, czy i jak weryfikuje autentyczność opinii", "szukaj opisów konkretnego leczenia, kosztów dodatkowych i kontaktu po powrocie"] },
+      { title: "Opinie w świetle prawa konsumenckiego", paragraphs: ["Według UOKiK przedsiębiorca udostępniający opinie konsumentów powinien poinformować, czy i jak weryfikuje ich autentyczność oraz czy pokazuje także oceny negatywne. Nie może sugerować, że opinie pochodzą od osób, które skorzystały z usługi, jeśli tego nie sprawdzał. Tworzenie i publikowanie fałszywych opinii jest zakazane.", "Dla pacjenta wynika z tego prosty test: opinia bez źródła, daty i możliwości weryfikacji nie powinna decydować o wyborze kliniki."] },
       { title: "Co sprawdzić poza opiniami", paragraphs: ["Poproś o dane operatora, nazwę kliniki, lekarza prowadzącego, pisemny plan leczenia, zasady opieki po powrocie i procedurę reklamacyjną. Zobacz również poradnik wyboru kliniki oraz zasady oceny zdjęć przed i po."] }
     ],
     faq: [
@@ -244,6 +246,8 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy publikujecie prawdziwe opinie?", answer: "Nie publikujemy opinii, dopóki nie będzie można zweryfikować ich autentyczności, zgody na publikację i relacji komercyjnej." },
       { question: "Jak sprawdzić opinie o klinice?", answer: "Warto porównać wiele źródeł, sprawdzić profil opiniującego, daty, odpowiedzi kliniki oraz informacje o lekarzach i podmiocie leczniczym." }
     ],
+    sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }],
+    lastUpdated: "2026-10-02",
     ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   "przed-i-po": {
@@ -282,14 +286,24 @@ export const pages: Record<string, PageContent> = {
         { title: "Dokumentacja", text: "Poproś o kopię planu, wykonanych procedur, użytych materiałów i zaleceń." },
         { title: "Kontrola przed powrotem", text: "Ustal, co wymaga sprawdzenia przed lotem i jak zgłaszać problem po powrocie." }
       ]},
-      { title: "Po powrocie do Polski", paragraphs: ["Zachowaj dokumentację i dane kontaktowe kliniki. Jeszcze przed wyjazdem ustal, do kogo zwrócisz się po powrocie do Polski, jeśli będzie potrzebna kontrola, korekta lub pilna pomoc."] }
+      { title: "Po powrocie do Polski", paragraphs: ["Zachowaj dokumentację i dane kontaktowe kliniki. Jeszcze przed wyjazdem ustal, do kogo zwrócisz się po powrocie do Polski, jeśli będzie potrzebna kontrola, korekta lub pilna pomoc."] },
+      { title: "Ubezpieczenie zdrowotne i polisa podróżna", paragraphs: ["Europejska Karta Ubezpieczenia Zdrowotnego (EKUZ) uprawnia do świadczeń tylko w państwach UE i EFTA. Turcja do nich nie należy, więc EKUZ nie jest podstawą pokrycia kosztów leczenia w Antalyi. Informacje o leczeniu za granicą publikuje portal pacjent.gov.pl.", "Przed wyjazdem sprawdź w warunkach polisy, czy obejmuje ona planowe leczenie stomatologiczne, powikłania po zabiegu oraz ewentualny dodatkowy pobyt. Zapisz odpowiedź ubezpieczyciela, zamiast opierać się na ustnym zapewnieniu."] },
+      { title: "Umowa, zaliczka i warunki wyjazdu", paragraphs: ["Jeżeli organizator sprzedaje wyjazd jako pakiet, Europejskie Centrum Konsumenckie wskazuje elementy, które powinna zawierać umowa: miejsce i czas trwania, rodzaj zakwaterowania, cenę łączną, warunki płatności, zasady odwołania i ubezpieczenie. Przy leczeniu rozdziel w dokumentach część medyczną, którą wykonuje klinika, od części organizacyjnej, za którą może odpowiadać pośrednik.", "Zachowaj pisemne potwierdzenie zaliczki, jej przeznaczenia i warunków zwrotu. Jeśli umowa nie wymienia hotelu, transferu lub kontroli przed wylotem, traktuj je jako niewliczone, dopóki nie otrzymasz potwierdzenia."] },
+      { title: "Plan rozmowy z kliniką przed rezerwacją lotu", bullets: ["zakres wstępnego planu i etapy, które mogą wymagać kolejnego pobytu", "kto prowadzi leczenie i kto będzie dostępny po Twoim wyjeździe", "jak wygląda przekazanie dokumentacji, zdjęć RTG i listy użytych materiałów", "co klinika uznaje za zdarzenie wymagające szybkiego kontaktu po powrocie", "jakie czynności muszą zostać wykonane przed lotem powrotnym"] }
     ],
     faq: [
       { question: "Ile dni trzeba zostać w Antalyi?", answer: "Nie podajemy jednej liczby bez zweryfikowanego planu. Długość pobytu zależy od rodzaju leczenia, etapów i wymaganych kontroli." },
       { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie zostało to potwierdzone dla aktualnej oferty. Hotel i transfer powinny być wyraźnie wymienione w pisemnej wycenie, jeśli są wliczone." },
+      { question: "Czy EKUZ obowiązuje w Turcji?", answer: "Nie. EKUZ dotyczy świadczeń w państwach UE i EFTA, a Turcja do nich nie należy. Sprawdź w polisie podróżnej, czy obejmuje planowe leczenie stomatologiczne i powikłania." },
       { question: "Czy leczenie można połączyć z wakacjami?", answer: "Plan aktywności powinien uwzględniać zalecenia lekarza i przebieg leczenia. Priorytetem jest bezpieczna organizacja terapii i kontroli." }
     ],
-    sources: [{ label: "Ministerstwo Spraw Zagranicznych RP: informacje dla podróżujących do Turcji", href: "https://www.gov.pl/web/turcja/informacje-dla-podrozujacych" }],
+    sources: [
+      { label: "Ministerstwo Spraw Zagranicznych RP: informacje dla podróżujących do Turcji", href: "https://www.gov.pl/web/turcja/informacje-dla-podrozujacych" },
+      { label: "pacjent.gov.pl: leczenie za granicą", href: "https://pacjent.gov.pl/leczenie-za-granica" },
+      { label: "NFZ: EKUZ obowiązuje w państwach UE i EFTA", href: "https://www.nfz.gov.pl/dla-pacjenta/nasze-zdrowie-w-ue/leczenie-w-krajach-unii-europejskiej-i-efta/wypoczynek-w-panstwach-czlonkowskich-ueefta-ekuz/" },
+      { label: "Europejskie Centrum Konsumenckie: wyjazd zorganizowany i prawa konsumenta", href: "https://konsument.gov.pl/wyjazd-zorganizowany-prawa-konsumenta/" }
+    ],
+    lastUpdated: "2026-10-02",
     ctaLabel: "Zapytaj o plan wyjazdu", ctaEvent: "antalya_cta"
   },
   "jak-wybrac-klinike": {
@@ -342,8 +356,13 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Transparentność", h1: "O serwisie",
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
     answer: "To serwis informacyjny o celu komercyjnym. Nie jest niezależną porównywarką ani podmiotem wykonującym leczenie. Dane operatora oraz relacja z kliniką muszą zostać uzupełnione po ich pisemnym potwierdzeniu.",
+    lastUpdated: "2026-10-02",
     sections: [
       { title: "Nasze zasady", bullets: ["nie publikujemy niezweryfikowanych cen ani obietnic rezultatów", "nie tworzymy fikcyjnych opinii i przypadków przed i po", "oddzielamy treść informacyjną od decyzji medycznej", "wskazujemy brak danych zamiast zastępować go marketingową deklaracją"] },
+      { title: "Czym jest serwis, a czym nie", paragraphs: ["Serwis zbiera i porządkuje informacje o leczeniu stomatologicznym w Turcji: metodach, kosztach z cennika kliniki, planowaniu wyjazdu i opiece po powrocie. Nie świadczy usług medycznych, nie stawia diagnoz i nie ustala planów leczenia.", "Treści opisują ogólne zasady. O kwalifikacji do konkretnego zabiegu decyduje lekarz po badaniu, a pisemna oferta kliniki ma pierwszeństwo przed informacjami z tego serwisu."] },
+      { title: "Jak powstają treści", paragraphs: ["Teksty przygotowuje redakcja serwisu zgodnie z polityką redakcyjną. Ceny pochodzą z cennika kliniki partnerskiej i mają datę aktualizacji. Status recenzji medycznej jest przypisany do konkretnej strony i widoczny na niej. Strony bez recenzji są jako takie oznaczone."], bullets: ["standard autorstwa, źródeł i korekt opisuje polityka redakcyjna", "zasady i zakres recenzji opisuje strona o weryfikacji medycznej", "profile recenzentów znajdują się w sekcji Eksperci, a zespół kliniki na stronie Nasi lekarze"] },
+      { title: "Relacja z kliniką partnerską", paragraphs: ["Klinika partnerska to Akdeniz Dental w Antalyi. Recenzenci medyczni serwisu są związani z tą kliniką zawodowo i komercyjnie, dlatego nie przedstawiamy ich jako niezależnych ekspertów. Ujawniamy ten fakt na stronach recenzji i profili ekspertów."] },
+      { title: "Jak zgłosić błąd lub zastrzeżenie", paragraphs: ["Błąd merytoryczny, nieaktualną cenę lub zastrzeżenie do treści możesz zgłosić przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się dopiero po wprowadzeniu istotnej korekty."] },
       { title: "Dane wymagające potwierdzenia", paragraphs: ["Nazwa prawna operatora, adres, dane kontaktowe, klinika wykonująca leczenie oraz szczegółowy charakter relacji komercyjnej zostaną opublikowane przed uruchomieniem formularza kontaktowego."] }
     ]
   },
