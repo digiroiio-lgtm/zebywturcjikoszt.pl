@@ -129,6 +129,15 @@ for (const [, validUntil] of credentialSource.matchAll(/validUntil: "(\d{4}-\d{2
   else if (daysLeft < 60) console.warn(`WARNING: a credential in lib/credentials.ts expires on ${validUntil}.`);
 }
 
+const legalReview = (await readFile(path.join(process.cwd(), "lib", "legal-review.ts"), "utf8")).match(/LEGAL_REVIEW_CONFIRMED_DATE: string \| null = (null|"\d{4}-\d{2}-\d{2}")/)?.[1];
+const evidenceSource = await readFile(path.join(process.cwd(), "lib", "evidence.ts"), "utf8");
+const patientContent = [];
+if (!/verifiedCases: VerifiedCase\[\] = \[\s*\]/.test(evidenceSource)) patientContent.push("verifiedCases in lib/evidence.ts");
+for (const file of ["testimonials.ts", "clinic-stats.ts"]) {
+  if (await readFile(path.join(process.cwd(), "lib", file), "utf8").then(() => true, () => false)) patientContent.push(`lib/${file}`);
+}
+if (patientContent.length && (!legalReview || legalReview === "null")) fail(`Patient-derived content is published (${patientContent.join(", ")}) but LEGAL_REVIEW_CONFIRMED_DATE in lib/legal-review.ts is not set. See docs/consent-and-data-handling.md.`);
+
 if (failures.length) {
   console.error(`SEO contract failed with ${failures.length} issue(s):`);
   for (const issue of failures) console.error(`- ${issue}`);
