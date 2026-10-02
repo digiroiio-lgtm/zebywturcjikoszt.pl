@@ -481,7 +481,7 @@ export const pages: Record<string, PageContent> = {
       { title: "Jak zgłosić błąd", bullets: ["wejdź na stronę kontaktową i opisz zgłoszenie", "podaj adres strony i fragment, którego dotyczy uwaga", "wskaż źródło, jeśli je masz", "nie przesyłaj dokumentacji medycznej przez formularz"] },
       { title: "Jak sprawdzamy zgłoszenie", paragraphs: ["Redakcja sprawdza zgłoszenie ze źródłem i zakres poprawki. Datę aktualizacji strony zmieniamy dopiero po wprowadzeniu istotnej korekty. Treści kliniczne wymagają ponownej oceny recenzenta, zanim zostaną oznaczone jako zweryfikowane."] },
       { title: "Co dzieje się z oznaczeniem recenzji", paragraphs: ["Po zmianie strony po dacie recenzji oznaczenie „zweryfikowano” znika automatycznie, a panel informacji o treści pokazuje, że poprzednia recenzja nie obejmuje zmian. Oznaczenie wraca po nowej recenzji z potwierdzoną datą."] },
-      { title: "Dziennik korekt", bullets: ["2 października 2026: strony „All-on-4” i „Cała szczęka” uzupełniono o sekcję o piśmiennictwie i źródło; recenzenci potwierdzili zaktualizowany tekst tego samego dnia", "2 października 2026: opublikowaliśmy dane operatora serwisu i wyjaśniliśmy, że operator prowadzi także klinikę Akdeniz Dental", "2 października 2026: zastąpiliśmy określenie „klinika partnerska” sformułowaniem „klinika prowadzona przez operatora serwisu”, aby odzwierciedlić to powiązanie"] }
+      { title: "Dziennik korekt", bullets: ["2 października 2026: opublikowaliśmy politykę prywatności, regulamin, politykę cookies i stronę reklamacji; dodaliśmy oznaczenie „Informacja komercyjna” i historię zmian przy stronach; uruchomiliśmy bezcookie'ową analitykę Vercel", "2 października 2026: strony „All-on-4” i „Cała szczęka” uzupełniono o sekcję o piśmiennictwie i źródło; recenzenci potwierdzili zaktualizowany tekst tego samego dnia", "2 października 2026: opublikowaliśmy dane operatora serwisu i wyjaśniliśmy, że operator prowadzi także klinikę Akdeniz Dental", "2 października 2026: zastąpiliśmy określenie „klinika partnerska” sformułowaniem „klinika prowadzona przez operatora serwisu”, aby odzwierciedlić to powiązanie"] }
     ],
     sources: [{ label: "Kontakt", href: "/kontakt" }, { label: "Polityka redakcyjna: zgłaszanie i dokumentowanie korekt", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: co się dzieje po zmianie treści", href: "/weryfikacja-medyczna" }, { label: "Metodologia serwisu", href: "/metodologia" }]
   },
@@ -508,34 +508,64 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   "polityka-prywatnosci": {
-    slug: "polityka-prywatnosci", title: "Polityka prywatności", description: "Informacje o przetwarzaniu danych w serwisie Zęby w Turcji.",
+    slug: "polityka-prywatnosci", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Polityka prywatności",
+    description: "Jak serwis Zęby w Turcji przetwarza dane z formularza: administrator, zakres danych, podstawy, odbiorcy, okres przechowywania i prawa osoby, której dane dotyczą.",
     eyebrow: "Dokument prawny", h1: "Polityka prywatności",
-    lead: "Formularz służy do przesłania zapytania o konsultację i danych umożliwiających odpowiedź.",
-    answer: "Zgłoszenia są przekazywane przez Formspree. Formularz obejmuje imię i nazwisko, telefon, numer WhatsApp, adres e-mail, kraj i opcjonalną wiadomość oraz informacje o stronie i kampanii, z której pochodzi zapytanie. Nie przesyłaj zdjęć ani dokumentacji medycznej.",
+    lead: "Ten dokument opisuje, jakie dane zbieramy przez serwis leczeniezebowwturcji.pl, w jakim celu i komu je przekazujemy.",
+    answer: `Administratorem danych jest ${OPERATOR.legalName ?? "operator serwisu"}. Dane z formularza służą do odpowiedzi na zapytanie o wstępną ocenę. Nie przesyłaj dokumentacji medycznej ani zdjęć przez formularz. Nie sprzedajemy danych użytkowników.`,
     sections: [
-      { title: "Aktualny zakres", bullets: ["przesyłanie zapytań kontaktowych przez Formspree", "brak przesyłania zdjęć i dokumentacji medycznej", "brak potwierdzonego narzędzia analitycznego", "brak sprzedaży danych użytkowników"] },
-      { title: "Dokumentacja do uzupełnienia", paragraphs: ["Pełne dane administratora, odbiorcy danych, podstawy przetwarzania, okresy przechowywania, transfery, prawa użytkownika i kontakt w sprawach prywatności wymagają uzupełnienia przez operatora serwisu."] }
-    ], noindex: true
+      { title: "Administrator danych", paragraphs: [`Administratorem danych osobowych jest ${OPERATOR.legalName ?? "operator serwisu"}${OPERATOR.streetAddress ? `, ${OPERATOR.streetAddress}, ${[OPERATOR.postalCode, OPERATOR.locality].filter(Boolean).join(" ")}, ${OPERATOR.region ?? ""}, ${OPERATOR.country ?? ""}` : ""}. W sprawach dotyczących danych osobowych napisz na adres ${OPERATOR.email ?? "adres e-mail podany na stronie kontaktowej"}.`] },
+      { title: "Jakie dane przetwarzamy", bullets: ["dane z formularza: imię i nazwisko, telefon, numer WhatsApp, adres e-mail, kraj oraz opcjonalna wiadomość", "informacje o stronie i kampanii, z której wysłano zapytanie (na przykład adres strony i parametry UTM)", "dane techniczne i zagregowane statystyki odsłon oraz wydajności strony, bez plików cookies (szczegóły w polityce cookies)", "nie prosimy o dane o zdrowiu; nie przesyłaj zdjęć ani dokumentacji medycznej przez formularz"] },
+      { title: "Cele i podstawy przetwarzania", bullets: ["odpowiedź na Twoje zapytanie i przygotowanie wstępnej oceny: działania podejmowane na Twoje żądanie przed zawarciem umowy", "obsługa zgłoszeń, kontaktów i reklamacji oraz dochodzenie lub obrona roszczeń: prawnie uzasadniony interes administratora", "statystyki odsłon i wydajności serwisu: prawnie uzasadniony interes administratora", "jeżeli w wiadomości podasz dane o zdrowiu, przetwarzamy je tylko w zakresie niezbędnym do odpowiedzi, na podstawie Twojej zgody wyrażonej przez ich przesłanie"] },
+      { title: "Odbiorcy danych", paragraphs: ["Zgłoszenia z formularza są przekazywane przez usługę Formspree (Formspree, Inc., USA), która dostarcza je do administratora. Serwis jest hostowany i mierzony za pomocą usług Vercel Inc. (USA). Dostawcy ci mogą przetwarzać dane poza Europejskim Obszarem Gospodarczym; ich zasady opisują dokumenty wskazane w źródłach poniżej.", "Nie sprzedajemy danych użytkowników."] },
+      { title: "Okres przechowywania", paragraphs: ["Dane z zapytania przechowujemy przez czas potrzebny do odpowiedzi i obsługi sprawy, a następnie przez okres, w którym możliwe jest dochodzenie lub obrona roszczeń. Po tym czasie dane usuwamy lub anonimizujemy."] },
+      { title: "Twoje prawa", paragraphs: ["Masz prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia oraz sprzeciwu wobec przetwarzania. Jeżeli przetwarzanie opiera się na zgodzie, możesz ją w każdej chwili cofnąć, co nie wpływa na zgodność z prawem przetwarzania przed cofnięciem. Masz też prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych."] },
+      { title: "Zmiany polityki", paragraphs: ["Obecna wersja obowiązuje od 2 października 2026 r. Istotne zmiany wskażemy na tej stronie."] }
+    ],
+    sources: [{ label: "Polityka cookies", href: "/cookies" }, { label: "O serwisie: dane operatora", href: "/o-nas" }, { label: "Formspree: polityka prywatności", href: "https://formspree.io/legal/privacy-policy/" }, { label: "Vercel: Privacy Notice", href: "https://vercel.com/legal/privacy-notice" }, { label: "UODO: prawa osób, których dane dotyczą", href: "https://uodo.gov.pl/pl/493/155" }, { label: "UODO: skarga do Prezesa UODO", href: "https://uodo.gov.pl/pl/138/155" }]
   },
   cookies: {
-    slug: "cookies", title: "Polityka cookies", description: "Informacje o plikach cookies używanych przez serwis Zęby w Turcji.",
-    eyebrow: "Dokument prawny", h1: "Polityka cookies", lead: "Serwis nie wdraża obecnie marketingowych ani analitycznych plików cookies.",
-    answer: "Jeżeli w przyszłości zostanie uruchomiona analityka lub marketing, mechanizm zgody i dokumentacja zostaną zaktualizowane przed rozpoczęciem takiego przetwarzania.",
-    sections: [{ title: "Zmiany", paragraphs: ["Lista narzędzi, cele, dostawcy i okresy działania cookies zostaną opublikowane w tej sekcji po ich wdrożeniu."] }], noindex: true
+    slug: "cookies", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Polityka cookies",
+    description: "Informacje o plikach cookies i analityce w serwisie Zęby w Turcji: serwis nie ustawia własnych cookies, analityka Vercel działa bez cookies.",
+    eyebrow: "Dokument prawny", h1: "Polityka cookies", lead: "Serwis nie ustawia własnych plików cookies i nie wdraża marketingowych ani reklamowych narzędzi śledzących.",
+    answer: "Serwis nie ustawia własnych plików cookies. Statystyki odsłon i wydajności zbiera Vercel Web Analytics oraz Speed Insights, które według dostawcy działają bez plików cookies. Formularz kontaktowy nie wymaga zgody na cookies.",
+    sections: [
+      { title: "Co jest używane", bullets: ["własne pliki cookies: nie ustawiamy", "analityka: Vercel Web Analytics i Speed Insights, zagregowane dane o odsłonach i wydajności, bez plików cookies według dostawcy", "pamięć sesji przeglądarki (sessionStorage): jednorazowy znacznik w trakcie wizyty, który zapobiega wielokrotnemu zapisaniu zdarzenia o pochodzeniu wizyty z asystenta AI", "narzędzia reklamowe i marketingowe: nie używamy"] },
+      { title: "Zmiany", paragraphs: ["Jeżeli w przyszłości zostanie uruchomione narzędzie wymagające zgody, najpierw zaktualizujemy tę stronę i uruchomimy mechanizm zgody. Obecna wersja obowiązuje od 2 października 2026 r."] }
+    ],
+    sources: [{ label: "Polityka prywatności", href: "/polityka-prywatnosci" }, { label: "Vercel: Privacy Notice", href: "https://vercel.com/legal/privacy-notice" }]
   },
   regulamin: {
-    slug: "regulamin", title: "Regulamin serwisu", description: "Zasady korzystania z informacyjnego serwisu Zęby w Turcji.",
+    slug: "regulamin", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Regulamin serwisu",
+    description: "Zasady korzystania z informacyjnego serwisu Zęby w Turcji: charakter treści, formularz, ceny, odpowiedzialność i kontakt w sprawie reklamacji.",
     eyebrow: "Dokument prawny", h1: "Regulamin serwisu", lead: "Treści mają charakter informacyjny i nie stanowią diagnozy, oferty leczenia ani umowy o świadczenie usług medycznych.",
-    answer: "Dane operatora i pełne warunki korzystania wymagają zatwierdzenia prawnego przed uruchomieniem aktywnego pozyskiwania zgłoszeń.",
-    sections: [{ title: "Podstawowe zasady", bullets: ["decyzję medyczną podejmuje lekarz po badaniu", "informacje cenowe wymagają indywidualnego potwierdzenia", "użytkownik nie powinien przesyłać dokumentacji przez niepotwierdzone kanały", "materiały serwisu nie mogą służyć do samodzielnej diagnozy"] }], noindex: true
+    answer: `Serwis prowadzi ${OPERATOR.legalName ?? "operator serwisu"}. Ma charakter informacyjny i komercyjny. Treści nie są diagnozą ani ofertą leczenia, a plan leczenia ustala lekarz po badaniu.`,
+    sections: [
+      { title: "Operator i zakres serwisu", paragraphs: [`Serwis leczeniezebowwturcji.pl prowadzi ${OPERATOR.legalName ?? "operator serwisu"}, która prowadzi także klinikę Akdeniz Dental w Antalyi. Serwis jest bezpłatnym serwisem informacyjnym o celu komercyjnym. Szczegóły opisuje strona „Właściciel serwisu”.`] },
+      { title: "Charakter treści", bullets: ["decyzję medyczną podejmuje lekarz po badaniu", "materiały serwisu nie służą do samodzielnej diagnozy", "informacje cenowe pochodzą z cennika kliniki, mają datę aktualizacji i wymagają indywidualnego potwierdzenia", "treści nie stanowią gwarancji rezultatu leczenia"] },
+      { title: "Korzystanie z formularza", bullets: ["wysłanie formularza jest dobrowolne i służy uzyskaniu bezpłatnej wstępnej oceny", "formularz nie jest zawarciem umowy o leczenie ani rezerwacją", "nie przesyłaj zdjęć ani dokumentacji medycznej przez formularz, dopóki nie otrzymasz potwierdzenia bezpiecznego kanału", "zasady przetwarzania danych opisuje polityka prywatności"] },
+      { title: "Odpowiedzialność", paragraphs: ["Treści przygotowujemy z dbałością o źródła i aktualność, ale mogą się zmieniać. Nie zastępują porady lekarza i nie powinny być jedyną podstawą decyzji o leczeniu. Postanowienia regulaminu nie ograniczają praw przysługujących konsumentowi na podstawie bezwzględnie obowiązujących przepisów."] },
+      { title: "Reklamacje i błędy", paragraphs: ["Zasady zgłaszania reklamacji opisuje strona „Reklamacje i zgłoszenia”, a błędy w treściach można zgłaszać zgodnie ze stroną „Korekty”."] },
+      { title: "Zmiany regulaminu", paragraphs: ["Obecna wersja obowiązuje od 2 października 2026 r. Istotne zmiany wskażemy na tej stronie."] }
+    ],
+    sources: [{ label: "Polityka prywatności", href: "/polityka-prywatnosci" }, { label: "Właściciel serwisu", href: "/wlasciciel-serwisu" }, { label: "Reklamacje i zgłoszenia", href: "/reklamacje" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }]
   },
   reklamacje: {
-    slug: "reklamacje", title: "Reklamacje i zgłoszenia", description: "Informacje o przyszłej procedurze zgłoszeń dotyczących serwisu i procesu koordynacji.",
-    eyebrow: "Wsparcie", h1: "Reklamacje i zgłoszenia", lead: "Procedura musi rozróżniać zgłoszenia dotyczące działania serwisu, koordynacji oraz świadczeń medycznych wykonywanych przez klinikę.",
-    answer: "Kanał reklamacyjny i dane właściwych podmiotów nie zostały jeszcze potwierdzone. Zostaną opublikowane przed uruchomieniem usług kontaktowych.",
-    sections: [{ title: "Wymagane elementy procedury", bullets: ["dane podmiotu przyjmującego zgłoszenie", "zakres jego odpowiedzialności", "termin odpowiedzi", "sposób przekazania dokumentów", "gdzie zgłaszać sprawy związane z leczeniem i organizacją"] }], noindex: true
+    slug: "reklamacje", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Reklamacje i zgłoszenia",
+    description: "Jak zgłosić reklamację lub skargę dotyczącą serwisu i organizacji leczenia: kontakt, dane do podania oraz instytucje, do których można się zwrócić.",
+    eyebrow: "Wsparcie", h1: "Reklamacje i zgłoszenia", lead: "Rozróżniamy zgłoszenia dotyczące działania serwisu, organizacji leczenia oraz świadczeń medycznych wykonanych przez klinikę.",
+    answer: `Reklamację lub skargę wyślij na adres ${OPERATOR.email ?? "podany na stronie kontaktowej"}, opisując sprawę i dołączając dane do kontaktu. Operator odpowiada bez zbędnej zwłoki. Możesz też zwrócić się do instytucji konsumenckich i pacjenckich.`,
+    sections: [
+      { title: "Jak zgłosić reklamację", bullets: [`napisz na adres ${OPERATOR.email ?? "podany na stronie kontaktowej"}`, "podaj imię i nazwisko, dane do kontaktu oraz krótki opis sprawy", "wskaż adres strony lub datę i rodzaj usługi, której dotyczy zgłoszenie", "dołącz dokumenty dotyczące sprawy (nie dołączaj dokumentacji medycznej bez potwierdzenia bezpiecznego kanału)", "operator potwierdza przyjęcie zgłoszenia i odpowiada bez zbędnej zwłoki"] },
+      { title: "Czego dotyczy zgłoszenie", bullets: ["działanie serwisu i treści: błędy opisuje także strona „Korekty”", "organizacja wyjazdu i koordynacja: zgłoś do operatora", "leczenie wykonane w klinice: zgłoś do kliniki wykonującej leczenie, której dane podaje operator, zachowując dokumentację"] },
+      { title: "Zanim podpiszesz umowę o leczenie", bullets: ["pisemny plan leczenia z kosztami i etapami", "jasne warunki zaliczki lub zadatku, odwołania i zwrotu", "wskazanie podmiotu odpowiedzialnego za leczenie i za organizację wyjazdu", "zasady opieki po leczeniu i kontaktu po powrocie do Polski", "kopię dokumentacji i listę użytych materiałów"] },
+      { title: "Instytucje, do których możesz się zwrócić", paragraphs: ["Informacje o prawach pacjenta przy leczeniu za granicą publikuje portal pacjent.gov.pl. W sprawach konsumenckich pomoc oferuje Europejskie Centrum Konsumenckie, a w sprawach zaliczki i zadatku porady publikuje UOKiK."] }
+    ],
+    sources: [{ label: "Korekty i zgłaszanie błędów", href: "/korekty" }, { label: "pacjent.gov.pl: leczenie za granicą", href: "https://pacjent.gov.pl/leczenie-za-granica" }, { label: "Europejskie Centrum Konsumenckie: zgłoś skargę", href: "https://konsument.gov.pl/zglos-skarge/" }, { label: "UOKiK: Zadatek czy zaliczka?", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }]
   }
 };
+
+export const legalSlugs = ["polityka-prywatnosci", "cookies", "regulamin", "reklamacje"];
 
 export const primaryNav = [
   { label: "Poradniki", href: "/poradniki" },
