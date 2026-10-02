@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SourceList } from "@/components/source-list";
 import { FAQ_PATH, FAQ_PUBLISHED_DATE, faqGroups } from "@/lib/ai-content";
 import { SITE_URL } from "@/lib/site";
 import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
@@ -18,6 +19,7 @@ export default function PatientFAQ() {
     <p><Link className="text-link" href="/poradniki">Poradniki dla pacjentów z Polski →</Link></p>
     <nav aria-label="Tematy pytań"><ul>{faqGroups.map((page) => <li key={page.slug}><a href={`#${page.slug}`}>{page.h1}</a></li>)}</ul></nav>
     {faqGroups.map((page) => <section className="content-section" id={page.slug} key={page.slug}><h2>{page.h1}</h2><p><Link className="text-link" href={`/${page.slug}`}>Pełny przewodnik, źródła i status recenzji →</Link></p><div className="faq-list">{page.faq!.map((faq, index) => <details id={`${page.slug}-${index + 1}`} key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p><Link className="text-link" href={`/${page.slug}#faq-${index + 1}`}>Zobacz odpowiedź w przewodniku →</Link></details>)}</div></section>)}
+    <SourceList intro="Odpowiedzi pochodzą ze stron wskazanych w każdej grupie. Poniżej zewnętrzne źródła cytowane w tych przewodnikach." sources={[{ label: "Cennik kliniki Akdeniz Dental (pozycje w EUR, z datą)", href: "/koszt#cennik" }, ...Array.from(new Map(faqGroups.flatMap((page) => page.sources ?? []).filter((source) => !source.href.startsWith("/")).map((source) => [source.href, source])).values())]} />
     <p>Autor zestawienia: Redakcja serwisu. Publikacja: <time dateTime={FAQ_PUBLISHED_DATE}>30 września 2026</time>. <Link href="/polityka-redakcyjna">Standard redakcyjny</Link></p>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
   </main>;

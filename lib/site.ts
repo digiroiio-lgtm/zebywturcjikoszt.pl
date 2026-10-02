@@ -362,6 +362,7 @@ export const pages: Record<string, PageContent> = {
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
     answer: "To serwis informacyjny o celu komercyjnym. Nie jest niezależną porównywarką ani podmiotem wykonującym leczenie. Dane operatora oraz relacja z kliniką muszą zostać uzupełnione po ich pisemnym potwierdzeniu.",
     lastUpdated: "2026-10-02",
+    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki partnerskiej", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki partnerskiej", href: "https://akdenizdental.com" }],
     faq: [
       { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym, powiązany z kliniką partnerską Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
       { question: "Kto jest operatorem serwisu?", answer: "Nazwa prawna operatora, adres i dane kontaktowe są w trakcie uzupełniania. Do czasu ich publikacji nie podajemy ich w serwisie, aby nie przedstawiać niepotwierdzonych informacji." },
@@ -391,11 +392,13 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy odpowiedź na zgłoszenie jest planem leczenia?", answer: "Nie. Wstępna ocena pomaga określić możliwy zakres, ale plan leczenia ustala lekarz po badaniu i diagnostyce." },
       { question: "Jakie dane podać w formularzu?", answer: "Imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie krótką wiadomość o rodzaju leczenia, które rozważasz." }
     ],
+    sources: [{ label: "Polityka prywatności serwisu", href: "/polityka-prywatnosci" }, { label: "Formspree: polityka prywatności usługi przekazującej zgłoszenia", href: "https://formspree.io/legal/privacy-policy/" }],
     form: true
   },
   "polityka-redakcyjna": {
     slug: "polityka-redakcyjna", title: "Polityka redakcyjna", description: "Jak powstają, są aktualizowane i oznaczane treści w serwisie Zęby w Turcji: autorstwo, źródła, korekty, daty i ujawnienie celu komercyjnego.",
     lastUpdated: "2026-10-02",
+    sources: [{ label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }, { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }],
     eyebrow: "Standard treści", h1: "Polityka redakcyjna",
     lead: "Treści mają pomagać w podjęciu świadomej decyzji, a nie zastępować diagnozę lub konsultację z lekarzem dentystą.",
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
@@ -416,6 +419,7 @@ export const pages: Record<string, PageContent> = {
   "weryfikacja-medyczna": {
     slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady weryfikacji medycznej treści stomatologicznych w serwisie Zęby w Turcji: rola recenzenta, zakres recenzji i status poszczególnych stron.",
     lastUpdated: "2026-10-02",
+    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Eksperci: profile recenzentów i lista zrecenzowanych stron", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki partnerskiej", href: "/nasi-lekarze" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }],
     eyebrow: "Bezpieczeństwo informacji", h1: "Weryfikacja medyczna",
     lead: "Treści medyczne powinny zostać ocenione przez osobę o potwierdzonych kwalifikacjach przed oznaczeniem ich jako zweryfikowane.",
     answer: "Autor redakcyjny przygotowuje tekst; recenzent medyczny sprawdza informacje stomatologiczne. Status jest przypisywany osobno każdej stronie wraz z datą rzeczywistej recenzji. Bez potwierdzonej daty nie publikujemy imiennego oznaczenia „zweryfikowano”.",

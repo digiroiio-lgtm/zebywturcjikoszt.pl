@@ -5,6 +5,7 @@ import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-
 import { SITE_URL } from "@/lib/site";
 import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList, clinicSchema } from "@/lib/seo";
 import { ClinicProfiles } from "@/components/clinic-profiles";
+import { SourceList } from "@/components/source-list";
 import { FaqSection } from "@/components/faq-section";
 
 const teamFaq = [
@@ -45,7 +46,7 @@ export default function ClinicalTeam() {
     <section className="section-space"><h2>Zespół kliniczny a recenzja medyczna</h2><p>Akdeniz Dental jest kliniką partnerską serwisu. Przynależność do jej zespołu nie oznacza, że lekarz sprawdził treści tej strony. Mustafa Akça pełni rolę recenzenta medycznego serwisu i jest właścicielem kliniki. Mehmet Onur Merey recenzuje wyłącznie przewodniki o implantach i All-on-4. Recenzję konkretnego artykułu przypisujemy dopiero po udokumentowaniu zakresu, daty i zatwierdzenia.</p><div className="button-row"><Link className="text-link" href="/eksperci/mustafa-akca">Mustafa Akça: profil i zweryfikowane treści →</Link><Link className="text-link" href="/eksperci/mehmet-onur-merey">Mehmet Onur Merey: implanty i All-on-4 →</Link><Link className="text-link" href="/weryfikacja-medyczna">Jak weryfikujemy treści →</Link></div></section>
     <ClinicProfiles />
     <FaqSection path="/nasi-lekarze" items={teamFaq} className="section-space" />
-    <section><h2>Źródła i aktualizacja</h2><p>Źródło: <a href={TEAM_SOURCE_URL} target="_blank" rel="noopener noreferrer">zespół Akdeniz Dental</a> oraz indywidualne profile wskazane przy każdym lekarzu. Ostatnia aktualizacja danych: <time dateTime={TEAM_SOURCE_DATE}>{TEAM_SOURCE_DATE}</time>.</p></section>
+    <SourceList intro={`Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Ostatnia aktualizacja danych: ${TEAM_SOURCE_DATE}.`} sources={[{ label: "Akdeniz Dental: zespół kliniki", href: TEAM_SOURCE_URL }, ...clinicalTeam.map((doctor) => ({ label: `Oficjalny profil: ${doctor.name}`, href: doctor.sourceUrl }))]} />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;
 }
