@@ -21,15 +21,15 @@ export function detectAiSource(referrer: string, utmSource: string | null) {
   try { return AI_HOSTS[new URL(referrer).hostname] ?? null; } catch { return null; }
 }
 
-/** Records a single `ai_referral` dataLayer event per session when the visit comes from an AI assistant. No personal data is stored. */
+// Kept in memory only: nothing is written to the visitor's device (no cookies, localStorage or sessionStorage).
+let aiReferralSent = false;
+
+/** Records a single `ai_referral` dataLayer event per page load when the visit comes from an AI assistant. No personal data is stored. */
 export function AiReferralTracker() {
   useEffect(() => {
     const source = detectAiSource(document.referrer, new URLSearchParams(window.location.search).get("utm_source"));
-    if (!source) return;
-    try {
-      if (sessionStorage.getItem("ai_referral_sent")) return;
-      sessionStorage.setItem("ai_referral_sent", "1");
-    } catch { /* storage unavailable: still send once per page load */ }
+    if (!source || aiReferralSent) return;
+    aiReferralSent = true;
     trackEvent("ai_referral", { ai_source: source, landing_path: window.location.pathname });
   }, []);
   return null;
