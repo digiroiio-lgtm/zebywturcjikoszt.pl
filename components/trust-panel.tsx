@@ -10,7 +10,8 @@ function polishDate(date: string) {
 
 export function TrustPanel({ review, reviewer, published = PUBLISHED_ISO_DATE }: { review: ReviewState; reviewer: VerifiedExpert | null; published?: string }) {
   const reviewed = reviewer && review.reviewStatus === "reviewed";
-  const status = reviewed ? "Treść zweryfikowana medycznie" : review.reviewStatus === "review-pending" ? "Recenzja: oczekuje na potwierdzenie daty" : "Recenzja: jeszcze nieprzeprowadzona";
+  const stale = !reviewer && review.reviewStatus === "reviewed";
+  const status = reviewed ? "Treść zweryfikowana medycznie" : stale ? "Recenzja: wymaga ponownego potwierdzenia po aktualizacji" : review.reviewStatus === "review-pending" ? "Recenzja: oczekuje na potwierdzenie daty" : "Recenzja: jeszcze nieprzeprowadzona";
   return <aside className="trust-panel" aria-label="Informacje o treści">
     <p className="trust-reviewer"><span className="mini-label">{reviewed ? "Recenzja medyczna tej strony" : "Recenzent medyczny serwisu"}</span><Link href={reviewed ? reviewer.profileUrl : siteMedicalReviewer.profileUrl}>Lek. dent. {reviewed ? reviewer.name : siteMedicalReviewer.name}</Link><br />Akdeniz Dental, Antalya{reviewed && <><br />Zweryfikowano: <time dateTime={review.reviewDate}>{polishDate(review.reviewDate)}</time></>}</p>
     <details className="trust-details">
@@ -20,7 +21,7 @@ export function TrustPanel({ review, reviewer, published = PUBLISHED_ISO_DATE }:
           <div><dt>Autor</dt><dd>Redakcja serwisu</dd></div>
           <div><dt>Publikacja</dt><dd>{polishDate(published)}</dd></div>
           <div><dt>Aktualizacja</dt><dd>{polishDate(review.lastUpdated)}</dd></div>
-          {reviewed ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {polishDate(review.reviewDate)}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>{review.reviewStatus === "review-pending" ? "Data recenzji jest w trakcie potwierdzania." : "Jeszcze nieprzeprowadzona"}</dd></div>}
+          {reviewed ? <div><dt>Weryfikacja medyczna</dt><dd><Link href={reviewer.profileUrl}>Lek. dent. {reviewer.name}</Link><br />Dentysta, Antalya<br />Treść zweryfikowana pod kątem informacji stomatologicznych.<br />Zweryfikowano: {polishDate(review.reviewDate)}</dd></div> : <div><dt>Recenzja medyczna</dt><dd>{stale && review.reviewStatus === "reviewed" ? `Poprzednia recenzja z ${polishDate(review.reviewDate)} nie obejmuje zmian z ${polishDate(review.lastUpdated)}. Oczekuje na ponowne potwierdzenie.` : review.reviewStatus === "review-pending" ? "Data recenzji jest w trakcie potwierdzania." : "Jeszcze nieprzeprowadzona"}</dd></div>}
         </dl>
         <p>Treść informacyjna. O kwalifikacji i planie leczenia decyduje lekarz po badaniu.</p>
         <Link href="/weryfikacja-medyczna">Jak weryfikujemy treści</Link> · <Link href="/polityka-redakcyjna">Standard redakcyjny</Link>

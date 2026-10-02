@@ -66,7 +66,7 @@ for (const [route, file] of routeFiles) {
   if (titles[0] && [...titles[0]].length > 65) fail(`${route}: title is ${[...titles[0]].length} characters (max 65).`);
   if (route !== "/" && !noindex && !html.includes("BreadcrumbList")) fail(`${route}: missing BreadcrumbList.`);
   if (!noindex && descriptions[0] && ([...descriptions[0]].length < 110 || [...descriptions[0]].length > 165)) fail(`${route}: meta description is ${[...descriptions[0]].length} characters (expected 110-165).`);
-  const sourcesExempt = ["/all-on-4", "/cala-szczeka", "/przed-i-po"].includes(route); // reviewed pages need a new medical review before edits; no verified source for /przed-i-po
+  const sourcesExempt = ["/przed-i-po"].includes(route); // no verified external source for /przed-i-po
   if (!noindex && !sourcesExempt && !html.includes("Źródła i podstawa informacji")) fail(`${route}: missing visible source list.`);
   if (descriptions.length !== 1 || !descriptions[0].trim()) fail(`${route}: expected one non-empty meta description.`);
   if (canonicals.length !== 1) fail(`${route}: expected exactly one canonical.`);
@@ -112,6 +112,9 @@ for (const [route, file] of routeFiles) {
     } catch { fail(`${route}: invalid JSON-LD.`); }
   }
 }
+
+const ratingsDate = (await readFile(path.join(process.cwd(), "lib", "clinic-profiles.ts"), "utf8")).match(/RATINGS_CHECKED_ISO_DATE = "(\d{4}-\d{2}-\d{2})"/)?.[1];
+if (ratingsDate && (Date.now() - new Date(`${ratingsDate}T00:00:00Z`).getTime()) / 86400000 > 90) console.warn(`WARNING: clinic ratings were last checked on ${ratingsDate}. Re-read Trustpilot and Google, then update RATINGS_CHECKED_ISO_DATE and RATINGS_CHECKED_DATE.`);
 
 if (failures.length) {
   console.error(`SEO contract failed with ${failures.length} issue(s):`);
