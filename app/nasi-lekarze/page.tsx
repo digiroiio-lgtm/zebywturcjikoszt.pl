@@ -9,7 +9,7 @@ import { SourceList } from "@/components/source-list";
 import { FaqSection } from "@/components/faq-section";
 
 const teamFaq = [
-  { question: "Czy każdy lekarz z tej listy recenzuje treści serwisu?", answer: "Nie. Lista przedstawia zespół kliniki partnerskiej. Recenzję medyczną wykonują tylko osoby wskazane w sekcji Eksperci, wyłącznie dla przypisanych im stron." },
+  { question: "Czy każdy lekarz z tej listy recenzuje treści serwisu?", answer: "Nie. Lista przedstawia zespół kliniki prowadzonej przez operatora serwisu. Recenzję medyczną wykonują tylko osoby wskazane w sekcji Eksperci, wyłącznie dla przypisanych im stron." },
   { question: "Czy obszar pracy lekarza oznacza tytuł specjalisty?", answer: "Nie. Obszary pracy pochodzą z profili kliniki i nie są niezależnie potwierdzonym tytułem specjalisty." },
   { question: "Skąd pochodzą dane o lekarzach?", answer: "Z zespołu Akdeniz Dental i indywidualnych profili wskazanych przy każdym lekarzu. Przy każdej osobie podajemy link do oficjalnego profilu kliniki." }
 ];
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
   description: "Poznaj 12 dentystów Akdeniz Dental w Antalyi: wykształcenie, obszary pracy i oficjalne profile. Sprawdź także rolę recenzenta medycznego serwisu.",
   alternates: { canonical: "/nasi-lekarze" },
-  openGraph: { images: OG_IMAGES, title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki partnerskiej, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
-  twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki partnerskiej w Antalyi i oficjalne profile lekarzy." },
+  openGraph: { images: OG_IMAGES, title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki prowadzonej przez operatora serwisu, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
+  twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki prowadzonej przez operatora serwisu w Antalyi i oficjalne profile lekarzy." },
 };
 export default function ClinicalTeam() {
   const url = `${SITE_URL}/nasi-lekarze`;
@@ -33,7 +33,7 @@ export default function ClinicalTeam() {
   ] };
   return <main className="shell section-space content-section clinical-team-page">
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / Nasi lekarze</nav>
-    <p className="eyebrow">Klinika partnerska</p><h1>Nasi lekarze</h1>
+    <p className="eyebrow">Klinika prowadzona przez operatora serwisu</p><h1>Nasi lekarze</h1>
     <p className="lead">Poznaj lekarzy stomatologów współpracującej z nami kliniki Akdeniz Dental w Antalyi. Sprawdź ich wykształcenie, doświadczenie kliniczne oraz obszary, którymi zajmują się w codziennej praktyce.</p>
     <p>Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Obszary pracy nie są równoznaczne z niezależnie potwierdzonym tytułem specjalisty. Zdjęcia przedstawiają lekarzy wskazanych w tych profilach.</p>
     <div className="clinical-team-grid">{clinicalTeam.map((doctor) => <article className="clinical-team-card" id={doctor.slug} key={doctor.slug}>
@@ -43,7 +43,7 @@ export default function ClinicalTeam() {
         {doctor.reviewerUrl && <Link className="text-link" href={doctor.reviewerUrl}>Profil recenzenta medycznego i status recenzji →</Link>}
       </div>
     </article>)}</div>
-    <section className="section-space"><h2>Zespół kliniczny a recenzja medyczna</h2><p>Akdeniz Dental jest kliniką partnerską serwisu. Przynależność do jej zespołu nie oznacza, że lekarz sprawdził treści tej strony. Mustafa Akça pełni rolę recenzenta medycznego serwisu i jest właścicielem kliniki. Mehmet Onur Merey recenzuje wyłącznie przewodniki o implantach i All-on-4. Recenzję konkretnego artykułu przypisujemy dopiero po udokumentowaniu zakresu, daty i zatwierdzenia.</p><div className="button-row"><Link className="text-link" href="/eksperci/mustafa-akca">Mustafa Akça: profil i zweryfikowane treści →</Link><Link className="text-link" href="/eksperci/mehmet-onur-merey">Mehmet Onur Merey: implanty i All-on-4 →</Link><Link className="text-link" href="/weryfikacja-medyczna">Jak weryfikujemy treści →</Link></div></section>
+    <section className="section-space"><h2>Zespół kliniczny a recenzja medyczna</h2><p>Akdeniz Dental jest kliniką prowadzoną przez operatora serwisu. Przynależność do jej zespołu nie oznacza, że lekarz sprawdził treści tej strony. Mustafa Akça pełni rolę recenzenta medycznego serwisu i jest właścicielem kliniki. Mehmet Onur Merey recenzuje wyłącznie przewodniki o implantach i All-on-4. Recenzję konkretnego artykułu przypisujemy dopiero po udokumentowaniu zakresu, daty i zatwierdzenia.</p><div className="button-row"><Link className="text-link" href="/eksperci/mustafa-akca">Mustafa Akça: profil i zweryfikowane treści →</Link><Link className="text-link" href="/eksperci/mehmet-onur-merey">Mehmet Onur Merey: implanty i All-on-4 →</Link><Link className="text-link" href="/weryfikacja-medyczna">Jak weryfikujemy treści →</Link></div></section>
     <ClinicProfiles />
     <FaqSection path="/nasi-lekarze" items={teamFaq} className="section-space" />
     <SourceList intro={`Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Ostatnia aktualizacja danych: ${TEAM_SOURCE_DATE}.`} sources={[{ label: "Akdeniz Dental: zespół kliniki", href: TEAM_SOURCE_URL }, ...clinicalTeam.map((doctor) => ({ label: `Oficjalny profil: ${doctor.name}`, href: doctor.sourceUrl }))]} />

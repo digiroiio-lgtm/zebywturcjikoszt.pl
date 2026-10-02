@@ -25,7 +25,9 @@ export const OPERATOR: OperatorDetails = {
   postalCode: "07100",
   locality: "Muratpaşa",
   region: "Antalya",
-  country: "Turcja"
+  country: "Turcja",
+  phone: "+90 541 248 35 62",
+  email: "info@akdenizdental.com"
 };
 
 export const operatorIsPublished = Boolean(OPERATOR.legalName);
@@ -35,13 +37,13 @@ export const OPERATOR_DISCLOSURE = OPERATOR.legalName
   ? `Serwis prowadzi spółka ${OPERATOR.legalName}, która prowadzi także klinikę Akdeniz Dental w Antalyi.`
   : "";
 
-export function operatorRows(operator: OperatorDetails = OPERATOR): { label: string; value: string }[] {
+export function operatorRows(operator: OperatorDetails = OPERATOR, includeContact = true): { label: string; value: string }[] {
   const address = [operator.streetAddress, [operator.postalCode, operator.locality].filter(Boolean).join(" "), operator.region, operator.country].filter(Boolean).join(", ");
   return [
     { label: "Nazwa prawna", value: operator.legalName },
     { label: "Adres", value: address },
-    { label: "Telefon", value: operator.phone },
-    { label: "E-mail", value: operator.email },
+    { label: "Telefon", value: includeContact ? operator.phone : undefined },
+    { label: "E-mail", value: includeContact ? operator.email : undefined },
     { label: "Numer podatkowy", value: operator.taxId },
     { label: "Numer MERSIS", value: operator.mersisNo }
   ].filter((row): row is { label: string; value: string } => Boolean(row.value));

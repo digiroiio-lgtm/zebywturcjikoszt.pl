@@ -119,13 +119,14 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
       {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <main>
-        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{guide && <p className="hero-partner">Klinika partnerska: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
+        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{guide && <p className="hero-partner">Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
-            {(page.slug === "o-nas" || page.slug === "kontakt") && <OperatorDetails />}
+            {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
+            {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {guide && <GuidePrices />}
             <TreatmentCostScope slug={page.slug} />

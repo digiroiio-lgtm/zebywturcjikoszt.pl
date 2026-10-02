@@ -19,7 +19,7 @@ for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-ko
   const graph = schemas(html);
   assert.equal((html.match(/<h1[ >]/g) || []).length, 1);
   assert(html.includes(`rel="canonical" href="${origin}/${route}"`));
-  assert(html.includes('Klinika partnerska: Akdeniz Dental, Antalya, Turcja'));
+  assert(html.includes('Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja'));
   assert(html.includes('Poproś o wstępną wycenę'));
   assert(html.includes('Zobacz ceny leczenia'));
   assert(html.includes('Recenzja: jeszcze nieprzeprowadzona'));
