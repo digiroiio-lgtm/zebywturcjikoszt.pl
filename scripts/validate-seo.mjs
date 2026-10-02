@@ -47,7 +47,7 @@ for (const url of matches(llms, /\]\((https:\/\/[^)\s]+)\)/g)) {
   const parsed = new URL(url);
   if (parsed.origin !== sitemapOrigin) continue;
   const linked = normalisePath(parsed.pathname);
-  if (/^\/(llms-full\.txt|content-provenance\.json|sitemap\.xml)$/.test(linked)) continue;
+  if (/^\/(llms-full\.txt|content-provenance\.json|clinic-verification\.json|sitemap\.xml)$/.test(linked)) continue;
   if (!sitemapPaths.has(linked)) fail(`llms.txt links to ${linked}, which is not in the sitemap.`);
 }
 if (!sitemap.includes("image:loc")) fail("Sitemap contains no image entries.");
@@ -120,6 +120,13 @@ const reviewSource = await readFile(path.join(process.cwd(), "lib", "medical-rev
 for (const [, reviewDate] of reviewSource.matchAll(/reviewDate: "(\d{4}-\d{2}-\d{2})"/g)) {
   const age = (Date.now() - new Date(`${reviewDate}T00:00:00Z`).getTime()) / 86400000;
   if (age > 180) console.warn(`WARNING: a medical review dated ${reviewDate} is ${Math.round(age)} days old. Ask the reviewer to re-confirm the page.`);
+}
+
+const credentialSource = await readFile(path.join(process.cwd(), "lib", "credentials.ts"), "utf8");
+for (const [, validUntil] of credentialSource.matchAll(/validUntil: "(\d{4}-\d{2}-\d{2})"/g)) {
+  const daysLeft = (new Date(`${validUntil}T00:00:00Z`).getTime() - Date.now()) / 86400000;
+  if (daysLeft < 0) fail(`lib/credentials.ts: a credential expired on ${validUntil}. Update it from the official source or remove it.`);
+  else if (daysLeft < 60) console.warn(`WARNING: a credential in lib/credentials.ts expires on ${validUntil}.`);
 }
 
 if (failures.length) {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-team";
+import { doctorCredentials, hasCredentialSchema } from "@/lib/credentials";
+import { CredentialList } from "@/components/credential-list";
 import { SITE_URL } from "@/lib/site";
 import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList, clinicSchema } from "@/lib/seo";
 import { ClinicProfiles } from "@/components/clinic-profiles";
@@ -29,7 +31,7 @@ export default function ClinicalTeam() {
     breadcrumbList([{ name: "Nasi lekarze", path: "/nasi-lekarze" }]),
     { ...clinicSchema, employee: clinicalTeam.map((doctor) => ({ "@id": personId(doctor) })) },
     { "@type": "ItemList", "@id": `${url}#lista`, numberOfItems: clinicalTeam.length, itemListElement: clinicalTeam.map((doctor, index) => ({ "@type": "ListItem", position: index + 1, item: { "@id": personId(doctor) } })) },
-    ...clinicalTeam.map((doctor) => ({ "@type": "Person", "@id": personId(doctor), name: doctor.name, alternateName: doctor.alternateNames, jobTitle: "Lekarz dentysta", url: doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}` : `${url}#${doctor.slug}`, image: `${SITE_URL}${doctor.imageUrl}`, description: `${doctor.education} ${doctor.focus}`, knowsAbout: doctor.area, sameAs: [doctor.sourceUrl], worksFor: { "@id": "https://akdenizdental.com/#organization" } })),
+    ...clinicalTeam.map((doctor) => ({ "@type": "Person", "@id": personId(doctor), name: doctor.name, alternateName: doctor.alternateNames, jobTitle: "Lekarz dentysta", url: doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}` : `${url}#${doctor.slug}`, image: `${SITE_URL}${doctor.imageUrl}`, description: `${doctor.education} ${doctor.focus}`, knowsAbout: doctor.area, sameAs: [doctor.sourceUrl], worksFor: { "@id": "https://akdenizdental.com/#organization" }, ...hasCredentialSchema(doctorCredentials[doctor.slug] ?? []) })),
   ] };
   return <main className="shell section-space content-section clinical-team-page">
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / Nasi lekarze</nav>
@@ -38,7 +40,7 @@ export default function ClinicalTeam() {
     <p>Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Obszary pracy nie są równoznaczne z niezależnie potwierdzonym tytułem specjalisty. Zdjęcia przedstawiają lekarzy wskazanych w tych profilach.</p>
     <div className="clinical-team-grid">{clinicalTeam.map((doctor) => <article className="clinical-team-card" id={doctor.slug} key={doctor.slug}>
       <Image src={doctor.imageUrl} alt={`Lek. dent. ${doctor.name} – Akdeniz Dental`} width={600} height={600} sizes="(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw" className="clinical-team-portrait" />
-      <div className="clinical-team-body"><p className="eyebrow">Lekarz dentysta</p><h2>{doctor.name}</h2><p><strong>Obszar pracy:</strong> {doctor.area}</p><p><strong>Wykształcenie według kliniki:</strong> {doctor.education}</p><p>{doctor.focus}</p>{doctor.patientMention && <p className="patient-mention"><strong>Opinie pacjentów:</strong> {doctor.patientMention.text} <a className="text-link" href={doctor.patientMention.href} target="_blank" rel="noopener noreferrer">Zobacz opinię →</a> Opinia pacjenta nie jest weryfikacją kwalifikacji.</p>}
+      <div className="clinical-team-body"><p className="eyebrow">Lekarz dentysta</p><h2>{doctor.name}</h2><p><strong>Obszar pracy:</strong> {doctor.area}</p><p><strong>Wykształcenie według kliniki:</strong> {doctor.education}</p><p>{doctor.focus}</p><CredentialList credentials={doctorCredentials[doctor.slug] ?? []} heading="Dokumenty i wpisy rejestrowe" compact />{doctor.patientMention && <p className="patient-mention"><strong>Opinie pacjentów:</strong> {doctor.patientMention.text} <a className="text-link" href={doctor.patientMention.href} target="_blank" rel="noopener noreferrer">Zobacz opinię →</a> Opinia pacjenta nie jest weryfikacją kwalifikacji.</p>}
         <a className="text-link" href={doctor.sourceUrl} target="_blank" rel="noopener noreferrer">Oficjalny profil w klinice →</a>
         {doctor.reviewerUrl && <Link className="text-link" href={doctor.reviewerUrl}>Profil recenzenta medycznego i status recenzji →</Link>}
       </div>
