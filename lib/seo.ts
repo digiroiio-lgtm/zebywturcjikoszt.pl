@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { PageContent } from "./site";
 import { PUBLISHED_ISO_DATE, UPDATED_ISO_DATE } from "./site";
+import { CLINIC_GEO, CLINIC_ID, CLINIC_NAME, CLINIC_URL, clinicProfiles } from "./clinic-profiles";
 
 export const AI_TEXT_HEADERS = {
   "Content-Type": "text/plain; charset=utf-8",
@@ -33,3 +34,14 @@ export function buildMetadata(page: PageContent): Metadata {
     twitter: { card: "summary_large_image", images: TWITTER_IMAGES, title: page.title, description: page.description }
   };
 }
+
+export const clinicSchema = {
+  "@type": ["Dentist", "MedicalClinic"],
+  "@id": CLINIC_ID,
+  name: CLINIC_NAME,
+  alternateName: "Antalya Akdeniz Dental Clinic",
+  url: CLINIC_URL,
+  geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
+  hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
+  sameAs: clinicProfiles.map((profile) => profile.href)
+};

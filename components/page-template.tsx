@@ -15,6 +15,7 @@ import { BeforeAfterCaseHub } from "./case-gallery";
 import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
+import { ClinicProfiles } from "./clinic-profiles";
 import { TreatmentCostScope } from "./treatment-cost-scope";
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
@@ -119,6 +120,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
+            {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {guide && <GuidePrices />}
             <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
