@@ -82,8 +82,8 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       const labels: Record<string, string> = { name: "Podaj imię i nazwisko.", phone: "Podaj numer telefonu.", whatsapp: "Podaj numer WhatsApp.", email: "Podaj prawidłowy adres e-mail.", country: "Wybierz kraj.", message: "Sprawdź długość wiadomości." };
       field.setCustomValidity(labels[field.name] ?? "Uzupełnij wymagane pole.");
     }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
-      <h2 id={titleId}>Poproś o wstępną wycenę</h2>
-      <p id={descriptionId} className="consultation-intro">Opisz po polsku swoje potrzeby i poproś o wstępną wycenę. Skontaktujemy się z Tobą, aby ustalić potrzebne informacje; ostateczny plan leczenia wymaga badania przez lekarza.</p>
+      <h2 id={titleId}>Bezpłatna indywidualna wstępna ocena</h2>
+      <p id={descriptionId} className="consultation-intro">Opisz swoją sytuację i oczekiwania. Na podstawie przekazanych informacji otrzymasz bezpłatną wstępną ocenę możliwych opcji leczenia. Ostateczny plan leczenia wymaga konsultacji i badania przez lekarza.</p>
       <div className="form-grid" hidden={status === "sent"}>
         <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Twoje imię i nazwisko" />{fieldError("name")}</label>
         <label>Telefon *<input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} {...errorProps("phone")} placeholder="np. +48 123 456 789" />{fieldError("phone")}</label>
@@ -94,7 +94,7 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
-      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o wstępną wycenę <span aria-hidden="true">→</span></>}</button>}
+      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną wstępną ocenę <span aria-hidden="true">→</span></>}</button>}
       <p className="form-privacy">Zgłoszenie jest przesyłane przez Formspree. <Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
       {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną wycenę.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
       {status === "error" && <p ref={feedbackRef} tabIndex={-1} role="alert" className="error">{errorMessage}</p>}
