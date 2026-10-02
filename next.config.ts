@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     const moved = (file: string, folder: string) => ({ source: `/images/diagrams/:file(${file})`, destination: `/images/${folder}/:file`, permanent: true });
     return [
+      { source: "/wlasciciel-i-finansowanie", destination: "/wlasciciel-serwisu", permanent: true },
       moved("before-after\\d+\\.webp", "przed-i-po"),
       moved(".+\\.svg", "poradniki"),
       moved("(?:team-\\d|dr-selen|mehmet-buyuktarakci|duygu-kolay|funda-ozen|ayse-kus|ozer-ilhan|ali-burak-kacmaz|ayse-boharali)\\.jpeg", "zespol"),

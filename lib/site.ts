@@ -367,7 +367,7 @@ export const pages: Record<string, PageContent> = {
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
     answer: "To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Serwis nie wykonuje leczenia, nie jest niezależną porównywarką i nie zastępuje porady lekarza.",
     lastUpdated: "2026-10-02",
-    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel i finansowanie serwisu", href: "/wlasciciel-i-finansowanie" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
+    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel serwisu", href: "/wlasciciel-serwisu" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
     faq: [
       { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
       { question: "Kto jest operatorem serwisu?", answer: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ z siedzibą w Antalyi, w Turcji (Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100 Muratpaşa). To ta sama spółka, która prowadzi klinikę Akdeniz Dental." },
@@ -402,7 +402,7 @@ export const pages: Record<string, PageContent> = {
   "polityka-redakcyjna": {
     slug: "polityka-redakcyjna", title: "Polityka redakcyjna", description: "Jak powstają, są aktualizowane i oznaczane treści w serwisie Zęby w Turcji: autorstwo, źródła, korekty, daty i ujawnienie celu komercyjnego.",
     lastUpdated: "2026-10-02",
-    sources: [{ label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }, { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel i finansowanie serwisu", href: "/wlasciciel-i-finansowanie" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
+    sources: [{ label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }, { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel serwisu", href: "/wlasciciel-serwisu" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
     eyebrow: "Standard treści", h1: "Polityka redakcyjna",
     lead: "Treści mają pomagać w podjęciu świadomej decyzji, a nie zastępować diagnozę lub konsultację z lekarzem dentystą.",
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
@@ -457,17 +457,16 @@ export const pages: Record<string, PageContent> = {
     ],
     sources: [{ label: "Polityka redakcyjna", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna", href: "/weryfikacja-medyczna" }, { label: "Eksperci i status recenzji stron", href: "/eksperci" }, { label: "Cennik kliniki i koszt leczenia", href: "/koszt" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }]
   },
-  "wlasciciel-i-finansowanie": {
-    slug: "wlasciciel-i-finansowanie", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Właściciel i finansowanie serwisu",
-    description: "Kto prowadzi serwis Zęby w Turcji i kto go utrzymuje: dane operatora, cel komercyjny, powiązanie z kliniką Akdeniz Dental i recenzentami.",
-    eyebrow: "Transparentność", h1: "Właściciel i finansowanie serwisu",
+  "wlasciciel-serwisu": {
+    slug: "wlasciciel-serwisu", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Właściciel serwisu",
+    description: "Kto jest właścicielem serwisu Zęby w Turcji: dane operatora, cel komercyjny, powiązanie z kliniką Akdeniz Dental i z recenzentami medycznymi.",
+    eyebrow: "Transparentność", h1: "Właściciel serwisu",
     lead: "Serwis informacyjny o leczeniu zębów w Turcji prowadzi spółka, która prowadzi także klinikę Akdeniz Dental w Antalyi. Ta strona opisuje to powiązanie wprost.",
     answer: `Serwis prowadzi spółka ${OPERATOR.legalName ?? "operator serwisu"}, która prowadzi także klinikę Akdeniz Dental. Serwis ma cel komercyjny i nie jest niezależnym rankingiem klinik.`,
     sections: [
       { title: "Operator serwisu", paragraphs: [`Operatorem serwisu jest ${OPERATOR.legalName ?? "operator serwisu"}${OPERATOR.streetAddress ? `, ${OPERATOR.streetAddress}, ${[OPERATOR.postalCode, OPERATOR.locality].filter(Boolean).join(" ")}, ${OPERATOR.region ?? ""}, ${OPERATOR.country ?? ""}` : ""}. Dane operatora są widoczne także na stronie „O serwisie”.`] },
       { title: "Cel komercyjny", paragraphs: ["Serwis jest serwisem informacyjnym o celu komercyjnym. Pomaga pacjentom przygotować się do decyzji i zachęca do wysłania zapytania o bezpłatną wstępną ocenę. Zgłoszenia z formularza trafiają do operatora."] },
       { title: "Powiązanie z kliniką", paragraphs: ["Operator prowadzi klinikę Akdeniz Dental w Antalyi, dlatego nie przedstawiamy serwisu jako neutralnego rankingu ani porównywarki. Recenzenci medyczni serwisu są właścicielami lub współwłaścicielami tej kliniki, co opisujemy przy ich profilach."] },
-      { title: "Utrzymanie serwisu", paragraphs: ["Serwis jest utrzymywany przez operatora. Treści są dostępne bezpłatnie, a ceny pochodzą z cennika kliniki prowadzonej przez operatora serwisu."] },
       { title: "Gdzie szukać więcej informacji", paragraphs: ["Zasady powstawania treści opisują polityka redakcyjna i metodologia. Pytania o własność serwisu możesz zadać przez stronę kontaktową."] }
     ],
     sources: [{ label: "O serwisie: operator i relacja z kliniką", href: "/o-nas" }, { label: "Polityka redakcyjna: konflikt interesów", href: "/polityka-redakcyjna" }, { label: "Eksperci: powiązania recenzentów z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki", href: "https://akdenizdental.com" }]
