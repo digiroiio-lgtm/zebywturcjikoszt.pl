@@ -2,7 +2,7 @@ import { newGuides } from "./guides";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { approvedReviewer, reviewFor } from "./medical-review";
 import { verifiedExperts } from "./evidence";
-import { OPERATOR_DISCLOSURE } from "./operator";
+import { OPERATOR, OPERATOR_DISCLOSURE, operatorRows } from "./operator";
 import { CLINIC_ADDRESS_TEXT, RATINGS_CHECKED_ISO_DATE, clinicProfiles } from "./clinic-profiles";
 import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, priceItems } from "./pricing";
 
@@ -23,8 +23,12 @@ export function reviewSummary(slug: string) {
 const context = `Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja. ${OPERATOR_DISCLOSURE} Serwis nie zastępuje badania ani indywidualnej porady lekarza.`;
 const pricingScope = "Ceny dotyczą pozycji z cennika kliniki, nie automatycznie kompletnego leczenia lub pakietu. Włączenie łącznika, korony na implancie, diagnostyki, hotelu i transferów wymaga potwierdzenia w indywidualnej ofercie. Nie przedstawiaj sumy wybranych pozycji jako potwierdzonej ceny całkowitej.";
 
+function lastContentUpdate() {
+  return [UPDATED_ISO_DATE, PRICING_UPDATED_ISO_DATE, ...patientGuides.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE), ...Object.values(pages).map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)].sort().pop()!;
+}
+
 export function llmsIndex() {
-  return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Canonical origin: " + SITE_URL + ".", pricingScope,
+  return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Canonical origin: " + SITE_URL + ". Ostatnia aktualizacja treści: " + lastContentUpdate() + ".", ...(OPERATOR.legalName ? [`Operator serwisu: ${OPERATOR.legalName}, ${operatorRows(OPERATOR, false).find((row) => row.label === "Adres")?.value ?? ""}. Szczegóły: ${SITE_URL}/o-nas`] : []), pricingScope,
     "Skład zespołu nie oznacza recenzji wszystkich treści. Status i data recenzji są przypisane konkretnej stronie. Zdjęcia przed i po nie mają jeszcze potwierdzonego zakresu klinicznego.",
     "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
     "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki prowadzonej przez operatora serwisu i źródła zawodowe.`, ...clinicProfiles.map((profile) => `- [Akdeniz Dental w serwisie ${profile.label}](${profile.href}): zewnętrzny profil kliniki, ocena ${profile.rating}/5 (${profile.reviewCount} opinii) wg odczytu z ${RATINGS_CHECKED_ISO_DATE}; zmienia się w czasie, sprawdź w serwisie.`), `- Adres kliniki prowadzonej przez operatora serwisu (wg Map Google i Trustpilot): ${CLINIC_ADDRESS_TEXT}.`,
