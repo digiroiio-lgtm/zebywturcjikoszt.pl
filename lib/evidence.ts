@@ -72,7 +72,7 @@ export const implantMedicalReviewer: VerifiedExpert = {
   professionalFocus: ["chirurgia jamy ustnej i szczękowo-twarzowa", "implantologia", "odbudowa kości", "złożone ekstrakcje"],
   introduction: "Dentysta związany z chirurgią jamy ustnej i szczękowo-twarzową w Akdeniz Dental w Antalyi, w Turcji.",
   experience: "Według profilu kliniki zajmuje się leczeniem implantologicznym, odbudową kości i złożonymi ekstrakcjami. Dane o wykształceniu oraz obszarach pracy pochodzą od kliniki; profil nie stanowi niezależnej weryfikacji dyplomu ani uprawnień.",
-  affiliation: "Mehmet Onur Merey pracuje w Akdeniz Dental, klinice partnerskiej serwisu, i według jej profilu jest właścicielem placówki. Jest to powiązanie zawodowe i komercyjne; nie przedstawiamy go jako niezależnego recenzenta. Rola recenzenta nie oznacza gwarancji wyniku leczenia ani zastąpienia indywidualnego badania.",
+  affiliation: "Mehmet Onur Merey pracuje w Akdeniz Dental, klinice prowadzonej przez operatora serwisu, i według jej profilu jest właścicielem placówki. Jest to powiązanie zawodowe i komercyjne; nie przedstawiamy go jako niezależnego recenzenta. Rola recenzenta nie oznacza gwarancji wyniku leczenia ani zastąpienia indywidualnego badania.",
   sourceNote: "Indywidualny profil Akdeniz Dental opisuje pełne imię i nazwisko, wykształcenie, obszary pracy i rolę w klinice. W zestawieniu zespołu występuje również skrócone imię Onur Merey. Źródło nie stanowi rekomendacji naszego serwisu.",
   reviewScope: "W tym serwisie jego zakres recenzji obejmuje wyłącznie przewodniki o implantach i All-on-4. Pozostałe kategorie nie są przypisywane mu automatycznie.",
   profileUrl: "/eksperci/mehmet-onur-merey",

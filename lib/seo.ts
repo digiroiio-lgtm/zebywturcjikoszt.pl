@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { PageContent } from "./site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "./site";
+import { operatorSchemaFields } from "./operator";
 import { CLINIC_ADDRESS, CLINIC_GEO, CLINIC_ID, CLINIC_NAME, CLINIC_URL, clinicProfiles } from "./clinic-profiles";
 
 export const AI_TEXT_HEADERS = {
@@ -44,7 +45,8 @@ export const clinicSchema = {
   address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
-  sameAs: clinicProfiles.map((profile) => profile.href)
+  sameAs: clinicProfiles.map((profile) => profile.href),
+  ...operatorSchemaFields()
 };
 
 export function breadcrumbList(items: { name: string; path: string }[]) {
