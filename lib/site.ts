@@ -415,6 +415,9 @@ export const pages: Record<string, PageContent> = {
         { title: "Strony prawne", text: "Regulamin, prywatność i cookies. Dane operatora podano na stronie „O serwisie”; pełne teksty prawne są w przygotowaniu." }
       ]},
       { title: "Daty i oznaczenia na stronach", paragraphs: ["Każda strona treści pokazuje datę publikacji i aktualizacji oraz status recenzji medycznej w panelu informacji o treści. Zmiana daty aktualizacji oznacza istotną korektę informacji, a nie sam zabieg kosmetyczny w tekście."] },
+      { title: "Ceny i kurs walut", paragraphs: ["Ceny pochodzą z cennika kliniki, są podane w EUR i mają widoczną datę aktualizacji. Przeliczenie na PLN jest orientacyjne, opiera się na kursie z podaną datą i nie jest aktualizowane automatycznie. Cena pozycji z cennika nie jest ceną całego leczenia ani pakietu."] },
+      { title: "Oceny i opinie z zewnętrznych serwisów", paragraphs: ["Oceny z Trustpilot i Map Google pokazujemy jako dane zewnętrzne, z datą odczytu i linkiem do profilu. Nie traktujemy ich jako oceny medycznej i nie oznaczamy ich w danych strukturalnych jako własnej oceny serwisu. Wzmianki o lekarzach z opinii pacjentów opisujemy jako opinie, a nie weryfikację kwalifikacji."] },
+      { title: "Źródła zewnętrzne", paragraphs: ["Przy informacjach o prawach pacjenta i konsumenta korzystamy z instytucji publicznych, takich jak portal pacjent.gov.pl, NFZ, UOKiK i Europejskie Centrum Konsumenckie. Źródło musi bezpośrednio potwierdzać informację, przy której je podajemy."] },
       { title: "Konflikt interesów", paragraphs: ["Serwis ma cel komercyjny. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Recenzenci medyczni są związani z tą kliniką, dlatego opisujemy to powiązanie przy ich profilach i nie przedstawiamy ich jako niezależnych ekspertów."] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
@@ -435,6 +438,8 @@ export const pages: Record<string, PageContent> = {
         { title: "Recenzja oczekuje na potwierdzenie daty", text: "Recenzent jest przypisany, ale data recenzji nie została jeszcze potwierdzona." },
         { title: "Recenzja jeszcze nieprzeprowadzona", text: "Strona ma tylko autora redakcyjnego. Nie traktuj jej jako zweryfikowanej." }
       ]},
+      { title: "Co się dzieje po zmianie treści", paragraphs: ["Jeżeli strona zostanie zmieniona po dacie recenzji, oznaczenie „zweryfikowano” znika automatycznie, a panel informacji o treści pokazuje, że poprzednia recenzja nie obejmuje zmian i oczekuje na ponowne potwierdzenie. Oznaczenie wraca dopiero po nowej recenzji z potwierdzoną datą."] },
+      { title: "Aktualny status stron", paragraphs: ["Pełną, aktualną listę stron, ich recenzentów i statusów pokazuje strona Eksperci. Recenzent jest przypisany do konkretnych stron, a nie do całego serwisu."] },
       { title: "Powiązanie recenzentów z kliniką", paragraphs: ["Recenzenci medyczni są związani z kliniką Akdeniz Dental prowadzoną przez operatora serwisu. Recenzja nie oznacza niezależnej oceny kliniki ani oferty. Aktualną listę zrecenzowanych stron znajdziesz w profilach recenzentów w sekcji Eksperci."] },
       { title: "Czego serwis nie robi", paragraphs: ["Serwis nie diagnozuje, nie kwalifikuje do zabiegu i nie udziela indywidualnej porady medycznej. Ostateczną decyzję podejmuje pacjent wspólnie z uprawnionym lekarzem po badaniu."] }
     ]

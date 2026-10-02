@@ -42,6 +42,7 @@ export const clinicSchema = {
   name: CLINIC_NAME,
   alternateName: "Antalya Akdeniz Dental Clinic",
   url: CLINIC_URL,
+  medicalSpecialty: "Dentistry",
   address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,

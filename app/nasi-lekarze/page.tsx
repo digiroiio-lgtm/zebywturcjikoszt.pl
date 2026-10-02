@@ -27,7 +27,7 @@ export default function ClinicalTeam() {
   const schema = { "@context": "https://schema.org", "@graph": [
     { "@type": "CollectionPage", "@id": url, url, name: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", mainEntity: { "@id": `${url}#lista` } },
     breadcrumbList([{ name: "Nasi lekarze", path: "/nasi-lekarze" }]),
-    clinicSchema,
+    { ...clinicSchema, employee: clinicalTeam.map((doctor) => ({ "@id": personId(doctor) })) },
     { "@type": "ItemList", "@id": `${url}#lista`, numberOfItems: clinicalTeam.length, itemListElement: clinicalTeam.map((doctor, index) => ({ "@type": "ListItem", position: index + 1, item: { "@id": personId(doctor) } })) },
     ...clinicalTeam.map((doctor) => ({ "@type": "Person", "@id": personId(doctor), name: doctor.name, alternateName: doctor.alternateNames, jobTitle: "Lekarz dentysta", url: doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}` : `${url}#${doctor.slug}`, image: `${SITE_URL}${doctor.imageUrl}`, description: `${doctor.education} ${doctor.focus}`, knowsAbout: doctor.area, sameAs: [doctor.sourceUrl], worksFor: { "@id": "https://akdenizdental.com/#organization" } })),
   ] };
