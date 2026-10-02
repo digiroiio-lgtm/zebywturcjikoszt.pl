@@ -32,16 +32,9 @@ for (const question of faq.mainEntity) {
   assert.equal(question.acceptedAnswer.text, original.acceptedAnswer.text);
   assert(full.includes(original.acceptedAnswer.text));
 }
-// /all-on-4 and /cala-szczeka were edited on 2026-10-02 after their 2026-09-30 review: the claim must be withdrawn until the reviewers re-confirm.
-for (const slug of ['all-on-4', 'cala-szczeka']) {
+for (const [slug, reviewer, reviewDate] of [['implanty','mehmet-onur-merey','2026-09-30'],['licowki','mustafa-akca','2026-09-30'],['all-on-4','mehmet-onur-merey','2026-10-02'],['cala-szczeka','mustafa-akca','2026-10-02']]) {
   const page = schemas(read(slug + '.html')).find((s) => s['@type'] === 'MedicalWebPage');
-  assert.equal(page.reviewedBy, undefined);
-  assert.equal(page.lastReviewed, undefined);
-  assert(read(slug + '.html').includes('wymaga ponownego potwierdzenia'));
-}
-for (const [slug, reviewer] of Object.entries({implanty:'mehmet-onur-merey',licowki:'mustafa-akca'})) {
-  const page = schemas(read(slug + '.html')).find((s) => s['@type'] === 'MedicalWebPage');
-  assert.equal(page.lastReviewed, '2026-09-30');
+  assert.equal(page.lastReviewed, reviewDate);
   assert.equal(page.reviewedBy['@id'], `${origin}/eksperci/${reviewer}/#person`);
   if (page.citation) assert(page.citation.every((source) => source.url && source.name));
 }
