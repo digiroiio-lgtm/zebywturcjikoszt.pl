@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { MobileAssessmentBar } from "@/components/mobile-assessment-bar";
 import { AiReferralTracker } from "@/components/ai-referral-tracker";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { clinicSchema } from "@/lib/seo";
 import "./globals.css";
@@ -30,5 +32,5 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     publisher: { "@id": `${SITE_URL}/#organization` }
   };
   const organizationSchema = { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "Redakcja serwisu Zęby w Turcji", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/apple-icon`, width: 180, height: 180 }, sameAs: ["https://akdenizdental.com"], parentOrganization: { "@id": clinicSchema["@id"] }, areaServed: { "@type": "Country", name: "Polska" }, knowsAbout: ["Leczenie zębów w Turcji", "Implanty zębowe", "Korony cyrkonowe", "Licówki", "All-on-4"] };
-  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><AiReferralTracker /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...clinicSchema }) }} /></body></html>;
+  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><AiReferralTracker /><Analytics /><SpeedInsights /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...clinicSchema }) }} /></body></html>;
 }

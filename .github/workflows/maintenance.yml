@@ -1,0 +1,43 @@
+name: maintenance
+
+on:
+  schedule:
+    - cron: "0 7 * * 1"   # weekly source link check, Monday 07:00 UTC
+    - cron: "0 8 1 1,4,7,10 *"   # quarterly review reminder
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  source-links:
+    if: github.event.schedule != '0 8 1 1,4,7,10 *'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check:sources
+
+  quarterly-review:
+    if: github.event.schedule == '0 8 1 1,4,7,10 *' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open the quarterly YMYL review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Quarterly YMYL review ($(date -u +%Y-%m-%d))" \
+            --body "Checklist:
+          - [ ] Re-read the Trustpilot and Google ratings and update RATINGS_CHECKED_ISO_DATE and RATINGS_CHECKED_DATE in lib/clinic-profiles.ts
+          - [ ] Ask the medical reviewers to re-confirm pages whose content changed (lib/medical-review.ts)
+          - [ ] Review prices and the EUR/PLN rate (lib/pricing.ts)
+          - [ ] Run npm run check:sources and fix broken sources
+          - [ ] Review pages older than 6 months and update lastUpdated and the change history (lib/page-history.ts)
+          - [ ] Re-run npm run verify:live and check Search Console page indexing"

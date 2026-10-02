@@ -116,6 +116,12 @@ for (const [route, file] of routeFiles) {
 const ratingsDate = (await readFile(path.join(process.cwd(), "lib", "clinic-profiles.ts"), "utf8")).match(/RATINGS_CHECKED_ISO_DATE = "(\d{4}-\d{2}-\d{2})"/)?.[1];
 if (ratingsDate && (Date.now() - new Date(`${ratingsDate}T00:00:00Z`).getTime()) / 86400000 > 90) console.warn(`WARNING: clinic ratings were last checked on ${ratingsDate}. Re-read Trustpilot and Google, then update RATINGS_CHECKED_ISO_DATE and RATINGS_CHECKED_DATE.`);
 
+const reviewSource = await readFile(path.join(process.cwd(), "lib", "medical-review.ts"), "utf8");
+for (const [, reviewDate] of reviewSource.matchAll(/reviewDate: "(\d{4}-\d{2}-\d{2})"/g)) {
+  const age = (Date.now() - new Date(`${reviewDate}T00:00:00Z`).getTime()) / 86400000;
+  if (age > 180) console.warn(`WARNING: a medical review dated ${reviewDate} is ${Math.round(age)} days old. Ask the reviewer to re-confirm the page.`);
+}
+
 if (failures.length) {
   console.error(`SEO contract failed with ${failures.length} issue(s):`);
   for (const issue of failures) console.error(`- ${issue}`);
