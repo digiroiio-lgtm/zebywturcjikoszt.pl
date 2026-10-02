@@ -16,9 +16,24 @@ export type OperatorDetails = {
   mersisNo?: string;
 };
 
-export const OPERATOR: OperatorDetails = {};
+// Phone, e-mail, tax and MERSIS numbers are intentionally left empty until verified from an official document:
+// the supplied phone/e-mail conflict with the numbers the clinic publishes on Trustpilot, and the tax/MERSIS numbers
+// could not be confirmed from a public registry. Address follows the form shown in Google Maps and Trustpilot.
+export const OPERATOR: OperatorDetails = {
+  legalName: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ",
+  streetAddress: "Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok",
+  postalCode: "07100",
+  locality: "Muratpaşa",
+  region: "Antalya",
+  country: "Turcja"
+};
 
 export const operatorIsPublished = Boolean(OPERATOR.legalName);
+
+/** One-sentence disclosure used in the footer, llms.txt and FAQ answers. */
+export const OPERATOR_DISCLOSURE = OPERATOR.legalName
+  ? `Serwis prowadzi spółka ${OPERATOR.legalName}, która prowadzi także klinikę Akdeniz Dental w Antalyi.`
+  : "";
 
 export function operatorRows(operator: OperatorDetails = OPERATOR): { label: string; value: string }[] {
   const address = [operator.streetAddress, [operator.postalCode, operator.locality].filter(Boolean).join(" "), operator.region, operator.country].filter(Boolean).join(", ");

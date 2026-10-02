@@ -352,7 +352,7 @@ export const pages: Record<string, PageContent> = {
       ]}
     ],
     faq: [
-      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. Serwis ma cel komercyjny. Dane podmiotu prowadzącego serwis i jego związki z klinikami zostaną podane przed uruchomieniem kontaktu przez formularz." },
+      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. Serwis ma cel komercyjny. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie jest więc neutralnym rankingiem." },
       { question: "Czy same opinie w Google wystarczą?", answer: "Nie. Mogą pomóc w ocenie kliniki, ale sprawdź też lekarza, plan leczenia, dokumentację i zasady opieki po powrocie." },
       { question: "Kiedy wpłacić zaliczkę?", answer: "Dopiero po poznaniu podmiotu, warunków płatności, zasad zwrotu oraz zakresu wstępnej oferty. Dane te powinny być dostępne na piśmie." }
     ],
@@ -364,21 +364,20 @@ export const pages: Record<string, PageContent> = {
     slug: "o-nas", title: "O serwisie Zęby w Turcji", description: "Czym jest serwis Zęby w Turcji: cel komercyjny, relacja z kliniką Akdeniz Dental, zasady transparentności, źródła treści i zakres odpowiedzialności.",
     eyebrow: "Transparentność", h1: "O serwisie",
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
-    answer: "To serwis informacyjny o celu komercyjnym. Nie jest niezależną porównywarką ani podmiotem wykonującym leczenie. Dane operatora oraz relacja z kliniką muszą zostać uzupełnione po ich pisemnym potwierdzeniu.",
+    answer: "To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Serwis nie wykonuje leczenia, nie jest niezależną porównywarką i nie zastępuje porady lekarza.",
     lastUpdated: "2026-10-02",
     sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki partnerskiej", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki partnerskiej", href: "https://akdenizdental.com" }],
     faq: [
-      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym, powiązany z kliniką partnerską Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
-      { question: "Kto jest operatorem serwisu?", answer: "Nazwa prawna operatora, adres i dane kontaktowe są w trakcie uzupełniania. Do czasu ich publikacji nie podajemy ich w serwisie, aby nie przedstawiać niepotwierdzonych informacji." },
+      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
+      { question: "Kto jest operatorem serwisu?", answer: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ z siedzibą w Antalyi, w Turcji (Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100 Muratpaşa). To ta sama spółka, która prowadzi klinikę Akdeniz Dental." },
       { question: "Jak zgłosić błąd lub nieaktualną cenę?", answer: "Przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się po wprowadzeniu istotnej korekty." }
     ],
     sections: [
       { title: "Nasze zasady", bullets: ["nie publikujemy niezweryfikowanych cen ani obietnic rezultatów", "nie tworzymy fikcyjnych opinii i przypadków przed i po", "oddzielamy treść informacyjną od decyzji medycznej", "wskazujemy brak danych zamiast zastępować go marketingową deklaracją"] },
       { title: "Czym jest serwis, a czym nie", paragraphs: ["Serwis zbiera i porządkuje informacje o leczeniu stomatologicznym w Turcji: metodach, kosztach z cennika kliniki, planowaniu wyjazdu i opiece po powrocie. Nie świadczy usług medycznych, nie stawia diagnoz i nie ustala planów leczenia.", "Treści opisują ogólne zasady. O kwalifikacji do konkretnego zabiegu decyduje lekarz po badaniu, a pisemna oferta kliniki ma pierwszeństwo przed informacjami z tego serwisu."] },
       { title: "Jak powstają treści", paragraphs: ["Teksty przygotowuje redakcja serwisu zgodnie z polityką redakcyjną. Ceny pochodzą z cennika kliniki partnerskiej i mają datę aktualizacji. Status recenzji medycznej jest przypisany do konkretnej strony i widoczny na niej. Strony bez recenzji są jako takie oznaczone."], bullets: ["standard autorstwa, źródeł i korekt opisuje polityka redakcyjna", "zasady i zakres recenzji opisuje strona o weryfikacji medycznej", "profile recenzentów znajdują się w sekcji Eksperci, a zespół kliniki na stronie Nasi lekarze"] },
-      { title: "Relacja z kliniką partnerską", paragraphs: ["Klinika partnerska to Akdeniz Dental w Antalyi. Recenzenci medyczni serwisu są związani z tą kliniką zawodowo i komercyjnie, dlatego nie przedstawiamy ich jako niezależnych ekspertów. Ujawniamy ten fakt na stronach recenzji i profili ekspertów."] },
-      { title: "Jak zgłosić błąd lub zastrzeżenie", paragraphs: ["Błąd merytoryczny, nieaktualną cenę lub zastrzeżenie do treści możesz zgłosić przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się dopiero po wprowadzeniu istotnej korekty."] },
-      { title: "Dane wymagające potwierdzenia", paragraphs: ["Nazwa prawna operatora, adres, dane kontaktowe, klinika wykonująca leczenie oraz szczegółowy charakter relacji komercyjnej zostaną opublikowane przed uruchomieniem formularza kontaktowego."] }
+      { title: "Operator serwisu i relacja z kliniką", paragraphs: ["Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Dlatego klinikę nazywamy w serwisie partnerską w sensie komercyjnym, a nie niezależną. Recenzenci medyczni serwisu są związani z tą kliniką zawodowo i komercyjnie, co ujawniamy na stronach recenzji i w profilach ekspertów.", "Dane rejestrowe operatora podajemy poniżej. Dane kontaktowe są dostępne przez formularz na stronie kontaktowej."] },
+      { title: "Jak zgłosić błąd lub zastrzeżenie", paragraphs: ["Błąd merytoryczny, nieaktualną cenę lub zastrzeżenie do treści możesz zgłosić przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się dopiero po wprowadzeniu istotnej korekty."] }
     ]
   },
   kontakt: {
@@ -413,10 +412,10 @@ export const pages: Record<string, PageContent> = {
         { title: "Przewodniki informacyjne", text: "Opisują metody leczenia, pytania do kliniki i organizację wyjazdu. Nie są poradą medyczną." },
         { title: "Cennik", text: "Pozycje pochodzą z cennika kliniki partnerskiej, mają datę aktualizacji i nie są ceną całego leczenia." },
         { title: "Strony zaufania", text: "Opisują autorstwo, recenzje, zespół kliniki i relacje komercyjne." },
-        { title: "Strony prawne", text: "Regulamin, prywatność i cookies. Dane operatora będą dodane po ich potwierdzeniu." }
+        { title: "Strony prawne", text: "Regulamin, prywatność i cookies. Dane operatora podano na stronie „O serwisie”; pełne teksty prawne są w przygotowaniu." }
       ]},
       { title: "Daty i oznaczenia na stronach", paragraphs: ["Każda strona treści pokazuje datę publikacji i aktualizacji oraz status recenzji medycznej w panelu informacji o treści. Zmiana daty aktualizacji oznacza istotną korektę informacji, a nie sam zabieg kosmetyczny w tekście."] },
-      { title: "Konflikt interesów", paragraphs: ["Serwis ma cel komercyjny i współpracuje z kliniką Akdeniz Dental. Recenzenci medyczni są związani z tą kliniką, dlatego opisujemy to powiązanie przy ich profilach i nie przedstawiamy ich jako niezależnych ekspertów."] },
+      { title: "Konflikt interesów", paragraphs: ["Serwis ma cel komercyjny. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Recenzenci medyczni są związani z tą kliniką, dlatego opisujemy to powiązanie przy ich profilach i nie przedstawiamy ich jako niezależnych ekspertów."] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
   },

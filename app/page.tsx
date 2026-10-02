@@ -9,7 +9,7 @@ import { FaqSection } from "@/components/faq-section";
 import { SourceList } from "@/components/source-list";
 
 const homeFaq = [
-  { question: "Czym jest serwis Zęby w Turcji?", answer: "To polskojęzyczny serwis informacyjny o celu komercyjnym dla osób rozważających leczenie stomatologiczne w Turcji. Nie świadczy usług medycznych. Klinika partnerska to Akdeniz Dental w Antalyi." },
+  { question: "Czym jest serwis Zęby w Turcji?", answer: "To polskojęzyczny serwis informacyjny o celu komercyjnym dla osób rozważających leczenie stomatologiczne w Turcji. Nie świadczy usług medycznych. Prowadzi go spółka, która prowadzi też klinikę Akdeniz Dental w Antalyi; dane operatora są na stronie „O serwisie”." },
   { question: "Czy ceny na stronie są ceną całego leczenia?", answer: "Nie. To pozycje z cennika kliniki w EUR z orientacyjnym przeliczeniem na PLN i datą aktualizacji. Pełny koszt zależy od diagnostyki, liczby etapów i planu ustalonego po badaniu." },
   { question: "Kto ustala plan leczenia?", answer: "Uprawniony lekarz dentysta po badaniu i diagnostyce. Informacje w serwisie mają charakter edukacyjny i nie kwalifikują do zabiegu." },
   { question: "Czy serwis publikuje opinie pacjentów?", answer: "Nie publikujemy opinii, których autentyczności nie możemy potwierdzić. Na stronie o opiniach opisujemy, jak je weryfikować, i wskazujemy publiczne profile kliniki." }

@@ -2,6 +2,7 @@ import { newGuides } from "./guides";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { approvedReviewer, reviewFor } from "./medical-review";
 import { verifiedExperts } from "./evidence";
+import { OPERATOR_DISCLOSURE } from "./operator";
 import { CLINIC_ADDRESS_TEXT, RATINGS_CHECKED_ISO_DATE, clinicProfiles } from "./clinic-profiles";
 import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, priceItems } from "./pricing";
 
@@ -19,7 +20,7 @@ export function reviewSummary(slug: string) {
     ? `Recenzja medyczna: ${expert.name}, ${state.reviewDate}. Profil: ${SITE_URL}${expert.profileUrl}.`
     : "Recenzja medyczna tej strony: jeszcze niepotwierdzona.";
 }
-const context = "Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika partnerska: Akdeniz Dental, Antalya, Turcja. Serwis nie zastępuje badania ani indywidualnej porady lekarza.";
+const context = `Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika partnerska: Akdeniz Dental, Antalya, Turcja. ${OPERATOR_DISCLOSURE} Serwis nie zastępuje badania ani indywidualnej porady lekarza.`;
 const pricingScope = "Ceny dotyczą pozycji z cennika kliniki, nie automatycznie kompletnego leczenia lub pakietu. Włączenie łącznika, korony na implancie, diagnostyki, hotelu i transferów wymaga potwierdzenia w indywidualnej ofercie. Nie przedstawiaj sumy wybranych pozycji jako potwierdzonej ceny całkowitej.";
 
 export function llmsIndex() {
