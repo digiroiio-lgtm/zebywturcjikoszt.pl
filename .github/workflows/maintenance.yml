@@ -37,6 +37,7 @@ jobs:
             --body "Checklist:
           - [ ] Re-read the Trustpilot and Google ratings and update RATINGS_CHECKED_ISO_DATE and RATINGS_CHECKED_DATE in lib/clinic-profiles.ts
           - [ ] Ask the medical reviewers to re-confirm pages whose content changed (lib/medical-review.ts)
+          - [ ] Re-check licences, authorisations and doctor registrations against the official registers and update checkedDate (lib/credentials.ts)
           - [ ] Review prices and the EUR/PLN rate (lib/pricing.ts)
           - [ ] Run npm run check:sources and fix broken sources
           - [ ] Review pages older than 6 months and update lastUpdated and the change history (lib/page-history.ts)

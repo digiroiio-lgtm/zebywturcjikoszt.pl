@@ -44,7 +44,7 @@ for (const u of urls) {
 }
 check("every sitemap URL is 200 and indexable", badPages.length === 0, badPages.slice(0, 3).join("; "));
 
-for (const file of ["llms.txt", "llms-full.txt", "content-provenance.json"]) {
+for (const file of ["llms.txt", "llms-full.txt", "content-provenance.json", "clinic-verification.json"]) {
   const r = await get(`${origin}/${file}`);
   check(`/${file} is 200 without noindex`, r.status === 200 && !r.headers.get("x-robots-tag"), `${r.status} x-robots-tag=${r.headers.get("x-robots-tag") ?? "none"}`);
 }

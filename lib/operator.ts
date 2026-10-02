@@ -16,9 +16,9 @@ export type OperatorDetails = {
   mersisNo?: string;
 };
 
-// Phone, e-mail, tax and MERSIS numbers are intentionally left empty until verified from an official document:
-// the supplied phone/e-mail conflict with the numbers the clinic publishes on Trustpilot, and the tax/MERSIS numbers
-// could not be confirmed from a public registry. Address follows the form shown in Google Maps and Trustpilot.
+// Tax and MERSIS numbers are intentionally left empty until verified from an official document (they could not be
+// confirmed from a public registry). Phone and e-mail were confirmed by the operator. Address follows the form shown
+// in Google Maps and Trustpilot. Licences and authorisations live in lib/credentials.ts.
 export const OPERATOR: OperatorDetails = {
   legalName: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ",
   streetAddress: "Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok",
@@ -55,6 +55,7 @@ export function operatorSchemaFields(operator: OperatorDetails = OPERATOR) {
     ...(operator.legalName ? { legalName: operator.legalName } : {}),
     ...(operator.phone ? { telephone: operator.phone } : {}),
     ...(operator.email ? { email: operator.email } : {}),
-    ...(operator.taxId ? { taxID: operator.taxId } : {})
+    ...(operator.taxId ? { taxID: operator.taxId } : {}),
+    ...(operator.mersisNo ? { identifier: { "@type": "PropertyValue", propertyID: "MERSIS", value: operator.mersisNo } } : {})
   };
 }

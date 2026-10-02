@@ -1,5 +1,6 @@
 import { formatEur, formatPln, PRICING_UPDATED_ISO_DATE } from "./pricing";
 import { OPERATOR } from "./operator";
+import { clinicCredentials, credentialsPublished } from "./credentials";
 
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
@@ -563,6 +564,22 @@ export const pages: Record<string, PageContent> = {
     ],
     sources: [{ label: "Korekty i zgłaszanie błędów", href: "/korekty" }, { label: "pacjent.gov.pl: leczenie za granicą", href: "https://pacjent.gov.pl/leczenie-za-granica" }, { label: "Europejskie Centrum Konsumenckie: zgłoś skargę", href: "https://konsument.gov.pl/zglos-skarge/" }, { label: "UOKiK: Zadatek czy zaliczka?", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }]
   }
+  ,
+  ...(credentialsPublished ? {
+    "dokumenty-i-licencje": {
+      slug: "dokumenty-i-licencje", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Dokumenty i licencje kliniki Akdeniz Dental",
+      description: "Dokumenty kliniki Akdeniz Dental: zezwolenia, wpisy rejestrowe i dane lekarzy z numerami oraz linkami do rejestrów, w których można je sprawdzić samodzielnie.",
+      eyebrow: "Transparentność", h1: "Dokumenty i licencje kliniki",
+      lead: "Klinika Akdeniz Dental prowadzona przez operatora serwisu może wykazać się dokumentami. Publikujemy tu tylko te, które porównaliśmy z oficjalnym źródłem.",
+      answer: "Publikujemy wyłącznie dokumenty i wpisy rejestrowe sprawdzone w oficjalnym źródle, z numerem, datą sprawdzenia i linkiem do rejestru. Dane pacjentów nie są publikowane. Brak pozycji oznacza brak potwierdzenia na stronie, a nie brak dokumentu.",
+      sections: [
+        { title: "Jak sprawdzamy dokumenty", bullets: ["porównujemy numer i daty z oficjalnym dokumentem lub rejestrem", "przy każdej pozycji podajemy datę ostatniego sprawdzenia", "skany mają zasłonięte dane osobowe", "wygasły dokument usuwamy lub oznaczamy po sprawdzeniu"] },
+        { title: "Jak sprawdzić samodzielnie", paragraphs: ["Przy pozycjach z linkiem możesz otworzyć rejestr instytucji wydającej dokument i porównać numer. Jeśli wpisu nie da się znaleźć, zapytaj klinikę o dokument przed wpłatą zaliczki. Listę pytań przed wpłatą znajdziesz w przewodniku o wyborze kliniki."] },
+        { title: "Czego tu nie publikujemy", bullets: ["danych pacjentów, w tym paszportów, lotów i dokumentacji medycznej", "dokumentów, których nie da się porównać z oficjalnym źródłem", "zapewnień o jakości leczenia; dokument nie gwarantuje wyniku"] }
+      ],
+      sources: [...clinicCredentials.filter((credential) => credential.verifyUrl).map((credential) => ({ label: `${credential.title}: ${credential.issuer}`, href: credential.verifyUrl! })), { label: "Jak wybrać klinikę w Turcji", href: "/jak-wybrac-klinike" }, { label: "Właściciel serwisu", href: "/wlasciciel-serwisu" }, { label: "Metodologia: jak sprawdzamy informacje", href: "/metodologia" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }]
+    }
+  } : {})
 };
 
 export const legalSlugs = ["polityka-prywatnosci", "cookies", "regulamin", "reklamacje"];
