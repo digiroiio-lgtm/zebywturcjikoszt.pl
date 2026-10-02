@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { verifiedExperts } from "@/lib/evidence";
 import { SITE_URL, UPDATED_ISO_DATE, pages } from "@/lib/site";
 import { reviewedPagesBy } from "@/lib/medical-review";
-import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
+import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList } from "@/lib/seo";
 export const dynamicParams = false;
 export function generateStaticParams() { return verifiedExperts.map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -33,6 +33,6 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
     <section><h2>Powiązanie z kliniką partnerską</h2><p>{expert.affiliation ?? "Mustafa Akça jest założycielem i właścicielem Akdeniz Dental, kliniki partnerskiej tego serwisu. Jest to powiązanie zawodowe i komercyjne; nie przedstawiamy go jako niezależnego recenzenta. Rola recenzenta nie oznacza gwarancji wyniku leczenia ani zastąpienia indywidualnego badania."}</p></section>
     <section><h2>Publiczne źródła zawodowe</h2><p>{expert.sourceNote ?? "Strona kliniki opisuje biografię i obszary pracy, a publiczne profile zawodowe podają zawód i lokalizację. Profil w serwisie Teeth Done in Turkey opisuje rolę recenzenta na tamtej stronie; nie potwierdza recenzji treści tego serwisu. Źródła nie stanowią rekomendacji naszego serwisu."} Ostatnia aktualizacja źródeł: <time dateTime={expert.lastVerified}>{expert.lastVerified}</time>.</p><ul>{expert.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}</a></li>)}</ul></section>
     <section><h2>Zweryfikowane treści</h2>{reviewedPages.length > 0 ? <ul>{reviewedPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`}>{page.title}</Link></li>)}</ul> : <p>Lista zweryfikowanych artykułów pojawi się po potwierdzeniu daty recenzji. Sam profil lekarza nie oznacza, że sprawdził treść danej strony.</p>}</section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, breadcrumbList([{ name: "Eksperci", path: "/eksperci" }, { name: expert.name, path: expert.profileUrl }]), { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
   </main>;
 }

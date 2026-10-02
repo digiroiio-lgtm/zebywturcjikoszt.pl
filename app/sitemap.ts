@@ -3,9 +3,36 @@ import type { MetadataRoute } from "next";
 import { pages, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
 import { verifiedExperts } from "@/lib/evidence";
+import { FAQ_PUBLISHED_DATE } from "@/lib/ai-content";
+import { TEAM_SOURCE_DATE, clinicalTeam } from "@/lib/clinical-team";
+import { caseImages } from "@/lib/gallery";
+
+type Entry = MetadataRoute.Sitemap[number];
+const day = (iso: string) => new Date(`${iso.slice(0, 10)}T00:00:00Z`);
+const latest = (dates: string[]) => dates.reduce((a, b) => (a > b ? a : b));
+const abs = (path: string) => `${SITE_URL}${path}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date(UPDATED_ISO_DATE);
-  const routes = Object.values(pages).filter((page) => !page.noindex).sort((a, b) => a.slug.localeCompare(b.slug, "pl")).map((page) => ({ url: `${SITE_URL}/${page.slug}`, lastModified: new Date(page.lastUpdated ?? UPDATED_ISO_DATE), changeFrequency: "monthly" as const, priority: page.slug === "koszt" ? 0.9 : 0.7 }));
-  return [{ url: SITE_URL, lastModified: new Date(PRICING_UPDATED_ISO_DATE), changeFrequency: "weekly", priority: 1 }, ...routes, ...["poradniki", ...Object.values(newGuides).map((guide) => guide.slug)].map((slug) => ({ url: `${SITE_URL}/${slug}`, lastModified: new Date(GUIDES_DATE), changeFrequency: "monthly" as const, priority: 0.7 })), { url: `${SITE_URL}/pytania-i-odpowiedzi`, lastModified: new Date("2026-09-30T00:00:00Z"), changeFrequency: "monthly" as const, priority: 0.6 }, { url: `${SITE_URL}/nasi-lekarze`, lastModified: new Date("2026-09-30T00:00:00Z"), changeFrequency: "monthly" as const, priority: 0.5 }, { url: `${SITE_URL}/eksperci`, lastModified, changeFrequency: "monthly" as const, priority: 0.4 }, ...verifiedExperts.map((expert) => ({ url: `${SITE_URL}${expert.profileUrl}`, lastModified: new Date(`${expert.lastVerified}T00:00:00Z`), changeFrequency: "monthly" as const, priority: 0.5 }))];
+  const indexable = Object.values(pages).filter((page) => !page.noindex).sort((a, b) => a.slug.localeCompare(b.slug, "pl"));
+  const pageEntries: Entry[] = indexable.map((page) => ({
+    url: abs(`/${page.slug}`),
+    lastModified: day(page.lastUpdated ?? UPDATED_ISO_DATE),
+    changeFrequency: "monthly",
+    priority: page.slug === "koszt" ? 0.9 : 0.7,
+    ...(page.slug === "przed-i-po" ? { images: caseImages.map((item) => abs(item.src)) } : {})
+  }));
+  const guideSlugs = Object.values(newGuides).map((guide) => guide.slug);
+  const guideEntries: Entry[] = ["poradniki", ...guideSlugs].map((slug) => ({ url: abs(`/${slug}`), lastModified: day(GUIDES_DATE), changeFrequency: "monthly", priority: 0.7 }));
+  const expertDates = verifiedExperts.map((expert) => expert.lastVerified);
+  const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_DATE, ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
+
+  return [
+    { url: SITE_URL, lastModified: day(homeDate), changeFrequency: "weekly", priority: 1 },
+    ...pageEntries,
+    ...guideEntries,
+    { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE), changeFrequency: "monthly", priority: 0.6 },
+    { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), changeFrequency: "monthly", priority: 0.5, images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
+    { url: abs("/eksperci"), lastModified: day(latest(expertDates)), changeFrequency: "monthly", priority: 0.4 },
+    ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(expert.lastVerified), changeFrequency: "monthly", priority: 0.5 }))
+  ];
 }

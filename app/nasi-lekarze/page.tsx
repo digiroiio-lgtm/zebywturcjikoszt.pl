@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-team";
 import { SITE_URL } from "@/lib/site";
-import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
+import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList, clinicSchema } from "@/lib/seo";
+import { ClinicProfiles } from "@/components/clinic-profiles";
 
 export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
@@ -17,7 +18,8 @@ export default function ClinicalTeam() {
   const personId = (doctor: typeof clinicalTeam[number]) => doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}/#person` : `${url}#person-${doctor.slug}`;
   const schema = { "@context": "https://schema.org", "@graph": [
     { "@type": "CollectionPage", "@id": url, url, name: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", mainEntity: { "@id": `${url}#lista` } },
-    { "@type": "Organization", "@id": "https://akdenizdental.com/#organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" },
+    breadcrumbList([{ name: "Nasi lekarze", path: "/nasi-lekarze" }]),
+    clinicSchema,
     { "@type": "ItemList", "@id": `${url}#lista`, numberOfItems: clinicalTeam.length, itemListElement: clinicalTeam.map((doctor, index) => ({ "@type": "ListItem", position: index + 1, item: { "@id": personId(doctor) } })) },
     ...clinicalTeam.map((doctor) => ({ "@type": "Person", "@id": personId(doctor), name: doctor.name, alternateName: doctor.alternateNames, jobTitle: "Lekarz dentysta", url: doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}` : `${url}#${doctor.slug}`, image: `${SITE_URL}${doctor.imageUrl}`, description: `${doctor.education} ${doctor.focus}`, knowsAbout: doctor.area, sameAs: [doctor.sourceUrl], worksFor: { "@id": "https://akdenizdental.com/#organization" } })),
   ] };
@@ -34,6 +36,7 @@ export default function ClinicalTeam() {
       </div>
     </article>)}</div>
     <section className="section-space"><h2>Zespół kliniczny a recenzja medyczna</h2><p>Akdeniz Dental jest kliniką partnerską serwisu. Przynależność do jej zespołu nie oznacza, że lekarz sprawdził treści tej strony. Mustafa Akça pełni rolę recenzenta medycznego serwisu i jest właścicielem kliniki. Mehmet Onur Merey recenzuje wyłącznie przewodniki o implantach i All-on-4. Recenzję konkretnego artykułu przypisujemy dopiero po udokumentowaniu zakresu, daty i zatwierdzenia.</p><div className="button-row"><Link className="text-link" href="/eksperci/mustafa-akca">Mustafa Akça: profil i zweryfikowane treści →</Link><Link className="text-link" href="/eksperci/mehmet-onur-merey">Mehmet Onur Merey: implanty i All-on-4 →</Link><Link className="text-link" href="/weryfikacja-medyczna">Jak weryfikujemy treści →</Link></div></section>
+    <ClinicProfiles />
     <section><h2>Źródła i aktualizacja</h2><p>Źródło: <a href={TEAM_SOURCE_URL} target="_blank" rel="noopener noreferrer">zespół Akdeniz Dental</a> oraz indywidualne profile wskazane przy każdym lekarzu. Ostatnia aktualizacja danych: <time dateTime={TEAM_SOURCE_DATE}>{TEAM_SOURCE_DATE}</time>.</p></section>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;
