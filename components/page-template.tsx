@@ -16,6 +16,7 @@ import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
+import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
 
@@ -140,7 +141,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
             </Fragment>)}
             {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
-            {page.sources && <section className="content-section sources"><h2>Źródła i podstawa informacji</h2><ul>{page.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section>}
+            {page.sources && <SourceList sources={page.sources} />}
             {guide && <GuideNextSteps source={`/${page.slug}`} />}
             {!page.form && <nav className="content-section" aria-label="Biblioteka poradników"><Link className="text-link" href="/poradniki">Wszystkie poradniki dla pacjentów z Polski →</Link>{!guide && <p><Link href="/poradniki/leczenie-zebow-w-turcji">Od czego zacząć?</Link> · <Link href="/poradniki/calkowity-koszt-wyjazdu">Budżet całego wyjazdu</Link> · <Link href="/poradniki/opieka-po-leczeniu">Opieka po powrocie do Polski</Link></p>}</nav>}
             {related.length > 0 && <nav className="content-section related-guides" aria-label="Powiązane przewodniki"><h2>Powiązane przewodniki</h2><div className="related-grid">{related.map((item) => <TrackedLink href={item.href} key={item.href} event={item.href.startsWith("/koszt") ? "guide_to_pricing" : ["/implanty", "/korony-cyrkonowe", "/licowki", "/cala-szczeka", "/all-on-4"].some((href) => item.href.split("#")[0] === href) ? "guide_to_treatment" : "guide_open"} tracking={{ destination_path: item.href.split("#")[0] }}><strong>{item.label}</strong><span>{item.text}</span></TrackedLink>)}</div></nav>}
