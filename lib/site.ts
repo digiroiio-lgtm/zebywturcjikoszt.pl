@@ -1,4 +1,5 @@
 import { formatEur, formatPln, PRICING_UPDATED_ISO_DATE } from "./pricing";
+import { OPERATOR } from "./operator";
 
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
@@ -366,7 +367,7 @@ export const pages: Record<string, PageContent> = {
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
     answer: "To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Serwis nie wykonuje leczenia, nie jest niezależną porównywarką i nie zastępuje porady lekarza.",
     lastUpdated: "2026-10-02",
-    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }],
+    sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel i finansowanie serwisu", href: "/wlasciciel-i-finansowanie" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
     faq: [
       { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
       { question: "Kto jest operatorem serwisu?", answer: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ z siedzibą w Antalyi, w Turcji (Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100 Muratpaşa). To ta sama spółka, która prowadzi klinikę Akdeniz Dental." },
@@ -401,7 +402,7 @@ export const pages: Record<string, PageContent> = {
   "polityka-redakcyjna": {
     slug: "polityka-redakcyjna", title: "Polityka redakcyjna", description: "Jak powstają, są aktualizowane i oznaczane treści w serwisie Zęby w Turcji: autorstwo, źródła, korekty, daty i ujawnienie celu komercyjnego.",
     lastUpdated: "2026-10-02",
-    sources: [{ label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }, { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }],
+    sources: [{ label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "O serwisie: cel komercyjny i relacja z kliniką", href: "/o-nas" }, { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel i finansowanie serwisu", href: "/wlasciciel-i-finansowanie" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
     eyebrow: "Standard treści", h1: "Polityka redakcyjna",
     lead: "Treści mają pomagać w podjęciu świadomej decyzji, a nie zastępować diagnozę lub konsultację z lekarzem dentystą.",
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
@@ -421,6 +422,69 @@ export const pages: Record<string, PageContent> = {
       { title: "Konflikt interesów", paragraphs: ["Serwis ma cel komercyjny. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Recenzenci medyczni są związani z tą kliniką, dlatego opisujemy to powiązanie przy ich profilach i nie przedstawiamy ich jako niezależnych ekspertów."] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
+  },
+  "listy-kontrolne": {
+    slug: "listy-kontrolne", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Listy kontrolne dla pacjentów",
+    description: "Zbiór list kontrolnych dla pacjentów: wybór kliniki, płatności, przygotowanie wyjazdu, ocena opinii i zdjęć przed i po oraz opieka po powrocie.",
+    eyebrow: "Narzędzia dla pacjenta", h1: "Listy kontrolne dla pacjentów",
+    lead: "Krótkie listy do przejścia przed wpłatą, wyjazdem i decyzją o leczeniu. Każda opiera się na pełnym przewodniku, do którego prowadzi link.",
+    answer: "Przejdź listy po kolei: najpierw sprawdź podmiot i warunki płatności, potem plan wyjazdu, opinie i zdjęcia. Brak odpowiedzi na któreś pytanie nie przesądza o jakości leczenia, ale wymaga wyjaśnienia przed decyzją.",
+    sections: [
+      { title: "Przed wpłatą zaliczki", bullets: ["pełna nazwa i adres podmiotu wykonującego leczenie", "imię, nazwisko i możliwość weryfikacji lekarza", "pisemny plan z alternatywami i kosztami dodatkowymi", "nazwa materiałów i systemów, które zostaną użyte", "zasady przechowywania i przekazania dokumentacji", "opieka po leczeniu, reklamacje i sytuacje nagłe", "jasne warunki zaliczki lub zadatku, odwołania i zwrotu"] },
+      { title: "Przed rezerwacją wyjazdu", bullets: ["przekaż dokumentację bezpiecznym kanałem wskazanym przez organizatora", "uzyskaj pisemny zakres wstępnego planu i kosztów", "nie rezerwuj zbyt krótkiego pobytu bez potwierdzenia harmonogramu", "sprawdź ważność dokumentów podróży i aktualne zalecenia konsularne", "zostaw czas na kontrolę przed lotem powrotnym", "sprawdź w polisie, czy obejmuje planowe leczenie stomatologiczne i powikłania"] },
+      { title: "Pytania do kliniki przed rezerwacją lotu", bullets: ["zakres wstępnego planu i etapy, które mogą wymagać kolejnego pobytu", "kto prowadzi leczenie i kto będzie dostępny po Twoim wyjeździe", "jak wygląda przekazanie dokumentacji, zdjęć RTG i listy użytych materiałów", "co klinika uznaje za zdarzenie wymagające szybkiego kontaktu po powrocie", "jakie czynności muszą zostać wykonane przed lotem powrotnym"] },
+      { title: "Ocena opinii", bullets: ["opinia opisuje konkretny zakres leczenia i etapy, a nie tylko ogólne wrażenie", "rozróżnia opiekę organizacyjną od oceny medycznej", "nie obiecuje identycznego rezultatu każdej osobie", "pokazuje datę i kontekst doświadczenia", "porównaj kilka niezależnych serwisów i przeczytaj także oceny negatywne"] },
+      { title: "Ocena zdjęć przed i po", bullets: ["sprawdź, czy zdjęcia wykonano w podobnym świetle i ustawieniu", "zapytaj, jaki dokładnie zakres leczenia przedstawiono", "odróżnij efekt tymczasowy od ostatecznej odbudowy", "nie oceniaj zdrowia tkanek wyłącznie na podstawie fotografii", "pamiętaj, że indywidualny wynik może być inny"] },
+      { title: "Po powrocie do Polski", bullets: ["zachowaj dokumentację i dane kontaktowe kliniki", "ustal jeszcze przed wyjazdem, do kogo zwrócisz się po powrocie", "ustal, co wymaga sprawdzenia przed lotem i jak zgłaszać problem po powrocie"] },
+      { title: "Pełne przewodniki", paragraphs: ["Każda lista skraca treść jednego z przewodników: wybór kliniki, plan wyjazdu, ocena opinii i zdjęć przed i po oraz opieka po leczeniu. Kontrolę kosztów znajdziesz na stronie z cennikiem. Wszystkie linki są poniżej."] }
+    ],
+    sources: [{ label: "Jak wybrać klinikę stomatologiczną w Turcji", href: "/jak-wybrac-klinike" }, { label: "Leczenie zębów w Antalyi: plan wyjazdu i wizyt", href: "/antalya" }, { label: "Jak oceniać opinie", href: "/opinie" }, { label: "Zdjęcia przed i po", href: "/przed-i-po" }, { label: "Opieka po leczeniu i powrocie do Polski", href: "/poradniki/opieka-po-leczeniu" }, { label: "Cennik kliniki i koszt leczenia", href: "/koszt" }]
+  },
+  metodologia: {
+    slug: "metodologia", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Metodologia serwisu",
+    description: "Jak zbieramy, sprawdzamy i oznaczamy informacje w serwisie Zęby w Turcji: źródła, ceny, recenzja medyczna, oceny zewnętrzne, daty i korekty.",
+    eyebrow: "Transparentność", h1: "Metodologia serwisu",
+    lead: "Ta strona zbiera w jednym miejscu zasady, według których powstają i są oznaczane treści serwisu. Szczegóły opisują polityka redakcyjna i strona o weryfikacji medycznej.",
+    answer: "Tekst przygotowuje redakcja, źródło musi bezpośrednio potwierdzać informację, ceny pochodzą z cennika kliniki z datą, a recenzja medyczna jest przypisana do konkretnej strony i znika po zmianie treści do czasu ponownego potwierdzenia.",
+    sections: [
+      { title: "Źródła", bullets: ["każde źródło musi bezpośrednio potwierdzać informację, przy której zostało podane", "w sprawach praw pacjenta i konsumenta korzystamy z instytucji publicznych, takich jak pacjent.gov.pl, NFZ, UOKiK i Europejskie Centrum Konsumenckie", "nie tworzymy nieistniejących ekspertów, cen, opinii ani statystyk", "źródła widoczne są na stronie w sekcji „Źródła i podstawa informacji”"] },
+      { title: "Ceny i kurs walut", paragraphs: ["Ceny pochodzą z cennika kliniki, są podane w EUR i mają widoczną datę aktualizacji. Przeliczenie na PLN jest orientacyjne i opiera się na kursie z podaną datą. Cena pozycji z cennika nie jest ceną całego leczenia ani pakietu."] },
+      { title: "Recenzja medyczna", paragraphs: ["Recenzent jest przypisany do konkretnych stron, a status i data recenzji są widoczne na stronie. Jeżeli strona zostanie zmieniona po dacie recenzji, oznaczenie „zweryfikowano” znika automatycznie do czasu ponownego potwierdzenia. Aktualny status pokazuje strona Eksperci."] },
+      { title: "Oceny i opinie zewnętrzne", paragraphs: ["Oceny z Trustpilot i Map Google pokazujemy jako dane zewnętrzne, z datą odczytu i linkiem do profilu. Nie traktujemy ich jako oceny medycznej ani jako własnej oceny serwisu."] },
+      { title: "Daty i aktualizacje", paragraphs: ["Każda strona treści pokazuje datę publikacji i aktualizacji w panelu informacji o treści. Datę aktualizacji zmieniamy po istotnej korekcie informacji."] },
+      { title: "Korekty", paragraphs: ["Błędy i nieaktualne informacje można zgłaszać przez stronę kontaktową. Zasady i dziennik wprowadzonych zmian opisuje strona o korektach."] },
+      { title: "Czego serwis nie robi", paragraphs: ["Serwis nie diagnozuje, nie kwalifikuje do zabiegu i nie udziela indywidualnej porady medycznej. Ostateczną decyzję podejmuje pacjent wspólnie z lekarzem po badaniu."] }
+    ],
+    sources: [{ label: "Polityka redakcyjna", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna", href: "/weryfikacja-medyczna" }, { label: "Eksperci i status recenzji stron", href: "/eksperci" }, { label: "Cennik kliniki i koszt leczenia", href: "/koszt" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }]
+  },
+  "wlasciciel-i-finansowanie": {
+    slug: "wlasciciel-i-finansowanie", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Właściciel i finansowanie serwisu",
+    description: "Kto prowadzi serwis Zęby w Turcji i kto go utrzymuje: dane operatora, cel komercyjny, powiązanie z kliniką Akdeniz Dental i recenzentami.",
+    eyebrow: "Transparentność", h1: "Właściciel i finansowanie serwisu",
+    lead: "Serwis informacyjny o leczeniu zębów w Turcji prowadzi spółka, która prowadzi także klinikę Akdeniz Dental w Antalyi. Ta strona opisuje to powiązanie wprost.",
+    answer: `Serwis prowadzi spółka ${OPERATOR.legalName ?? "operator serwisu"}, która prowadzi także klinikę Akdeniz Dental. Serwis ma cel komercyjny i nie jest niezależnym rankingiem klinik.`,
+    sections: [
+      { title: "Operator serwisu", paragraphs: [`Operatorem serwisu jest ${OPERATOR.legalName ?? "operator serwisu"}${OPERATOR.streetAddress ? `, ${OPERATOR.streetAddress}, ${[OPERATOR.postalCode, OPERATOR.locality].filter(Boolean).join(" ")}, ${OPERATOR.region ?? ""}, ${OPERATOR.country ?? ""}` : ""}. Dane operatora są widoczne także na stronie „O serwisie”.`] },
+      { title: "Cel komercyjny", paragraphs: ["Serwis jest serwisem informacyjnym o celu komercyjnym. Pomaga pacjentom przygotować się do decyzji i zachęca do wysłania zapytania o bezpłatną wstępną ocenę. Zgłoszenia z formularza trafiają do operatora."] },
+      { title: "Powiązanie z kliniką", paragraphs: ["Operator prowadzi klinikę Akdeniz Dental w Antalyi, dlatego nie przedstawiamy serwisu jako neutralnego rankingu ani porównywarki. Recenzenci medyczni serwisu są właścicielami lub współwłaścicielami tej kliniki, co opisujemy przy ich profilach."] },
+      { title: "Utrzymanie serwisu", paragraphs: ["Serwis jest utrzymywany przez operatora. Treści są dostępne bezpłatnie, a ceny pochodzą z cennika kliniki prowadzonej przez operatora serwisu."] },
+      { title: "Gdzie szukać więcej informacji", paragraphs: ["Zasady powstawania treści opisują polityka redakcyjna i metodologia. Pytania o własność serwisu możesz zadać przez stronę kontaktową."] }
+    ],
+    sources: [{ label: "O serwisie: operator i relacja z kliniką", href: "/o-nas" }, { label: "Polityka redakcyjna: konflikt interesów", href: "/polityka-redakcyjna" }, { label: "Eksperci: powiązania recenzentów z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki", href: "https://akdenizdental.com" }]
+  },
+  korekty: {
+    slug: "korekty", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Korekty i zgłaszanie błędów",
+    description: "Jak zgłosić błąd lub nieaktualną informację w serwisie Zęby w Turcji, jak sprawdzamy zgłoszenia i jakie zmiany wprowadziliśmy w treściach.",
+    eyebrow: "Transparentność", h1: "Korekty i zgłaszanie błędów",
+    lead: "Błąd merytoryczny, nieaktualną cenę lub zastrzeżenie do treści możesz zgłosić przez stronę kontaktową. Poniżej opisujemy, co dzieje się ze zgłoszeniem, oraz lista zmian wprowadzonych w treściach.",
+    answer: "Zgłoś błąd przez stronę kontaktową, podając adres strony i fragment. Sprawdzamy źródło i zakres poprawki, a data aktualizacji zmienia się po istotnej korekcie. Zmiana treści klinicznej unieważnia oznaczenie recenzji do ponownego potwierdzenia.",
+    sections: [
+      { title: "Jak zgłosić błąd", bullets: ["wejdź na stronę kontaktową i opisz zgłoszenie", "podaj adres strony i fragment, którego dotyczy uwaga", "wskaż źródło, jeśli je masz", "nie przesyłaj dokumentacji medycznej przez formularz"] },
+      { title: "Jak sprawdzamy zgłoszenie", paragraphs: ["Redakcja sprawdza zgłoszenie ze źródłem i zakres poprawki. Datę aktualizacji strony zmieniamy dopiero po wprowadzeniu istotnej korekty. Treści kliniczne wymagają ponownej oceny recenzenta, zanim zostaną oznaczone jako zweryfikowane."] },
+      { title: "Co dzieje się z oznaczeniem recenzji", paragraphs: ["Po zmianie strony po dacie recenzji oznaczenie „zweryfikowano” znika automatycznie, a panel informacji o treści pokazuje, że poprzednia recenzja nie obejmuje zmian. Oznaczenie wraca po nowej recenzji z potwierdzoną datą."] },
+      { title: "Dziennik korekt", bullets: ["2 października 2026: strony „All-on-4” i „Cała szczęka” uzupełniono o sekcję o piśmiennictwie i źródło; recenzenci potwierdzili zaktualizowany tekst tego samego dnia", "2 października 2026: opublikowaliśmy dane operatora serwisu i wyjaśniliśmy, że operator prowadzi także klinikę Akdeniz Dental", "2 października 2026: zastąpiliśmy określenie „klinika partnerska” sformułowaniem „klinika prowadzona przez operatora serwisu”, aby odzwierciedlić to powiązanie"] }
+    ],
+    sources: [{ label: "Kontakt", href: "/kontakt" }, { label: "Polityka redakcyjna: zgłaszanie i dokumentowanie korekt", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: co się dzieje po zmianie treści", href: "/weryfikacja-medyczna" }, { label: "Metodologia serwisu", href: "/metodologia" }]
   },
   "weryfikacja-medyczna": {
     slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady weryfikacji medycznej treści stomatologicznych w serwisie Zęby w Turcji: rola recenzenta, zakres recenzji i status poszczególnych stron.",
