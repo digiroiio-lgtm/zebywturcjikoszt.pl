@@ -96,7 +96,7 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
       {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną wstępną ocenę <span aria-hidden="true">→</span></>}</button>}
       <p className="form-privacy">Zgłoszenie jest przesyłane przez Formspree. <Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
-      {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną wycenę.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
+      {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną ocenę.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
       {status === "error" && <p ref={feedbackRef} tabIndex={-1} role="alert" className="error">{errorMessage}</p>}
     </form>
   );
