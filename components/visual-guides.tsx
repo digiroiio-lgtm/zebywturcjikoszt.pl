@@ -10,7 +10,7 @@ type VisualGuide = {
 
 const directAnswerGuides: Record<string, VisualGuide> = {
   "przed-i-po": {
-    src: "/images/diagrams/before-after-standard.svg",
+    src: "/images/poradniki/before-after-standard.svg",
     alt: "Dwa identyczne kadry pokazujące standard uczciwego porównania zdjęć przed i po",
     eyebrow: "Standard materiału",
     title: "Porównanie ma sens tylko w tych samych warunkach",
@@ -21,7 +21,7 @@ const directAnswerGuides: Record<string, VisualGuide> = {
 const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   koszt: {
     "Co powinno znaleźć się w wycenie": {
-      src: "/images/diagrams/cost-scope.svg",
+      src: "/images/poradniki/cost-scope.svg",
       alt: "Schemat czterech elementów pełnego kosztu: leczenia, materiałów, podróży i opieki",
       eyebrow: "Pełny zakres",
       title: "Cena zabiegu to tylko część całkowitego kosztu",
@@ -30,7 +30,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   implanty: {
     "Jak planuje się leczenie implantologiczne?": {
-      src: "/images/diagrams/implant-plan.svg",
+      src: "/images/poradniki/implant-plan.svg",
       alt: "Cztery etapy planowania implantu od dokumentacji do odbudowy",
       eyebrow: "Kolejność ma znaczenie",
       title: "Dokumentacja, kwalifikacja, leczenie i odbudowa",
@@ -39,7 +39,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   licowki: {
     "Licówka, korona czy bonding": {
-      src: "/images/diagrams/veneer-options.svg",
+      src: "/images/poradniki/veneer-options.svg",
       alt: "Uproszczone porównanie zakresu licówki, korony i bondingu",
       eyebrow: "Różne wskazania",
       title: "Podobny cel estetyczny nie oznacza tej samej metody",
@@ -48,7 +48,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   "cala-szczeka": {
     "Możliwe rozwiązania": {
-      src: "/images/diagrams/full-arch-options.svg",
+      src: "/images/poradniki/full-arch-options.svg",
       alt: "Schemat możliwych kierunków leczenia pełnego łuku",
       eyebrow: "Najpierw diagnoza",
       title: "Pełna odbudowa może prowadzić różnymi drogami",
@@ -57,7 +57,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   "all-on-4": {
     "Co wymaga indywidualnej oceny": {
-      src: "/images/diagrams/all-on-4-plan.svg",
+      src: "/images/poradniki/all-on-4-plan.svg",
       alt: "Uproszczony schemat pełnego łuku opartego na czterech punktach podparcia",
       eyebrow: "Koncepcja, nie pakiet",
       title: "Liczba implantów wynika z kwalifikacji i planu protetycznego",
@@ -66,7 +66,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   antalya: {
     "Przed wyjazdem": {
-      src: "/images/diagrams/antalya-journey.svg",
+      src: "/images/poradniki/antalya-journey.svg",
       alt: "Trzy etapy wyjazdu: przygotowanie, leczenie na miejscu i opieka po powrocie",
       eyebrow: "Ciągłość opieki",
       title: "Wyjazd obejmuje więcej niż czas spędzony w klinice",
@@ -75,7 +75,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   opinie: {
     "Na co zwrócić uwagę w opinii": {
-      src: "/images/diagrams/review-check.svg",
+      src: "/images/poradniki/review-check.svg",
       alt: "Lupa i znacznik weryfikacji nad kartą opinii",
       eyebrow: "Sprawdź kontekst",
       title: "Opinia nie zastępuje informacji od lekarza",
@@ -84,7 +84,7 @@ const sectionGuides: Record<string, Record<string, VisualGuide>> = {
   },
   "jak-wybrac-klinike": {
     "Co sprawdzić przed wpłatą": {
-      src: "/images/diagrams/clinic-check.svg",
+      src: "/images/poradniki/clinic-check.svg",
       alt: "Klinika połączona z informacjami o lekarzu, planie i opiece po leczeniu",
       eyebrow: "Przed zaliczką",
       title: "Zweryfikuj podmiot, lekarza, plan i odpowiedzialność",

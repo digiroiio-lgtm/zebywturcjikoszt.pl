@@ -65,6 +65,7 @@ for (const [route, file] of routeFiles) {
   if (titles.length !== 1 || !titles[0].trim()) fail(`${route}: expected one non-empty title.`);
   if (titles[0] && [...titles[0]].length > 65) fail(`${route}: title is ${[...titles[0]].length} characters (max 65).`);
   if (route !== "/" && !noindex && !html.includes("BreadcrumbList")) fail(`${route}: missing BreadcrumbList.`);
+  if (!noindex && descriptions[0] && ([...descriptions[0]].length < 110 || [...descriptions[0]].length > 165)) fail(`${route}: meta description is ${[...descriptions[0]].length} characters (expected 110-165).`);
   if (descriptions.length !== 1 || !descriptions[0].trim()) fail(`${route}: expected one non-empty meta description.`);
   if (canonicals.length !== 1) fail(`${route}: expected exactly one canonical.`);
   if (!/<meta property="og:image" content="[^"]+"/.test(html)) fail(`${route}: missing og:image.`);

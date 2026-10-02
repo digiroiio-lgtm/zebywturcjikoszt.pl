@@ -40,7 +40,7 @@ export type PageContent = {
 
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: PRICING_UPDATED_ISO_DATE,
+    lastUpdated: "2026-10-02",
     slug: "koszt",
     title: "Ile kosztują zęby w Turcji? Ceny i zakres leczenia",
     description: "Cennik 24 zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.",
@@ -76,6 +76,7 @@ export const pages: Record<string, PageContent> = {
         ["Rozległe braki lub zniszczenie uzębienia", "Cała szczęka", "wariant leczenia, liczba etapów, odbudowa tymczasowa i docelowa"],
         ["Bezzębie i kwalifikacja do stałej odbudowy", "All-on-4", "diagnostyka, warunki anatomiczne, system implantów i rodzaj pracy"]
       ]}},
+      { title: "Zaliczka i warunki płatności", paragraphs: ["Przed wpłatą ustal na piśmie, czy płacisz zaliczkę, czy zadatek. Według UOKiK zaliczka jest wpłaconą wcześniej częścią ceny i podlega zwrotowi, gdy rezygnujesz z usługi, a zadatek w razie rezygnacji konsumenta może zostać zatrzymany przez wykonawcę. Zaliczka i zadatek nie mogą odpowiadać 100 proc. wynagrodzenia za usługę.", "Zapytaj także, na jaki zakres leczenia lub etap przeznaczona jest wpłata i kiedy można ją odzyskać po zmianie planu po badaniu klinicznym."] },
       { title: "Turcja czy Polska: porównuj cały proces", paragraphs: ["Porównanie powinno obejmować nie tylko zabieg, ale również podróż, liczbę wizyt, możliwe korekty, opiekę po leczeniu i sposób postępowania w razie komplikacji. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie."] }
     ],
     faq: [
@@ -83,6 +84,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy wystarczy wiadomość, żeby otrzymać wycenę?", answer: "Wstępna ocena może pomóc określić możliwy zakres, ale ostateczny plan wymaga dokumentacji i oceny klinicznej przez uprawnionego lekarza dentystę." },
       { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie można tego zakładać. Każda oferta powinna jednoznacznie wskazywać, które elementy są wliczone, a które pacjent organizuje i opłaca oddzielnie." }
     ],
+    sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
     ctaLabel: "Poproś o indywidualną wycenę", ctaEvent: "cost_page_cta"
   },
   "korony-cyrkonowe": {
@@ -274,7 +276,7 @@ export const pages: Record<string, PageContent> = {
   },
   antalya: {
     slug: "antalya", title: "Leczenie zębów w Antalyi – plan wyjazdu i wizyt",
-    description: "Jak zaplanować leczenie zębów w Antalyi: dokumentacja, harmonogram wizyt, podróż, pobyt i opieka po powrocie.",
+    description: "Jak zaplanować leczenie zębów w Antalyi: dokumentacja, harmonogram wizyt, ubezpieczenie, umowa i zaliczka, podróż oraz opieka po powrocie.",
     eyebrow: "Kierunek: Antalya", h1: "Leczenie zębów w Antalyi",
     lead: "Podróż do Antalyi warto zaplanować wokół wizyt i zaleceń lekarza. Zwiedzanie powinno zejść na dalszy plan, jeśli wymaga tego leczenie.",
     answer: "Przed rezerwacją lotu z Polski ustal wstępny plan leczenia, możliwą liczbę wizyt i zasady kontaktu po powrocie. Plan może się zmienić po badaniu w Antalyi.",
@@ -314,6 +316,7 @@ export const pages: Record<string, PageContent> = {
     answer: "Nie wybieraj kliniki wyłącznie na podstawie ceny, zdjęć w mediach społecznościowych albo obietnicy szybkiego efektu. Najpierw zweryfikuj podmiot, lekarza, zakres odpowiedzialności i dokumentację.",
     sections: [
       { title: "Co sprawdzić przed wpłatą", bullets: ["pełna nazwa i adres podmiotu wykonującego leczenie", "imię, nazwisko, specjalizacja i możliwość weryfikacji lekarza", "pisemny plan z alternatywami i kosztami dodatkowymi", "nazwa materiałów i systemów, które zostaną użyte", "zasady przechowywania i przekazania dokumentacji", "opieka po leczeniu, reklamacje i sytuacje nagłe", "jasne warunki zaliczki, odwołania i zwrotu"] },
+      { title: "Zaliczka, zadatek i zwrot", paragraphs: ["Zanim wpłacisz pieniądze, ustal na piśmie, czy jest to zaliczka, czy zadatek, i na co jest przeznaczona. UOKiK wskazuje, że zaliczka podlega zwrotowi, gdy konsument rezygnuje z usługi, a zadatek wykonawca może wtedy zatrzymać. Wpłata nie może pokrywać całego wynagrodzenia za usługę."] },
       { title: "Kto odpowiada za co", paragraphs: ["Jeżeli w procesie uczestniczy pośrednik, koordynator lub strona informacyjna, zapytaj, kto odpowiada za organizację wyjazdu, a kto za leczenie. Decyzje medyczne powinien podejmować uprawniony lekarz, a umowa wskazywać właściwy podmiot."] },
       { title: "20 pytań, które warto zadać przed wpłatą zaliczki", paragraphs: ["Odpowiedzi powinny być możliwe do zachowania w wiadomości, planie leczenia albo warunkach umowy. Brak odpowiedzi nie przesądza o jakości leczenia, ale wymaga wyjaśnienia przed decyzją."], bullets: [
         "jaka jest pełna nazwa prawna i adres placówki wykonującej leczenie?",
@@ -349,14 +352,21 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy same opinie w Google wystarczą?", answer: "Nie. Mogą pomóc w ocenie kliniki, ale sprawdź też lekarza, plan leczenia, dokumentację i zasady opieki po powrocie." },
       { question: "Kiedy wpłacić zaliczkę?", answer: "Dopiero po poznaniu podmiotu, warunków płatności, zasad zwrotu oraz zakresu wstępnej oferty. Dane te powinny być dostępne na piśmie." }
     ],
+    sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
+    lastUpdated: "2026-10-02",
     ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "clinic_check_cta"
   },
   "o-nas": {
-    slug: "o-nas", title: "O serwisie Zęby w Turcji", description: "Cel, zasady transparentności i zakres odpowiedzialności serwisu Zęby w Turcji.",
+    slug: "o-nas", title: "O serwisie Zęby w Turcji", description: "Czym jest serwis Zęby w Turcji: cel komercyjny, relacja z kliniką Akdeniz Dental, zasady transparentności, źródła treści i zakres odpowiedzialności.",
     eyebrow: "Transparentność", h1: "O serwisie",
     lead: "Zęby w Turcji to polskojęzyczny serwis informacyjny przygotowany dla osób rozważających leczenie stomatologiczne w Turcji, ze szczególnym uwzględnieniem Antalyi.",
     answer: "To serwis informacyjny o celu komercyjnym. Nie jest niezależną porównywarką ani podmiotem wykonującym leczenie. Dane operatora oraz relacja z kliniką muszą zostać uzupełnione po ich pisemnym potwierdzeniu.",
     lastUpdated: "2026-10-02",
+    faq: [
+      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym, powiązany z kliniką partnerską Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
+      { question: "Kto jest operatorem serwisu?", answer: "Nazwa prawna operatora, adres i dane kontaktowe są w trakcie uzupełniania. Do czasu ich publikacji nie podajemy ich w serwisie, aby nie przedstawiać niepotwierdzonych informacji." },
+      { question: "Jak zgłosić błąd lub nieaktualną cenę?", answer: "Przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się po wprowadzeniu istotnej korekty." }
+    ],
     sections: [
       { title: "Nasze zasady", bullets: ["nie publikujemy niezweryfikowanych cen ani obietnic rezultatów", "nie tworzymy fikcyjnych opinii i przypadków przed i po", "oddzielamy treść informacyjną od decyzji medycznej", "wskazujemy brak danych zamiast zastępować go marketingową deklaracją"] },
       { title: "Czym jest serwis, a czym nie", paragraphs: ["Serwis zbiera i porządkuje informacje o leczeniu stomatologicznym w Turcji: metodach, kosztach z cennika kliniki, planowaniu wyjazdu i opiece po powrocie. Nie świadczy usług medycznych, nie stawia diagnoz i nie ustala planów leczenia.", "Treści opisują ogólne zasady. O kwalifikacji do konkretnego zabiegu decyduje lekarz po badaniu, a pisemna oferta kliniki ma pierwszeństwo przed informacjami z tego serwisu."] },
@@ -367,26 +377,45 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   kontakt: {
-    slug: "kontakt", lastUpdated: PRICING_UPDATED_ISO_DATE, title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną konsultację. Podaj imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie dodaj wiadomość.",
+    slug: "kontakt", lastUpdated: "2026-10-02", title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną konsultację. Podaj imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie dodaj wiadomość.",
     eyebrow: "Następny krok", h1: "Poproś o wstępną ocenę leczenia",
     lead: "W formularzu możesz krótko opisać, jakie leczenie rozważasz i o co chcesz zapytać. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz potwierdzonego bezpiecznego kanału.",
     answer: "Podaj dane kontaktowe i krótko opisz, czego potrzebujesz. Zgłoszenie jest przesyłane przez Formspree. Plan leczenia ustala lekarz po badaniu; nie przesyłaj dokumentacji medycznej przez formularz.",
-    sections: [{ title: "Przygotuj przed kontaktem", bullets: ["rodzaj leczenia, które rozważasz", "krótki opis problemu bez zbędnych danych zdrowotnych", "preferowany sposób kontaktu", "pytania o koszt, etapy i organizację wyjazdu"] }],
+    sections: [
+      { title: "Przygotuj przed kontaktem", bullets: ["rodzaj leczenia, które rozważasz", "krótki opis problemu bez zbędnych danych zdrowotnych", "preferowany sposób kontaktu", "pytania o koszt, etapy i organizację wyjazdu"] },
+      { title: "Czego nie wysyłać przez formularz", paragraphs: ["Nie przesyłaj zdjęć, wyników badań, rentgenów ani innych danych o zdrowiu, dopóki nie otrzymasz potwierdzenia bezpiecznego kanału. Wystarczy krótki opis tego, jakiego leczenia dotyczy pytanie."] },
+      { title: "Dane z formularza i prywatność", paragraphs: ["Zgłoszenie jest przekazywane przez usługę Formspree. Zakres przetwarzania danych opisuje polityka prywatności. Strona kontaktowa nie zastępuje konsultacji lekarskiej, a odpowiedź na zgłoszenie nie jest planem leczenia."] }
+    ],
+    faq: [
+      { question: "Czy mogę wysłać dokumentację medyczną przez formularz?", answer: "Nie. Nie przesyłaj dokumentacji ani zdjęć, dopóki nie otrzymasz potwierdzenia bezpiecznego kanału. Wystarczy krótki opis pytania." },
+      { question: "Czy odpowiedź na zgłoszenie jest planem leczenia?", answer: "Nie. Wstępna ocena pomaga określić możliwy zakres, ale plan leczenia ustala lekarz po badaniu i diagnostyce." },
+      { question: "Jakie dane podać w formularzu?", answer: "Imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie krótką wiadomość o rodzaju leczenia, które rozważasz." }
+    ],
     form: true
   },
   "polityka-redakcyjna": {
-    slug: "polityka-redakcyjna", title: "Polityka redakcyjna", description: "Jak powstają, są aktualizowane i oznaczane treści w serwisie Zęby w Turcji.",
+    slug: "polityka-redakcyjna", title: "Polityka redakcyjna", description: "Jak powstają, są aktualizowane i oznaczane treści w serwisie Zęby w Turcji: autorstwo, źródła, korekty, daty i ujawnienie celu komercyjnego.",
+    lastUpdated: "2026-10-02",
     eyebrow: "Standard treści", h1: "Polityka redakcyjna",
     lead: "Treści mają pomagać w podjęciu świadomej decyzji, a nie zastępować diagnozę lub konsultację z lekarzem dentystą.",
     answer: "Oddzielamy informacje kliniczne, logistyczne i komercyjne. Każda istotna aktualizacja powinna mieć datę, źródła i informację o autorze oraz recenzji medycznej, jeżeli faktycznie się odbyła.",
     sections: [
       { title: "Zasady publikacji", bullets: ["każde źródło musi bezpośrednio potwierdzać konkretną informację, przy której zostało podane; sam autorytet domeny nie wystarcza", "w sprawach dotyczących polskich pacjentów w pierwszej kolejności korzystamy z właściwych polskich i unijnych instytucji, wytycznych organizacji stomatologicznych oraz wysokiej jakości literatury dentystycznej", "nie tworzymy nieistniejących ekspertów, cen, opinii ani statystyk", "korygujemy błędy i aktualizujemy treści, gdy zmieniają się dane", "ujawniamy cel komercyjny i relacje z usługodawcami"] },
       { title: "Zgłaszanie i dokumentowanie korekt", paragraphs: ["Jeżeli zauważysz błąd merytoryczny lub nieaktualną informację, skontaktuj się z nami przez stronę kontaktową. Redakcja rejestruje zgłoszenie, sprawdza źródło i zakres poprawki oraz aktualizuje datę strony dopiero po wprowadzeniu istotnej zmiany. Treści kliniczne wymagają ponownej oceny odpowiednio wykwalifikowanej osoby, zanim zostaną oznaczone jako zweryfikowane."] },
+      { title: "Rodzaje treści w serwisie", cards: [
+        { title: "Przewodniki informacyjne", text: "Opisują metody leczenia, pytania do kliniki i organizację wyjazdu. Nie są poradą medyczną." },
+        { title: "Cennik", text: "Pozycje pochodzą z cennika kliniki partnerskiej, mają datę aktualizacji i nie są ceną całego leczenia." },
+        { title: "Strony zaufania", text: "Opisują autorstwo, recenzje, zespół kliniki i relacje komercyjne." },
+        { title: "Strony prawne", text: "Regulamin, prywatność i cookies. Dane operatora będą dodane po ich potwierdzeniu." }
+      ]},
+      { title: "Daty i oznaczenia na stronach", paragraphs: ["Każda strona treści pokazuje datę publikacji i aktualizacji oraz status recenzji medycznej w panelu informacji o treści. Zmiana daty aktualizacji oznacza istotną korektę informacji, a nie sam zabieg kosmetyczny w tekście."] },
+      { title: "Konflikt interesów", paragraphs: ["Serwis ma cel komercyjny i współpracuje z kliniką Akdeniz Dental. Recenzenci medyczni są związani z tą kliniką, dlatego opisujemy to powiązanie przy ich profilach i nie przedstawiamy ich jako niezależnych ekspertów."] },
       { title: "Autorstwo", paragraphs: ["Obecne treści przypisane są redakcji serwisu. Nie oznaczamy ich jako zweryfikowane medycznie do czasu zakończenia imiennej recenzji przez osobę o potwierdzonych kwalifikacjach."] }
     ]
   },
   "weryfikacja-medyczna": {
-    slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady weryfikacji medycznej treści stomatologicznych i status recenzji poszczególnych stron.",
+    slug: "weryfikacja-medyczna", title: "Weryfikacja medyczna treści", description: "Zasady weryfikacji medycznej treści stomatologicznych w serwisie Zęby w Turcji: rola recenzenta, zakres recenzji i status poszczególnych stron.",
+    lastUpdated: "2026-10-02",
     eyebrow: "Bezpieczeństwo informacji", h1: "Weryfikacja medyczna",
     lead: "Treści medyczne powinny zostać ocenione przez osobę o potwierdzonych kwalifikacjach przed oznaczeniem ich jako zweryfikowane.",
     answer: "Autor redakcyjny przygotowuje tekst; recenzent medyczny sprawdza informacje stomatologiczne. Status jest przypisywany osobno każdej stronie wraz z datą rzeczywistej recenzji. Bez potwierdzonej daty nie publikujemy imiennego oznaczenia „zweryfikowano”.",
@@ -394,6 +423,12 @@ export const pages: Record<string, PageContent> = {
       { title: "Autor i recenzent", paragraphs: ["Redakcja serwisu pozostaje autorem treści. Recenzent medyczny sprawdza odpowiedniość merytoryczną informacji stomatologicznych na konkretnej stronie; nie staje się jej autorem przez samą recenzję. Przy każdej stronie podajemy jej własny status. Nazwisko recenzenta i datę pokazujemy dopiero po potwierdzeniu tych informacji."] },
       { title: "Planowany proces", bullets: ["potwierdzenie tożsamości i kwalifikacji recenzenta", "ocena definicji, ryzyk, alternatyw i ograniczeń", "weryfikacja źródeł oraz zgodności treści z widoczną ofertą", "udokumentowanie daty recenzji i zakresu zmian"] },
       { title: "Zakres i aktualizacja recenzji", paragraphs: ["Recenzent z potwierdzonymi kwalifikacjami ocenia definicje, wskazania, ograniczenia, ryzyko i zgodność przywołanych źródeł. Ocena artykułu nie stanowi diagnozy pacjenta, indywidualnej porady, zalecenia leczenia dla każdego czytelnika, gwarancji wyniku ani poparcia wszystkich komercyjnych informacji w serwisie. Po istotnej zmianie informacji medycznej status recenzji musi zostać zweryfikowany ponownie; błędy można zgłaszać przez stronę kontaktową."] },
+      { title: "Jak czytać oznaczenia na stronach", cards: [
+        { title: "Treść zweryfikowana medycznie", text: "Podane są nazwisko recenzenta i data faktycznej recenzji tej konkretnej strony." },
+        { title: "Recenzja oczekuje na potwierdzenie daty", text: "Recenzent jest przypisany, ale data recenzji nie została jeszcze potwierdzona." },
+        { title: "Recenzja jeszcze nieprzeprowadzona", text: "Strona ma tylko autora redakcyjnego. Nie traktuj jej jako zweryfikowanej." }
+      ]},
+      { title: "Powiązanie recenzentów z kliniką", paragraphs: ["Recenzenci medyczni są związani z kliniką partnerską Akdeniz Dental. Recenzja nie oznacza niezależnej oceny kliniki ani oferty. Aktualną listę zrecenzowanych stron znajdziesz w profilach recenzentów w sekcji Eksperci."] },
       { title: "Czego serwis nie robi", paragraphs: ["Serwis nie diagnozuje, nie kwalifikuje do zabiegu i nie udziela indywidualnej porady medycznej. Ostateczną decyzję podejmuje pacjent wspólnie z uprawnionym lekarzem po badaniu."] }
     ]
   },

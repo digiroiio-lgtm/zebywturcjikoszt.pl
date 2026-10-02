@@ -5,6 +5,14 @@ import { TrackedLink } from "@/components/tracked-link";
 import { CuratedCaseGallery } from "@/components/case-gallery";
 import { PUBLISHED_DATE, PUBLISHED_ISO_DATE, SITE_URL } from "@/lib/site";
 import { siteMedicalReviewer } from "@/lib/evidence";
+import { FaqSection } from "@/components/faq-section";
+
+const homeFaq = [
+  { question: "Czym jest serwis Zęby w Turcji?", answer: "To polskojęzyczny serwis informacyjny o celu komercyjnym dla osób rozważających leczenie stomatologiczne w Turcji. Nie świadczy usług medycznych. Klinika partnerska to Akdeniz Dental w Antalyi." },
+  { question: "Czy ceny na stronie są ceną całego leczenia?", answer: "Nie. To pozycje z cennika kliniki w EUR z orientacyjnym przeliczeniem na PLN i datą aktualizacji. Pełny koszt zależy od diagnostyki, liczby etapów i planu ustalonego po badaniu." },
+  { question: "Kto ustala plan leczenia?", answer: "Uprawniony lekarz dentysta po badaniu i diagnostyce. Informacje w serwisie mają charakter edukacyjny i nie kwalifikują do zabiegu." },
+  { question: "Czy serwis publikuje opinie pacjentów?", answer: "Nie publikujemy opinii, których autentyczności nie możemy potwierdzić. Na stronie o opiniach opisujemy, jak je weryfikować, i wskazujemy publiczne profile kliniki." }
+];
 
 export const metadata: Metadata = {
   title: { absolute: "Leczenie zębów w Turcji – Ceny, implanty i korony" },
@@ -16,12 +24,12 @@ import { PriceHighlights } from "@/components/price-list";
 import { PRICING_UPDATED_DATE, PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
 
 const treatments = [
-  { href: "/koszt", label: "Koszt leczenia", text: "Co wpływa na cenę i jak porównać pełny zakres wyceny.", image: "/images/diagrams/cost-scope.svg", alt: "Elementy pełnego kosztu leczenia" },
-  { href: "/implanty", label: "Implanty", text: "Kwalifikacja, etapy, odbudowa i pytania do kliniki.", image: "/images/diagrams/implant-plan.svg", alt: "Etapy planowania leczenia implantologicznego" },
-  { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "150 EUR za pozycję: zakres, dodatkowe koszty i przykładowe sumy.", image: "/images/diagrams/veneer-options.svg", alt: "Porównanie odbudów estetycznych" },
-  { href: "/licowki", label: "Licówki", text: "Plan estetyczny, materiały i alternatywy dla licówek.", image: "/images/diagrams/veneer-options.svg", alt: "Porównanie metod odbudowy estetycznej" },
-  { href: "/cala-szczeka", label: "Cała szczęka", text: "Dlaczego pełna odbudowa nie oznacza jednego zabiegu.", image: "/images/diagrams/full-arch-options.svg", alt: "Możliwe kierunki pełnej odbudowy" },
-  { href: "/all-on-4", label: "All-on-4", text: "Na czym polega koncepcja i co decyduje o kwalifikacji.", image: "/images/diagrams/all-on-4-plan.svg", alt: "Schemat koncepcji All-on-4" }
+  { href: "/koszt", label: "Koszt leczenia", text: "Co wpływa na cenę i jak porównać pełny zakres wyceny.", image: "/images/poradniki/cost-scope.svg", alt: "Elementy pełnego kosztu leczenia" },
+  { href: "/implanty", label: "Implanty", text: "Kwalifikacja, etapy, odbudowa i pytania do kliniki.", image: "/images/poradniki/implant-plan.svg", alt: "Etapy planowania leczenia implantologicznego" },
+  { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "150 EUR za pozycję: zakres, dodatkowe koszty i przykładowe sumy.", image: "/images/poradniki/veneer-options.svg", alt: "Porównanie odbudów estetycznych" },
+  { href: "/licowki", label: "Licówki", text: "Plan estetyczny, materiały i alternatywy dla licówek.", image: "/images/poradniki/veneer-options.svg", alt: "Porównanie metod odbudowy estetycznej" },
+  { href: "/cala-szczeka", label: "Cała szczęka", text: "Dlaczego pełna odbudowa nie oznacza jednego zabiegu.", image: "/images/poradniki/full-arch-options.svg", alt: "Możliwe kierunki pełnej odbudowy" },
+  { href: "/all-on-4", label: "All-on-4", text: "Na czym polega koncepcja i co decyduje o kwalifikacji.", image: "/images/poradniki/all-on-4-plan.svg", alt: "Schemat koncepcji All-on-4" }
 ];
 
 export default function Home() {
@@ -33,7 +41,8 @@ export default function Home() {
     <section className="shell section-space home-partner-clinic" aria-labelledby="home-partner-title"><div className="section-heading"><div><p className="eyebrow">Klinika partnerska</p><h2 id="home-partner-title">Akdeniz Dental w Antalyi</h2></div><p>Kliniką partnerską serwisu jest <a href="https://akdenizdental.com/our-history" className="text-link">Akdeniz Dental</a> w Antalyi, w Turcji. Przed podjęciem decyzji zapytaj o lekarza prowadzącego, diagnostykę, zakres wyceny, etapy leczenia i opiekę po powrocie do Polski.</p></div><div className="button-row"><TrackedLink href="/kontakt?lead_source=OGZ-PL&cta_location=home_partner_clinic&page_path=%2F" event="home_partner_clinic_cta" tracking={{ lead_source: "OGZ-PL", cta_location: "home_partner_clinic", page_path: "/" }} className="button">Zapytaj o plan leczenia</TrackedLink><Link className="text-link" href="/jak-wybrac-klinike">Co sprawdzić przed wyborem kliniki →</Link><Link className="text-link" href="/nasi-lekarze">Poznaj lekarzy kliniki →</Link></div></section>
     <CuratedCaseGallery />
     <section className="shell section-space"><div className="section-heading"><div><p className="eyebrow">Przed decyzją</p><h2>Zdjęcia to tylko część informacji</h2></div></div><div className="decision-grid"><Link href="/opinie"><span>Opinie</span><h3>Jak odróżnić doświadczenie pacjenta od reklamy</h3><p>Na co zwrócić uwagę, czytając opinie.</p></Link><Link href="/przed-i-po"><span>Przed i po</span><h3>Co naprawdę pokazują zdjęcia przed i po</h3><p>Zdjęcie nie pokazuje diagnozy, funkcji ani trwałości.</p></Link><Link href="/jak-wybrac-klinike"><span>Klinika</span><h3>Co zweryfikować przed wpłatą</h3><p>Sprawdź lekarza, plan leczenia i opiekę po powrocie do Polski.</p></Link></div></section>
-    <section className="shell section-space home-travel" aria-labelledby="home-travel-title"><div className="section-heading"><div><p className="eyebrow">Organizacja wyjazdu</p><h2 id="home-travel-title">Jak zaplanować leczenie w Antalyi?</h2></div><p>Sprawdź, jak przygotować wyjazd, zaplanować wizyty i ustalić opiekę po powrocie do Polski.</p></div><Link className="treatment-card home-travel-card" href="/antalya"><div className="treatment-visual"><Image src="/images/diagrams/antalya-journey.svg" alt="Etapy wyjazdu na leczenie do Antalyi" width={640} height={360} sizes="(max-width: 760px) 100vw, 460px" /></div><div><h3>Leczenie w Antalyi</h3><p>Jak przygotować wyjazd, wizyty i opiekę po powrocie.</p><b>Przeczytaj przewodnik →</b></div></Link></section>
+    <section className="shell section-space home-travel" aria-labelledby="home-travel-title"><div className="section-heading"><div><p className="eyebrow">Organizacja wyjazdu</p><h2 id="home-travel-title">Jak zaplanować leczenie w Antalyi?</h2></div><p>Sprawdź, jak przygotować wyjazd, zaplanować wizyty i ustalić opiekę po powrocie do Polski.</p></div><Link className="treatment-card home-travel-card" href="/antalya"><div className="treatment-visual"><Image src="/images/poradniki/antalya-journey.svg" alt="Etapy wyjazdu na leczenie do Antalyi" width={640} height={360} sizes="(max-width: 760px) 100vw, 460px" /></div><div><h3>Leczenie w Antalyi</h3><p>Jak przygotować wyjazd, wizyty i opiekę po powrocie.</p><b>Przeczytaj przewodnik →</b></div></Link></section>
+    <FaqSection path="/" items={homeFaq} className="shell section-space" />
     <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Wstępna ocena</p><h2>Sprawdź, jakie informacje są potrzebne do wyceny</h2><p>Opisz krótko, jakie leczenie rozważasz. Zdjęcia i dokumentację medyczną przekaż dopiero bezpiecznym kanałem.</p><TrackedLink href="/kontakt" event="home_bottom_cta" className="button button-light">Zapytaj o plan leczenia</TrackedLink></div></section>
     <section className="shell editorial-strip"><p><strong>Autor:</strong> Redakcja serwisu</p><p><strong>Publikacja:</strong> {PUBLISHED_DATE}</p><p><strong>Ostatnia aktualizacja:</strong> {PRICING_UPDATED_DATE}</p><p><strong>Recenzent medyczny serwisu:</strong> <Link href={siteMedicalReviewer.profileUrl}>Lek. dent. {siteMedicalReviewer.name}</Link> · Akdeniz Dental, Antalya</p><p><strong>Recenzja medyczna:</strong> jeszcze nieprzeprowadzona</p><Link href="/polityka-redakcyjna">Standard redakcyjny</Link></section>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({

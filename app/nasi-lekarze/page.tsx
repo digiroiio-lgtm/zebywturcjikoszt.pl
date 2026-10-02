@@ -5,6 +5,13 @@ import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-
 import { SITE_URL } from "@/lib/site";
 import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList, clinicSchema } from "@/lib/seo";
 import { ClinicProfiles } from "@/components/clinic-profiles";
+import { FaqSection } from "@/components/faq-section";
+
+const teamFaq = [
+  { question: "Czy każdy lekarz z tej listy recenzuje treści serwisu?", answer: "Nie. Lista przedstawia zespół kliniki partnerskiej. Recenzję medyczną wykonują tylko osoby wskazane w sekcji Eksperci, wyłącznie dla przypisanych im stron." },
+  { question: "Czy obszar pracy lekarza oznacza tytuł specjalisty?", answer: "Nie. Obszary pracy pochodzą z profili kliniki i nie są niezależnie potwierdzonym tytułem specjalisty." },
+  { question: "Skąd pochodzą dane o lekarzach?", answer: "Z zespołu Akdeniz Dental i indywidualnych profili wskazanych przy każdym lekarzu. Przy każdej osobie podajemy link do oficjalnego profilu kliniki." }
+];
 
 export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
@@ -37,6 +44,7 @@ export default function ClinicalTeam() {
     </article>)}</div>
     <section className="section-space"><h2>Zespół kliniczny a recenzja medyczna</h2><p>Akdeniz Dental jest kliniką partnerską serwisu. Przynależność do jej zespołu nie oznacza, że lekarz sprawdził treści tej strony. Mustafa Akça pełni rolę recenzenta medycznego serwisu i jest właścicielem kliniki. Mehmet Onur Merey recenzuje wyłącznie przewodniki o implantach i All-on-4. Recenzję konkretnego artykułu przypisujemy dopiero po udokumentowaniu zakresu, daty i zatwierdzenia.</p><div className="button-row"><Link className="text-link" href="/eksperci/mustafa-akca">Mustafa Akça: profil i zweryfikowane treści →</Link><Link className="text-link" href="/eksperci/mehmet-onur-merey">Mehmet Onur Merey: implanty i All-on-4 →</Link><Link className="text-link" href="/weryfikacja-medyczna">Jak weryfikujemy treści →</Link></div></section>
     <ClinicProfiles />
+    <FaqSection path="/nasi-lekarze" items={teamFaq} className="section-space" />
     <section><h2>Źródła i aktualizacja</h2><p>Źródło: <a href={TEAM_SOURCE_URL} target="_blank" rel="noopener noreferrer">zespół Akdeniz Dental</a> oraz indywidualne profile wskazane przy każdym lekarzu. Ostatnia aktualizacja danych: <time dateTime={TEAM_SOURCE_DATE}>{TEAM_SOURCE_DATE}</time>.</p></section>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;
