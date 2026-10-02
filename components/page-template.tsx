@@ -16,6 +16,7 @@ import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
+import { OperatorDetails } from "./operator-details";
 import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
@@ -124,6 +125,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
+            {(page.slug === "o-nas" || page.slug === "kontakt") && <OperatorDetails />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {guide && <GuidePrices />}
             <TreatmentCostScope slug={page.slug} />
