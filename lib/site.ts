@@ -173,7 +173,7 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Poproś o ocenę estetyczną", ctaEvent: "licowki_cta"
   },
   "cala-szczeka": {
-    lastUpdated: PRICING_UPDATED_ISO_DATE,
+    lastUpdated: "2026-10-02",
     slug: "cala-szczeka", title: "Cała szczęka w Turcji – pełna odbudowa uzębienia",
     description: "Co może oznaczać leczenie całej szczęki w Turcji: implanty, korony, All-on-4, All-on-6 i indywidualna rekonstrukcja.",
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
@@ -188,6 +188,7 @@ export const pages: Record<string, PageContent> = {
         ["Cel głównie estetyczny", "leczenie zachowawcze, ortodoncja, licówki lub korony", "zdrowie zębów i stopień ingerencji"]
       ]}},
       { title: "All-on-4 i All-on-6 nie są synonimami", paragraphs: ["Nazwy odnoszą się do różnych koncepcji podparcia pełnołukowej odbudowy implantoprotetycznej. Liczba implantów nie powinna być wybierana jako pakiet marketingowy. Decyzja należy do lekarza po diagnostyce i ocenie obciążeń."] },
+      { title: "Co mówi piśmiennictwo o All-on-4", paragraphs: ["Koncepcja All-on-4 jest opisywana w przeglądach systematycznych, które analizują przeżywalność implantów osiowych i pochylonych stosowanych w odbudowie pełnołukowej u pacjentów z bezzębiem. Wyniki dotyczą badanych grup i protokołów. Nie są obietnicą rezultatu dla konkretnego pacjenta i nie zastępują kwalifikacji lekarskiej."] },
       { title: "Jak przygotować się do rozmowy z lekarzem", paragraphs: ["Poniższa tabela nie kwalifikuje do zabiegu. Pomaga ustalić, jakie pytanie powinno zostać wyjaśnione przez lekarza przed porównywaniem metod i cen."], table: { headers: ["Sytuacja wyjściowa", "Pierwsze pytanie kliniczne", "Właściwy następny krok"], rows: [
         ["Własne zęby nadal są obecne", "które zęby mają dobre rokowanie i mogą zostać zachowane?", "plan zachowawczy lub protetyczny przed rozmową o usuwaniu zębów"],
         ["Brakuje pojedynczych zębów", "czy uzupełnienie powinno być oparte na implancie, moście czy rozwiązaniu ruchomym?", "konsultacja dotycząca implantów i alternatyw"],
@@ -203,10 +204,11 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy wszystkie zęby trzeba usuwać?", answer: "Nie można tego zakładać. Każdy ząb powinien zostać oceniony, a powód ewentualnego usunięcia jasno wyjaśniony." },
       { question: "Czy All-on-6 jest zawsze lepsze niż All-on-4?", answer: "Nie. Większa liczba implantów sama w sobie nie przesądza o lepszym wyniku. Wybór zależy od diagnostyki i planu protetycznego." }
     ],
+    sources: [{ label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }],
     ctaLabel: "Skonsultuj pełną odbudowę uzębienia", ctaEvent: "full_mouth_cta"
   },
   "all-on-4": {
-    lastUpdated: PRICING_UPDATED_ISO_DATE,
+    lastUpdated: "2026-10-02",
     slug: "all-on-4", title: "All-on-4 w Turcji – kwalifikacja, etapy i koszt",
     description: "All-on-4 w Turcji: czym jest pełnołukowa odbudowa na czterech implantach, jak wygląda kwalifikacja i co powinien zawierać plan.",
     eyebrow: "Pełnołukowa odbudowa", h1: "All-on-4 w Turcji",
@@ -216,6 +218,7 @@ export const pages: Record<string, PageContent> = {
     sections: [
       { title: "Co wymaga indywidualnej oceny", bullets: ["stan kości i tkanek miękkich", "stan pozostałych zębów i powód ich ewentualnego usunięcia", "zgryz, obciążenia i nawyki", "choroby ogólne, leki i czynniki ryzyka", "możliwość utrzymania higieny odbudowy"] },
       { title: "Nie porównuj wyłącznie ceny pakietu", paragraphs: ["Dwie oferty All-on-4 mogą obejmować inne systemy implantów, materiały, diagnostykę, odbudowy tymczasowe i docelowe. Poproś o rozpisanie wszystkich elementów oraz procedury na wypadek zmiany planu po badaniu klinicznym."] },
+      { title: "Co mówi piśmiennictwo naukowe", paragraphs: ["Koncepcja All-on-4 jest przedmiotem przeglądów systematycznych, które oceniają przeżywalność implantów osiowych i pochylonych w odbudowie pełnołukowej u pacjentów z bezzębiem. Wyniki dotyczą badanych grup i ustalonych protokołów, nie są obietnicą rezultatu dla konkretnego pacjenta i nie zastępują indywidualnej kwalifikacji."] },
       { title: "Alternatywy", paragraphs: ["W zależności od przypadku lekarz może omówić inne rozwiązania implantoprotetyczne lub ruchome. All-on-4 nie powinno być przedstawiane jako jedyna możliwość przed diagnostyką."] }
     ],
     faq: [
@@ -223,6 +226,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Ile kosztuje All-on-4 w Turcji?", answer: "Przekazany cennik podaje ceny poszczególnych implantów i procedur, ale nie zawiera ceny kompletnego pakietu All-on-4. Koszt pełnego leczenia wymaga ustalenia systemu implantów, pracy tymczasowej i docelowej, diagnostyki oraz liczby etapów." },
       { question: "Czy All-on-4 i cała szczęka to to samo?", answer: "Nie. „Cała szczęka” opisuje problem lub zakres leczenia, a All-on-4 jest jedną z możliwych koncepcji pełnołukowej odbudowy." }
     ],
+    sources: [{ label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }],
     ctaLabel: "Zapytaj o kwalifikację do All-on-4", ctaEvent: "all_on_4_cta"
   },
   opinie: {

@@ -38,7 +38,7 @@ export default function ClinicalTeam() {
     <p>Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Obszary pracy nie są równoznaczne z niezależnie potwierdzonym tytułem specjalisty. Zdjęcia przedstawiają lekarzy wskazanych w tych profilach.</p>
     <div className="clinical-team-grid">{clinicalTeam.map((doctor) => <article className="clinical-team-card" id={doctor.slug} key={doctor.slug}>
       <Image src={doctor.imageUrl} alt={`Lek. dent. ${doctor.name} – Akdeniz Dental`} width={600} height={600} sizes="(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw" className="clinical-team-portrait" />
-      <div className="clinical-team-body"><p className="eyebrow">Lekarz dentysta</p><h2>{doctor.name}</h2><p><strong>Obszar pracy:</strong> {doctor.area}</p><p><strong>Wykształcenie według kliniki:</strong> {doctor.education}</p><p>{doctor.focus}</p>
+      <div className="clinical-team-body"><p className="eyebrow">Lekarz dentysta</p><h2>{doctor.name}</h2><p><strong>Obszar pracy:</strong> {doctor.area}</p><p><strong>Wykształcenie według kliniki:</strong> {doctor.education}</p><p>{doctor.focus}</p>{doctor.patientMention && <p className="patient-mention"><strong>Opinie pacjentów:</strong> {doctor.patientMention.text} <a className="text-link" href={doctor.patientMention.href} target="_blank" rel="noopener noreferrer">Zobacz opinię →</a> Opinia pacjenta nie jest weryfikacją kwalifikacji.</p>}
         <a className="text-link" href={doctor.sourceUrl} target="_blank" rel="noopener noreferrer">Oficjalny profil w klinice →</a>
         {doctor.reviewerUrl && <Link className="text-link" href={doctor.reviewerUrl}>Profil recenzenta medycznego i status recenzji →</Link>}
       </div>
