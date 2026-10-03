@@ -151,6 +151,18 @@ for (const file of ["testimonials.ts", "clinic-stats.ts"]) {
 }
 if (patientContent.length && (!legalReview || legalReview === "null")) fail(`Patient-derived content is published (${patientContent.join(", ")}) but LEGAL_REVIEW_CONFIRMED_DATE in lib/legal-review.ts is not set. See docs/consent-and-data-handling.md.`);
 
+const financeGate = (await readFile(path.join(process.cwd(), "lib", "finance-gate.ts"), "utf8")).match(/FINANCE_PRODUCT_CONFIRMED_DATE: string \| null = (null|"\d{4}-\d{2}-\d{2}")/)?.[1];
+if (!financeGate || financeGate === "null") {
+  const promoPatterns = [/0\s?%\s?(APR|RRSO|oprocentowani)/i, /\bod\s+£\s?\d/i, /£\s?\d+\s*(\/|na|per|a)\s*(mies|month)/i, /bez\s+sprawdzania/i, /pre-?approved/i, /gwarantowan/i, /na raty z UK/i, /no credit check/i, /guaranteed (loan|approval)/i, /raty od/i];
+  for (const [route, file] of routeFiles) {
+    if (route !== "/uk" && !route.startsWith("/uk/")) continue;
+    const text = (await readFile(path.join(appDir, file), "utf8")).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ");
+    for (const pattern of promoPatterns) if (pattern.test(text)) fail(`${route}: finance-promotion wording (${pattern}) while FINANCE_PRODUCT_CONFIRMED_DATE in lib/finance-gate.ts is not set.`);
+  }
+  const paymentRoute = "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji";
+  if (routeFiles.has(paymentRoute) && !(await readFile(path.join(appDir, routeFiles.get(paymentRoute)), "utf8")).includes("nie oferuje ani nie pośredniczy w kredytach")) fail(`${paymentRoute}: must state that the service does not offer or arrange credit while the finance gate is closed.`);
+}
+
 if (failures.length) {
   console.error(`SEO contract failed with ${failures.length} issue(s):`);
   for (const issue of failures) console.error(`- ${issue}`);

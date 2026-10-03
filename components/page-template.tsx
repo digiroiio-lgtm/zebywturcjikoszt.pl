@@ -21,6 +21,8 @@ import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
 import { OperatorDetails } from "./operator-details";
 import { CredentialList } from "./credential-list";
+import { GbpPrices } from "./gbp-prices";
+import { isUkSlug } from "@/lib/uk";
 import { clinicCredentials } from "@/lib/credentials";
 import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
@@ -32,6 +34,18 @@ function sectionId(title: string) {
 }
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
+  uk: [
+    { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    { href: "/antalya", label: "Plan wyjazdu do Antalyi", text: "Przygotowanie, wizyty i pobyt na miejscu." },
+    { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja i kontrola po powrocie." },
+    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." }
+  ],
+  "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [
+    { href: "/uk", label: "Dla Polaków w UK", text: "GHIC, polisa, waluta i kontrola po powrocie." },
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
+    { href: "/jak-wybrac-klinike", label: "Zaliczka, zadatek i zwrot", text: "Co ustalić na piśmie przed wpłatą." }
+  ],
   "korony-cyrkonowe": [
     { href: "/koszt", label: "Pełny cennik", text: "Sprawdź ceny dodatkowego leczenia i zasady wyceny." },
     { href: "/licowki", label: "Licówki a korony", text: "Porównaj różne rodzaje odbudowy." },
@@ -85,6 +99,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ],
   "jak-wybrac-klinike": [
+    { href: "/uk", label: "Dla Polaków w UK", text: "Co jest inne, gdy mieszkasz w Wielkiej Brytanii." },
     { href: "/opinie", label: "Jak oceniać opinie", text: "Sprawdź wiarygodność doświadczeń publikowanych w internecie." },
     { href: "/przed-i-po", label: "Jak oceniać zdjęcia", text: "Zobacz, czego materiały przed i po nie potwierdzają." },
     { href: "/koszt", label: "Jak porównać wyceny", text: "Ustal pełny zakres przed wpłatą zaliczki." },
@@ -92,7 +107,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   ]
 };
 
-export function PageTemplate({ page, formEnabled, guide = false }: { page: PageContent; formEnabled: boolean; guide?: boolean }) {
+export function PageTemplate({ page, formEnabled, guide = false, section }: { page: PageContent; formEnabled: boolean; guide?: boolean; section?: { label: string; href: string } }) {
+  const uk = isUkSlug(page.slug);
   const pageUrl = `${SITE_URL}/${page.slug}`;
   const related = contextualLinks[page.slug] ?? [];
   const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE);
@@ -100,7 +116,8 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
   const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
     { "@type": "ListItem", position: 1, name: "Strona główna", item: SITE_URL },
     ...(guide ? [{ "@type": "ListItem", position: 2, name: "Poradniki", item: `${SITE_URL}/poradniki` }] : []),
-    { "@type": "ListItem", position: guide ? 3 : 2, name: page.h1, item: pageUrl }
+    ...(section ? [{ "@type": "ListItem", position: 2, name: section.label, item: `${SITE_URL}${section.href}` }] : []),
+    { "@type": "ListItem", position: guide || section ? 3 : 2, name: page.h1, item: pageUrl }
   ]};
   const pageSchema = {
     "@context": "https://schema.org",
@@ -110,6 +127,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
     description: page.description,
     url: pageUrl,
     inLanguage: "pl-PL",
+    ...(uk ? { audience: { "@type": "Audience", audienceType: "Polacy mieszkający w Wielkiej Brytanii", geographicArea: { "@type": "Country", name: "Wielka Brytania" } } } : {}),
     isPartOf: { "@id": `${SITE_URL}/#website` },
     datePublished: page.published ?? PUBLISHED_ISO_DATE,
     dateModified: review.lastUpdated,
@@ -133,7 +151,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
       {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <main>
-        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{!legalSlugs.includes(page.slug) && OPERATOR_DISCLOSURE && <p className="commercial-note"><strong>Informacja komercyjna.</strong> {OPERATOR_DISCLOSURE} <Link href="/wlasciciel-serwisu">Właściciel serwisu</Link></p>}{guide && <p className="hero-partner">Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
+        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : section ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href={section.href}>{section.label}</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{!legalSlugs.includes(page.slug) && OPERATOR_DISCLOSURE && <p className="commercial-note"><strong>Informacja komercyjna.</strong> {OPERATOR_DISCLOSURE} <Link href="/wlasciciel-serwisu">Właściciel serwisu</Link></p>}{guide && <p className="hero-partner">Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
@@ -144,6 +162,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
             {page.slug === "dokumenty-i-licencje" && <CredentialList credentials={clinicCredentials} />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {guide && <GuidePrices />}
+            {page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach" && <GbpPrices />}
             <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2 id={sectionId(section.title)}>{section.title}</h2>
@@ -166,7 +185,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
           </div>
           {!legalSlugs.includes(page.slug) && <TrustPanel review={review} reviewer={reviewer} published={page.published} history={pageHistory[page.slug]} />}
         </article>
-        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href={guideAssessmentHref(`/${page.slug}`, guide ? "guide_bottom" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_bottom" } : undefined} className="button button-light">Poproś o wstępną wycenę</TrackedLink></div></section>}
+        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href={guideAssessmentHref(`/${page.slug}`, guide ? "guide_bottom" : (page.ctaEvent ?? "page_cta"), uk ? "OGZ-UK" : "OGZ-PL")} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_bottom" } : uk ? { lead_source: "OGZ-UK" } : undefined} className="button button-light">Poproś o wstępną wycenę</TrackedLink></div></section>}
       </main>
     </>
   );

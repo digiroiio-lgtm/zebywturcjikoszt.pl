@@ -1,4 +1,5 @@
 import { newGuides, GUIDES_LATEST_DATE } from "@/lib/guides";
+import { allUkPages } from "@/lib/uk";
 import type { MetadataRoute } from "next";
 import { pages, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
@@ -29,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, lastModified: day(homeDate), changeFrequency: "weekly", priority: 1 },
     ...pageEntries,
     ...guideEntries,
+    ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!), changeFrequency: "monthly", priority: page.slug === "uk" ? 0.6 : 0.5 })),
     { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE), changeFrequency: "monthly", priority: 0.6 },
     { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), changeFrequency: "monthly", priority: 0.5, images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
     { url: abs("/eksperci"), lastModified: day(latest(expertDates)), changeFrequency: "monthly", priority: 0.4 },

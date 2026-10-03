@@ -1,4 +1,5 @@
 import { newGuides } from "./guides";
+import { allUkPages } from "./uk";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { approvedReviewer, reviewFor } from "./medical-review";
 import { verifiedExperts } from "./evidence";
@@ -10,11 +11,11 @@ import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, priceIt
 export const FAQ_PATH = "/pytania-i-odpowiedzi";
 export const FAQ_PUBLISHED_DATE = "2026-09-30";
 const guideSlugs = ["koszt", "implanty", "korony-cyrkonowe", "licowki", "cala-szczeka", "all-on-4", "antalya", "jak-wybrac-klinike", "opinie", "przed-i-po"];
-export const patientGuides = [...guideSlugs.map((slug) => pages[slug]), ...Object.values(newGuides)];
+export const patientGuides = [...guideSlugs.map((slug) => pages[slug]), ...Object.values(newGuides), ...allUkPages];
 export const faqGroups = patientGuides.filter((page) => page.faq?.length);
 
 export function reviewSummary(slug: string) {
-  const page = pages[slug] ?? Object.values(newGuides).find((guide) => guide.slug === slug)!;
+  const page = pages[slug] ?? [...Object.values(newGuides), ...allUkPages].find((guide) => guide.slug === slug)!;
   const state = reviewFor(slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const expert = approvedReviewer(state);
   return expert && state.reviewStatus === "reviewed"
