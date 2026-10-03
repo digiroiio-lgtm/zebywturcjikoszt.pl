@@ -26,6 +26,11 @@ import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
 
+/** URL fragment for a section heading: lower case, Polish letters transliterated. */
+function sectionId(title: string) {
+  return title.toLowerCase().replace(/ł/g, "l").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
   "korony-cyrkonowe": [
     { href: "/koszt", label: "Pełny cennik", text: "Sprawdź ceny dodatkowego leczenia i zasady wyceny." },
@@ -37,7 +42,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/implanty", label: "Koszt implantów", text: "Sprawdź, co składa się na pełny plan implantologiczny." },
     { href: "/licowki", label: "Koszt licówek", text: "Zobacz, od czego zależy zakres i cena leczenia estetycznego." },
     { href: "/cala-szczeka", label: "Cała szczęka", text: "Poznaj różne drogi pełnej odbudowy uzębienia." },
-    { href: "/all-on-4", label: "All-on-4", text: "Sprawdź, dlaczego nazwa metody nie wystarcza do porównania ofert." }
+    { href: "/all-on-4", label: "All-on-4", text: "Sprawdź, dlaczego nazwa metody nie wystarcza do porównania ofert." },
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Policz leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." }
   ],
   implanty: [
     { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
@@ -65,7 +71,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   opinie: [
     { href: "/jak-wybrac-klinike", label: "Lista kontroli kliniki", text: "Zweryfikuj lekarza, placówkę, plan i odpowiedzialność." },
     { href: "/przed-i-po", label: "Przed i po", text: "Sprawdź zasady oceny materiałów wizualnych." },
-    { href: "/koszt", label: "Porównanie wycen", text: "Nie oceniaj oferty tylko na podstawie opinii i ceny końcowej." }
+    { href: "/koszt", label: "Porównanie wycen", text: "Nie oceniaj oferty tylko na podstawie opinii i ceny końcowej." },
+    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ],
   "przed-i-po": [
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Sprawdź także lekarza i plan leczenia." },
@@ -74,12 +81,14 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   antalya: [
     { href: "/koszt", label: "Koszt całego wyjazdu", text: "Uwzględnij leczenie, podróż, pobyt i możliwe korekty." },
     { href: "/jak-wybrac-klinike", label: "Wybór kliniki", text: "Sprawdź placówkę i odpowiedzialność przed rezerwacją lotu." },
-    { href: "/implanty", label: "Implanty", text: "Zobacz, dlaczego leczenie może wymagać więcej niż jednego pobytu." }
+    { href: "/implanty", label: "Implanty", text: "Zobacz, dlaczego leczenie może wymagać więcej niż jednego pobytu." },
+    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ],
   "jak-wybrac-klinike": [
     { href: "/opinie", label: "Jak oceniać opinie", text: "Sprawdź wiarygodność doświadczeń publikowanych w internecie." },
     { href: "/przed-i-po", label: "Jak oceniać zdjęcia", text: "Zobacz, czego materiały przed i po nie potwierdzają." },
-    { href: "/koszt", label: "Jak porównać wyceny", text: "Ustal pełny zakres przed wpłatą zaliczki." }
+    { href: "/koszt", label: "Jak porównać wyceny", text: "Ustal pełny zakres przed wpłatą zaliczki." },
+    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ]
 };
 
@@ -137,7 +146,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
             {guide && <GuidePrices />}
             <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
-              <h2>{section.title}</h2>
+              <h2 id={sectionId(section.title)}>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.bullets && <ul className="check-list">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
               {section.cards && <div className="cards">{section.cards.map((card) => <div className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.text}</p></div>)}</div>}
@@ -149,7 +158,7 @@ export function PageTemplate({ page, formEnabled, guide = false }: { page: PageC
               {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
             </Fragment>)}
             {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
-            {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
+            {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
             {page.sources && <SourceList sources={page.sources} />}
             {guide && <GuideNextSteps source={`/${page.slug}`} />}
             {!page.form && <nav className="content-section" aria-label="Biblioteka poradników"><Link className="text-link" href="/poradniki">Wszystkie poradniki dla pacjentów z Polski →</Link>{!guide && <p><Link href="/poradniki/leczenie-zebow-w-turcji">Od czego zacząć?</Link> · <Link href="/poradniki/calkowity-koszt-wyjazdu">Budżet całego wyjazdu</Link> · <Link href="/poradniki/opieka-po-leczeniu">Opieka po powrocie do Polski</Link></p>}</nav>}

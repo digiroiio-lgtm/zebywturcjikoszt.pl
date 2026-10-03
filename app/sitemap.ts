@@ -1,4 +1,4 @@
-import { newGuides, GUIDES_DATE } from "@/lib/guides";
+import { newGuides, GUIDES_LATEST_DATE } from "@/lib/guides";
 import type { MetadataRoute } from "next";
 import { pages, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
@@ -21,10 +21,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.slug === "koszt" ? 0.9 : 0.7,
     ...(page.slug === "przed-i-po" ? { images: caseImages.map((item) => abs(item.src)) } : {})
   }));
-  const guideSlugs = Object.values(newGuides).map((guide) => guide.slug);
-  const guideEntries: Entry[] = ["poradniki", ...guideSlugs].map((slug) => ({ url: abs(`/${slug}`), lastModified: day(GUIDES_DATE), changeFrequency: "monthly", priority: 0.7 }));
+  const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date), changeFrequency: "monthly", priority: 0.7 }));
   const expertDates = verifiedExperts.map((expert) => expert.lastVerified);
-  const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_DATE, ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
+  const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_LATEST_DATE, ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
 
   return [
     { url: SITE_URL, lastModified: day(homeDate), changeFrequency: "weekly", priority: 1 },

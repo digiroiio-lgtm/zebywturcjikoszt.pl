@@ -2,6 +2,7 @@ import { formatEur, formatPln, PRICING_UPDATED_ISO_DATE } from "./pricing";
 import { OPERATOR } from "./operator";
 import { clinicCredentials, credentialsPublished } from "./credentials";
 import { legalPages } from "./legal-content";
+import { RATINGS_CHECKED_DATE, clinicProfiles } from "./clinic-profiles";
 
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
@@ -41,9 +42,13 @@ export type PageContent = {
   published?: string;
 };
 
+const nhsAbroad = { label: "NHS: lista kontrolna leczenia za granicą (Treatment abroad checklist)", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" };
+const trustpilotProfile = clinicProfiles.find((profile) => profile.key === "trustpilot")!;
+const googleProfile = clinicProfiles.find((profile) => profile.key === "google-maps")!;
+
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: "2026-10-02",
+    lastUpdated: "2026-10-03",
     slug: "koszt",
     title: "Ile kosztują zęby w Turcji? Ceny i zakres leczenia",
     description: "Cennik 24 zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.",
@@ -80,12 +85,15 @@ export const pages: Record<string, PageContent> = {
         ["Bezzębie i kwalifikacja do stałej odbudowy", "All-on-4", "diagnostyka, warunki anatomiczne, system implantów i rodzaj pracy"]
       ]}},
       { title: "Zaliczka i warunki płatności", paragraphs: ["Przed wpłatą ustal na piśmie, czy płacisz zaliczkę, czy zadatek. Według UOKiK zaliczka jest wpłaconą wcześniej częścią ceny i podlega zwrotowi, gdy rezygnujesz z usługi, a zadatek w razie rezygnacji konsumenta może zostać zatrzymany przez wykonawcę. Zaliczka i zadatek nie mogą odpowiadać 100 proc. wynagrodzenia za usługę.", "Zapytaj także, na jaki zakres leczenia lub etap przeznaczona jest wpłata i kiedy można ją odzyskać po zmianie planu po badaniu klinicznym."] },
-      { title: "Turcja czy Polska: porównuj cały proces", paragraphs: ["Porównanie powinno obejmować nie tylko zabieg, ale również podróż, liczbę wizyt, możliwe korekty, opiekę po leczeniu i sposób postępowania w razie komplikacji. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie."] }
+      { title: "Czy w Turcji opłaca się robić zęby? Turcja czy Polska", paragraphs: ["Odpowiedź zależy od całkowitego kosztu i ryzyka, a nie od ceny samego zabiegu. Cena pozycji w Turcji to tylko część rachunku.", "Porównanie z leczeniem w Polsce powinno obejmować po obu stronach: leczenie i diagnostykę, przejazdy i nocleg, liczbę wizyt i ewentualny drugi wyjazd, kontrole oraz koszt możliwej korekty. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie.", "Nie publikujemy cen leczenia w Polsce ani procentu oszczędności, bo nie mamy zweryfikowanego źródła takich danych. Poproś o pisemne wyceny w Polsce i w Turcji dla tego samego zakresu leczenia i porównaj całość. Sposób liczenia budżetu wyjazdu opisuje poradnik o całkowitym koszcie."] }
     ],
     faq: [
       { question: "Czy na stronie jest aktualny cennik?", answer: "Tak. Publikujemy 24 pozycje z cennika kliniki przekazanego 30.09.2026, w EUR i orientacyjnie w PLN. Data cennika i kurs przeliczenia są widoczne przy tabeli. Indywidualna oferta określa pełny zakres leczenia." },
       { question: "Czy wystarczy wiadomość, żeby otrzymać wycenę?", answer: "Wstępna ocena może pomóc określić możliwy zakres, ale ostateczny plan wymaga dokumentacji i oceny klinicznej przez uprawnionego lekarza dentystę." },
-      { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie można tego zakładać. Każda oferta powinna jednoznacznie wskazywać, które elementy są wliczone, a które pacjent organizuje i opłaca oddzielnie." }
+      { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie można tego zakładać. Każda oferta powinna jednoznacznie wskazywać, które elementy są wliczone, a które pacjent organizuje i opłaca oddzielnie." },
+      { question: "Czy w Turcji opłaca się robić zęby?", answer: "Zależy od całkowitego kosztu i ryzyka, a nie od ceny samego zabiegu. Zsumuj leczenie, podróż, nocleg, kontrole i możliwą korektę zamiast porównywać wyłącznie ceny zabiegów." },
+      { question: "Ile kosztują zęby w Turcji, a ile w Polsce?", answer: "Ceny kliniki w Turcji podajemy w tabeli w EUR i orientacyjnie w PLN, z datą cennika. Cen leczenia w Polsce nie publikujemy bez źródła, dlatego porównuj pisemne wyceny tego samego zakresu razem z kosztami podróży i kontroli." },
+      { question: "W jakim kraju najtaniej leczyć zęby?", answer: "Nie prowadzimy rankingu krajów, bo nie mamy porównywalnych, zweryfikowanych danych cenowych. Sama niska cena nie wystarcza jako kryterium: sprawdź lekarza, plan, zakres ceny i opiekę po leczeniu." }
     ],
     sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
     ctaLabel: "Poproś o indywidualną wycenę", ctaEvent: "cost_page_cta"
@@ -240,7 +248,7 @@ export const pages: Record<string, PageContent> = {
     answer: "Nie prowadzimy forum ani nie publikujemy opinii, których autentyczności nie możemy potwierdzić. Na tej stronie pokazujemy, jak weryfikować doświadczenia pacjentów i które informacje sprawdzić niezależnie przed wyborem kliniki.",
     sections: [
       { title: "Na co zwrócić uwagę w opinii", bullets: ["opisuje konkretny zakres leczenia i etapy, a nie tylko ogólne wrażenie", "rozróżnia opiekę organizacyjną od oceny medycznej", "nie obiecuje identycznego rezultatu każdej osobie", "pokazuje datę i kontekst doświadczenia", "może zostać powiązana z rzeczywistym źródłem bez naruszania prywatności"] },
-      { title: "Czerwone flagi", cards: [
+      { title: "Czerwone flagi w opiniach", cards: [
         { title: "Same superlatywy", text: "Brak szczegółów, powtarzalne sformułowania i identyczny styl wielu recenzji." },
         { title: "Obietnice medyczne", text: "Zapewnienie o zerowym ryzyku, bezbolesności lub dożywotnim efekcie." },
         { title: "Brak źródła", text: "Zrzuty ekranu bez daty, profilu i możliwości sprawdzenia kontekstu." },
@@ -253,10 +261,12 @@ export const pages: Record<string, PageContent> = {
     faq: [
       { question: "Czy ta strona jest forum pacjentów?", answer: "Nie. Serwis nie prowadzi niezależnego forum ani społeczności pacjentów." },
       { question: "Czy publikujecie prawdziwe opinie?", answer: "Nie publikujemy opinii, dopóki nie będzie można zweryfikować ich autentyczności, zgody na publikację i relacji komercyjnej." },
-      { question: "Jak sprawdzić opinie o klinice?", answer: "Warto porównać wiele źródeł, sprawdzić profil opiniującego, daty, odpowiedzi kliniki oraz informacje o lekarzach i podmiocie leczniczym." }
+      { question: "Jak sprawdzić opinie o klinice?", answer: "Warto porównać wiele źródeł, sprawdzić profil opiniującego, daty, odpowiedzi kliniki oraz informacje o lekarzach i podmiocie leczniczym." },
+      { question: "Jakie są opinie o tureckich zębach i klinikach w Turcji?", answer: "Opinie o leczeniu w Turcji mogą się znacznie różnić i pochodzą z wielu źródeł: portali z ocenami, map, mediów społecznościowych i nagrań wideo. Pojedyncza opinia ani średnia ocena nie przesądza o jakości leczenia, dlatego porównuj źródła, daty, odpowiedzi kliniki i konkretne informacje o leczeniu." },
+      { question: "Jakie są opinie o Akdeniz Dental w Antalyi?", answer: `Na Trustpilot klinika Akdeniz Dental ma ocenę ${trustpilotProfile.rating}/5 (${trustpilotProfile.reviewCount} opinii), a w Mapach Google ${googleProfile.rating}/5 (${googleProfile.reviewCount} opinii), według odczytu z ${RATINGS_CHECKED_DATE}. Oceny zmieniają się w czasie i pochodzą od użytkowników tych platform. Operator serwisu prowadzi tę klinikę, więc sprawdź profile samodzielnie.` }
     ],
     sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }],
-    lastUpdated: "2026-10-02",
+    lastUpdated: "2026-10-03",
     ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   "przed-i-po": {
@@ -301,10 +311,11 @@ export const pages: Record<string, PageContent> = {
       { title: "Plan rozmowy z kliniką przed rezerwacją lotu", bullets: ["zakres wstępnego planu i etapy, które mogą wymagać kolejnego pobytu", "kto prowadzi leczenie i kto będzie dostępny po Twoim wyjeździe", "jak wygląda przekazanie dokumentacji, zdjęć RTG i listy użytych materiałów", "co klinika uznaje za zdarzenie wymagające szybkiego kontaktu po powrocie", "jakie czynności muszą zostać wykonane przed lotem powrotnym"] }
     ],
     faq: [
-      { question: "Ile dni trzeba zostać w Antalyi?", answer: "Nie podajemy jednej liczby bez zweryfikowanego planu. Długość pobytu zależy od rodzaju leczenia, etapów i wymaganych kontroli." },
-      { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie zostało to potwierdzone dla aktualnej oferty. Hotel i transfer powinny być wyraźnie wymienione w pisemnej wycenie, jeśli są wliczone." },
+      { question: "Ile trwa leczenie zębów w Turcji i ile dni zostać w Antalyi?", answer: "Nie podajemy jednej liczby bez zweryfikowanego planu. Czas zależy od rodzaju leczenia, etapów, gojenia i wymaganych kontroli, a niektóre plany mogą wymagać więcej niż jednego pobytu." },
+      { question: "Czy hotel i transfer w Antalyi są wliczone w ofertę?", answer: "Nie zostało to potwierdzone dla aktualnej oferty. Hotel i transfer powinny być wyraźnie wymienione w pisemnej wycenie, jeśli są wliczone." },
       { question: "Czy EKUZ obowiązuje w Turcji?", answer: "Nie. EKUZ dotyczy świadczeń w państwach UE i EFTA, a Turcja do nich nie należy. Sprawdź w polisie podróżnej, czy obejmuje planowe leczenie stomatologiczne i powikłania." },
-      { question: "Czy leczenie można połączyć z wakacjami?", answer: "Plan aktywności powinien uwzględniać zalecenia lekarza i przebieg leczenia. Priorytetem jest bezpieczna organizacja terapii i kontroli." }
+      { question: "Czy leczenie można połączyć z wakacjami?", answer: "Plan aktywności powinien uwzględniać zalecenia lekarza i przebieg leczenia. Priorytetem jest bezpieczna organizacja terapii i kontroli." },
+      { question: "Jak wybrać klinikę stomatologiczną w Antalyi?", answer: "Zacznij od kryteriów, a nie od rankingu: podmiot i lekarz, pisemny plan, zakres ceny oraz opieka po powrocie. Szczegółową listę pytań znajdziesz w poradniku o wyborze kliniki." }
     ],
     sources: [
       { label: "Ministerstwo Spraw Zagranicznych RP: informacje dla podróżujących do Turcji", href: "https://www.gov.pl/web/turcja/informacje-dla-podrozujacych" },
@@ -312,7 +323,7 @@ export const pages: Record<string, PageContent> = {
       { label: "NFZ: EKUZ obowiązuje w państwach UE i EFTA", href: "https://www.nfz.gov.pl/dla-pacjenta/nasze-zdrowie-w-ue/leczenie-w-krajach-unii-europejskiej-i-efta/wypoczynek-w-panstwach-czlonkowskich-ueefta-ekuz/" },
       { label: "Europejskie Centrum Konsumenckie: wyjazd zorganizowany i prawa konsumenta", href: "https://konsument.gov.pl/wyjazd-zorganizowany-prawa-konsumenta/" }
     ],
-    lastUpdated: "2026-10-02",
+    lastUpdated: "2026-10-03",
     ctaLabel: "Zapytaj o plan wyjazdu", ctaEvent: "antalya_cta"
   },
   "jak-wybrac-klinike": {
@@ -347,6 +358,8 @@ export const pages: Record<string, PageContent> = {
         "kto pokrywa leczenie lub podróż, jeżeli potrzebna jest korekta?",
         "jakie są zasady zaliczki, odwołania, zwrotu i reklamacji?"
       ] },
+      { title: "Czy warto jechać do Turcji na leczenie zębów?", paragraphs: ["Nie ma jednej odpowiedzi dla wszystkich. Wyjazd ma sens, gdy leczenie da się zaplanować z wyprzedzeniem, a lekarz, plan, zakres ceny i opieka po powrocie zostały potwierdzone na piśmie. Brytyjska służba zdrowia (NHS) radzi, by decyzję o leczeniu za granicą opierać na jakości opieki, a nie na atrakcyjności miejsca wyjazdu."], bullets: ["rozmowa z własnym dentystą lub lekarzem jako druga opinia przed decyzją", "informacje o stanie zdrowia i przyjmowanych lekach, które lekarz musi poznać przed ustaleniem planu", "czas na leczenie wieloetapowe i na odpoczynek po zabiegu przed podróżą powrotną", "jasna odpowiedź, kto pomoże po powrocie i w razie komplikacji", "polisa podróżna i poinformowanie ubezpieczyciela o planowanym leczeniu"] },
+      { title: "Gdzie robić zęby w Turcji? Jak wybrać miasto i klinikę", paragraphs: ["Miejsce jest mniej ważne niż możliwość sprawdzenia lekarza, planu i zasad opieki, dlatego zacznij od kryteriów z listy powyżej, a nie od rankingu. Serwis nie publikuje listy „najlepszych klinik”: jego operator prowadzi klinikę Akdeniz Dental w Antalyi, więc taki ranking nie byłby neutralny. Plan wyjazdu do Antalyi opisuje osobna strona o leczeniu w Antalyi."] },
       { title: "Czerwone flagi", cards: [
         { title: "Plan bez diagnostyki", text: "Ostateczna obietnica leczenia bez badania i dokumentacji." },
         { title: "Brak nazwisk", text: "Nie wiadomo, kto będzie leczył i jakie ma kwalifikacje." },
@@ -357,10 +370,12 @@ export const pages: Record<string, PageContent> = {
     faq: [
       { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. Serwis ma cel komercyjny. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie jest więc neutralnym rankingiem." },
       { question: "Czy same opinie w Google wystarczą?", answer: "Nie. Mogą pomóc w ocenie kliniki, ale sprawdź też lekarza, plan leczenia, dokumentację i zasady opieki po powrocie." },
-      { question: "Kiedy wpłacić zaliczkę?", answer: "Dopiero po poznaniu podmiotu, warunków płatności, zasad zwrotu oraz zakresu wstępnej oferty. Dane te powinny być dostępne na piśmie." }
+      { question: "Kiedy wpłacić zaliczkę?", answer: "Dopiero po poznaniu podmiotu, warunków płatności, zasad zwrotu oraz zakresu wstępnej oferty. Dane te powinny być dostępne na piśmie." },
+      { question: "Czy warto jechać do Turcji zrobić sobie zęby?", answer: "Zależy od planu leczenia, stanu zdrowia i możliwości kontroli po powrocie. Wyjazd ma sens, gdy lekarz, zakres ceny i opieka po leczeniu są potwierdzone na piśmie, a decyzja nie opiera się tylko na cenie." },
+      { question: "Gdzie najlepiej robić zęby w Turcji?", answer: "Nie wskazujemy jednego miasta ani kliniki jako najlepszej. Porównaj lekarza, plan leczenia, zakres ceny, dokumentację i opiekę po powrocie. Operator serwisu prowadzi klinikę w Antalyi, więc serwis nie jest neutralnym rankingiem." }
     ],
-    sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
-    lastUpdated: "2026-10-02",
+    sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }, nhsAbroad],
+    lastUpdated: "2026-10-03",
     ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "clinic_check_cta"
   },
   "o-nas": {
@@ -371,7 +386,7 @@ export const pages: Record<string, PageContent> = {
     lastUpdated: "2026-10-02",
     sources: [{ label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Eksperci: profile recenzentów i powiązania z kliniką", href: "/eksperci" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }, { label: "Metodologia serwisu", href: "/metodologia" }, { label: "Właściciel serwisu", href: "/wlasciciel-serwisu" }, { label: "Korekty i zgłaszanie błędów", href: "/korekty" }],
     faq: [
-      { question: "Czy serwis jest niezależną porównywarką klinik?", answer: "Nie. To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
+      { question: "Czy serwis jest niezależny od kliniki Akdeniz Dental?", answer: "Nie. To serwis informacyjny o celu komercyjnym. Serwis prowadzi spółka DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ, która prowadzi także klinikę Akdeniz Dental w Antalyi. Nie przedstawiamy go jako neutralnego rankingu." },
       { question: "Kto jest operatorem serwisu?", answer: "DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ z siedzibą w Antalyi, w Turcji (Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100 Muratpaşa). To ta sama spółka, która prowadzi klinikę Akdeniz Dental." },
       { question: "Jak zgłosić błąd lub nieaktualną cenę?", answer: "Przez stronę kontaktową. Zgłoszenie jest sprawdzane ze źródłem, a data strony zmienia się po wprowadzeniu istotnej korekty." }
     ],
@@ -483,7 +498,7 @@ export const pages: Record<string, PageContent> = {
       { title: "Jak zgłosić błąd", bullets: ["wejdź na stronę kontaktową i opisz zgłoszenie", "podaj adres strony i fragment, którego dotyczy uwaga", "wskaż źródło, jeśli je masz", "nie przesyłaj dokumentacji medycznej przez formularz"] },
       { title: "Jak sprawdzamy zgłoszenie", paragraphs: ["Redakcja sprawdza zgłoszenie ze źródłem i zakres poprawki. Datę aktualizacji strony zmieniamy dopiero po wprowadzeniu istotnej korekty. Treści kliniczne wymagają ponownej oceny recenzenta, zanim zostaną oznaczone jako zweryfikowane."] },
       { title: "Co dzieje się z oznaczeniem recenzji", paragraphs: ["Po zmianie strony po dacie recenzji oznaczenie „zweryfikowano” znika automatycznie, a panel informacji o treści pokazuje, że poprzednia recenzja nie obejmuje zmian. Oznaczenie wraca po nowej recenzji z potwierdzoną datą."] },
-      { title: "Dziennik korekt", bullets: ["2 października 2026: przepisaliśmy regulamin, politykę prywatności, politykę cookies i stronę reklamacji (ryzyka i brak gwarancji, ocena zgłoszeń leczenia przez klinikę, zasady przekazywania danych); serwis nie zapisuje już żadnych danych na urządzeniu użytkownika", "2 października 2026: w polityce prywatności opisaliśmy dane pacjentów kliniki przetwarzane poza serwisem oraz zasady publikacji przypadków, opinii i statystyk", "2 października 2026: opublikowaliśmy politykę prywatności, regulamin, politykę cookies i stronę reklamacji; dodaliśmy oznaczenie „Informacja komercyjna” i historię zmian przy stronach; uruchomiliśmy bezcookie'ową analitykę Vercel", "2 października 2026: strony „All-on-4” i „Cała szczęka” uzupełniono o sekcję o piśmiennictwie i źródło; recenzenci potwierdzili zaktualizowany tekst tego samego dnia", "2 października 2026: opublikowaliśmy dane operatora serwisu i wyjaśniliśmy, że operator prowadzi także klinikę Akdeniz Dental", "2 października 2026: zastąpiliśmy określenie „klinika partnerska” sformułowaniem „klinika prowadzona przez operatora serwisu”, aby odzwierciedlić to powiązanie"] }
+      { title: "Dziennik korekt", bullets: ["3 października 2026: uzupełniliśmy strony o pytania pacjentów dotyczące leczenia w Turcji (czy się opłaca, czy warto, gdzie robić zęby, opinie) i dodaliśmy poradnik „Tureckie zęby”; nie dodaliśmy cen leczenia w Polsce ani rankingu klinik, bo nie mamy zweryfikowanych danych", "2 października 2026: przepisaliśmy regulamin, politykę prywatności, politykę cookies i stronę reklamacji (ryzyka i brak gwarancji, ocena zgłoszeń leczenia przez klinikę, zasady przekazywania danych); serwis nie zapisuje już żadnych danych na urządzeniu użytkownika", "2 października 2026: w polityce prywatności opisaliśmy dane pacjentów kliniki przetwarzane poza serwisem oraz zasady publikacji przypadków, opinii i statystyk", "2 października 2026: opublikowaliśmy politykę prywatności, regulamin, politykę cookies i stronę reklamacji; dodaliśmy oznaczenie „Informacja komercyjna” i historię zmian przy stronach; uruchomiliśmy bezcookie'ową analitykę Vercel", "2 października 2026: strony „All-on-4” i „Cała szczęka” uzupełniono o sekcję o piśmiennictwie i źródło; recenzenci potwierdzili zaktualizowany tekst tego samego dnia", "2 października 2026: opublikowaliśmy dane operatora serwisu i wyjaśniliśmy, że operator prowadzi także klinikę Akdeniz Dental", "2 października 2026: zastąpiliśmy określenie „klinika partnerska” sformułowaniem „klinika prowadzona przez operatora serwisu”, aby odzwierciedlić to powiązanie"] }
     ],
     sources: [{ label: "Kontakt", href: "/kontakt" }, { label: "Polityka redakcyjna: zgłaszanie i dokumentowanie korekt", href: "/polityka-redakcyjna" }, { label: "Weryfikacja medyczna: co się dzieje po zmianie treści", href: "/weryfikacja-medyczna" }, { label: "Metodologia serwisu", href: "/metodologia" }]
   },
