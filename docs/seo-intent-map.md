@@ -17,7 +17,7 @@ Updated: 2026-10-03
 | `/jak-wybrac-klinike` | jak wybrać klinikę w Turcji | klinika stomatologiczna Turcja, zęby w Turcji klinika, czy warto, gdzie robić zęby w Turcji | PRIMARY |
 | `/uk` | leczenie zębów w Turcji dla Polaków w UK | Polacy w UK, GHIC, polisa, waluta, kontrola po powrocie | PRIMARY (new audience silo); links out, does not copy `/koszt`, `/antalya` |
 | `/uk/jak-zaplacic-za-leczenie-zebow-w-turcji` | jak zapłacić za leczenie zębów w Turcji mieszkając w UK | finance dental treatment Turkey (informational), czy na raty | PRIMARY; neutral options and risks, no product |
-| `/uk/ceny-leczenia-zebow-w-turcji-w-funtach` | ceny leczenia w funtach | dental treatment Turkey cost GBP | PUBLISHED only when a dated EUR to GBP rate is set in `lib/pricing.ts`; conversion of the clinic EUR list, no UK price column |
+| `/uk/ceny-leczenia-zebow-w-turcji-w-funtach` | ceny leczenia w funtach | dental treatment Turkey cost GBP | PUBLISHED 2026-10-03 with an owner-supplied rate (0.85, Yahoo Finance reading, rounded to two decimals; not an official rate); conversion of the clinic EUR list, no UK price column. Refresh the rate and date in `lib/pricing.ts` when it is re-read |
 | `/poradniki/tureckie-zeby` | tureckie zęby | o co chodzi z tureckimi zębami, czy tureckie zęby są dobre, problemy z tureckimi zębami, ile wytrzymują zęby z Turcji, leczenie w tydzień | PRIMARY (no earlier owner); links to, does not copy, `/jak-wybrac-klinike` red flags and `opieka-po-leczeniu` |
 
 ## P1 decisions

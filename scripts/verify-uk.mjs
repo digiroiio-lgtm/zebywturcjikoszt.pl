@@ -32,6 +32,8 @@ if (existsSync(root + gbpPage + '.html')) {
   const gbp = read(gbpPage + '.html');
   assert(gbp.includes('data-price-id="aiser"') && gbp.includes('kurs z dnia'), 'GBP table has dated rate and price ids');
   assert(gbp.includes('nie jest ofertą w funtach'), 'GBP page states it is not an offer in GBP');
+  assert(gbp.includes('zaokrąglony do dwóch miejsc') && gbp.includes('Yahoo Finance'), 'GBP page states rate source and rounding');
+  assert(read('llms-full.txt.body').includes('Przeliczenie na GBP'), 'llms-full states the GBP rate and source');
 } else {
   assert(!sitemap.includes(gbpPage), 'GBP page stays unpublished until a dated rate is set');
 }
