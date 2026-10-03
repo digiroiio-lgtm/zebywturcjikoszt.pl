@@ -138,6 +138,10 @@ body:has(.case-lead-dialog[open]) { overflow:hidden; }
 .visual-guide figcaption { color:var(--muted); font-size:14px; }
 .visual-guide img { display:block; width:100%; height:auto; border-radius:12px; }
 .direct-answer+.visual-guide { margin:-36px 0 66px; }
+.content-figure { margin:-28px 0 68px; }
+.content-figure img { display:block; width:100%; height:auto; max-height:460px; object-fit:cover; border-radius:14px; border:1px solid var(--line); background:#f8fbfa; }
+.content-figure-diagram img { object-fit:contain; padding:16px; }
+.content-figure figcaption { margin-top:10px; color:var(--muted); font-size:14px; }
 .check-list { display:grid; gap:12px; margin:24px 0 0; padding:0; list-style:none; }
 .check-list li { position:relative; padding:15px 18px 15px 48px; border:1px solid var(--line); border-radius:10px; background:white; }
 .check-list li::before { content:'✓'; position:absolute; left:17px; top:14px; width:21px; height:21px; display:grid; place-items:center; border-radius:50%; background:var(--mint); color:var(--green-dark); font-weight:900; }

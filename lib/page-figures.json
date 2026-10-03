@@ -1,0 +1,229 @@
+{
+  "koszt": [
+    {
+      "after": "Zaliczka i warunki płatności",
+      "src": "/images/klinika/clinic-5.jpeg",
+      "alt": "Recepcja kliniki Akdeniz Dental w Antalyi z podświetlonym logo i marmurową ladą",
+      "width": 770,
+      "height": 770,
+      "caption": "Recepcja kliniki Akdeniz Dental w Antalyi. Zdjęcie przedstawia wnętrze i nie dokumentuje zakresu ani ceny leczenia.",
+      "kind": "photo"
+    }
+  ],
+  "jak-wybrac-klinike": [
+    {
+      "after": "Co sprawdzić przed wpłatą",
+      "src": "/images/klinika/clinic-3.jpeg",
+      "alt": "Wejście do kliniki Akdeniz Dental w Antalyi: szklane drzwi, tablica z nazwą placówki i wycieraczka z logo",
+      "width": 770,
+      "height": 770,
+      "caption": "Wejście do kliniki z tablicą z nazwą placówki. Nazwę i dane rejestrowe warto zawsze porównać z dokumentami.",
+      "kind": "photo"
+    },
+    {
+      "after": "Kto odpowiada za co",
+      "src": "/images/klinika/portfolio-02b.jpeg",
+      "alt": "Recepcja i wejście do kliniki Akdeniz Dental: podświetlone logo na ceglanej ścianie i marmurowa lada",
+      "width": 1200,
+      "height": 1000,
+      "caption": "Recepcja kliniki Akdeniz Dental w Antalyi.",
+      "kind": "photo"
+    }
+  ],
+  "implanty": [
+    {
+      "after": "Co sprawdzić przed wyborem oferty",
+      "src": "/images/klinika/portfolio-05b.jpeg",
+      "alt": "Gabinet kliniki Akdeniz Dental widziany przez szklane drzwi, z niebieskim fotelem i dużymi oknami",
+      "width": 1200,
+      "height": 1000,
+      "caption": "Gabinet w klinice Akdeniz Dental. Zdjęcie przedstawia wnętrze i nie ilustruje wyniku leczenia.",
+      "kind": "photo"
+    }
+  ],
+  "licowki": [
+    {
+      "after": "Pytania, które warto zadać",
+      "src": "/images/klinika/portfolio-04b.jpeg",
+      "alt": "Gabinet kliniki Akdeniz Dental z czerwonym fotelem stomatologicznym, lampą zabiegową i oknem na miasto",
+      "width": 1200,
+      "height": 1000,
+      "caption": "Gabinet w klinice Akdeniz Dental. Zdjęcie przedstawia wnętrze i nie ilustruje wyniku leczenia.",
+      "kind": "photo"
+    }
+  ],
+  "korony-cyrkonowe": [
+    {
+      "after": "Co ustalić o materiale i przygotowaniu",
+      "src": "/images/klinika/portfolio-06b.jpeg",
+      "alt": "Jasny gabinet kliniki Akdeniz Dental z fotelem stomatologicznym, zestawem narzędzi i biurkiem",
+      "width": 1200,
+      "height": 1000,
+      "caption": "Gabinet w klinice Akdeniz Dental. Zdjęcie przedstawia wnętrze i nie ilustruje wyniku leczenia.",
+      "kind": "photo"
+    }
+  ],
+  "cala-szczeka": [
+    {
+      "after": "Jak przygotować się do rozmowy z lekarzem",
+      "src": "/images/klinika/clinic-6.jpeg",
+      "alt": "Poczekalnia kliniki Akdeniz Dental: narożna sofa, okrągłe stoliki i duże okna",
+      "width": 770,
+      "height": 770,
+      "caption": "Poczekalnia kliniki Akdeniz Dental w Antalyi.",
+      "kind": "photo"
+    }
+  ],
+  "all-on-4": [
+    {
+      "after": "Nie porównuj wyłącznie ceny pakietu",
+      "src": "/images/klinika/clinic-4.jpeg",
+      "alt": "Strefa wypoczynkowa kliniki Akdeniz Dental z logo zęba z palmą na ścianie i okrągłym stołem",
+      "width": 770,
+      "height": 770,
+      "caption": "Strefa oczekiwania w klinice Akdeniz Dental w Antalyi.",
+      "kind": "photo"
+    }
+  ],
+  "opinie": [
+    {
+      "after": "Na co zwrócić uwagę w opinii",
+      "src": "/images/klinika/clinic-4.jpeg",
+      "alt": "Kącik oczekiwania w klinice Akdeniz Dental w Antalyi z logo zęba na ścianie",
+      "width": 770,
+      "height": 770,
+      "caption": "Wnętrze kliniki Akdeniz Dental. Zdjęcie nie jest opinią pacjenta ani dowodem wyniku leczenia.",
+      "kind": "photo"
+    }
+  ],
+  "o-nas": [
+    {
+      "after": "Nasze zasady",
+      "src": "/images/klinika/portfolio-08b.jpeg",
+      "alt": "Logo kliniki Akdeniz Dental: biały ząb z palmą na tle zielonego mchu",
+      "width": 1200,
+      "height": 1000,
+      "caption": "Logo kliniki Akdeniz Dental, którą prowadzi operator serwisu.",
+      "kind": "photo"
+    }
+  ],
+  "kontakt": [
+    {
+      "after": "Przygotuj przed kontaktem",
+      "src": "/images/klinika/clinic-3.jpeg",
+      "alt": "Szklane wejście do kliniki Akdeniz Dental w Antalyi widziane od strony ulicy",
+      "width": 770,
+      "height": 770,
+      "caption": "Wejście do kliniki Akdeniz Dental w Antalyi.",
+      "kind": "photo"
+    }
+  ],
+  "uk": [
+    {
+      "after": "Co jest takie samo, a co inne niż przy wyjeździe z Polski?",
+      "src": "/images/klinika/clinic-6.jpeg",
+      "alt": "Poczekalnia kliniki Akdeniz Dental w Antalyi z widokiem na miasto przez duże okna",
+      "width": 770,
+      "height": 770,
+      "caption": "Poczekalnia kliniki Akdeniz Dental w Antalyi.",
+      "kind": "photo"
+    }
+  ],
+  "przed-i-po": [
+    {
+      "after": "Standard publikacji przypadków",
+      "src": "/images/klinika/portfolio-11.jpeg",
+      "alt": "Stanowisko fotograficzne w klinice Akdeniz Dental: lampy studyjne i tło z logo",
+      "width": 770,
+      "height": 770,
+      "caption": "Stanowisko fotograficzne w klinice. Zdjęcie przedstawia wyposażenie i nie wskazuje, że wykonano tu konkretne zdjęcia przypadków.",
+      "kind": "photo"
+    }
+  ],
+  "poradniki/calkowity-koszt-wyjazdu": [
+    {
+      "after": "Lista kosztów do uzupełnienia własnymi ofertami",
+      "src": "/images/poradniki/cost-scope.svg",
+      "alt": "Schemat czterech elementów kosztu wyjazdu: leczenia, materiałów, podróży i opieki",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy: koszt leczenia, materiałów, podróży i opieki sumuje się dopiero po zebraniu ofert.",
+      "kind": "diagram"
+    }
+  ],
+  "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [
+    {
+      "after": "Najpierw ustal pełny koszt, potem sposób płatności",
+      "src": "/images/poradniki/cost-scope.svg",
+      "alt": "Schemat składników całkowitego kosztu, które trzeba zsumować przed wyborem sposobu płatności",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy składników kosztu, które warto zsumować przed wyborem formy płatności.",
+      "kind": "diagram"
+    }
+  ],
+  "poradniki/pakiety-leczenia-zebow": [
+    {
+      "after": "Trzy rubryki, które porządkują ofertę",
+      "src": "/images/poradniki/cost-scope.svg",
+      "alt": "Schemat zakresu oferty: leczenie, materiały, podróż i opieka po leczeniu",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy: sprawdź, które elementy obejmuje cena pakietu.",
+      "kind": "diagram"
+    }
+  ],
+  "poradniki/licowki-czy-korony": [
+    {
+      "after": "Porównanie zakresu: nie tylko kolor uśmiechu",
+      "src": "/images/poradniki/veneer-options.svg",
+      "alt": "Uproszczone porównanie zakresu licówki, korony i bondingu",
+      "width": 640,
+      "height": 360,
+      "caption": "Uproszczony schemat. O doborze metody decyduje lekarz po badaniu.",
+      "kind": "diagram"
+    }
+  ],
+  "poradniki/leczenie-zebow-w-turcji": [
+    {
+      "after": "Jak zweryfikować klinikę i lekarza",
+      "src": "/images/poradniki/clinic-check.svg",
+      "alt": "Schemat sprawdzania kliniki i lekarza przed wpłatą",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy kroków weryfikacji kliniki i lekarza.",
+      "kind": "diagram"
+    },
+    {
+      "after": "Najpierw harmonogram, potem bilety",
+      "src": "/images/poradniki/antalya-journey.svg",
+      "alt": "Schemat planowania podróży wokół etapów leczenia",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy: przygotowanie, leczenie na miejscu i opieka po powrocie.",
+      "kind": "diagram"
+    }
+  ],
+  "poradniki/tureckie-zeby": [
+    {
+      "after": "Czy tureckie zęby są dobre?",
+      "src": "/images/poradniki/clinic-check.svg",
+      "alt": "Schemat kryteriów oceny kliniki zamiast oceny całego kraju",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy: oceniaj konkretną klinikę i plan leczenia, nie kraj.",
+      "kind": "diagram"
+    }
+  ],
+  "poradniki/rankingi-klinik-dentystycznych-w-turcji": [
+    {
+      "after": "Jak rozpoznać ranking, który jest reklamą?",
+      "src": "/images/poradniki/review-check.svg",
+      "alt": "Lupa nad kartą opinii symbolizuje sprawdzanie źródła i kryteriów rankingu",
+      "width": 640,
+      "height": 360,
+      "caption": "Schemat poglądowy: sprawdź, kto i według jakich kryteriów przygotował ranking.",
+      "kind": "diagram"
+    }
+  ]
+}

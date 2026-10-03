@@ -13,10 +13,11 @@
     "check:sources": "node scripts/check-external-sources.mjs",
     "audit:seo": "node scripts/validate-seo.mjs",
     "test:lead": "node scripts/verify-lead.mjs",
-    "verify": "npm run lint && npm run typecheck && npm run test:lead && npm run build && npm run audit:seo && npm run test:ai && npm run test:guides && npm run test:uk",
+    "verify": "npm run lint && npm run typecheck && npm run test:lead && npm run build && npm run audit:seo && npm run test:ai && npm run test:guides && npm run test:uk && npm run test:figures",
     "test:ai": "node scripts/verify-ai-content.mjs",
     "test:guides": "node scripts/verify-guides.mjs",
-    "test:uk": "node scripts/verify-uk.mjs"
+    "test:uk": "node scripts/verify-uk.mjs",
+    "test:figures": "node scripts/verify-figures.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

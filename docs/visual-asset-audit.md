@@ -31,3 +31,25 @@ No treatment category is assigned to a before/after image unless it is supported
 | `img-02.png` | Three people in clinical clothing in a dental setting | Team image; identities and qualifications not established by image | Good cut-out, 588×712 | `/jak-wybrac-klinike`, next to clinician-verification guidance |
 
 Existing SVG diagrams retain their educational roles on cost and treatment pages. No before/after asset is assigned to a treatment-specific page until verified case metadata becomes available.
+
+## Content figures from existing files (2026-10-03)
+
+Placement is data-driven: `lib/page-figures.json` maps a page slug to figures rendered by `components/content-figure.tsx` after the named H2 section. `npm run test:figures` fails if a figure, its alt text or caption is missing from the built HTML, or if the section heading no longer exists. `npm run audit:seo` checks the alt text of every `<img>` on every page: present (`alt=""` only for decorative images), 25–125 characters, no "Zdjęcie/Obraz/Grafika/Image/Photo" prefix, unique on a page, and not shared by two different image files.
+
+| File | Placement | Notes |
+| --- | --- | --- |
+| `klinika/clinic-5.jpeg` | `/koszt` | Reception; caption states the photo does not document scope or price |
+| `klinika/clinic-3.jpeg` | `/jak-wybrac-klinike`, `/kontakt` | Entrance with the facility name sign; two different alt texts per page by design |
+| `klinika/portfolio-02b.jpeg` | `/jak-wybrac-klinike` | Reception and entrance |
+| `klinika/portfolio-05b.jpeg` | `/implanty` | Treatment room through glass door; caption: interior, not a result |
+| `klinika/portfolio-04b.jpeg` | `/licowki` | Treatment room; windows show outside shop signs (acceptable, no readable personal data) |
+| `klinika/portfolio-06b.jpeg` | `/korony-cyrkonowe` | Treatment room |
+| `klinika/clinic-6.jpeg` | `/cala-szczeka`, `/uk` | Waiting lounge |
+| `klinika/clinic-4.jpeg` | `/all-on-4`, `/opinie` | Waiting area; on `/opinie` the caption says it is not a patient opinion |
+| `klinika/portfolio-08b.jpeg` | `/o-nas` | Clinic logo |
+| `klinika/portfolio-11.jpeg` | `/przed-i-po` | Photo studio corner; caption does not claim the case photos were taken here |
+| `poradniki/*.svg` | guides and `/uk/jak-zaplacic-…` | `cost-scope`, `veneer-options`, `clinic-check`, `antalya-journey`, `review-check` reused with page-specific alt texts |
+
+Deliberately not used: `portfolio-07.jpeg`, `portfolio-07b.jpeg`, `portfolio-09b.jpeg` (wall artwork with third-party photographs of a public figure and a quotation: copyright and personality-rights risk); `portfolio-03b.jpeg` (seasonal decoration, kept in reserve). Before/after images are not placed on treatment pages because their treatment scope is unverified.
+
+Still needed (PR 2, supplied by the owner): new real photographs and diagrams, `ImageObject` JSON-LD, an image sitemap review and file renaming/WebP conversion.

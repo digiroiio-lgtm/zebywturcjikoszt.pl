@@ -55,6 +55,7 @@ if (new Set(sitemapUrls).size !== sitemapUrls.length) fail("Sitemap contains dup
 
 const faqQuestionRoutes = new Map();
 const h2Routes = new Map();
+const altOwners = new Map();
 // Headings produced by shared components (price scope, operator data, clinic profiles, pricing tables) repeat by design.
 const sharedH2 = new Set(["Najczęstsze pytania", "Źródła i podstawa informacji", "Powiązane przewodniki", "Co zrobić dalej?", "Przykładowe pozycje w EUR i około PLN", "Najpierw ustal, jakie leczenie może być potrzebne", "Dane operatora serwisu", "Profile kliniki w niezależnych serwisach", "Bezpłatna indywidualna wstępna ocena", "Przykładowe ceny leczenia", "Ceny wybranych elementów leczenia", "Co musi obejmować całkowita wycena?", "Potwierdzona cena całkowita: co jest potrzebne?", "Cennik zabiegów związanych z leczeniem", "Ile wynosi suma wybranych pozycji?"]);
 const decode = (text) => text.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").trim();
@@ -64,6 +65,23 @@ for (const [route, file] of routeFiles) {
   if (route !== "/pytania-i-odpowiedzi" && !route.startsWith("/eksperci")) {
     for (const question of matches(html, /<details id="faq-\d+"[^>]*><summary>(.*?)<\/summary>/g).map(decode)) faqQuestionRoutes.set(question, [...(faqQuestionRoutes.get(question) ?? []), route]);
     for (const heading of matches(html, /<h2(?:\s[^>]*)?>(.*?)<\/h2>/g).map(decode)) if (!sharedH2.has(heading) && !heading.startsWith("Krótko:")) h2Routes.set(heading, [...(h2Routes.get(heading) ?? []), route]);
+  }
+  // Alt text audit: every <img> needs alt (alt="" only for decorative images), 25-125 chars, no "Zdjęcie/Obraz/Grafika" prefix, unique per page and per image.
+  const altsOnPage = new Set();
+  for (const [tag] of html.matchAll(/<img\b[^>]*>/g)) {
+    const altMatch = tag.match(/\balt="([^"]*)"/);
+    const srcMatch = tag.match(/\bsrc="([^"]*)"/)?.[1] ?? "";
+    const source = decodeURIComponent(srcMatch.match(/[?&]url=([^&]+)/)?.[1] ?? srcMatch);
+    if (!altMatch) { fail(`${route}: <img> without alt attribute (${source}).`); continue; }
+    const alt = decode(altMatch[1]);
+    if (!alt) continue;
+    if ([...alt].length < 25 || [...alt].length > 125) fail(`${route}: alt text is ${[...alt].length} characters (expected 25-125): "${alt}".`);
+    if (/^(zdjęcie|obraz|grafika|image|photo|picture)\b/i.test(alt)) fail(`${route}: alt text starts with a redundant word: "${alt}".`);
+    if (altsOnPage.has(alt)) fail(`${route}: the same alt text is used twice on one page: "${alt}".`);
+    altsOnPage.add(alt);
+    const owner = altOwners.get(alt);
+    if (owner && owner.source !== source) fail(`${route}: alt text "${alt}" is also used for a different image on ${owner.route}.`);
+    if (!owner) altOwners.set(alt, { route, source });
   }
   const titles = matches(html, /<title>([^<]+)<\/title>/g);
   const descriptions = matches(html, /<meta name="description" content="([^"]+)"/g);

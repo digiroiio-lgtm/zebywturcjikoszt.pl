@@ -28,6 +28,8 @@ import { clinicCredentials } from "@/lib/credentials";
 import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
+import { ContentFigure } from "./content-figure";
+import { figuresAfter } from "@/lib/page-figures";
 
 /** URL fragment for a section heading: lower case, Polish letters transliterated. */
 function sectionId(title: string) {
@@ -177,6 +179,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
               {section.table && <div className="table-wrap"><table><thead><tr>{section.table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row) => <tr key={row.join("|")}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div>}
               <SectionVisual slug={page.slug} sectionTitle={section.title} />
             </section>
+              {figuresAfter(page.slug, section.title).map((figure) => <ContentFigure key={figure.src} figure={figure} />)}
               {page.slug === "przed-i-po" && section.title === "Jak czytać materiał przed i po" && <BeforeAfterCaseHub formEnabled={formEnabled} />}
               {page.slug === "antalya" && section.title === "Przed wyjazdem" && <AntalyaJourneyImages />}
               {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
