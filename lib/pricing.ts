@@ -62,19 +62,22 @@ export function pricesForPage(slug: string): PriceItem[] {
   return ids ? ids.map((id) => priceItems.find((item) => item.id === id)!) : [];
 }
 
-export function toPln(eur: number) { return Math.round(eur * EUR_PLN_RATE * 100) / 100; }
-export function formatEur(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "EUR" }).format(eur); }
-export function formatPln(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "PLN" }).format(toPln(eur)); }
+/** Converted amounts are shown rounded to whole zloty and pounds; the rate itself is shown separately. */
+export function toPln(eur: number) { return Math.round(Math.round(eur * EUR_PLN_RATE * 100) / 100); }
+export function formatEur(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "EUR", minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(eur); }
+export function formatPln(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "PLN", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(toPln(eur)); }
 
 /**
  * EUR to GBP conversion for the /uk pages. Both stay null until the site owner supplies a dated rate;
  * while null the GBP price page is not published. Do not fill with an undated or remembered rate.
  */
-export const EUR_GBP_RATE = null as number | null;
-export const EUR_GBP_RATE_TIMESTAMP = null as string | null;
+export const EUR_GBP_RATE = 0.85 as number | null;
+export const EUR_GBP_RATE_TIMESTAMP = "2026-10-03" as string | null;
+/** Rate as supplied by the site owner (Google/Yahoo Finance reading, two decimals); not an official reference rate. */
+export const EUR_GBP_RATE_SOURCE = "Yahoo Finance, odczyt właściciela serwisu";
 export const gbpPublished = EUR_GBP_RATE !== null && EUR_GBP_RATE_TIMESTAMP !== null;
 export function toGbp(eur: number) {
   if (EUR_GBP_RATE === null) throw new Error("EUR_GBP_RATE is not set");
-  return Math.round(eur * EUR_GBP_RATE * 100) / 100;
+  return Math.round(Math.round(eur * EUR_GBP_RATE * 100) / 100);
 }
-export function formatGbp(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "GBP" }).format(toGbp(eur)); }
+export function formatGbp(eur: number) { return new Intl.NumberFormat("pl-PL", { style: "currency", currency: "GBP", minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(toGbp(eur)); }

@@ -23,6 +23,7 @@ import { OperatorDetails } from "./operator-details";
 import { CredentialList } from "./credential-list";
 import { GbpPrices } from "./gbp-prices";
 import { isUkSlug } from "@/lib/uk";
+import { gbpPublished } from "@/lib/pricing";
 import { clinicCredentials } from "@/lib/credentials";
 import { SourceList } from "./source-list";
 import { caseImages } from "@/lib/gallery";
@@ -39,12 +40,14 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
     { href: "/antalya", label: "Plan wyjazdu do Antalyi", text: "Przygotowanie, wizyty i pobyt na miejscu." },
     { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja i kontrola po powrocie." },
-    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." }
+    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." },
+    ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP po kursie z podaną datą." }] : [])
   ],
   "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [
     { href: "/uk", label: "Dla Polaków w UK", text: "GHIC, polisa, waluta i kontrola po powrocie." },
     { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
-    { href: "/jak-wybrac-klinike", label: "Zaliczka, zadatek i zwrot", text: "Co ustalić na piśmie przed wpłatą." }
+    { href: "/jak-wybrac-klinike", label: "Zaliczka, zadatek i zwrot", text: "Co ustalić na piśmie przed wpłatą." },
+    ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP." }] : [])
   ],
   "korony-cyrkonowe": [
     { href: "/koszt", label: "Pełny cennik", text: "Sprawdź ceny dodatkowego leczenia i zasady wyceny." },

@@ -6,7 +6,7 @@ import { verifiedExperts } from "./evidence";
 import { OPERATOR, OPERATOR_DISCLOSURE, operatorRows } from "./operator";
 import { credentialsPublished } from "./credentials";
 import { CLINIC_ADDRESS_TEXT, RATINGS_CHECKED_ISO_DATE, clinicProfiles } from "./clinic-profiles";
-import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, priceItems } from "./pricing";
+import { EUR_GBP_RATE, EUR_GBP_RATE_SOURCE, EUR_GBP_RATE_TIMESTAMP, EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, gbpPublished, priceItems } from "./pricing";
 
 export const FAQ_PATH = "/pytania-i-odpowiedzi";
 export const FAQ_PUBLISHED_DATE = "2026-09-30";
@@ -47,6 +47,6 @@ export function llmsFull() {
     ...(page.sources?.length ? ["### Źródła", ...page.sources.map((source) => `- [${source.label}](${source.href})`)] : []), ""
   ].join("\n"));
   return [`# ${SITE_NAME}: przewodniki dla pacjentów`, `> ${context}`, "", "Ten tekst jest generowany z danych widocznych przewodników. Pierwszeństwo ma aktualna strona pod adresem canonical; informacje nie kwalifikują pacjenta do leczenia.",
-    "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`, pricingScope,
+    "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`, ...(gbpPublished ? [`Przeliczenie na GBP (strona dla Polaków w UK): 1 EUR = ${EUR_GBP_RATE!.toFixed(2)} GBP, kurs z dnia ${EUR_GBP_RATE_TIMESTAMP}, źródło: ${EUR_GBP_RATE_SOURCE}, zaokrąglony do dwóch miejsc po przecinku. To przeliczenie, a nie oferta kliniki w GBP.`] : []), pricingScope,
     "| Pozycja | EUR |", "| --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} |`), "", ...sections].join("\n");
 }

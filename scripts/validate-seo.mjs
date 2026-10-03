@@ -151,6 +151,10 @@ for (const file of ["testimonials.ts", "clinic-stats.ts"]) {
 }
 if (patientContent.length && (!legalReview || legalReview === "null")) fail(`Patient-derived content is published (${patientContent.join(", ")}) but LEGAL_REVIEW_CONFIRMED_DATE in lib/legal-review.ts is not set. See docs/consent-and-data-handling.md.`);
 
+const pricingSource = await readFile(path.join(process.cwd(), "lib", "pricing.ts"), "utf8");
+const gbpDate = pricingSource.match(/EUR_GBP_RATE_TIMESTAMP = "(\d{4}-\d{2}-\d{2})/)?.[1];
+if (gbpDate && (Date.now() - new Date(`${gbpDate}T00:00:00Z`).getTime()) / 86400000 > 14) console.warn(`WARNING: the EUR to GBP rate on the /uk price page is from ${gbpDate}. Re-read the rate and update EUR_GBP_RATE and EUR_GBP_RATE_TIMESTAMP in lib/pricing.ts.`);
+
 const financeGate = (await readFile(path.join(process.cwd(), "lib", "finance-gate.ts"), "utf8")).match(/FINANCE_PRODUCT_CONFIRMED_DATE: string \| null = (null|"\d{4}-\d{2}-\d{2}")/)?.[1];
 if (!financeGate || financeGate === "null") {
   const promoPatterns = [/0\s?%\s?(APR|RRSO|oprocentowani)/i, /\bod\s+£\s?\d/i, /£\s?\d+\s*(\/|na|per|a)\s*(mies|month)/i, /bez\s+sprawdzania/i, /pre-?approved/i, /gwarantowan/i, /na raty z UK/i, /no credit check/i, /guaranteed (loan|approval)/i, /raty od/i];
