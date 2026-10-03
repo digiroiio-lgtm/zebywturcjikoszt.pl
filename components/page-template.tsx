@@ -20,6 +20,7 @@ import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
 import { OperatorDetails } from "./operator-details";
+import { OpeningHours } from "./opening-hours";
 import { CredentialList } from "./credential-list";
 import { GbpPrices } from "./gbp-prices";
 import { isUkSlug } from "@/lib/uk";
@@ -166,6 +167,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             <PriceList slug={page.slug} />
             {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
             {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
+            {page.slug === "kontakt" && <OpeningHours />}
             {page.slug === "dokumenty-i-licencje" && <CredentialList credentials={clinicCredentials} />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {guide && <GuidePrices />}

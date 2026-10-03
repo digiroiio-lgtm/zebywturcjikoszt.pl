@@ -1,3 +1,4 @@
+import { openingHoursSpecification, serviceLanguages } from "./clinic-hours";
 import type { Metadata } from "next";
 import type { PageContent } from "./site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "./site";
@@ -44,6 +45,8 @@ export const clinicSchema = {
   alternateName: "Antalya Akdeniz Dental Clinic",
   url: CLINIC_URL,
   medicalSpecialty: "Dentistry",
+  openingHoursSpecification,
+  knowsLanguage: serviceLanguages.map((language) => language.code),
   address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
