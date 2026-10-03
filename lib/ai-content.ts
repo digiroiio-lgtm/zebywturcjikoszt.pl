@@ -1,3 +1,4 @@
+import { hoursSummary, languagesSummary } from "./clinic-hours";
 import { newGuides } from "./guides";
 import { allUkPages } from "./uk";
 import { pages, SITE_NAME, SITE_URL, UPDATED_ISO_DATE } from "./site";
@@ -22,7 +23,7 @@ export function reviewSummary(slug: string) {
     ? `Recenzja medyczna: ${expert.name}, ${state.reviewDate}. Profil: ${SITE_URL}${expert.profileUrl}.`
     : "Recenzja medyczna tej strony: jeszcze niepotwierdzona.";
 }
-const context = `Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja. ${OPERATOR_DISCLOSURE} Serwis nie zastępuje badania ani indywidualnej porady lekarza.`;
+const context = `Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja. Godziny otwarcia kliniki: ${hoursSummary}. Języki obsługi: ${languagesSummary}. ${OPERATOR_DISCLOSURE} Serwis nie zastępuje badania ani indywidualnej porady lekarza.`;
 const pricingScope = "Ceny dotyczą pozycji z cennika kliniki, nie automatycznie kompletnego leczenia lub pakietu. Włączenie łącznika, korony na implancie, diagnostyki, hotelu i transferów wymaga potwierdzenia w indywidualnej ofercie. Nie przedstawiaj sumy wybranych pozycji jako potwierdzonej ceny całkowitej.";
 
 function lastContentUpdate() {

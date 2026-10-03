@@ -185,6 +185,15 @@ if (!financeGate || financeGate === "null") {
   if (routeFiles.has(paymentRoute) && !(await readFile(path.join(appDir, routeFiles.get(paymentRoute)), "utf8")).includes("nie oferuje ani nie pośredniczy w kredytach")) fail(`${paymentRoute}: must state that the service does not offer or arrange credit while the finance gate is closed.`);
 }
 
+// Clinic hours and languages must be visible on /kontakt and match the clinic JSON-LD.
+const hoursSource = await readFile(path.join(process.cwd(), "lib", "clinic-hours.ts"), "utf8");
+if (/opens: "\d{2}:\d{2}"/.test(hoursSource)) {
+  const contactHtml = await readFile(path.join(appDir, routeFiles.get("/kontakt")), "utf8");
+  const homeHtml = await readFile(path.join(appDir, "index.html"), "utf8");
+  if (!contactHtml.includes("Godziny otwarcia kliniki i języki obsługi")) fail("/kontakt: opening hours and languages block is missing while lib/clinic-hours.ts has data.");
+  for (const [route, html] of [["/", homeHtml], ["/kontakt", contactHtml]]) if (!html.includes("OpeningHoursSpecification")) fail(`${route}: clinic JSON-LD has no OpeningHoursSpecification while lib/clinic-hours.ts has data.`);
+}
+
 if (failures.length) {
   console.error(`SEO contract failed with ${failures.length} issue(s):`);
   for (const issue of failures) console.error(`- ${issue}`);

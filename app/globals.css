@@ -291,6 +291,8 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 .price-category-nav { display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; }
 .price-category-nav a { display:block; padding:10px 14px; border:1px solid var(--line); border-radius:10px; font-size:14px; font-weight:700; text-decoration:none; background:var(--mint); }
 .price-category-nav a:hover { border-color:var(--green); }
+.opening-hours-note { color:var(--muted); font-size:14px; }
+.opening-hours td,.opening-hours th[scope=row] { padding:12px 14px; text-align:left; }
 .price-category { margin:28px 0; scroll-margin-top:110px; }
 .price-infographic { margin:28px 0 36px; padding:26px; border:1px solid var(--line); border-radius:18px; background:#f8fbfa; }
 .price-infographic h3 { margin:6px 0 10px; font-size:26px; }
