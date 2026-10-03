@@ -30,7 +30,11 @@ export const priceItems: PriceItem[] = [
   { id: "straumann", label: "Implant Straumann (Szwajcaria)", sourceLabel: "STRAUMANN (SWISS) IMPLANT", eur: 900 },
   { id: "aiser", label: "Implant Aiser", sourceLabel: "AISER IMPLANT", eur: 450 },
   { id: "medentika", label: "Implant Medentika", sourceLabel: "MEDENTIKA IMPLANT", eur: 450 },
-  { id: "complicated-extraction", label: "Skomplikowane usunięcie zęba", sourceLabel: "COMPLICATED EXTRACTION", eur: 100 }
+  { id: "complicated-extraction", label: "Skomplikowane usunięcie zęba", sourceLabel: "COMPLICATED EXTRACTION", eur: 100 },
+  { id: "extraction", label: "Usunięcie zęba (ekstrakcja)", sourceLabel: "EXTRACTION", eur: 75 },
+  { id: "titanium-bar", label: "Belka tytanowa (titanium bar)", sourceLabel: "TITANIUM BAR", eur: 900 },
+  { id: "membrane", label: "Membrana (zabiegi odbudowy kości)", sourceLabel: "MEMBRAN", eur: 200 },
+  { id: "zygoma", label: "Implant jarzmowy (zygoma)", sourceLabel: "ZYGOMA IMPLANT", eur: 2250 }
 ];
 
 const implantIds = ["straumann", "aiser", "medentika", "implant-removal", "sinus-lift", "bone-graft", "zirconia-crown"];
@@ -39,7 +43,7 @@ const fullArchIds = ["straumann", "aiser", "medentika", "zirconia-crown", "sinus
 
 export const priceCategories = [
   { id: "korony-licowki", label: "Korony, licówki i odbudowy", ids: ["zirconia-crown", "composite-veneer", "emax", "veneer-crown", "composite-filling", "fiber-post"] },
-  { id: "implanty-chirurgia", label: "Implanty i chirurgia", ids: ["aiser", "medentika", "straumann", "implant-removal", "sinus-lift", "bone-graft", "complicated-extraction", "frenectomy"] },
+  { id: "implanty-chirurgia", label: "Implanty i chirurgia", ids: ["aiser", "medentika", "straumann", "implant-removal", "sinus-lift", "bone-graft", "complicated-extraction", "extraction", "frenectomy", "zygoma", "titanium-bar", "membrane"] },
   { id: "leczenie-dziasel", label: "Leczenie zębów i dziąseł", ids: ["root-canal", "retreatment", "curettage", "gingivectomy"] },
   { id: "higiena-estetyka", label: "Higiena, estetyka i pozostałe zabiegi", ids: ["full-mouth-cleaning", "bleaching", "night-guard", "masseter-botox"] },
   { id: "znieczulenie", label: "Sedacja i znieczulenie", ids: ["sedation", "general-anesthesia"] }

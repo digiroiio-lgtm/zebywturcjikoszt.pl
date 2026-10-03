@@ -10,7 +10,7 @@ export function PriceList({ slug }: { slug: string }) {
   const fullList = slug === "koszt";
   const fullArch = slug === "cala-szczeka" || slug === "all-on-4";
   return <section className="content-section pricing-section" id="cennik" aria-labelledby="pricing-title">
-    <div className="pricing-heading"><p className="mini-label">Ceny w EUR i PLN</p><h2 id="pricing-title">{fullList ? "Pełny cennik leczenia" : fullArch ? "Ceny wybranych elementów leczenia" : "Cennik zabiegów związanych z leczeniem"}</h2><p>Aktualizacja cennika: <time dateTime="2026-09-30">{PRICING_UPDATED_DATE}</time>. {fullList ? "24 pozycje z cennika kliniki." : "Wybrane pozycje z pełnego cennika kliniki."}</p></div>
+    <div className="pricing-heading"><p className="mini-label">Ceny w EUR i PLN</p><h2 id="pricing-title">{fullList ? "Pełny cennik leczenia" : fullArch ? "Ceny wybranych elementów leczenia" : "Cennik zabiegów związanych z leczeniem"}</h2><p>Aktualizacja cennika: <time dateTime="2026-09-30">{PRICING_UPDATED_DATE}</time>. {fullList ? `${priceItems.length} pozycji z cennika kliniki.` : "Wybrane pozycje z pełnego cennika kliniki."}</p></div>
     <div className="pricing-rate"><strong>1 EUR = 4,37 PLN</strong><span>Kurs orientacyjny przyjęty do przeliczenia: <time dateTime="2026-09-30T09:11:00Z">30.09.2026, 09:11 UTC</time>. Kwoty w PLN zaokrąglono do pełnych złotych.</span></div>
     {fullArch && <p className="pricing-scope">Poniższe kwoty dotyczą poszczególnych pozycji. Nie stanowią ceny pakietu All-on-4 ani pełnej odbudowy łuku. Całkowity koszt wymaga indywidualnego planu.</p>}
     {fullList && <PriceCategoriesInfographic />}
