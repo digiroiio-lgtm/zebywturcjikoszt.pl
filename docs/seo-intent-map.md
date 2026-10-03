@@ -18,6 +18,7 @@ Updated: 2026-10-03
 | `/uk` | leczenie zębów w Turcji dla Polaków w UK | Polacy w UK, GHIC, polisa, waluta, kontrola po powrocie | PRIMARY (new audience silo); links out, does not copy `/koszt`, `/antalya` |
 | `/uk/jak-zaplacic-za-leczenie-zebow-w-turcji` | jak zapłacić za leczenie zębów w Turcji mieszkając w UK | finance dental treatment Turkey (informational), czy na raty | PRIMARY; neutral options and risks, no product |
 | `/uk/ceny-leczenia-zebow-w-turcji-w-funtach` | ceny leczenia w funtach | dental treatment Turkey cost GBP | PUBLISHED 2026-10-03 with an owner-supplied rate (0.85, Yahoo Finance reading, rounded to two decimals; not an official rate); conversion of the clinic EUR list, no UK price column. Refresh the rate and date in `lib/pricing.ts` when it is re-read |
+| `/poradniki/rankingi-klinik-dentystycznych-w-turcji` | najlepsza klinika dentystyczna w Turcji | ranking klinik dentystycznych Turcja, najlepsze kliniki stomatologiczne w Turcji | PRIMARY for "ranking" intent; no own ranking (operator runs Akdeniz Dental); how-to-find questions stay on `/jak-wybrac-klinike` |
 | `/poradniki/tureckie-zeby` | tureckie zęby | o co chodzi z tureckimi zębami, czy tureckie zęby są dobre, problemy z tureckimi zębami, ile wytrzymują zęby z Turcji, leczenie w tydzień | PRIMARY (no earlier owner); links to, does not copy, `/jak-wybrac-klinike` red flags and `opieka-po-leczeniu` |
 
 ## P1 decisions
@@ -48,6 +49,17 @@ One owner page per question; other pages link instead of repeating. The audit fa
 
 Stage 2 pages (raty, finansowanie, implanty na raty, monthly payments, eligibility, "from £x/month", All-on-4 and veneers on instalments, loan) need documented prerequisites before any copy is written: UK entity and ICO registration, FCA status and FRN, lender, product facts, promotion sign-off, UK lawyer review, UK GDPR representative decision. Validate demand first in Search Console (country GB, Polish and English queries) for 2-4 weeks.
 
+## Long-tail ownership (2026-10-03)
+
+| Question intent | Owner |
+|---|---|
+| Prices of root canal, bleaching, fillings, sedation and general anaesthesia, sinus lift and bone graft, extraction, hygiene and gum treatment | `/koszt` FAQ (clinic price list only) |
+| How to find a good clinic, certificates (JCI/ISO), intermediary vs direct, verifying the dentist, Polish-language service | `/jak-wybrac-klinike` FAQ |
+| Visa, when to go, what to bring, payment method | `/antalya` FAQ |
+| Rankings of clinics: how they work, advertising in disguise | `poradniki/rankingi-klinik-dentystycznych-w-turcji` |
+
+Not published on purpose: flight duration and direct-flight questions (need a cited source), flying after treatment and accompanying person (need a medical reviewer), orthodontics, dentures and bridges (no price data, clinic confirmation needed), Istanbul vs Antalya and country comparisons (no comparable data).
+
 ## Overlap QA
 
 | Pair | Initial risk | Resolution | Final risk |
@@ -61,6 +73,7 @@ Stage 2 pages (raty, finansowanie, implanty na raty, monthly payments, eligibili
 | `poradniki/tureckie-zeby` vs `/jak-wybrac-klinike` | MEDIUM | Myth, risk and durability questions vs due-diligence checklist; guide links to the checklist | LOW |
 | `/uk/jak-zaplacic-...` vs `/jak-wybrac-klinike` | MEDIUM | UK payment options and credit risks vs deposit and clinic due diligence; links both ways | LOW |
 | `/uk/ceny-...-w-funtach` vs `/koszt` | MEDIUM | GBP conversion method and currency note vs price list owner; only selected items | LOW |
+| `poradniki/rankingi-...` vs `/jak-wybrac-klinike` | MEDIUM | Reading rankings and advertising vs clinic due-diligence checklist and "how to find a clinic" FAQ; guide links to the checklist | LOW |
 | `/koszt` vs `poradniki/calkowity-koszt-wyjazdu` | MEDIUM | Price list and Turkey-vs-Poland question vs trip budget method and scenario sums | LOW |
 
 No HIGH-overlap pair is published.
