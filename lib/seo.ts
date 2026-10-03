@@ -22,7 +22,7 @@ export function buildMetadata(page: PageContent): Metadata {
     title: page.title.length > 45 ? { absolute: page.title } : page.title,
     description: page.description,
     alternates: { canonical: url },
-    robots: { index: !page.noindex, follow: true },
+    robots: page.noindex ? { index: false, follow: true } : indexableRobots,
     openGraph: {
       title: page.title,
       description: page.description,
@@ -37,6 +37,10 @@ export function buildMetadata(page: PageContent): Metadata {
     twitter: { card: "summary_large_image", images: TWITTER_IMAGES, title: page.title, description: page.description }
   };
 }
+
+/** Explicit preview directives for indexable pages (Google would allow them by default; stating them keeps large image previews eligible). */
+const previewDirectives = { follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } as const;
+export const indexableRobots = { index: true, ...previewDirectives, googleBot: { index: true, ...previewDirectives } } as const;
 
 export const clinicSchema = {
   "@type": ["Dentist", "MedicalClinic"],

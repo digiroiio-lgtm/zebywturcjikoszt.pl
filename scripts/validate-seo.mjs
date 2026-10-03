@@ -185,6 +185,13 @@ if (!financeGate || financeGate === "null") {
   if (routeFiles.has(paymentRoute) && !(await readFile(path.join(appDir, routeFiles.get(paymentRoute)), "utf8")).includes("nie oferuje ani nie pośredniczy w kredytach")) fail(`${paymentRoute}: must state that the service does not offer or arrange credit while the finance gate is closed.`);
 }
 
+// A price-count claim ("Cennik 28 zabiegów") must equal the number of items in lib/pricing.ts.
+const priceCount = [...pricingSource.slice(pricingSource.indexOf("export const priceItems"), pricingSource.indexOf("const implantIds")).matchAll(/^  \{ id: "/gm)].length;
+for (const [route, file] of routeFiles) {
+  const html = await readFile(path.join(appDir, file), "utf8");
+  for (const [, count] of html.replace(/<!-- -->/g, "").matchAll(/[Cc]ennik[^<>"]{0,30}?\b(\d{2})\s+(?:zabiegów|pozycji)/g)) if (Number(count) !== priceCount) fail(`${route}: states a price list of ${count} items but lib/pricing.ts has ${priceCount}.`);
+}
+
 // Clinic hours and languages must be visible on /kontakt and match the clinic JSON-LD.
 const hoursSource = await readFile(path.join(process.cwd(), "lib", "clinic-hours.ts"), "utf8");
 if (/opens: "\d{2}:\d{2}"/.test(hoursSource)) {
