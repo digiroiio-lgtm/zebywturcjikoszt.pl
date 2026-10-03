@@ -62,6 +62,29 @@ for (const body of [null, [], "invalid", { ...lead, email: "bad" }, { ...lead, p
   assert.equal(invalid.status, 400);
   assert.equal(invalid.calls.length, 0);
 }
+// Single-channel submissions: only the chosen way of contact is required.
+const whatsappOnly = await submit({ name: "Test Contact", country: "Polska", whatsapp: "+48 123 456 789", preferred_channel: "whatsapp", topic: "implants" });
+assert.equal(whatsappOnly.status, 200);
+const whatsappPayload = JSON.parse(whatsappOnly.calls[0].options.body);
+assert.equal(whatsappPayload.preferred_channel, "whatsapp");
+assert.equal(whatsappPayload.topic, "implants");
+assert.equal(whatsappPayload.contact, "+48 123 456 789");
+assert.equal(whatsappPayload._replyto, undefined);
+const emailOnly = await submit({ name: "Test Contact", country: "Polska", email: "test@example.com", preferred_channel: "email" });
+assert.equal(emailOnly.status, 200);
+assert.equal(JSON.parse(emailOnly.calls[0].options.body)._replyto, "test@example.com");
+assert.equal(JSON.parse(emailOnly.calls[0].options.body).topic, "");
+const noContact = await submit({ name: "Test Contact", country: "Polska", preferred_channel: "whatsapp" });
+assert.equal(noContact.status, 400);
+assert.ok(noContact.result.fieldErrors.whatsapp);
+assert.equal(noContact.calls.length, 0);
+assert.equal((await submit({ name: "Test Contact", country: "Polska" })).result.fieldErrors.contact !== undefined, true);
+assert.equal((await submit({ name: "Test Contact", country: "Polska", whatsapp: "+48 123 456 789", preferred_channel: "email" })).status, 400);
+assert.equal((await submit({ name: "Test Contact", country: "Polska", whatsapp: "abc", preferred_channel: "whatsapp" })).status, 400);
+const oddTopic = await submit({ name: "Test Contact", country: "Polska", whatsapp: "+48 123 456 789", topic: "<script>", preferred_channel: "bogus" });
+assert.equal(oddTopic.status, 200);
+assert.equal(JSON.parse(oddTopic.calls[0].options.body).topic, "");
+assert.equal(JSON.parse(oddTopic.calls[0].options.body).preferred_channel, "");
 assert.equal((await submit(lead, { rawBody: "{" })).status, 400);
 const validation = await submit({ ...lead, email: "bad" });
 assert.ok(validation.result.fieldErrors.email);
