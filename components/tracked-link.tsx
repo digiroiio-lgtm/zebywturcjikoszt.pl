@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
@@ -8,11 +9,21 @@ declare global {
   interface Window { dataLayer?: Record<string, unknown>[]; }
 }
 
+/** Only these keys are forwarded to Vercel Analytics (cookieless). They describe the page and the CTA, never the visitor. */
+const ANALYTICS_KEYS = ["page_path", "cta_location", "lead_source", "guide_source", "source_page_path", "destination_path", "case_reference", "preferred_channel", "topic", "utm_source", "utm_medium", "utm_campaign"];
+
+function forwardToAnalytics(event: string, payload: Record<string, unknown>) {
+  const properties: Record<string, string> = {};
+  for (const key of ANALYTICS_KEYS) if (typeof payload[key] === "string" && payload[key]) properties[key] = String(payload[key]).slice(0, 120);
+  try { track(event, properties); } catch { /* analytics must never break a click or a form submission */ }
+}
+
 export function trackEvent(event: string, details: Record<string, string> = {}) {
   const params = new URLSearchParams(window.location.search);
   const guideSource = params.get("guide_source") ?? (window.location.pathname.startsWith("/poradniki") ? window.location.pathname : "");
   const payload = { event, page_path: window.location.pathname, ...(guideSource ? { guide_source: guideSource } : {}), ...details };
   (window.dataLayer ??= []).push(payload);
+  forwardToAnalytics(event, payload);
   window.dispatchEvent(new CustomEvent("site:analytics", { detail: payload }));
 }
 

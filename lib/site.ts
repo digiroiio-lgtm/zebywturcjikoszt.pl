@@ -51,7 +51,7 @@ export const pages: Record<string, PageContent> = {
     lastUpdated: "2026-10-03",
     slug: "koszt",
     title: "Ile kosztują zęby w Turcji? Ceny i zakres leczenia",
-    description: "Cennik 24 zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.",
+    description: `Cennik ${priceItems.length} zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.`,
     eyebrow: "Koszt leczenia",
     h1: "Ile kosztują zęby w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",

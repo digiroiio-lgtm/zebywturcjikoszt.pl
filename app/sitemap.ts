@@ -18,22 +18,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const pageEntries: Entry[] = indexable.map((page) => ({
     url: abs(`/${page.slug}`),
     lastModified: day(page.lastUpdated ?? UPDATED_ISO_DATE),
-    changeFrequency: "monthly",
-    priority: page.slug === "koszt" ? 0.9 : 0.7,
     ...(page.slug === "przed-i-po" ? { images: caseImages.map((item) => abs(item.src)) } : {})
   }));
-  const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date), changeFrequency: "monthly", priority: 0.7 }));
+  const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date) }));
   const expertDates = verifiedExperts.map((expert) => expert.lastVerified);
   const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_LATEST_DATE, ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
 
   return [
-    { url: SITE_URL, lastModified: day(homeDate), changeFrequency: "weekly", priority: 1 },
+    { url: SITE_URL, lastModified: day(homeDate) },
     ...pageEntries,
     ...guideEntries,
-    ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!), changeFrequency: "monthly", priority: page.slug === "uk" ? 0.6 : 0.5 })),
-    { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE), changeFrequency: "monthly", priority: 0.6 },
-    { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), changeFrequency: "monthly", priority: 0.5, images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
-    { url: abs("/eksperci"), lastModified: day(latest(expertDates)), changeFrequency: "monthly", priority: 0.4 },
-    ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(expert.lastVerified), changeFrequency: "monthly", priority: 0.5 }))
+    ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!) })),
+    { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE) },
+    { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
+    { url: abs("/eksperci"), lastModified: day(latest(expertDates)) },
+    ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(expert.lastVerified) }))
   ];
 }
