@@ -8,8 +8,8 @@ import { guidesIntro, guidesTitle, guidesDescription } from "@/lib/guides-hub";
 import { guideCards, guideCategories, newGuides, GUIDES_DATE, GUIDES_LATEST_DATE, guideAssessmentHref } from "@/lib/guides";
 import { pages, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { reviewFor, approvedReviewer } from "@/lib/medical-review";
-import { OG_IMAGES, TWITTER_IMAGES, indexableRobots } from "@/lib/seo";
-export const metadata: Metadata = { title: { absolute: "Leczenie zębów w Turcji – Poradniki dla pacjentów z Polski" }, description: guidesDescription, alternates: { canonical: "/poradniki" }, robots: indexableRobots, openGraph: { images: OG_IMAGES, title: guidesTitle, description: guidesDescription, url: "/poradniki", type: "website" }, twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: guidesTitle, description: guidesDescription } };
+import { ogImagesFor, twitterImagesFor, indexableRobots } from "@/lib/seo";
+export const metadata: Metadata = { title: { absolute: "Leczenie zębów w Turcji – Poradniki dla pacjentów z Polski" }, description: guidesDescription, alternates: { canonical: "/poradniki" }, robots: indexableRobots, openGraph: { images: ogImagesFor("poradniki", "Poradniki dla pacjentów z Polski"), title: guidesTitle, description: guidesDescription, url: "/poradniki", type: "website" }, twitter: { images: twitterImagesFor("poradniki"), card: "summary_large_image", title: guidesTitle, description: guidesDescription } };
 export default function GuidesHub() {
   const url = `${SITE_URL}/poradniki`;
   const cards = guideCards.map((card, index) => { const page = card.href.startsWith("/poradniki/") ? newGuides[card.href.split("/").at(-1)!] : pages[card.href.slice(1)]; const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE); const expert = approvedReviewer(review); return { ...card, number: index + 1, updated: page.lastUpdated ?? UPDATED_ISO_DATE, review: expert && review.reviewStatus === "reviewed" ? `Recenzja: ${expert.name}, ${review.reviewDate}` : "Recenzja medyczna: jeszcze nieprzeprowadzona" }; });

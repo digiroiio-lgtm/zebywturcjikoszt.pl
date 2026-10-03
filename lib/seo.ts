@@ -14,9 +14,13 @@ export const AI_TEXT_HEADERS = {
 
 export const OG_IMAGES = [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Zęby w Turcji – ceny i leczenie w Antalyi" }];
 export const TWITTER_IMAGES = ["/twitter-image"];
+/** Page-specific social card (app/og/[...slug]/route.tsx). */
+export const ogImagesFor = (slug: string, alt: string) => [{ url: `/og/${slug}`, width: 1200, height: 630, alt }];
+export const twitterImagesFor = (slug: string) => [`/og/${slug}`];
 
 export function buildMetadata(page: PageContent): Metadata {
   const url = `/${page.slug}`;
+  const pageOgImages = page.noindex ? OG_IMAGES : ogImagesFor(page.slug, page.h1);
   const isArticle = !page.noindex && (page.slug.startsWith("poradniki/") || page.schemaType === "MedicalWebPage");
   return {
     title: page.title.length > 45 ? { absolute: page.title } : page.title,
@@ -29,12 +33,12 @@ export function buildMetadata(page: PageContent): Metadata {
       url,
       locale: "pl_PL",
       siteName: "Zęby w Turcji",
-      images: OG_IMAGES,
+      images: pageOgImages,
       ...(isArticle
         ? { type: "article" as const, publishedTime: page.published ?? PUBLISHED_ISO_DATE, modifiedTime: page.lastUpdated ?? UPDATED_ISO_DATE }
         : { type: "website" as const })
     },
-    twitter: { card: "summary_large_image", images: TWITTER_IMAGES, title: page.title, description: page.description }
+    twitter: { card: "summary_large_image", images: page.noindex ? TWITTER_IMAGES : twitterImagesFor(page.slug), title: page.title, description: page.description }
   };
 }
 

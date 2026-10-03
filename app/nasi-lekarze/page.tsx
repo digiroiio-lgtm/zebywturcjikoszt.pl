@@ -5,7 +5,7 @@ import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-
 import { doctorCredentials, hasCredentialSchema } from "@/lib/credentials";
 import { CredentialList } from "@/components/credential-list";
 import { SITE_URL } from "@/lib/site";
-import { OG_IMAGES, TWITTER_IMAGES, breadcrumbList, clinicSchema } from "@/lib/seo";
+import { ogImagesFor, twitterImagesFor, breadcrumbList, clinicSchema } from "@/lib/seo";
 import { ClinicProfiles } from "@/components/clinic-profiles";
 import { SourceList } from "@/components/source-list";
 import { FaqSection } from "@/components/faq-section";
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi",
   description: "Poznaj 12 dentystów Akdeniz Dental w Antalyi: wykształcenie, obszary pracy i oficjalne profile. Sprawdź także rolę recenzenta medycznego serwisu.",
   alternates: { canonical: "/nasi-lekarze" },
-  openGraph: { images: OG_IMAGES, title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki prowadzonej przez operatora serwisu, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
-  twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki prowadzonej przez operatora serwisu w Antalyi i oficjalne profile lekarzy." },
+  openGraph: { images: ogImagesFor("nasi-lekarze", "Nasi lekarze: zespół Akdeniz Dental w Antalyi"), title: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", description: "Poznaj 12 dentystów kliniki prowadzonej przez operatora serwisu, ich wykształcenie, obszary pracy i źródła zawodowe.", url: "/nasi-lekarze", type: "website" },
+  twitter: { images: twitterImagesFor("nasi-lekarze"), card: "summary_large_image", title: "Nasi lekarze – Akdeniz Dental", description: "Zespół kliniki prowadzonej przez operatora serwisu w Antalyi i oficjalne profile lekarzy." },
 };
 export default function ClinicalTeam() {
   const url = `${SITE_URL}/nasi-lekarze`;
