@@ -226,6 +226,21 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus { outline:3px solid rgba(30,64,175,.18); border-color:#1e40af; }
 .lead-form .consultation-submit { width:100%; min-height:76px; margin-top:36px; gap:10px; padding:16px 22px; border-radius:20px; background:#1e40af; color:white; font-size:22px; line-height:1.3; box-shadow:none; }
 .lead-form .consultation-submit:hover { background:#1e3a8a; }
+.choice-group { margin:0; padding:0; border:0; min-width:0; }
+.choice-group legend { margin-bottom:12px; padding:0; font-size:20px; font-weight:500; color:#374151; }
+.optional { color:#6b7280; font-size:.8em; font-weight:400; }
+.choice-chips { display:flex; flex-wrap:wrap; gap:10px; }
+.lead-form .choice-chip { position:relative; display:inline-block; font-size:17px; }
+.lead-form .choice-chip input { position:absolute; opacity:0; inset:0; width:100%; min-height:0; height:100%; margin:0; padding:0; border:0; cursor:pointer; }
+.choice-chip span { display:inline-flex; align-items:center; min-height:48px; padding:0 18px; border:1.5px solid #d1d5db; border-radius:999px; background:white; color:#374151; font-weight:600; }
+.choice-chip input:checked+span { border-color:#1e40af; background:#e8eefc; color:#1e3a8a; }
+.choice-chip input:focus-visible+span { outline:3px solid rgba(30,64,175,.28); outline-offset:2px; }
+.form-assurance { margin:18px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:#4b5563; font-size:14px; }
+.form-assurance li::before { content:"✓ "; color:#1e40af; font-weight:700; }
+.form-sent { display:grid; gap:14px; justify-items:start; }
+.form-sent h3 { margin:6px 0 0; font-size:22px; }
+.next-steps { margin:0; padding-left:22px; display:grid; gap:10px; color:#374151; }
+.form-sent-links { display:flex; flex-wrap:wrap; gap:8px 22px; margin:0; }
 .form-privacy { margin:14px 0 0; text-align:center; color:#6b7280; font-size:12px; }
 .form-notice { padding:14px; border-radius:8px; background:#fff5d8; color:#624d18; font-size:14px; }
 .honeypot { position:absolute; left:-9999px; }

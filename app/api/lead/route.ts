@@ -21,6 +21,10 @@ export async function POST(request: NextRequest) {
   const email = String(body.email ?? "").trim();
   const country = String(body.country ?? "").trim();
   const message = String(body.message ?? "").trim();
+  const channels = ["whatsapp", "phone", "email"];
+  const topics = ["implants", "veneers", "crowns", "full-arch", "other"];
+  const topic = topics.includes(String(body.topic ?? "")) ? String(body.topic) : "";
+  const preferredChannel = channels.includes(String(body.preferred_channel ?? "")) ? String(body.preferred_channel) : "";
   const leadSource = String(body.lead_source ?? "OGZ-PL").slice(0, 40);
   const ctaLocation = String(body.cta_location ?? "contact_page").slice(0, 80);
   const sourcePagePath = String(body.source_page_path ?? "/kontakt").slice(0, 160);
@@ -34,9 +38,13 @@ export async function POST(request: NextRequest) {
   const utmTerm = String(body.utm_term ?? "").slice(0, 160);
   const fieldErrors: Record<string, string> = {};
   if (!name || name.length > 80) fieldErrors.name = "Podaj imię i nazwisko (maksymalnie 80 znaków).";
-  if (!validPhone(phone)) fieldErrors.phone = "Podaj prawidłowy numer telefonu z numerem kierunkowym.";
-  if (!validPhone(whatsapp)) fieldErrors.whatsapp = "Podaj prawidłowy numer WhatsApp z numerem kierunkowym.";
-  if (!validEmail(email) || email.length > 254) fieldErrors.email = "Podaj prawidłowy adres e-mail.";
+  // At least one way to reach the patient is required; every value that is provided must be valid.
+  if (phone && !validPhone(phone)) fieldErrors.phone = "Podaj prawidłowy numer telefonu z numerem kierunkowym.";
+  if (whatsapp && !validPhone(whatsapp)) fieldErrors.whatsapp = "Podaj prawidłowy numer WhatsApp z numerem kierunkowym.";
+  if (email && (!validEmail(email) || email.length > 254)) fieldErrors.email = "Podaj prawidłowy adres e-mail.";
+  const contacts: Record<string, string> = { whatsapp, phone, email };
+  if (!phone && !whatsapp && !email) fieldErrors[preferredChannel || "contact"] = "Podaj numer WhatsApp, telefonu lub adres e-mail, abyśmy mogli odpowiedzieć.";
+  else if (preferredChannel && !contacts[preferredChannel]) fieldErrors[preferredChannel] = "Uzupełnij wybrany sposób kontaktu.";
   if (!country || country.length > 100) fieldErrors.country = "Wybierz kraj.";
   if (message.length > 1200) fieldErrors.message = "Wiadomość może zawierać maksymalnie 1200 znaków.";
   if (Object.keys(fieldErrors).length) return NextResponse.json({ error: "Sprawdź zaznaczone pola.", fieldErrors }, { status: 400 });
@@ -51,9 +59,10 @@ export async function POST(request: NextRequest) {
         Referer: `${request.nextUrl.origin}/`
       },
       body: JSON.stringify({
-        name, phone, whatsapp, email, country, message,
+        name, phone, whatsapp, email, country, message, topic, preferred_channel: preferredChannel,
+        ...(email ? { _replyto: email } : {}),
         _subject: "Nowe zapytanie o konsultację | leczeniezebowwturcji.pl",
-        contact: phone, contact_requested: true, source: "leczeniezebowwturcji.pl",
+        contact: (preferredChannel && contacts[preferredChannel]) || whatsapp || phone || email, contact_requested: true, source: "leczeniezebowwturcji.pl",
         lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath,
         guide_source: guideSource, source_page_path: sourcePagePath, landing_page: landingPage, case_reference: caseReference,
         utm_source: utmSource, utm_medium: utmMedium, utm_campaign: utmCampaign,

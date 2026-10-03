@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useId, useRef, useState } from "react";
 import { countries } from "@/lib/countries";
+import { contactPromiseLines } from "@/lib/contact-promise";
+import { contactChannels, leadTopics, topicFromPath, type ContactChannelId } from "@/lib/lead-options";
 import { trackEvent } from "./tracked-link";
 
 export type LeadContext = {
@@ -22,6 +24,12 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+  const [channel, setChannel] = useState<ContactChannelId>("whatsapp");
+  const [contactValue, setContactValue] = useState("");
+  const [topic, setTopic] = useState("");
+  const [sentChannel, setSentChannel] = useState<ContactChannelId>("whatsapp");
+  const channelConfig = contactChannels.find((item) => item.id === channel)!;
+  const promiseLines = contactPromiseLines();
   useEffect(() => {
     if (status === "sent" || status === "error") feedbackRef.current?.focus();
   }, [status]);
@@ -47,7 +55,21 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       utm_term: params.get("utm_term") ?? ""
     };
   }
-  function startForm() { if (!started.current) { started.current = true; trackEvent("contact_start", getLeadContext()); } }
+  function startForm() {
+    if (started.current) return;
+    started.current = true;
+    const leadContext = getLeadContext();
+    if (!topic) setTopic(topicFromPath(leadContext.source_page_path));
+    trackEvent("contact_start", leadContext);
+  }
+  function chooseChannel(next: ContactChannelId) {
+    if (next === channel) return;
+    // A number stays when switching between WhatsApp and phone; an e-mail address never carries over.
+    if (next === "email" || channel === "email") setContactValue("");
+    setFieldErrors({});
+    setChannel(next);
+    trackEvent("contact_channel_select", { preferred_channel: next });
+  }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!enabled || submitting.current || status === "sent") return;
@@ -56,14 +78,18 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
     setErrorMessage("");
     setFieldErrors({});
     const form = event.currentTarget;
-    const data = { ...Object.fromEntries(new FormData(form)), ...getLeadContext() };
+    const entries = Object.fromEntries(new FormData(form));
+    const data = { name: entries.name, country: entries.country, message: entries.message, website: entries.website, [channelConfig.field]: contactValue.trim(), preferred_channel: channel, topic, ...getLeadContext() };
     try {
       const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       const result = await response.json().catch(() => null);
       if (response.ok && result?.ok === true) {
-        trackEvent("contact_submit", getLeadContext());
+        trackEvent("contact_submit", { ...getLeadContext(), preferred_channel: channel, topic });
+        setSentChannel(channel);
         setStatus("sent");
         form.reset();
+        setContactValue("");
+        setTopic("");
       } else {
         setErrorMessage(result?.error ?? "Nie udało się wysłać zgłoszenia. Spróbuj ponownie później.");
         setFieldErrors(result?.fieldErrors ?? {});
@@ -79,24 +105,35 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
   return (
     <form className="lead-form" aria-labelledby={titleId} aria-describedby={descriptionId} aria-busy={status === "sending"} onInvalid={(event) => {
       const field = event.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-      const labels: Record<string, string> = { name: "Podaj imię i nazwisko.", phone: "Podaj numer telefonu.", whatsapp: "Podaj numer WhatsApp.", email: "Podaj prawidłowy adres e-mail.", country: "Wybierz kraj.", message: "Sprawdź długość wiadomości." };
+      const labels: Record<string, string> = { name: "Podaj imię i nazwisko.", contact: channel === "email" ? "Podaj prawidłowy adres e-mail." : "Podaj numer telefonu z numerem kierunkowym.", country: "Wybierz kraj.", message: "Sprawdź długość wiadomości." };
       field.setCustomValidity(labels[field.name] ?? "Uzupełnij wymagane pole.");
     }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
       <h2 id={titleId}>Bezpłatna indywidualna wstępna ocena</h2>
       <p id={descriptionId} className="consultation-intro">Opisz swoją sytuację i oczekiwania. Na podstawie przekazanych informacji otrzymasz bezpłatną wstępną ocenę możliwych opcji leczenia. Ostateczny plan leczenia wymaga konsultacji i badania przez lekarza.</p>
       <div className="form-grid" hidden={status === "sent"}>
-        <label>Imię i nazwisko *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Twoje imię i nazwisko" />{fieldError("name")}</label>
-        <label>Telefon *<input name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} {...errorProps("phone")} placeholder="np. +48 123 456 789" />{fieldError("phone")}</label>
-        <label>Numer WhatsApp *<input name="whatsapp" type="tel" inputMode="tel" autoComplete="tel" maxLength={40} required disabled={!enabled} {...errorProps("whatsapp")} placeholder="np. +48 123 456 789" />{fieldError("whatsapp")}</label>
-        <label>E-mail *<input name="email" type="email" inputMode="email" autoComplete="email" maxLength={254} required disabled={!enabled} {...errorProps("email")} placeholder="twoj@email.com" />{fieldError("email")}</label>
+        <label className="full">Imię *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Jak mamy się do Ciebie zwracać?" />{fieldError("name")}</label>
+        <fieldset className="full choice-group" disabled={!enabled}>
+          <legend>Jak mamy się z Tobą skontaktować? *</legend>
+          <div className="choice-chips">{contactChannels.map((item) => <label key={item.id} className="choice-chip"><input type="radio" name="preferred_channel" value={item.id} checked={channel === item.id} onChange={() => chooseChannel(item.id)} /><span>{item.label}</span></label>)}</div>
+        </fieldset>
+        <label className="full">{channelConfig.inputLabel} *<input key={channelConfig.id} name="contact" type={channelConfig.inputType} inputMode={channelConfig.inputType === "email" ? "email" : "tel"} autoComplete={channelConfig.inputType === "email" ? "email" : "tel"} maxLength={254} required disabled={!enabled} value={contactValue} onChange={(event) => setContactValue(event.target.value)} aria-invalid={Boolean(fieldErrors[channelConfig.field] || fieldErrors.contact)} aria-describedby={fieldErrors[channelConfig.field] || fieldErrors.contact ? `${generatedId}-contact-error` : undefined} placeholder={channelConfig.placeholder} />{(fieldErrors[channelConfig.field] || fieldErrors.contact) && <span id={`${generatedId}-contact-error`} className="field-error">{fieldErrors[channelConfig.field] ?? fieldErrors.contact}</span>}</label>
         <label className="full">Kraj *<select name="country" autoComplete="country-name" required disabled={!enabled} {...errorProps("country")} defaultValue=""><option value="" disabled>Wybierz swój kraj...</option>{countries.map((country) => <option key={country.code} value={country.label}>{country.label}</option>)}</select>{fieldError("country")}</label>
-        <label className="full">Wiadomość<textarea name="message" maxLength={1200} rows={4} disabled={!enabled} {...errorProps("message")} placeholder="Opisz swoje oczekiwania dotyczące leczenia lub pytania, które chcesz zadać..." />{fieldError("message")}</label>
+        <fieldset className="full choice-group" disabled={!enabled}>
+          <legend>Czego dotyczy zapytanie? <span className="optional">(opcjonalnie)</span></legend>
+          <div className="choice-chips">{leadTopics.map((item) => <label key={item.id} className="choice-chip"><input type="radio" name="topic" value={item.id} checked={topic === item.id} onChange={() => setTopic(item.id)} /><span>{item.label}</span></label>)}</div>
+        </fieldset>
+        <label className="full">Wiadomość <span className="optional">(opcjonalnie)</span><textarea name="message" maxLength={1200} rows={3} disabled={!enabled} {...errorProps("message")} placeholder="Opisz krótko swoją sytuację lub pytania do lekarza. Nie wysyłaj dokumentacji medycznej." />{fieldError("message")}</label>
       </div>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
       {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną wstępną ocenę <span aria-hidden="true">→</span></>}</button>}
+      {status !== "sent" && <ul className="form-assurance"><li>Bezpłatna wstępna ocena. Plan leczenia ustala lekarz po badaniu.</li><li>Nie przesyłaj dokumentacji medycznej przez formularz.</li>{promiseLines.map((line) => <li key={line}>{line}</li>)}</ul>}
       <p className="form-privacy">Zgłoszenie jest przesyłane przez Formspree. <Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
-      {status === "sent" && <><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną ocenę.</p><button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></>}
+      {status === "sent" && <div className="form-sent"><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zgłoszenie zostało wysłane. Skontaktujemy się z Tobą, aby omówić Twoje potrzeby i wstępną ocenę.</p>
+        <h3>Co dalej</h3>
+        <ol className="next-steps"><li><strong>Przeglądamy Twój opis.</strong> Zgłoszenie trafiło do operatora serwisu.</li><li><strong>Odpowiemy przez {contactChannels.find((item) => item.id === sentChannel)!.label}.</strong>{promiseLines.length ? ` ${promiseLines.join(" ")}` : " Użyjemy sposobu kontaktu, który wskazano w formularzu."}</li><li><strong>Możesz się przygotować.</strong> Zapisz pytania do lekarza i oferty z innych klinik do porównania zakresu. Dokumentację medyczną prześlij dopiero po otrzymaniu bezpiecznego kanału.</li></ol>
+        <p className="form-sent-links"><Link className="text-link" href="/poradniki/calkowity-koszt-wyjazdu">Policz koszt całego wyjazdu →</Link> <Link className="text-link" href="/listy-kontrolne">Listy kontrolne dla pacjentów →</Link></p>
+        <button type="button" className="button" onClick={() => { started.current = false; setStatus("idle"); }}>Wyślij kolejne zgłoszenie</button></div>}
       {status === "error" && <p ref={feedbackRef} tabIndex={-1} role="alert" className="error">{errorMessage}</p>}
     </form>
   );
