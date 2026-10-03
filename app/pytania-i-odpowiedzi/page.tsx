@@ -3,11 +3,11 @@ import Link from "next/link";
 import { SourceList } from "@/components/source-list";
 import { FAQ_PATH, FAQ_PUBLISHED_DATE, faqGroups } from "@/lib/ai-content";
 import { SITE_URL } from "@/lib/site";
-import { OG_IMAGES, TWITTER_IMAGES } from "@/lib/seo";
+import { ogImagesFor, twitterImagesFor } from "@/lib/seo";
 
 const title = "Leczenie zębów w Turcji – pytania i odpowiedzi";
 const description = "Odpowiedzi na pytania o ceny, implanty, korony, licówki, All-on-4, wybór kliniki i wyjazd do Antalyi. Przejdź do szczegółowych przewodników i źródeł.";
-export const metadata: Metadata = { title, description, alternates: { canonical: FAQ_PATH }, openGraph: { images: OG_IMAGES, title, description, url: FAQ_PATH, type: "website" }, twitter: { images: TWITTER_IMAGES, card: "summary_large_image", title, description } };
+export const metadata: Metadata = { title, description, alternates: { canonical: FAQ_PATH }, openGraph: { images: ogImagesFor("pytania-i-odpowiedzi", "Pytania pacjentów o leczenie zębów w Turcji"), title, description, url: FAQ_PATH, type: "website" }, twitter: { images: twitterImagesFor("pytania-i-odpowiedzi"), card: "summary_large_image", title, description } };
 export default function PatientFAQ() {
   const url = `${SITE_URL}${FAQ_PATH}`;
   const schema = { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${url}#webpage`, url, name: title, description, inLanguage: "pl-PL", datePublished: FAQ_PUBLISHED_DATE, author: { "@id": `${SITE_URL}/#organization` }, isPartOf: { "@id": `${SITE_URL}/#website` }, mainEntity: faqGroups.flatMap((page) => page.faq!.map((faq, index) => ({ "@type": "Question", "@id": `${url}#${page.slug}-${index + 1}`, name: faq.question, url: `${url}#${page.slug}-${index + 1}`, citation: `${SITE_URL}/${page.slug}#faq-${index + 1}`, acceptedAnswer: { "@type": "Answer", text: faq.answer } }))) };

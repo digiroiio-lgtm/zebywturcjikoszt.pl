@@ -53,3 +53,7 @@ Placement is data-driven: `lib/page-figures.json` maps a page slug to figures re
 Deliberately not used: `portfolio-07.jpeg`, `portfolio-07b.jpeg`, `portfolio-09b.jpeg` (wall artwork with third-party photographs of a public figure and a quotation: copyright and personality-rights risk); `portfolio-03b.jpeg` (seasonal decoration, kept in reserve). Before/after images are not placed on treatment pages because their treatment scope is unverified.
 
 Still needed (PR 2, supplied by the owner): new real photographs and diagrams, `ImageObject` JSON-LD, an image sitemap review and file renaming/WebP conversion.
+
+## Caching and replacing images
+
+Files under `/images` are served with `Cache-Control: public, max-age=604800, stale-while-revalidate=86400`. File names are not hashed, so a replaced file can stay stale in browsers and CDNs for up to a week. When an image changes, add it under a new file name and update `lib/page-figures.json` (and any other reference); do not overwrite the old name. `npm run audit:seo` checks that every figure image is in the sitemap entry of its page.

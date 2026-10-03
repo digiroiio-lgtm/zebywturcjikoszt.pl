@@ -39,7 +39,7 @@ const titleOwners = new Map();
 
 if (!sitemapOrigin) fail("Sitemap has no absolute URLs.");
 if (!robots.includes("Sitemap:")) fail("robots.txt does not advertise the sitemap.");
-for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) {
+for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended", "DuckAssistBot", "Amazonbot", "MistralAI-User", "Meta-ExternalAgent"]) {
   if (!robots.includes(`User-Agent: ${bot}`)) fail(`robots.txt lacks an explicit rule for ${bot}.`);
 }
 const llms = await readFile(path.join(appDir, "llms.txt.body"), "utf8");
@@ -47,7 +47,7 @@ for (const url of matches(llms, /\]\((https:\/\/[^)\s]+)\)/g)) {
   const parsed = new URL(url);
   if (parsed.origin !== sitemapOrigin) continue;
   const linked = normalisePath(parsed.pathname);
-  if (/^\/(llms-full\.txt|content-provenance\.json|clinic-verification\.json|sitemap\.xml)$/.test(linked)) continue;
+  if (/^\/(llms-full\.txt|content-provenance\.json|clinic-verification\.json|sitemap\.xml|feed\.xml)$/.test(linked)) continue;
   if (!sitemapPaths.has(linked)) fail(`llms.txt links to ${linked}, which is not in the sitemap.`);
 }
 if (!sitemap.includes("image:loc")) fail("Sitemap contains no image entries.");
@@ -191,6 +191,27 @@ for (const [route, file] of routeFiles) {
   const html = await readFile(path.join(appDir, file), "utf8");
   for (const [, count] of html.replace(/<!-- -->/g, "").matchAll(/[Cc]ennik[^<>"]{0,30}?\b(\d{2})\s+(?:zabiegów|pozycji)/g)) if (Number(count) !== priceCount) fail(`${route}: states a price list of ${count} items but lib/pricing.ts has ${priceCount}.`);
 }
+
+// Every content figure image must be listed in the sitemap entry of its page, and every indexable page needs its own social card.
+const figureMap = JSON.parse(await readFile(path.join(process.cwd(), "lib", "page-figures.json"), "utf8"));
+const sitemapBlocks = new Map([...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => [normalisePath(new URL(match[1].match(/<loc>([^<]+)<\/loc>/)[1]).pathname), match[1]]));
+for (const [slug, figures] of Object.entries(figureMap)) {
+  const block = sitemapBlocks.get(`/${slug}`) ?? "";
+  for (const figure of figures) if (!block.includes(`<image:loc>${sitemapOrigin}${figure.src}</image:loc>`)) fail(`/${slug}: figure image ${figure.src} is not in its sitemap entry.`);
+}
+for (const [route, file] of routeFiles) {
+  if (!sitemapPaths.has(route) || route === "/") continue;
+  const html = await readFile(path.join(appDir, file), "utf8");
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+  if (!ogImage || !ogImage.endsWith(`/og${route}`)) fail(`${route}: og:image is not the page-specific card (/og${route}), got ${ogImage}.`);
+}
+
+// The RSS feed must exist and list every standalone guide.
+const feed = await readFile(path.join(appDir, "feed.xml.body"), "utf8").catch(() => "");
+if (!feed.includes("<rss")) fail("feed.xml is missing or is not RSS.");
+for (const route of routeFiles.keys()) if (route.startsWith("/poradniki/") && !feed.includes(`<link>${sitemapOrigin}${route}</link>`)) fail(`feed.xml does not list ${route}.`);
+const homeForFeed = await readFile(path.join(appDir, "index.html"), "utf8");
+if (!homeForFeed.includes('type="application/rss+xml"')) fail("The RSS alternate link is missing from the page head.");
 
 // Clinic hours and languages must be visible on /kontakt and match the clinic JSON-LD.
 const hoursSource = await readFile(path.join(process.cwd(), "lib", "clinic-hours.ts"), "utf8");
