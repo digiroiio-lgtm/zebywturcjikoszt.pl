@@ -1,6 +1,6 @@
 import type { PageContent } from "./site";
 import { pages, SITE_URL } from "./site";
-import { EUR_PLN_RATE, formatEur, formatPln, priceById } from "./pricing";
+import { EUR_PLN_RATE, formatEur, formatPln, priceById, priceItems } from "./pricing";
 export const GUIDES_DATE = "2026-09-30";
 export const guideCategories = [
   { id: "na-poczatek", label: "Na początek" },
@@ -121,7 +121,7 @@ export const newGuides: Record<string, PageContent> = {
       { title: "Hotel, lot, transfer i komunikacja po polsku", paragraphs: ["Sprawdź nazwę i standard zakwaterowania, liczbę nocy, dopłatę za osobę towarzyszącą i zasady przedłużenia pobytu. Dla transferów ustal konkretne trasy. Lot uwzględnij jako część pakietu tylko wtedy, gdy oferta rzeczywiście go zawiera.", "Formularz i poradniki są po polsku. To nie jest potwierdzenie stałej dostępności tłumacza w gabinecie. Przed rezerwacją zapytaj o komunikację z lekarzem, język dokumentów i sposób omówienia świadomej zgody."] },
       { title: "Zaliczka, płatność i zmiana planu", paragraphs: ["Poproś o pisemny termin ważności oferty, walutę, harmonogram płatności i zasady anulowania lub zmiany rezerwacji. Nie publikujemy jednej wysokości zaliczki ani warunków zwrotu, których nie potwierdzono dla Twojej oferty.", "Jeżeli lekarz zmieni plan po badaniu, nowy zakres i koszt powinny zostać omówione przed zgodą na dalsze leczenie. Nie utożsamiaj cennika pojedynczych pozycji z umową na cały wyjazd."] },
       { title: "Gwarancja nie zastępuje planu kontroli", paragraphs: ["Ustal na piśmie zakres odpowiedzialności, wyłączenia, wymagane kontrole i koszty ponownej podróży. Samo hasło „gwarancja” nie mówi, czy obejmuje korektę, pracę protetyczną, nocleg lub lot. Poproś również o sposób zgłoszenia problemu po powrocie do Polski."] }
-    ], faq: [{ question: "Czy All-on-4 w pakiecie oznacza oba łuki?", answer: "Nie musi. Oferta powinna podawać jeden lub dwa łuki, liczbę implantów, rodzaj pracy tymczasowej i docelowej oraz wszystkie wyłączenia." }, { question: "Czy lista cen jest ofertą pakietową?", answer: "Nie. Cennik podaje kwoty za nazwane pozycje. Pełny pakiet wymaga odrębnej wyceny, rozpoznania, harmonogramu i potwierdzenia usług wliczonych." }], sources: [{ label: "Cennik kliniki: 24 pozycje, zakres i data", href: `${SITE_URL}/koszt#cennik` }]
+    ], faq: [{ question: "Czy All-on-4 w pakiecie oznacza oba łuki?", answer: "Nie musi. Oferta powinna podawać jeden lub dwa łuki, liczbę implantów, rodzaj pracy tymczasowej i docelowej oraz wszystkie wyłączenia." }, { question: "Czy lista cen jest ofertą pakietową?", answer: "Nie. Cennik podaje kwoty za nazwane pozycje. Pełny pakiet wymaga odrębnej wyceny, rozpoznania, harmonogramu i potwierdzenia usług wliczonych." }], sources: [{ label: `Cennik kliniki: ${priceItems.length} pozycji, zakres i data`, href: `${SITE_URL}/koszt#cennik` }]
   },
   "opieka-po-leczeniu": {
     slug: "poradniki/opieka-po-leczeniu", title: "Opieka po leczeniu zębów w Turcji: powrót i kontrole", description: "Co ustalić przed powrotem do Polski: dokumentacja, kontrole implantów i odbudów, kontakt z kliniką, korekty i pomoc w pilnych sytuacjach.", eyebrow: "Wyjazd i opieka po leczeniu", h1: "Opieka po leczeniu zębów w Turcji i powrocie do Polski",

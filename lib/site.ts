@@ -1,4 +1,4 @@
-import { formatEur, formatPln, priceById, PRICING_UPDATED_ISO_DATE } from "./pricing";
+import { formatEur, formatPln, priceById, priceItems, PRICING_UPDATED_ISO_DATE } from "./pricing";
 import { OPERATOR } from "./operator";
 import { clinicCredentials, credentialsPublished } from "./credentials";
 import { legalPages } from "./legal-content";
@@ -55,7 +55,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Koszt leczenia",
     h1: "Ile kosztują zęby w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
-    answer: "Cennik kliniki obejmuje 24 pozycje, od zabiegów na dziąsłach po implanty i znieczulenie ogólne. Kwoty podajemy w EUR oraz orientacyjnie w PLN przy kursie 1 EUR = 4,37 PLN. Pełny koszt zależy od indywidualnego planu leczenia.",
+    answer: `Cennik kliniki obejmuje ${priceItems.length} pozycji, od zabiegów na dziąsłach po implanty i znieczulenie ogólne. Kwoty podajemy w EUR oraz orientacyjnie w PLN przy kursie 1 EUR = 4,37 PLN. Pełny koszt zależy od indywidualnego planu leczenia.`,
     schemaType: "MedicalWebPage",
     sections: [
       { title: "Co powinno znaleźć się w wycenie", cards: [
@@ -88,7 +88,7 @@ export const pages: Record<string, PageContent> = {
       { title: "Czy w Turcji opłaca się robić zęby? Turcja czy Polska", paragraphs: ["Odpowiedź zależy od całkowitego kosztu i ryzyka, a nie od ceny samego zabiegu. Cena pozycji w Turcji to tylko część rachunku.", "Porównanie z leczeniem w Polsce powinno obejmować po obu stronach: leczenie i diagnostykę, przejazdy i nocleg, liczbę wizyt i ewentualny drugi wyjazd, kontrole oraz koszt możliwej korekty. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie.", "Nie publikujemy cen leczenia w Polsce ani procentu oszczędności, bo nie mamy zweryfikowanego źródła takich danych. Poproś o pisemne wyceny w Polsce i w Turcji dla tego samego zakresu leczenia i porównaj całość. Sposób liczenia budżetu wyjazdu opisuje poradnik o całkowitym koszcie."] }
     ],
     faq: [
-      { question: "Czy na stronie jest aktualny cennik?", answer: "Tak. Publikujemy 24 pozycje z cennika kliniki przekazanego 30.09.2026, w EUR i orientacyjnie w PLN. Data cennika i kurs przeliczenia są widoczne przy tabeli. Indywidualna oferta określa pełny zakres leczenia." },
+      { question: "Czy na stronie jest aktualny cennik?", answer: `Tak. Publikujemy ${priceItems.length} pozycji z cennika kliniki przekazanego 30.09.2026, w EUR i orientacyjnie w PLN. Data cennika i kurs przeliczenia są widoczne przy tabeli. Indywidualna oferta określa pełny zakres leczenia.` },
       { question: "Czy wystarczy wiadomość, żeby otrzymać wycenę?", answer: "Wstępna ocena może pomóc określić możliwy zakres, ale ostateczny plan wymaga dokumentacji i oceny klinicznej przez uprawnionego lekarza dentystę." },
       { question: "Czy cena obejmuje hotel i transfer?", answer: "Nie można tego zakładać. Każda oferta powinna jednoznacznie wskazywać, które elementy są wliczone, a które pacjent organizuje i opłaca oddzielnie." },
       { question: "Czy w Turcji opłaca się robić zęby?", answer: "Zależy od całkowitego kosztu i ryzyka, a nie od ceny samego zabiegu. Zsumuj leczenie, podróż, nocleg, kontrole i możliwą korektę zamiast porównywać wyłącznie ceny zabiegów." },
