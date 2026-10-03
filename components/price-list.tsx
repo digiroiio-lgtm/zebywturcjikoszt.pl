@@ -1,4 +1,5 @@
 import { TrackedLink } from "./tracked-link";
+import { PriceCategoriesInfographic } from "./price-categories";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { formatEur, formatPln, PRICING_UPDATED_DATE, pricesForPage, priceItems, priceCategories, priceById } from "@/lib/pricing";
@@ -12,6 +13,7 @@ export function PriceList({ slug }: { slug: string }) {
     <div className="pricing-heading"><p className="mini-label">Ceny w EUR i PLN</p><h2 id="pricing-title">{fullList ? "Pełny cennik leczenia" : fullArch ? "Ceny wybranych elementów leczenia" : "Cennik zabiegów związanych z leczeniem"}</h2><p>Aktualizacja cennika: <time dateTime="2026-09-30">{PRICING_UPDATED_DATE}</time>. {fullList ? "24 pozycje z cennika kliniki." : "Wybrane pozycje z pełnego cennika kliniki."}</p></div>
     <div className="pricing-rate"><strong>1 EUR = 4,37 PLN</strong><span>Kurs orientacyjny przyjęty do przeliczenia: <time dateTime="2026-09-30T09:11:00Z">30.09.2026, 09:11 UTC</time>. Kwoty w PLN zaokrąglono do pełnych złotych.</span></div>
     {fullArch && <p className="pricing-scope">Poniższe kwoty dotyczą poszczególnych pozycji. Nie stanowią ceny pakietu All-on-4 ani pełnej odbudowy łuku. Całkowity koszt wymaga indywidualnego planu.</p>}
+    {fullList && <PriceCategoriesInfographic />}
     {fullList && <nav className="price-category-nav" aria-label="Kategorie cennika">{priceCategories.map((category) => <a href={`#cennik-${category.id}`} key={category.id}>{category.label}</a>)}</nav>}
     {(fullList ? priceCategories.map((category) => ({ ...category, items: category.ids.map(priceById) })) : [{ id: "wybrane", label: "Wybrane pozycje cennika", items }]).map((category) => <div key={category.id} id={fullList ? `cennik-${category.id}` : undefined} className="price-category">
       {fullList && <h3>{category.label}</h3>}
