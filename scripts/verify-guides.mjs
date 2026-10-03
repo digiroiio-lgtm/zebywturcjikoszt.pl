@@ -29,7 +29,9 @@ for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-ko
   assert(read('sitemap.xml.body').includes(`${origin}/${route}`));
   assert(read('llms-full.txt.body').includes(`${origin}/${route}`));
   for (const id of ['zirconia-crown','composite-veneer','aiser']) assert(html.includes(`data-price-id="${id}"`));
-  assert(html.includes('655,50') && html.includes('568,10') && html.includes('1966,50'));
+  const plain = html.replace(/<!--.*?-->/gs, '');
+  assert(/≈\s*656\s*zł/.test(plain) && /≈\s*568\s*zł/.test(plain) && /≈\s*1\s?967\s*zł/.test(plain), 'PLN conversions are rounded to whole zloty');
+  assert(!/\d,\d{2}\s*zł/.test(plain), 'no decimal zloty amounts');
   assert(html.replace(/<!--.*?-->/gs, '').includes('1 EUR = 4,37 PLN'));
   assert(html.includes('09:11 UTC'));
 }

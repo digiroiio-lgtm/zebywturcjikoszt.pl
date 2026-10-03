@@ -101,9 +101,9 @@ export const pages: Record<string, PageContent> = {
   "korony-cyrkonowe": {
     slug: "korony-cyrkonowe", published: PRICING_UPDATED_ISO_DATE, lastUpdated: PRICING_UPDATED_ISO_DATE,
     title: "Korony cyrkonowe w Turcji: cena 150 EUR, zakres i wycena",
-    description: "Korona cyrkonowa w Turcji: 150 EUR, około 655,50 PLN. Sprawdź zakres ceny, przykładowe sumy, różnicę między koroną a licówką i pytania przed wyceną.",
+    description: "Korona cyrkonowa w Turcji: 150 EUR, około 656 PLN. Sprawdź zakres ceny, przykładowe sumy, różnicę między koroną a licówką i pytania przed wyceną.",
     eyebrow: "Korony i protetyka", h1: "Korony cyrkonowe w Turcji: cena i zakres leczenia",
-    lead: "W cenniku kliniki korona cyrkonowa kosztuje 150 EUR, czyli orientacyjnie 655,50 PLN przy kursie 4,37. Cena pozycji nie określa całego planu leczenia. Przed decyzją potwierdź liczbę koron, ich zastosowanie i usługi wliczone w wycenę.",
+    lead: "W cenniku kliniki korona cyrkonowa kosztuje 150 EUR, czyli orientacyjnie 656 PLN przy kursie 4,37. Cena pozycji nie określa całego planu leczenia. Przed decyzją potwierdź liczbę koron, ich zastosowanie i usługi wliczone w wycenę.",
     answer: "Korona jest odbudową obejmującą ząb; może też stanowić część odbudowy na implancie. Korona cyrkonowa i licówka to różne pozycje. Wybór odbudowy powinien wynikać z oceny lekarza, a nie wyłącznie ceny lub oczekiwanego koloru uśmiechu.",
     schemaType: "MedicalWebPage",
     sections: [
