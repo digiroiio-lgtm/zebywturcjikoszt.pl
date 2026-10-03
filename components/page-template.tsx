@@ -89,6 +89,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/jak-wybrac-klinike", label: "Lista kontroli kliniki", text: "Zweryfikuj lekarza, placówkę, plan i odpowiedzialność." },
     { href: "/przed-i-po", label: "Przed i po", text: "Sprawdź zasady oceny materiałów wizualnych." },
     { href: "/koszt", label: "Porównanie wycen", text: "Nie oceniaj oferty tylko na podstawie opinii i ceny końcowej." },
+    { href: "/poradniki/rankingi-klinik-dentystycznych-w-turcji", label: "Jak czytać rankingi klinik", text: "Kto tworzy rankingi, według jakich kryteriów i na czym zarabia." },
     { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ],
   "przed-i-po": [
@@ -106,6 +107,7 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/opinie", label: "Jak oceniać opinie", text: "Sprawdź wiarygodność doświadczeń publikowanych w internecie." },
     { href: "/przed-i-po", label: "Jak oceniać zdjęcia", text: "Zobacz, czego materiały przed i po nie potwierdzają." },
     { href: "/koszt", label: "Jak porównać wyceny", text: "Ustal pełny zakres przed wpłatą zaliczki." },
+    { href: "/poradniki/rankingi-klinik-dentystycznych-w-turcji", label: "Jak czytać rankingi klinik", text: "Kto tworzy rankingi, według jakich kryteriów i na czym zarabia." },
     { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
   ]
 };

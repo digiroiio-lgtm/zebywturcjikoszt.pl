@@ -6,7 +6,8 @@ const nextSteps: Record<string, { href: string; label: string }[]> = {
   "calkowity-koszt-wyjazdu": [{ href: "/antalya", label: "Przygotowanie wyjazdu do Antalyi" }, { href: "/poradniki/pakiety-leczenia-zebow", label: "Sprawdź zakres pakietu" }],
   "pakiety-leczenia-zebow": [{ href: "/all-on-4", label: "All-on-4: elementy wyceny" }, { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu" }],
   "opieka-po-leczeniu": [{ href: "/implanty", label: "Implanty: etapy leczenia" }, { href: "/jak-wybrac-klinike", label: "Wybór kliniki i zasady opieki" }, { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby: o co chodzi?" }],
-  "tureckie-zeby": [{ href: "/jak-wybrac-klinike", label: "Wybór kliniki: lista pytań i czerwone flagi" }, { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu i kontrole" }, { href: "/opinie", label: "Jak oceniać opinie" }, { href: "/reklamacje", label: "Reklamacje i zgłoszenia" }]
+  "rankingi-klinik-dentystycznych-w-turcji": [{ href: "/jak-wybrac-klinike", label: "Wybór kliniki: lista pytań i czerwone flagi" }, { href: "/opinie", label: "Jak oceniać opinie" }, { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby: o co chodzi?" }],
+  "tureckie-zeby": [{ href: "/jak-wybrac-klinike", label: "Wybór kliniki: lista pytań i czerwone flagi" }, { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu i kontrole" }, { href: "/opinie", label: "Jak oceniać opinie" }, { href: "/reklamacje", label: "Reklamacje i zgłoszenia" }, { href: "/poradniki/rankingi-klinik-dentystycznych-w-turcji", label: "Jak czytać rankingi klinik" }]
 };
 export function GuideNextSteps({ source }: { source: string }) {
   const key = source.split("/").at(-1)!;

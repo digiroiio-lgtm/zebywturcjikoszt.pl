@@ -25,10 +25,13 @@ export const guideCards = [
   { category: "bezpieczenstwo", href: "/przed-i-po", title: "Zdjęcia przed i po: co pokazują, a czego nie?", description: "Jak interpretować zdjęcia uśmiechu i dlaczego nie zastępują informacji o diagnozie, metodzie leczenia i trwałości efektu." },
   { category: "wyjazd", href: "/antalya", title: "Leczenie zębów w Antalyi: przygotowanie wyjazdu", description: "Jak zaplanować podróż, wizyty i pobyt oraz jakie pytania zadać przed ustaleniem terminu leczenia." },
   { category: "bezpieczenstwo", href: "/poradniki/tureckie-zeby", title: "Tureckie zęby: o co chodzi i czy są dobre?", description: "Skąd bierze się określenie „tureckie zęby”, jakie problemy opisują stomatolodzy i jak ocenić ryzyko leczenia zębów w Turcji przed wyjazdem." },
+  { category: "bezpieczenstwo", href: "/poradniki/rankingi-klinik-dentystycznych-w-turcji", title: "Najlepsza klinika dentystyczna w Turcji: jak czytać rankingi?", description: "Jak powstają rankingi klinik, co mogą ukrywać i na co patrzeć zamiast miejsca na liście, gdy szukasz kliniki dentystycznej w Turcji." },
   { category: "wyjazd", href: "/poradniki/opieka-po-leczeniu", title: "Opieka po leczeniu zębów w Turcji i powrocie do Polski", description: "Jak ustalić zalecenia, wizyty kontrolne, kontakt z kliniką i sposób przekazania dokumentacji po zakończeniu leczenia." }
 ];
 const nhsAbroad = { label: "NHS: lista kontrolna leczenia za granicą (Treatment abroad checklist)", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" };
 const conversationTurkeyTeeth = { label: "The Conversation: ryzyka stomatologii kosmetycznej, w tym „Turkey teeth”", href: "https://theconversation.com/veneers-implants-and-agonising-pain-the-risks-of-cosmetic-dentistry-are-nothing-to-smile-about-227687" };
+const uokikFakeOpinions = { label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" };
+const bookimedRankingExample = { label: "Bookimed: przykładowy ranking klinik w Turcji z opisem kryteriów", href: "https://pl.bookimed.com/clinics/country=turkey/procedure=tilted-implant/best" };
 const msz = { label: "MSZ: informacje dla podróżujących do Turcji", href: "https://www.gov.pl/web/turcja/informacje-dla-podrozujacych" };
 const ekuz = { label: "Pacjent.gov.pl: zakres EKUZ i leczenie planowane", href: "https://pacjent.gov.pl/europejska-karta-ubezpieczenia-zdrowotnego-ekuz" };
 const adaVeneers = { label: "American Dental Association: licówki", href: "https://www.mouthhealthy.org/all-topics-a-z/veneers" };
@@ -89,6 +92,24 @@ export const newGuides: Record<string, PageContent> = {
       { question: "Ile wytrzymują zęby z Turcji?", answer: "Nie podajemy liczby lat. Trwałość zależy od rodzaju pracy, materiału, higieny, zgryzu i kontroli, a nie od kraju, a licówki i korony mogą wymagać późniejszej wymiany." }
     ],
     sources: [nhsAbroad, conversationTurkeyTeeth, adaVeneers]
+  },
+  "rankingi-klinik-dentystycznych-w-turcji": {
+    slug: "poradniki/rankingi-klinik-dentystycznych-w-turcji", published: "2026-10-03", lastUpdated: "2026-10-03", title: "Najlepsza klinika dentystyczna w Turcji: jak czytać rankingi", description: "Szukasz najlepszej kliniki dentystycznej w Turcji? Sprawdź, jak powstają rankingi, co mogą ukrywać i na co patrzeć zamiast miejsca na liście.", eyebrow: "Bezpieczna decyzja", h1: "Rankingi klinik dentystycznych w Turcji: jak je czytać i czy im ufać?",
+    lead: "Wyniki wyszukiwania pełne są list „najlepszych klinik”. Zanim zaufasz miejscu w rankingu, sprawdź, kto go tworzy, według jakich kryteriów i na czym zarabia. Ten poradnik pokazuje, jak czytać takie listy.",
+    answer: "Jedna najlepsza klinika dentystyczna w Turcji nie istnieje, bo wybór zależy od zabiegu, lekarza i planu leczenia. Ranking może opierać się na liczbie zapytań, opiniach lub płatnej widoczności, dlatego sprawdź jego kryteria i oznaczenia reklamowe, a decyzję oprzyj na weryfikacji lekarza, planu i opieki po leczeniu.",
+    sections: [
+      { title: "Czy istnieje jedna najlepsza klinika dentystyczna w Turcji?", paragraphs: ["Nie. „Najlepsza” zawsze oznacza najlepsza dla konkretnego zabiegu, lekarza i planu, a klinika dobra przy implantach nie musi być najlepszym wyborem przy licówkach. Brytyjska służba zdrowia (NHS) radzi opierać decyzję o leczeniu za granicą na jakości opieki, a nie na atrakcyjności miejsca wyjazdu."] },
+      { title: "Jak powstają rankingi klinik?", paragraphs: ["Rankingi tworzą portale pośredniczące, strony klinik i autorzy treści afiliacyjnych. Jeden z dużych portali opisuje, że jego ranking uwzględnia m.in. liczbę zapytań od pacjentów, opinie, aktualność cen i opcji leczenia, szybkość odpowiedzi kliniki oraz certyfikaty. To pokazuje, że takie listy mogą mierzyć aktywność handlową i widoczność, a nie wynik leczenia."] },
+      { title: "Jak rozpoznać ranking, który jest reklamą?", bullets: ["autor nie podaje kryteriów ani daty aktualizacji", "nie wiadomo, czy miejsce na liście jest płatne lub czy autor zarabia na prowizji", "autor sam prowadzi jedną z klinik na liście albo wskazuje własną klinikę jako najlepszą", "opinie nie mają weryfikacji autentyczności, a oceny wyglądają na podobne w stylu", "ranking obiecuje wynik leczenia, brak ryzyka albo „gwarancję” bez warunków"] },
+      { title: "Na co patrzeć zamiast miejsca w rankingu?", paragraphs: ["Porównaj konkretne kliniki według rzeczy, które możesz sprawdzić: podmiot i lekarz, pisemny plan z alternatywami, zakres ceny, dokumentacja po leczeniu i zasady opieki po powrocie. Pytania do kliniki zebraliśmy w poradniku o wyborze kliniki stomatologicznej w Turcji, a zasady czytania opinii na stronie o opiniach pacjentów."] },
+      { title: "Dlaczego nie ma tu listy najlepszych klinik w Turcji?", paragraphs: ["Serwis prowadzi spółka, która prowadzi także klinikę Akdeniz Dental w Antalyi. Ranking klinik opublikowany przez nas nie byłby więc neutralny i dlatego go nie tworzymy. Serwis ma cel komercyjny i nie jest niezależną porównywarką, co opisujemy na stronie o właścicielu serwisu."] }
+    ],
+    faq: [
+      { question: "Czy ranking najlepszych klinik w Turcji jest wiarygodny?", answer: "To zależy od tego, czy autor podaje kryteria, datę aktualizacji i źródło dochodów. Ranking oparty na liczbie zapytań, opiniach lub płatnej widoczności nie mierzy wyniku leczenia, więc traktuj go jako punkt wyjścia do weryfikacji, a nie rekomendację." },
+      { question: "Jak rozpoznać reklamę udającą ranking klinik?", answer: "Reklamą może być lista bez kryteriów i daty, z płatnymi miejscami lub prowizją, prowadzona przez autora powiązanego z jedną z klinik. Sprawdź, czy autor ujawnia powiązania i czy opinie są weryfikowane." },
+      { question: "Dlaczego nie ma tu listy najlepszych klinik w Turcji?", answer: "Serwis prowadzi spółka, która prowadzi klinikę Akdeniz Dental, więc nasz ranking nie byłby neutralny. Zamiast niego podajemy kryteria, które możesz sprawdzić w każdej klinice." }
+    ],
+    sources: [nhsAbroad, uokikFakeOpinions, bookimedRankingExample]
   },
   "pakiety-leczenia-zebow": {
     slug: "poradniki/pakiety-leczenia-zebow", title: "Pakiety leczenia zębów w Turcji: zakres ceny i opłaty", description: "Sprawdź pakiet leczenia w Antalyi przed rezerwacją: materiały, etapy, hotel i transfery, wyłączenia, zaliczka i opieka po powrocie do Polski.", eyebrow: "Koszty i budżet", h1: "Pakiety leczenia zębów w Turcji: co obejmuje cena?",
