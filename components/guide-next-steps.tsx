@@ -2,10 +2,11 @@ import { guideAssessmentHref, guideHref } from "@/lib/guides";
 import { TrackedLink } from "./tracked-link";
 const nextSteps: Record<string, { href: string; label: string }[]> = {
   "leczenie-zebow-w-turcji": [{ href: "/implanty", label: "Implanty: kwalifikacja i etapy" }, { href: "/licowki", label: "Licówki: materiały i możliwości" }, { href: "/cala-szczeka", label: "Odbudowa całej szczęki" }, { href: "/all-on-4", label: "All-on-4: plan i koszty" }],
-  "licowki-czy-korony": [{ href: "/licowki", label: "Licówki w Turcji" }, { href: "/korony-cyrkonowe", label: "Korony cyrkonowe: cena i zakres" }],
+  "licowki-czy-korony": [{ href: "/licowki", label: "Licówki w Turcji" }, { href: "/korony-cyrkonowe", label: "Korony cyrkonowe: cena i zakres" }, { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby: o co chodzi?" }],
   "calkowity-koszt-wyjazdu": [{ href: "/antalya", label: "Przygotowanie wyjazdu do Antalyi" }, { href: "/poradniki/pakiety-leczenia-zebow", label: "Sprawdź zakres pakietu" }],
   "pakiety-leczenia-zebow": [{ href: "/all-on-4", label: "All-on-4: elementy wyceny" }, { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu" }],
-  "opieka-po-leczeniu": [{ href: "/implanty", label: "Implanty: etapy leczenia" }, { href: "/jak-wybrac-klinike", label: "Wybór kliniki i zasady opieki" }]
+  "opieka-po-leczeniu": [{ href: "/implanty", label: "Implanty: etapy leczenia" }, { href: "/jak-wybrac-klinike", label: "Wybór kliniki i zasady opieki" }, { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby: o co chodzi?" }],
+  "tureckie-zeby": [{ href: "/jak-wybrac-klinike", label: "Wybór kliniki: lista pytań i czerwone flagi" }, { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu i kontrole" }, { href: "/opinie", label: "Jak oceniać opinie" }, { href: "/reklamacje", label: "Reklamacje i zgłoszenia" }]
 };
 export function GuideNextSteps({ source }: { source: string }) {
   const key = source.split("/").at(-1)!;

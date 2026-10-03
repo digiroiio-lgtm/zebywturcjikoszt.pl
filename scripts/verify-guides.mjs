@@ -6,14 +6,14 @@ const schemas = (html) => [...html.matchAll(/<script type="application\/ld\+json
 const origin = 'https://leczeniezebowwturcji.pl';
 const hub = read('poradniki.html');
 const collection = schemas(hub).find((s) => s['@type'] === 'CollectionPage');
-assert.equal(collection.mainEntity.numberOfItems, 15);
+assert.equal(collection.mainEntity.numberOfItems, 16);
 assert.equal(collection.reviewedBy, undefined);
-assert.equal((hub.match(/class="info-card guide-card"/g) || []).length, 15);
+assert.equal((hub.match(/class="info-card guide-card"/g) || []).length, 16);
 for (const item of collection.mainEntity.itemListElement) {
   const html = read(item.url.slice(origin.length + 1) + '.html');
   assert(html.includes('href="/poradniki"'));
 }
-for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-koszt-wyjazdu','pakiety-leczenia-zebow','opieka-po-leczeniu']) {
+for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-koszt-wyjazdu','pakiety-leczenia-zebow','opieka-po-leczeniu','tureckie-zeby']) {
   const route = 'poradniki/' + slug;
   const html = read(route + '.html');
   const graph = schemas(html);
@@ -23,7 +23,7 @@ for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-ko
   assert(html.includes('Poproś o wstępną wycenę'));
   assert(html.includes('Zobacz ceny leczenia'));
   assert(html.includes('Recenzja: jeszcze nieprzeprowadzona'));
-  assert(graph.some((s) => s['@type'] === 'Article' && s.author && s.datePublished === '2026-09-30'));
+  assert(graph.some((s) => s['@type'] === 'Article' && s.author && s.datePublished === (slug === 'tureckie-zeby' ? '2026-10-03' : '2026-09-30')));
   assert(graph.every((s) => !s.reviewedBy));
   assert.equal(graph.find((s) => s['@type'] === 'BreadcrumbList').itemListElement.length, 3);
   assert(read('sitemap.xml.body').includes(`${origin}/${route}`));
@@ -33,4 +33,4 @@ for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-ko
   assert(html.replace(/<!--.*?-->/gs, '').includes('1 EUR = 4,37 PLN'));
   assert(html.includes('09:11 UTC'));
 }
-console.log('Guide contract passed: 15 destinations, 5 unique standalone guides, Article/breadcrumb schema, price conversions, honest review scope, canonical, sitemap and AI exports.');
+console.log('Guide contract passed: 16 destinations, 6 unique standalone guides, Article/breadcrumb schema, price conversions, honest review scope, canonical, sitemap and AI exports.');

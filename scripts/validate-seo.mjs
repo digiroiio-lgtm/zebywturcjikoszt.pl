@@ -53,8 +53,18 @@ for (const url of matches(llms, /\]\((https:\/\/[^)\s]+)\)/g)) {
 if (!sitemap.includes("image:loc")) fail("Sitemap contains no image entries.");
 if (new Set(sitemapUrls).size !== sitemapUrls.length) fail("Sitemap contains duplicate URLs.");
 
+const faqQuestionRoutes = new Map();
+const h2Routes = new Map();
+// Headings produced by shared components (price scope, operator data, clinic profiles, pricing tables) repeat by design.
+const sharedH2 = new Set(["Najczęstsze pytania", "Źródła i podstawa informacji", "Powiązane przewodniki", "Co zrobić dalej?", "Przykładowe pozycje w EUR i około PLN", "Najpierw ustal, jakie leczenie może być potrzebne", "Dane operatora serwisu", "Profile kliniki w niezależnych serwisach", "Bezpłatna indywidualna wstępna ocena", "Przykładowe ceny leczenia", "Ceny wybranych elementów leczenia", "Co musi obejmować całkowita wycena?", "Potwierdzona cena całkowita: co jest potrzebne?", "Cennik zabiegów związanych z leczeniem", "Ile wynosi suma wybranych pozycji?"]);
+const decode = (text) => text.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").trim();
+
 for (const [route, file] of routeFiles) {
   const html = await readFile(path.join(appDir, file), "utf8");
+  if (route !== "/pytania-i-odpowiedzi" && !route.startsWith("/eksperci")) {
+    for (const question of matches(html, /<details id="faq-\d+"[^>]*><summary>(.*?)<\/summary>/g).map(decode)) faqQuestionRoutes.set(question, [...(faqQuestionRoutes.get(question) ?? []), route]);
+    for (const heading of matches(html, /<h2(?:\s[^>]*)?>(.*?)<\/h2>/g).map(decode)) if (!sharedH2.has(heading) && !heading.startsWith("Krótko:")) h2Routes.set(heading, [...(h2Routes.get(heading) ?? []), route]);
+  }
   const titles = matches(html, /<title>([^<]+)<\/title>/g);
   const descriptions = matches(html, /<meta name="description" content="([^"]+)"/g);
   const canonicals = matches(html, /<link rel="canonical" href="([^"]+)"/g);
@@ -112,6 +122,9 @@ for (const [route, file] of routeFiles) {
     } catch { fail(`${route}: invalid JSON-LD.`); }
   }
 }
+
+for (const [question, routes] of faqQuestionRoutes) if (routes.length > 1) fail(`Duplicate FAQ question "${question}" on ${routes.join(", ")}. Give each question one owner page (docs/seo-intent-map.md).`);
+for (const [heading, routes] of h2Routes) if (routes.length > 1) console.warn(`WARNING: H2 "${heading}" appears on ${routes.join(", ")}; check for overlapping intent.`);
 
 const ratingsDate = (await readFile(path.join(process.cwd(), "lib", "clinic-profiles.ts"), "utf8")).match(/RATINGS_CHECKED_ISO_DATE = "(\d{4}-\d{2}-\d{2})"/)?.[1];
 if (ratingsDate && (Date.now() - new Date(`${ratingsDate}T00:00:00Z`).getTime()) / 86400000 > 90) console.warn(`WARNING: clinic ratings were last checked on ${ratingsDate}. Re-read Trustpilot and Google, then update RATINGS_CHECKED_ISO_DATE and RATINGS_CHECKED_DATE.`);

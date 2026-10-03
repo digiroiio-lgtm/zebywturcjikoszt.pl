@@ -18,7 +18,7 @@ export function faqSchema(path: string, items: FaqItem[]) {
 export function FaqSection({ path, items, className = "content-section" }: { path: string; items: FaqItem[]; className?: string }) {
   return <section className={className} id="faq">
     <h2>Najczęstsze pytania</h2>
-    <div className="faq-list">{items.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div>
+    <div className="faq-list">{items.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div>
     <p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(path, items)) }} />
   </section>;
