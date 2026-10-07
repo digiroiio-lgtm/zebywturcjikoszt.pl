@@ -32,6 +32,7 @@ if (!local) {
 const robots = await (await get(`${origin}/robots.txt`)).text();
 for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) check(`robots.txt allows ${bot}`, robots.includes(`User-Agent: ${bot}`));
 check("robots.txt lists the sitemap on this origin", robots.includes(`Sitemap: ${site}/sitemap.xml`));
+check("robots.txt omits the unsupported Host directive", !/^Host:/im.test(robots));
 
 const sitemap = await (await get(`${origin}/sitemap.xml`)).text();
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]).filter((u) => !/\.(webp|jpe?g|png|svg)$/i.test(u));
@@ -53,6 +54,10 @@ const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
 const og = ogImage ? await get(reach(ogImage)) : null;
 check("og:image resolves as an image", !!og && og.status === 200 && (og.headers.get("content-type") ?? "").startsWith("image/"), ogImage ?? "missing");
 for (const p of ["/icon", "/apple-icon", "/manifest.webmanifest"]) check(`${p} is 200`, (await get(`${origin}${p}`)).status === 200);
+const favicon = await get(`${origin}/favicon.ico`);
+const faviconTarget = new URL(favicon.headers.get("location") ?? "", origin);
+const faviconImage = [301, 308].includes(favicon.status) && faviconTarget.href === `${origin}/icon` ? await get(faviconTarget.href) : favicon;
+check("/favicon.ico resolves to a real image", faviconImage.status === 200 && (faviconImage.headers.get("content-type") ?? "").startsWith("image/"), `${favicon.status} -> ${faviconImage.status}`);
 
 const moved = await get(`${origin}/images/diagrams/team-2.jpeg`);
 check("legacy image path redirects permanently", [301, 308].includes(moved.status) && (moved.headers.get("location") ?? "").includes("/images/zespol/team-2.jpeg"), `${moved.status} ${moved.headers.get("location") ?? ""}`);
