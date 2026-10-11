@@ -20,7 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const indexable = Object.values(pages).filter((page) => !page.noindex).sort((a, b) => a.slug.localeCompare(b.slug, "pl"));
   const pageEntries: Entry[] = indexable.map((page) => ({
     url: abs(`/${page.slug}`),
-    lastModified: day(page.lastUpdated ?? UPDATED_ISO_DATE),
+    // The price page also changes whenever the price list does; pages with reviewed medical text keep their own date.
+    lastModified: day(page.slug === "koszt" ? latest([page.lastUpdated ?? UPDATED_ISO_DATE, PRICING_UPDATED_ISO_DATE]) : page.lastUpdated ?? UPDATED_ISO_DATE),
     ...withImages(page.slug, page.slug === "przed-i-po" ? caseImages.map((item) => abs(item.src)) : [])
   }));
   const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date), ...withImages(slug) }));
