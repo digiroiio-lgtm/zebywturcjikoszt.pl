@@ -39,6 +39,11 @@ function withAttribution(href: string, location: string) {
   if (!location || !href.startsWith("/") || href.startsWith("//")) return href;
   const current = new URL(location, "https://placeholder.invalid");
   const url = new URL(href, "https://placeholder.invalid");
+  if (url.pathname === "/kontakt" && current.pathname !== "/kontakt") {
+    // Links to the form always say where the visitor came from, so a lead is never filed under the default "contact_page".
+    if (!url.searchParams.has("lead_source")) url.searchParams.set("lead_source", current.pathname === "/uk" || current.pathname.startsWith("/uk/") ? "OGZ-UK" : "OGZ-PL");
+    if (!url.searchParams.has("page_path")) url.searchParams.set("page_path", current.pathname);
+  }
   for (const key of ["guide_source", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
     if (current.searchParams.has(key) && (!url.searchParams.has(key) || (key === "guide_source" && href.startsWith("/kontakt") && !current.pathname.startsWith("/poradniki")))) url.searchParams.set(key, current.searchParams.get(key)!);
   }
