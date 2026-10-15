@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { primaryNav } from "@/lib/site";
 import { TrackedLink } from "./tracked-link";
+import { MobileMenu } from "./mobile-menu";
 
 export function SiteHeader() {
   return (
@@ -8,8 +9,8 @@ export function SiteHeader() {
       <div className="shell header-inner">
         <Link className="brand" href="/" aria-label="Zęby w Turcji – strona główna"><span className="brand-mark" aria-hidden="true">Z</span><span>Zęby w Turcji</span></Link>
         <nav className="desktop-nav" aria-label="Główna nawigacja">{primaryNav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</nav>
-        <TrackedLink href="/kontakt?cta_location=header" event="header_assessment_cta" tracking={{ cta_location: "header" }} className="button button-small">Sprawdź koszt</TrackedLink>
-        <details className="mobile-menu"><summary aria-label="Otwórz menu">Menu</summary><nav aria-label="Nawigacja mobilna">{primaryNav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}<Link href="/jak-wybrac-klinike">Jak wybrać klinikę</Link><TrackedLink href="/kontakt?cta_location=mobile_menu" event="mobile_assessment_cta" tracking={{ cta_location: "mobile_menu" }} className="mobile-nav-cta">Sprawdź koszt leczenia</TrackedLink></nav></details>
+        <TrackedLink href="/kontakt?cta_location=header" event="header_assessment_cta" tracking={{ cta_location: "header" }} className="button button-small">Wstępna ocena</TrackedLink>
+        <MobileMenu items={primaryNav} />
       </div>
     </header>
   );
