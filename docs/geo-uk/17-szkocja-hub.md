@@ -24,7 +24,7 @@ Internal links (via `contextualLinks["uk/szkocja"]`): `/implanty`, `/all-on-4`, 
 `verify-geo` fails a record whose prose contains a percentage not backed by a listed, publishable demographic claim, or a population figure ("12 345 Polaków"); it also checks `relatedSlugs` / `foldInto` references. Earlier guards still apply: attribution to the publisher in the prose, no `[DO UZUPEŁNIENIA]` in a published record, forbidden wording, no hreflang, no unpublished route/sitemap/llms entry.
 
 ## Remaining publication blockers
-1. Verified flight connections from Scottish airports (carrier or airport schedule).
+1. Flights: sourced sentence added (easyJet, Jet2, Glasgow Airport); an editor must open the four links and confirm.
 2. Dated search-demand evidence for Scotland-focused Polish queries (Search Console: 5 impressions in 90 days, none UK-related; unmeasured, not zero).
 3. Official Scotland's Census 2022 ward-level extract to confirm or replace the council figures; locate the primary council document.
 4. NHS Scotland wording confirmed by an editor (NHS inform pages concern surgery and S2; no dental-specific page found; Turkey outside S2).

@@ -15,3 +15,8 @@ Order agreed with the operator: source PDF, NHS Scotland review, missing Aberdee
 1. Preferred: merge #56 first (infrastructure for the official-secondary tier, the Aberdeen draft and evidence notes; everything in it is inert in production), then retarget #57 to `main`; its diff then shows only the hub work.
 2. Alternative if #56 should not land as it is: create a clean branch from `main` and cherry-pick only the needed commits (tier + hub), leaving the Aberdeen draft out.
 3. In both cases the record is moved to `published` in a separate, reviewed commit that sets `publishedOn` and the gate fields; `npm run verify` and the byte-comparison of sitemap/llms/page bodies run before any merge.
+
+## Update: flights (2026-10-16, second pass)
+A search restricted to carrier and airport domains surfaced pages from easyJet (Edinburgh and Glasgow to Antalya), Jet2 (Antalya, Glasgow and Edinburgh departures in 2027) and Glasgow Airport (Antalya page naming Jet2, easyJet and Corendon). No Aberdeen offer was found. The hub's placeholder is replaced by a hedged, dated sentence with those four links; Aberdeen is described as "no offer found". The build could not open the pages, so an editor must open the four links and confirm routes and carriers before publication. Flights stay on the blocker list as "editor confirmation", not as missing evidence.
+
+Other blockers unchanged: council PDF and NHS pages remain unreachable from the build environment (`www.aberdeencity.gov.uk`, `www.nhs.uk` and `nhsinform.scot` all fail DNS), keyword demand still needs a dated export (Semrush has no API units), and clinical, editorial and legal reviews need people.
