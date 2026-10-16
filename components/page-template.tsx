@@ -39,6 +39,19 @@ function sectionId(title: string) {
 }
 
 const contextualLinks: Record<string, { href: string; label: string; text: string }[]> = {
+  "uk/szkocja": [
+    { href: "/implanty", label: "Implanty", text: "Co obejmuje cena implantu i jak wygląda pełny plan implantologiczny." },
+    { href: "/all-on-4", label: "All-on-4", text: "Dlaczego nazwa metody nie wystarcza do porównania ofert." },
+    { href: "/cala-szczeka", label: "Cała szczęka", text: "All-on-4, All-on-6 i inne drogi pełnej odbudowy uzębienia." },
+    { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Zakres leczenia i przykładowe sumy w EUR i PLN." },
+    { href: "/licowki", label: "Licówki i leczenie estetyczne", text: "Licówki a korony: od czego zależy zakres i cena." },
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP po kursie z podanej daty." }] : []),
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
+    { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja i kontrola po powrocie." },
+    { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." }
+  ],
   uk: [
     { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
     { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },

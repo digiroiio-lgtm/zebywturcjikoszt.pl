@@ -96,6 +96,11 @@ for (const r of pages) {
     else if (claim.source === 'official-secondary' && !bodyText.includes(claim.corroboration[0].publisher)) fail(`${r.slug}: claim ${id} is official-secondary; the text must name ${claim.corroboration[0].publisher}`);
     else if (!bodyText.includes(String(claim.value).replace('.', ',')) ) fail(`${r.slug}: claim ${id} is listed but its value ${claim.value} is not in the text`);
   }
+  // No figure may appear in prose unless it belongs to a listed, publishable claim (stops unverified numbers for other cities).
+  const allowedValues = new Set((r.demographicClaims ?? []).map((id) => String(claims.find((c) => c.id === id)?.value).replace('.', ',')));
+  for (const m of bodyText.matchAll(/(\d+(?:,\d+)?)\s?%/g)) if (!allowedValues.has(m[1])) fail(`${r.slug}: percentage ${m[0]} is not backed by a listed demographic claim`);
+  for (const m of bodyText.matchAll(/\d{1,3}(?:[ .\u00a0]\d{3})+\s+(?:Polak|osób|mieszkańc|os\.)/g)) fail(`${r.slug}: population figure "${m[0]}" in prose`);
+  for (const ref of [...(r.relatedSlugs ?? []), ...(r.foldInto ? [r.foldInto] : [])]) if (!pages.some((x) => x.slug === ref)) fail(`${r.slug}: references unknown record ${ref}`);
   // Location and claim links must exist in the generated dataset.
   const locIds = new Set(locations.map((l) => l.id));
   for (const id of [...(r.locationIds ?? []), ...(r.focusLocationIds ?? [])]) if (!locIds.has(id)) fail(`${r.slug}: unknown location id ${id}`);

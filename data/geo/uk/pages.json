@@ -34,6 +34,7 @@
       "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
       "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
       "blockers": [
+        "Preserved draft. Default decision: fold into /uk/szkocja (see docs/geo-uk/17-szkocja-hub.md); reconsider a standalone page only with dated search-demand evidence and an Aberdeen-specific angle",
         "Aberdeen-specific content is still thin: most paragraphs would fit any UK city (see docs/geo-uk/15-aberdeen-pilot.md); census, travel and local evidence must replace or fold them",
         "no dated search-demand evidence",
         "no unique-content evidence beyond the Aberdeen census claim",
@@ -149,7 +150,292 @@
       "demographicClaims": [
         "sc2022/aberdeen/tillydrone",
         "sc2022/aberdeen/northfield"
-      ]
+      ],
+      "foldInto": "uk/szkocja"
+    },
+    {
+      "slug": "uk/szkocja",
+      "kind": "region",
+      "locationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen",
+        "scotland/aberdeen-city/northfield",
+        "scotland/aberdeen-city/mastrick-north",
+        "scotland/aberdeen-city/torry",
+        "scotland/aberdeen-city/ferryhill",
+        "scotland/aberdeen-city/hilton",
+        "scotland/aberdeen-city/woodside",
+        "scotland/aberdeen-city/stockethill",
+        "scotland/aberdeen-city/george-street",
+        "scotland/aberdeen-city/harbour",
+        "scotland/aberdeen-city/kincorth",
+        "scotland/aberdeen-city/nigg",
+        "scotland/aberdeen-city/cove",
+        "scotland/aberdeen-city/kingswells",
+        "scotland/aberdeen-city/sheddocksley",
+        "scotland/aberdeen-city/summerhill",
+        "scotland/aberdeen-city/dyce",
+        "scotland/aberdeen-city/bucksburn",
+        "scotland/aberdeen-city/danestone",
+        "scotland/aberdeen-city/midstocket",
+        "scotland/aberdeen-city/rosemount",
+        "scotland/aberdeen-city/bridge-of-don",
+        "scotland/city-of-edinburgh/edinburgh",
+        "scotland/city-of-edinburgh/leith",
+        "scotland/city-of-edinburgh/sighthill-gorgie",
+        "scotland/glasgow-city/glasgow",
+        "scotland/dundee-city/dundee",
+        "scotland/perth-and-kinross/perth",
+        "scotland/highland/inverness"
+      ],
+      "focusLocationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen"
+      ],
+      "stage": "verified",
+      "title": "Leczenie zębów w Turcji dla Polaków w Szkocji",
+      "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga, Glasgow, Dundee, Perth i Inverness: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
+      "draftedOn": "2026-10-16",
+      "demographicClaims": [
+        "sc2022/aberdeen/tillydrone",
+        "sc2022/aberdeen/northfield",
+        "sc2022/aberdeen/torry",
+        "sc2022/aberdeen/hilton",
+        "sc2022/aberdeen/george-street",
+        "sc2022/aberdeen/dyce",
+        "sc2022/aberdeen/bridge-of-don",
+        "sc2022/aberdeen/kingswells",
+        "sc2022/aberdeen/midstocket",
+        "sc2022/aberdeen/lower-deeside",
+        "sc2022/aberdeen/hazlehead",
+        "sc2022/aberdeen/airyhall",
+        "sc2022/aberdeen/kincorth"
+      ],
+      "relatedSlugs": [
+        "uk/aberdeen"
+      ],
+      "blockers": [
+        "no verified flight connections from Scottish airports to Antalya ([DO UZUPEŁNIENIA] placeholder remains)",
+        "no dated search-demand evidence for Scotland-focused Polish queries (Search Console: 5 impressions in 90 days, none UK-related; absence of data, not evidence of no demand)",
+        "census statements cover Aberdeen only, at the official-secondary tier (council publication citing Scotland's Census 2022; PDF not retrieved by the build); Edinburgh, Glasgow, Dundee, Perth, Inverness have no verified figures and none are shown",
+        "NHS Scotland section relies on NHS inform pages about surgery abroad and the S2 scheme; no NHS inform page on dental treatment abroad was found; editor to confirm wording and that Turkey is outside S2",
+        "implant two-stage wording and treatment descriptions need clinical review",
+        "clinic facts beyond Antalya address/hours/languages unconfirmed and unused (branches, lab, patient volume, coordinator, GBP payment, UK aftercare plan)",
+        "no Polish editorial review; no UK ASA/CAP or UK GDPR/PECR review"
+      ],
+      "content": {
+        "slug": "uk/szkocja",
+        "title": "Leczenie zębów w Turcji dla Polaków w Szkocji",
+        "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga, Glasgow, Dundee, Perth i Inverness: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
+        "eyebrow": "Dla Polaków w UK",
+        "h1": "Leczenie zębów w Turcji dla Polaków mieszkających w Szkocji",
+        "lead": "Ten przewodnik jest dla Polaków mieszkających w Szkocji, którzy rozważają implanty, odbudowę zębów lub leczenie estetyczne w Antalyi. Leczenie odbywa się w Turcji; w Wielkiej Brytanii nie prowadzimy kliniki. Opisujemy to, co dla mieszkańców Szkocji jest szczególnie ważne: podróż, dwa pobyty, ceny w funtach, NHS Scotland i kontrolę po powrocie.",
+        "answer": "Z Szkocji na leczenie do Antalyi jedzie się z planem ustalonym z lekarzem po badaniu, a nie z samą ceną. Zanim kupisz bilety, ustal na piśmie zakres leczenia, liczbę pobytów (implanty często wymagają dwóch), co obejmuje cena i kto zajmie się kontrolą po powrocie. Karta GHIC nie obejmuje planowanego leczenia za granicą, a NHS Scotland nie zapewnia opieki po takim leczeniu.",
+        "sections": [
+          {
+            "title": "Dla kogo jest ten przewodnik",
+            "paragraphs": [
+              "Dla Polaków mieszkających w Aberdeen, Edynburgu, Glasgow, Dundee, Perth, Inverness i w mniejszych miejscowościach Szkocji. Nie dzielimy go na osobne strony miast: najważniejsze pytania, takie jak plan leczenia, liczba pobytów, ceny w funtach, ubezpieczenie i kontrola po powrocie, są dla Szkocji wspólne. Różni was głównie lotnisko, z którego wylatujesz, i dojazd do niego.",
+              "Klinika Akdeniz Dental działa w Antalyi i obsługuje pacjentów także po polsku. Nie mamy gabinetu w Szkocji ani w Wielkiej Brytanii."
+            ]
+          },
+          {
+            "title": "Co mówią dane o Polakach w Aberdeen",
+            "paragraphs": [
+              "Dla Aberdeen mamy dane urzędu miejskiego. Według Aberdeen City Council (dokument Local Housing Strategy Evidence Base, tab. 4-5.9), który powołuje się na Scotland's Census 2022, odsetek mieszkańców o polskim pochodzeniu etnicznym różni się mocno między częściami miasta: od 0,7% w Lower Deeside do 13,2% w grupie okręgów Tillydrone / Seaton / Old Aberdeen.",
+              "To udział w populacji danej grupy okręgów w 2022 roku, według pytania o grupę etniczną (nie o obywatelstwo ani kraj urodzenia), a nie liczba Polaków. Dane pochodzą z publikacji urzędu, nie z bezpośredniego zestawienia spisu, i nie opisują sytuacji dzisiejszej."
+            ],
+            "table": {
+              "headers": [
+                "Grupa okręgów w Aberdeen",
+                "Odsetek mieszkańców o polskim pochodzeniu etnicznym (2022)"
+              ],
+              "rows": [
+                [
+                  "Tillydrone / Seaton / Old Aberdeen",
+                  "13,2%"
+                ],
+                [
+                  "Northfield / Mastrick North",
+                  "8,8%"
+                ],
+                [
+                  "Torry / Ferryhill",
+                  "6,6%"
+                ],
+                [
+                  "Hilton / Woodside / Stockethill",
+                  "6,3%"
+                ],
+                [
+                  "George Street / Harbour",
+                  "4,8%"
+                ],
+                [
+                  "Kincorth / Nigg / Cove",
+                  "4,3%"
+                ],
+                [
+                  "Kingswells / Sheddocksley / Summerhill",
+                  "3,5%"
+                ],
+                [
+                  "Dyce / Bucksburn / Danestone",
+                  "3,1%"
+                ],
+                [
+                  "Midstocket / Rosemount",
+                  "2,6%"
+                ],
+                [
+                  "Airyhall / Broomhill / Garthdee",
+                  "2,1%"
+                ],
+                [
+                  "Bridge of Don",
+                  "1,9%"
+                ],
+                [
+                  "Hazlehead / Queens Cross / Countesswells",
+                  "1,4%"
+                ],
+                [
+                  "Lower Deeside",
+                  "0,7%"
+                ]
+              ]
+            }
+          },
+          {
+            "title": "Co z Edynburgiem, Glasgow, Dundee, Perth i Inverness",
+            "paragraphs": [
+              "Dla tych miast nie podajemy liczb ani odsetków, bo nie mamy dla nich zweryfikowanych danych. Nie szacujemy i nie wyciągamy wniosków z liczby Polaków w mieście, bo nie jest to informacja potrzebna do podjęcia decyzji o leczeniu."
+            ]
+          },
+          {
+            "title": "Podróż ze Szkocji do Antalyi",
+            "paragraphs": [
+              "Dostępność połączeń ze szkockich lotnisk do Antalyi zależy od sezonu i przewoźnika. Nie zakładamy, że istnieje bezpośredni lot z twojego lotniska, i nie kupuj biletów, zanim nie poznasz harmonogramu leczenia i liczby pobytów.",
+              "[DO UZUPEŁNIENIA: zweryfikowane połączenia z lotnisk w Szkocji (Aberdeen, Edynburg, Glasgow) do Antalyi, z linkiem do rozkładu przewoźnika lub lotniska. Do czasu źródła nie podajemy żadnych połączeń.]",
+              "Całkowity budżet wyjazdu (podróż, noclegi, transfery, kontrole, możliwy drugi pobyt) opisuje poradnik o całkowitym koszcie wyjazdu."
+            ]
+          },
+          {
+            "title": "Dwa pobyty: dlaczego plan leczenia ma znaczenie przy dalekiej podróży",
+            "paragraphs": [
+              "Leczenie implantologiczne może wymagać rozdzielenia etapów na dwa pobyty: pierwszy na zabiegi chirurgiczne, drugi po okresie gojenia na etap protetyczny. Czy tak będzie u ciebie i jak długo trzeba czekać między etapami, ustala lekarz po badaniu i dokumentacji; nie ustalaj tego na podstawie ogólnych opisów.",
+              "Z dalekiej Szkocji każdy dodatkowy pobyt to koszt lotów i urlopu. Dlatego zapytaj z góry, ile pobytów przewiduje plan, co można zrobić w jednym przyjeździe i co się stanie, jeśli plan zmieni się po badaniu."
+            ]
+          },
+          {
+            "title": "Jakie leczenie rozważają pacjenci i co sprawdzić w ofercie",
+            "cards": [
+              {
+                "title": "Implanty",
+                "text": "Sprawdź, co obejmuje cena: sam implant czy także łącznik i koronę, oraz jak wygląda diagnostyka przed zabiegiem."
+              },
+              {
+                "title": "All-on-4, All-on-6 i cała szczęka",
+                "text": "Nazwa metody nie wystarcza do porównania ofert. Zapytaj, które zęby można zachować, ile implantów przewiduje plan i jaka jest odbudowa protetyczna."
+              },
+              {
+                "title": "Korony cyrkonowe",
+                "text": "Ustal zakres: ile zębów, jaki materiał i czy przygotowanie zębów jest w cenie."
+              },
+              {
+                "title": "Licówki i smile makeover",
+                "text": "Plan estetyczny powinien wynikać z badania, a nie z zdjęcia wzorcowego uśmiechu; zapytaj o alternatywy i o to, czego nie da się cofnąć."
+              },
+              {
+                "title": "Pełna rehabilitacja jamy ustnej",
+                "text": "Obejmuje zwykle kilka rodzajów leczenia i etapów. Poproś o pisemny harmonogram i podział na pobyty."
+              }
+            ]
+          },
+          {
+            "title": "Ceny w funtach",
+            "paragraphs": [
+              "Cennik kliniki jest w euro. Przeliczenie na funty jest orientacyjne, według kursu z podanej daty, i nie jest ofertą w funtach. Waluta rozliczenia, kurs i ewentualna prowizja muszą wynikać z pisemnej oferty. Pozycje cennika to nie automatycznie pełny plan leczenia. Zobacz cennik i przeliczenie na funty."
+            ]
+          },
+          {
+            "title": "NHS Scotland a leczenie w Turcji",
+            "paragraphs": [
+              "Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą, a większość polis podróżnych też go nie obejmuje.",
+              "NHS inform (serwis NHS Scotland) o operacjach za granicą bez skierowania NHS pisze, że NHS Scotland nie ma obowiązku zapewnić opieki przed ani po zabiegu poza pomocą w nagłych wypadkach. Strona dotyczy operacji, a nie stomatologii; nie znaleźliśmy równie szczegółowej strony o leczeniu zębów, więc nie zakładaj z góry, że twój dentysta w Szkocji przejmie kontrolę.",
+              "Program S2 pozwala w określonych sytuacjach leczyć się w publicznej opiece zdrowotnej w UE, Szwajcarii, Norwegii, Islandii i Liechtensteinie. Nie obejmuje prywatnej kliniki w Turcji. W sprawie leczenia poza tym obszarem NHS radzi skontaktować się z lokalnym NHS board."
+            ]
+          },
+          {
+            "title": "Kontrola po powrocie do Szkocji",
+            "bullets": [
+              "ustal na piśmie, kto i jak przeprowadzi kontrole oraz co zrobić przy powikłaniach, zanim wpłacisz zaliczkę,",
+              "poproś o pełną dokumentację: plan leczenia, rodzaje i marki materiałów oraz implantów, zdjęcia rentgenowskie,",
+              "ustal, jak szybko możesz skontaktować się z kliniką po powrocie i w jakim języku,",
+              "zapytaj swojego dentystę w Szkocji, czy podejmie się kontroli, zanim wyjedziesz,",
+              "zostań w Turcji tak długo, jak zaleci lekarz, zanim wrócisz do domu."
+            ]
+          },
+          {
+            "title": "Jak zaplanować decyzję",
+            "paragraphs": [
+              "Zacznij od wstępnej oceny na podstawie zdjęć i opisu, ale pamiętaj, że plan i cenę potwierdza lekarz po badaniu. Przez formularz nie przesyłaj dokumentacji medycznej. Godziny pracy kliniki i dane kontaktowe są na stronie kontaktu."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "question": "Czy macie klinikę w Szkocji lub w Wielkiej Brytanii?",
+            "answer": "Nie. Akdeniz Dental działa w Antalyi w Turcji i leczenie odbywa się tam. Ten przewodnik jest informacją dla osób ze Szkocji, które rozważają wyjazd."
+          },
+          {
+            "question": "Czy karta GHIC pokryje leczenie zębów w Turcji?",
+            "answer": "Nie. Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą. Sprawdź też warunki swojej polisy podróżnej."
+          },
+          {
+            "question": "Czy NHS Scotland zajmie się opieką po leczeniu w Turcji?",
+            "answer": "Nie można tego zakładać. NHS inform pisze o operacjach za granicą, że NHS Scotland nie ma obowiązku zapewnić opieki przed i po zabiegu poza nagłymi wypadkami. Dla stomatologii ustal kontrolę z kliniką i swoim dentystą przed wyjazdem."
+          },
+          {
+            "question": "Ile pobytów w Turcji będę potrzebować?",
+            "answer": "To zależy od planu leczenia, który ustala lekarz po badaniu. Implanty mogą wymagać dwóch pobytów, ale nie zakładaj tego z góry. Poproś o pisemny harmonogram."
+          },
+          {
+            "question": "Czy mogę zapłacić w funtach?",
+            "answer": "Cennik kliniki jest w euro, a przeliczenie na funty jest orientacyjne. Waluta rozliczenia, kurs i prowizja muszą wynikać z pisemnej oferty."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NHS: Going abroad for medical treatment (leczenie za granicą)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/going-abroad-for-medical-treatment/"
+          },
+          {
+            "label": "NHS: lista kontrolna leczenia za granicą (Treatment abroad checklist)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/"
+          },
+          {
+            "label": "NHS: karty GHIC i EHIC",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/"
+          },
+          {
+            "label": "NHS inform: Surgery abroad without NHS referral",
+            "href": "https://www.nhsinform.scot/tests-and-treatments/surgical-procedures/surgery-abroad-without-nhs-referral/"
+          },
+          {
+            "label": "NHS inform: Travelling to Europe for planned healthcare – the S2 scheme",
+            "href": "https://www.nhsinform.scot/care-support-and-rights/health-rights/european-cross-border-healthcare/travelling-to-europe-for-planned-healthcare-the-s2-scheme/"
+          },
+          {
+            "label": "Aberdeen City Council: Local Housing Strategy Evidence Base, tab. 4-5.9 (dane ze Scotland's Census 2022)",
+            "href": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf"
+          }
+        ],
+        "ctaLabel": "Poproś o wstępną ocenę",
+        "ctaEvent": "uk_szkocja_cta"
+      }
     }
   ]
 }
