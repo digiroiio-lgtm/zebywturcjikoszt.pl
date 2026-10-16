@@ -185,7 +185,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             {page.slug === "kontakt" && <OpeningHours />}
             {page.slug === "dokumenty-i-licencje" && <CredentialList credentials={clinicCredentials} />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
-            {guide && <GuidePrices />}
+            {guide && <GuidePrices slug={page.slug} />}
             {page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach" && <GbpPrices />}
             <TreatmentCostScope slug={page.slug} />
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
