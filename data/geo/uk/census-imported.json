@@ -245,6 +245,62 @@
       "brief": 4.8,
       "official": null,
       "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/dyce",
+      "geography": "Dyce / Bucksburn / Danestone",
+      "brief": 3.1,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/bridge-of-don",
+      "geography": "Bridge of Don",
+      "brief": 1.9,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/kingswells",
+      "geography": "Kingswells / Sheddocksley / Summerhill",
+      "brief": 3.5,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/midstocket",
+      "geography": "Midstocket / Rosemount",
+      "brief": 2.6,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/lower-deeside",
+      "geography": "Lower Deeside",
+      "brief": 0.7,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/hazlehead",
+      "geography": "Hazlehead / Queens Cross / Countesswells",
+      "brief": 1.4,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/airyhall",
+      "geography": "Airyhall / Broomhill / Garthdee",
+      "brief": 2.1,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/kincorth",
+      "geography": "Kincorth / Nigg / Cove",
+      "brief": 4.3,
+      "official": null,
+      "status": "unverified (no official row)"
     }
   ]
 }

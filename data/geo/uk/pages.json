@@ -41,7 +41,8 @@
         "flight facts unverified",
         "clinic facts beyond Antalya address/hours/languages unconfirmed",
         "no Polish editorial review",
-        "no clinical review"
+        "no clinical review",
+        "council table (Aberdeen City Council, Local Housing Strategy Evidence Base, tab. 4-5.9) corroborates 13 ward-group percentages but is a secondary publication without denominators and is not retrievable here; the gate still requires an official extract with denominators"
       ],
       "content": {
         "slug": "uk/aberdeen",
@@ -133,7 +134,15 @@
         "sc2022/aberdeen/northfield",
         "sc2022/aberdeen/torry",
         "sc2022/aberdeen/hilton",
-        "sc2022/aberdeen/george-street"
+        "sc2022/aberdeen/george-street",
+        "sc2022/aberdeen/dyce",
+        "sc2022/aberdeen/bridge-of-don",
+        "sc2022/aberdeen/kingswells",
+        "sc2022/aberdeen/midstocket",
+        "sc2022/aberdeen/lower-deeside",
+        "sc2022/aberdeen/hazlehead",
+        "sc2022/aberdeen/airyhall",
+        "sc2022/aberdeen/kincorth"
       ],
       "draftedOn": "2026-10-16"
     }

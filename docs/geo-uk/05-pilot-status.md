@@ -11,4 +11,4 @@
 | Boston / Lincolnshire | 3 | none in the brief (not in its top-30 TS024 list) | none | research |
 | Nottingham | 2 | Nottingham 7826 | none | research |
 | Hull | 2 | Kingston upon Hull 8564 | none | research |
-| Aberdeen | 24 | 5 ward-group shares | none | research |
+| Aberdeen | 24 | 13 ward-group shares | none | research |

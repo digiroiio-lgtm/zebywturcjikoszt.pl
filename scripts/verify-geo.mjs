@@ -40,8 +40,10 @@ if (aberdeen.length !== 24 || aberdeen.some((l) => l.postalDistricts.length)) fa
 
 // 2. Demographic claims: separate metrics, none verified without full provenance, none mixing definitions.
 for (const c of claims) {
-  if (!['polandBorn', 'polishMainLanguage', 'polishNationalIdentity'].includes(c.metric)) fail(`${c.id}: unknown metric ${c.metric}`);
+  if (!['polandBorn', 'polishMainLanguage', 'polishNationalIdentity', 'polishEthnicGroup'].includes(c.metric)) fail(`${c.id}: unknown metric ${c.metric}`);
   if (c.verified && !claimIsPublishable(c)) fail(`${c.id}: verified:true without full provenance`);
+  if (c.source !== 'official' && c.verified) fail(`${c.id}: only source "official" claims with full provenance can be verified`);
+  for (const x of c.corroboration ?? []) if (x.matchesFirstSource === false) fail(`${c.id}: council value ${x.value} differs from the first source`);
   if (c.source === 'brief' && c.verified) fail(`${c.id}: a brief figure cannot be marked verified`);
 }
 if (new Set(claims.map((c) => c.id)).size !== claims.length) fail('duplicate claim ids');

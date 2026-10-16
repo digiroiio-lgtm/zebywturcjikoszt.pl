@@ -606,100 +606,486 @@
       "geography": {
         "level": "ward-group",
         "name": "Tillydrone / Seaton / Old Aberdeen",
-        "country": "scotland"
+        "country": "scotland",
+        "areas": [
+          "Tillydrone",
+          "Seaton",
+          "Old Aberdeen"
+        ]
       },
-      "metric": "polishNationalIdentity",
+      "metric": "polishEthnicGroup",
       "value": 13.2,
       "unit": "percent-of-residents",
       "denominator": null,
       "year": 2022,
-      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
       "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
       "sourceUrl": null,
       "verifiedOn": null,
       "confidence": "unverified",
       "verified": false,
-      "source": "brief"
+      "source": "brief",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 13.2,
+          "matchesFirstSource": true,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
     },
     {
       "id": "sc2022/aberdeen/northfield",
       "geography": {
         "level": "ward-group",
         "name": "Northfield / Mastrick North",
-        "country": "scotland"
+        "country": "scotland",
+        "areas": [
+          "Northfield",
+          "Mastrick North"
+        ]
       },
-      "metric": "polishNationalIdentity",
+      "metric": "polishEthnicGroup",
       "value": 8.8,
       "unit": "percent-of-residents",
       "denominator": null,
       "year": 2022,
-      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
       "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
       "sourceUrl": null,
       "verifiedOn": null,
       "confidence": "unverified",
       "verified": false,
-      "source": "brief"
+      "source": "brief",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 8.8,
+          "matchesFirstSource": true,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
     },
     {
       "id": "sc2022/aberdeen/torry",
       "geography": {
         "level": "ward-group",
         "name": "Torry / Ferryhill",
-        "country": "scotland"
+        "country": "scotland",
+        "areas": [
+          "Torry",
+          "Ferryhill"
+        ]
       },
-      "metric": "polishNationalIdentity",
+      "metric": "polishEthnicGroup",
       "value": 6.6,
       "unit": "percent-of-residents",
       "denominator": null,
       "year": 2022,
-      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
       "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
       "sourceUrl": null,
       "verifiedOn": null,
       "confidence": "unverified",
       "verified": false,
-      "source": "brief"
+      "source": "brief",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 6.6,
+          "matchesFirstSource": true,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
     },
     {
       "id": "sc2022/aberdeen/hilton",
       "geography": {
         "level": "ward-group",
         "name": "Hilton / Woodside / Stockethill",
-        "country": "scotland"
+        "country": "scotland",
+        "areas": [
+          "Hilton",
+          "Woodside",
+          "Stockethill"
+        ]
       },
-      "metric": "polishNationalIdentity",
+      "metric": "polishEthnicGroup",
       "value": 6.3,
       "unit": "percent-of-residents",
       "denominator": null,
       "year": 2022,
-      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
       "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
       "sourceUrl": null,
       "verifiedOn": null,
       "confidence": "unverified",
       "verified": false,
-      "source": "brief"
+      "source": "brief",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 6.3,
+          "matchesFirstSource": true,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
     },
     {
       "id": "sc2022/aberdeen/george-street",
       "geography": {
         "level": "ward-group",
         "name": "George Street / Harbour",
-        "country": "scotland"
+        "country": "scotland",
+        "areas": [
+          "George Street",
+          "Harbour"
+        ]
       },
-      "metric": "polishNationalIdentity",
+      "metric": "polishEthnicGroup",
       "value": 4.8,
       "unit": "percent-of-residents",
       "denominator": null,
       "year": 2022,
-      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
       "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
       "sourceUrl": null,
       "verifiedOn": null,
       "confidence": "unverified",
       "verified": false,
-      "source": "brief"
+      "source": "brief",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 4.8,
+          "matchesFirstSource": true,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/dyce",
+      "geography": {
+        "level": "ward-group",
+        "name": "Dyce / Bucksburn / Danestone",
+        "country": "scotland",
+        "areas": [
+          "Dyce",
+          "Bucksburn",
+          "Danestone"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 3.1,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 3.1,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/bridge-of-don",
+      "geography": {
+        "level": "ward-group",
+        "name": "Bridge of Don",
+        "country": "scotland",
+        "areas": [
+          "Bridge of Don"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 1.9,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 1.9,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/kingswells",
+      "geography": {
+        "level": "ward-group",
+        "name": "Kingswells / Sheddocksley / Summerhill",
+        "country": "scotland",
+        "areas": [
+          "Kingswells",
+          "Sheddocksley",
+          "Summerhill"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 3.5,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 3.5,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/midstocket",
+      "geography": {
+        "level": "ward-group",
+        "name": "Midstocket / Rosemount",
+        "country": "scotland",
+        "areas": [
+          "Midstocket",
+          "Rosemount"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 2.6,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 2.6,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/lower-deeside",
+      "geography": {
+        "level": "ward-group",
+        "name": "Lower Deeside",
+        "country": "scotland",
+        "areas": [
+          "Lower Deeside"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 0.7,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 0.7,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/hazlehead",
+      "geography": {
+        "level": "ward-group",
+        "name": "Hazlehead / Queens Cross / Countesswells",
+        "country": "scotland",
+        "areas": [
+          "Hazlehead",
+          "Queens Cross",
+          "Countesswells"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 1.4,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 1.4,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/airyhall",
+      "geography": {
+        "level": "ward-group",
+        "name": "Airyhall / Broomhill / Garthdee",
+        "country": "scotland",
+        "areas": [
+          "Airyhall",
+          "Broomhill",
+          "Garthdee"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 2.1,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 2.1,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
+    },
+    {
+      "id": "sc2022/aberdeen/kincorth",
+      "geography": {
+        "level": "ward-group",
+        "name": "Kincorth / Nigg / Cove",
+        "country": "scotland",
+        "areas": [
+          "Kincorth",
+          "Nigg",
+          "Cove"
+        ]
+      },
+      "metric": "polishEthnicGroup",
+      "value": 4.3,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+      "dataset": "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "official-secondary",
+      "corroboration": [
+        {
+          "type": "official_local_authority_secondary_publication",
+          "publisher": "Aberdeen City Council",
+          "document": "Local Housing Strategy Evidence Base",
+          "table": "Table 4-5.9",
+          "sourceUrl": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf",
+          "value": 4.3,
+          "matchesFirstSource": null,
+          "limits": "Percentages from council report citing Scotland Census 2022; not direct census extract; no ward counts or denominators",
+          "receivedOn": "2026-10-16 (operator upload dc97009; not retrievable from the build environment)"
+        }
+      ]
     }
   ]
 }

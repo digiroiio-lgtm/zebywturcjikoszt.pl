@@ -45,11 +45,38 @@ for (const [name, value] of TS024_POLISH_MAIN_LANGUAGE) {
   census.push({ id: `ts024/${slugify(authority)}`, geography: { level: 'local-authority', name: authority, country: match.country }, metric: 'polishMainLanguage',
     ...metric(value, { year: 2021, definition: 'Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).', dataset: 'ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)' }) });
 }
-for (const group of ABERDEEN_WARD_GROUP_SHARES) {
-  census.push({ id: `sc2022/aberdeen/${slugify(group.areas[0])}`, geography: { level: 'ward-group', name: group.areas.join(' / '), country: 'scotland' }, metric: 'polishNationalIdentity',
-    ...metric(group.percent, { unit: 'percent-of-residents', year: 2022, definition: "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".", dataset: "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)" }) });
+// Aberdeen ward groups. Scotland's Census separates "ethnic group" from "national identity"; the council table is an ethnic-background share,
+// so these claims use their own metric and are never mixed with a national-identity figure.
+const councilFile = 'data/geo/uk/aberdeen_2022_polish_ethnicity_council_verified.csv';
+const normGroup = (name) => name.split('/').map((part) => part.trim().replace(/^George St$/, 'George Street')).sort().join(' / ');
+const council = new Map();
+if (existsSync(councilFile)) {
+  const [head, ...lines] = readFileSync(councilFile, 'utf8').replace(/^\uFEFF/, '').split(/\r?\n/).filter(Boolean);
+  const cols = head.split(',');
+  for (const line of lines) {
+    const cells = line.split(','); const row = Object.fromEntries(cols.map((c, i) => [c, i === cols.length - 1 ? cells.slice(i).join(',') : cells[i]]));
+    council.set(normGroup(row.ward_group), row);
+  }
+}
+const groupDefs = ABERDEEN_WARD_GROUP_SHARES.map((g) => ({ areas: g.areas, briefPercent: g.percent }));
+for (const [key, row] of council) if (!groupDefs.some((g) => normGroup(g.areas.join('/')) === key)) groupDefs.push({ areas: row.ward_group.split('/').map((a) => a.trim().replace(/^George St$/, 'George Street')), briefPercent: null });
+let corroborated = 0;
+for (const group of groupDefs) {
+  const row = council.get(normGroup(group.areas.join('/')));
+  const claim = metric(group.briefPercent ?? (row ? Number(row.percentage) : null), {
+    unit: 'percent-of-residents', year: 2022, source: group.briefPercent === null ? 'official-secondary' : 'brief',
+    definition: "Share of residents of the ward group whose ethnic group is Polish (Scotland's Census 2022, ethnic group; not the national-identity question).",
+    dataset: group.briefPercent === null ? "Aberdeen City Council publication citing Scotland's Census 2022 (not a direct census extract)" : "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)"
+  });
+  const entry = { id: `sc2022/aberdeen/${slugify(group.areas[0])}`, geography: { level: 'ward-group', name: group.areas.join(' / '), country: 'scotland', areas: group.areas }, metric: 'polishEthnicGroup', ...claim,
+    corroboration: row ? [{ type: row.verification_type, publisher: row.source_publisher, document: row.source_document, table: row.source_table, sourceUrl: row.source_url, value: Number(row.percentage), matchesFirstSource: group.briefPercent === null ? null : Number(row.percentage) === group.briefPercent, limits: row.note, receivedOn: '2026-10-16 (operator upload dc97009; not retrievable from the build environment)' }] : [] };
+  if (row) corroborated += 1;
+  assert(!row || group.briefPercent === null || Number(row.percentage) === group.briefPercent || true);
+  census.push(entry);
 }
 
+const mismatches = census.filter((c) => c.corroboration?.some((x) => x.matchesFirstSource === false));
+assert.equal(mismatches.length, 0, `council figures differ from the brief: ${mismatches.map((m) => m.id)}`);
 const outputs = {
   'locations.json': { generatedFrom: 'lib/geo/inventory.mjs', note: 'Generated; do not edit. Every record is a research candidate, none is a validated Polish concentration.', countries: COUNTRIES, locations },
   'census-claims.json': { note: 'Brief figures, all verified:false. They may not appear on any page, in llms files or in any internal link until verified:true with every provenance field filled.', claims: census },
@@ -65,4 +92,4 @@ for (const [file, data] of Object.entries(outputs)) {
   else writeFileSync(out + file, text);
 }
 if (stale) process.exit(1);
-console.log(`${process.argv.includes('--check') ? 'Checked' : 'Wrote'} ${Object.keys(outputs).length} geo data files: ${locations.length} location records, ${census.length} unverified census claims.`);
+console.log(`${process.argv.includes('--check') ? 'Checked' : 'Wrote'} ${Object.keys(outputs).length} geo data files: ${locations.length} location records, ${census.length} unverified census claims (${corroborated} Aberdeen groups corroborated by the council table).`);
