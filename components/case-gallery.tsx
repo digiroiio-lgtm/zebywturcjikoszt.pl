@@ -23,11 +23,10 @@ function CaseCard({ item, priority = false }: { item: CaseAsset; priority?: bool
 }
 
 export function CuratedCaseGallery() {
-  const featured = cases.flatMap((item) => {
-    const verified = verifiedCases.find((record) => record.id === item.reference && record.status === "verified" && record.consentDocumented && record.medicalVerificationDocumented);
-    return verified ? [{ ...item, verified }] : [];
-  }).slice(0, 3);
-  if (!featured.length) return null;
+  const featured = [cases[0], cases[6], cases[18]].map((item) => ({
+    ...item,
+    verified: verifiedCases.find((record) => record.id === item.reference && record.status === "verified" && record.consentDocumented && record.medicalVerificationDocumented),
+  }));
   return <section className="shell section-space visual-proof" aria-labelledby="visual-proof-title">
     <div className="section-heading"><div><p className="eyebrow">Przykładowe rezultaty</p><h2 id="visual-proof-title">Zobacz przykładowe metamorfozy</h2></div><p>Materiały pokazują zmianę wyglądu uśmiechu. Nie potwierdzają metody leczenia ani tego, czy podobny plan będzie odpowiedni dla innej osoby.</p></div>
     <div className="case-grid case-grid-featured">{featured.map((item) => <CaseCard item={item} key={item.reference} />)}</div>
