@@ -32,7 +32,7 @@ Tarih: 16 Ekim 2026 · Kapsam: depodaki site kodu (tüm sayfalar, form, takip, y
 
 | Reklam grubu teması | Sayfa | Durum |
 |---|---|---|
-| Fiyat / "zęby w Turcji koszt" | `/koszt` (24 kalem, EUR + yaklaşık PLN, tarihli) | Hazır, güçlü |
+| Fiyat / "zęby w Turcji koszt" | `/koszt` (28 kalem, EUR + yaklaşık PLN, tarihli) | Hazır, güçlü |
 | Implant | `/implanty` | Hazır |
 | Zirkonyum kron | `/korony-cyrkonowe` (150 EUR/kalem) | Hazır |
 | Lamine / licówki | `/licowki` | Hazır |
@@ -127,3 +127,19 @@ Bunları koddan göremiyorum, kontrol listesi olarak ekledim:
 - Canlı siteye bu ortamdan erişilemedi (proxy 403), bu yüzden canlı durum (indeksleme, hız, Search Console, gerçek PageSpeed) doğrulanmadı. Analiz depodaki kaynak koda dayanıyor.
 - Google Ads politikaları sık değişir; "doğrulayın" işaretli maddeler reklam hesabında güncel politika sayfasından teyit edilmeli.
 - %48 skoru ağırlıklı bir tahmin; hedef göstergesidir, sınav notu değildir.
+
+## 8. Sonradan eklenen not: rapor yazıldıktan sonra değişenler (aynı gün)
+
+Bu bölüm ilk analizin parçası değildir; rapor yazıldıktan sonra `main`'e giren değişikliklerin yukarıdaki maddelere etkisini gösterir. Bölüm 1-7'deki tespitler (etiket, onay mekanizması, `gclid`, telefon/WhatsApp yok) hâlâ geçerlidir. Tek düzeltme: §3 tablosundaki fiyat kalemi sayısı 24 değil **28**'dir (ilk metinde yanlıştı).
+
+**Aşama 1'i doğrudan etkileyenler**
+
+| Değişiklik | PR | Ads hazırlığına etkisi |
+| --- | --- | --- |
+| Sitede artık `Content-Security-Policy` başlığı var: `script-src 'self' 'unsafe-inline'`, `connect-src 'self'`, `img-src 'self' data: blob:` | #50 | **Madde 2 (GTM/gtag/GA4/Ads etiketi) bu haliyle çalışmaz:** etiket betiği ve gönderdiği istekler engellenir. Etiket eklenirken `next.config.ts` içindeki CSP, Google'ın güncel CSP rehberindeki alan adlarıyla (betik, bağlantı ve görsel/piksel istekleri) genişletilmeli ve Aşama 1'in 5. maddesine "tarayıcı konsolunda CSP ihlali 0" kontrolü eklenmeli. Politika boşluğa açılmamalı, yalnızca gereken alan adları eklenmeli. |
+| İç linklerde artık izleme parametresi yok; `lead_source`, `cta_location`, `page_path`, `guide_source` tıklamada `sessionStorage`'a yazılıyor (`components/tracked-link.tsx`) ve form oradan okuyor | #50 | **Madde 3 (`gclid`/`gbraid`/`wbraid`):** yakalama, iç linklere parametre ekleyerek yapılmamalı (derleme denetimi `validate-seo` buna artık hata verir). Aynı kalıpla, reklamdan gelen ilk sayfada URL'den okuyup tarayıcı depolamasına yazmak ve `lead-form.tsx` içindeki `getLeadContext()` ile forma eklemek uyumlu yoldur. Çerez/onay kararı yine Aşama 1, madde 1'e bağlıdır. |
+| Header, mobil menü, ana sayfa hero ve alt CTA'lar artık ayrı `cta_location` taşıyor (`header`, `mobile_menu`, `home_hero`, `home_bottom`) ve CTA metni iki varyanta indi ("Poproś o wstępną wycenę" / "Poproś o bezpłatną wstępną ocenę") | #47, #48 | Reklam tıklamasından sonra hangi düğmenin lead getirdiği ölçülebilir; kampanya CTA'sı için bu iki metin dışına çıkılacaksa doğru metin seçimi §4'te değerlendirilmeli. |
+| Fiyat sayfalarında masaüstü exit-intent penceresi; olaylar `exit_intent_shown` ve `exit_intent_cta` | #49 | Fiyat sayfasına gelen reklam trafiği için ek bir mikro-dönüşüm sinyali (ayrı bir Ads dönüşümü olarak değil, önce Analytics'te gözlemlenmeli). |
+| Fiyat tutarlılığı için otomatik test (`test:prices`) ve `llms` dosyası düzeltmeleri | #53 | Reklam metinlerinde ve iniş sayfalarında fiyat verilirse sayfalardaki kalemlerle birebir aynı olmalı; test yeni sayfalarda da çalışır. |
+
+**Hâlâ geçerli sınır:** Canlı site, Search Console verisi ve gerçek PageSpeed bu not için de yeniden doğrulanmadı; yalnızca depo kodu ve `main`'in derlemesi esas alındı.
