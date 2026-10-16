@@ -129,6 +129,7 @@ for (const [route, file] of routeFiles) {
 
   for (const href of matches(html, /href="(\/[^"]*)"/g)) {
     const linkedRoute = normalisePath(href);
+    if (/[?&;](lead_source|cta_location|page_path|guide_source)=/.test(href)) fail(`${route}: internal link carries tracking parameters (${href.slice(0, 80)}); pass them via TrackedLink instead.`);
     if (linkedRoute.startsWith("/_next/") || linkedRoute.startsWith("/api/") || ["/icon", "/apple-icon", "/manifest.webmanifest", "/opengraph-image", "/twitter-image"].includes(linkedRoute)) continue;
     if (!knownRoutes.has(linkedRoute)) fail(`${route}: broken internal link to ${linkedRoute}.`);
   }

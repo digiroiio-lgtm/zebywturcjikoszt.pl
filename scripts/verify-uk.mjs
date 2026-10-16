@@ -19,12 +19,13 @@ for (const [route, depth] of pages) {
   assert(html.includes(`rel="canonical" href="${origin}/${route}"`), route + ': canonical');
   assert.equal(graph.find((s) => s['@type'] === 'BreadcrumbList').itemListElement.length, depth, route + ': breadcrumb depth');
   assert(graph.some((s) => s.audience?.geographicArea?.name === 'Wielka Brytania'), route + ': UK audience');
-  assert(html.includes('lead_source=OGZ-UK'), route + ': OGZ-UK lead source on the closing CTA');
+  assert(html.includes('href="/kontakt"') && !/href="[^"]*(lead_source|cta_location|guide_source)=/.test(html), route + ': closing CTA links to the clean /kontakt URL (lead source travels via TrackedLink)');
   assert(html.includes('lang="pl-PL"'), route + ': Polish language');
   assert(sitemap.includes(`${origin}/${route}`), route + ': sitemap');
   assert(llmsFull.includes(`${origin}/${route}`), route + ': llms-full');
   assert(graph.every((s) => !s.reviewedBy), route + ': no medical review claimed');
 }
+assert(readFileSync('components/tracked-link.tsx', 'utf8').includes('OGZ-UK'), 'TrackedLink derives the OGZ-UK lead source on /uk pages');
 const payment = read('uk/jak-zaplacic-za-leczenie-zebow-w-turcji.html');
 assert(payment.includes('nie oferuje ani nie pośredniczy w kredytach'), 'payment guide states the service does not arrange credit');
 for (const forbidden of [/0\s?%\s?APR/i, /gwarantowan/i, /bez\s+sprawdzania/i]) assert(!forbidden.test(payment.replace(/<[^>]+>/g, ' ')), 'payment guide must not contain ' + forbidden);

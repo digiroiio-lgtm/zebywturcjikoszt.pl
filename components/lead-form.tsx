@@ -5,7 +5,7 @@ import { FormEvent, useEffect, useId, useRef, useState } from "react";
 import { countries } from "@/lib/countries";
 import { contactPromiseLines } from "@/lib/contact-promise";
 import { contactChannels, leadTopics, topicFromPath, type ContactChannelId } from "@/lib/lead-options";
-import { trackEvent } from "./tracked-link";
+import { readAttribution, trackEvent } from "./tracked-link";
 
 export type LeadContext = {
   leadSource?: string;
@@ -41,12 +41,13 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
   }
   function getLeadContext() {
     const params = new URLSearchParams(window.location.search);
+    const attribution = readAttribution();
     return {
-      lead_source: context.leadSource ?? params.get("lead_source") ?? "OGZ-PL",
-      cta_location: context.ctaLocation ?? params.get("cta_location") ?? "contact_page",
-      source_page_path: context.sourcePagePath ?? params.get("page_path") ?? window.location.pathname,
+      lead_source: context.leadSource ?? attribution.lead_source ?? "OGZ-PL",
+      cta_location: context.ctaLocation ?? attribution.cta_location ?? "contact_page",
+      source_page_path: context.sourcePagePath ?? attribution.page_path ?? window.location.pathname,
       landing_page: window.location.pathname,
-      guide_source: params.get("guide_source") ?? "",
+      guide_source: attribution.guide_source ?? "",
       case_reference: context.caseReference ?? params.get("case_reference") ?? "",
       utm_source: params.get("utm_source") ?? "",
       utm_medium: params.get("utm_medium") ?? "",
