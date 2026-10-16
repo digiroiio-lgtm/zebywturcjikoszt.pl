@@ -23,6 +23,11 @@ for (const [slug, items] of Object.entries(figures)) {
     const match = rendered.find((item) => item.src === figure.src && item.alt === figure.alt);
     if (!match) failures.push(`${slug}: figure ${figure.src} with the declared alt text is not in the built HTML.`);
     else if (match.caption !== figure.caption) failures.push(`${slug}: figure ${figure.src} has a different caption in the built HTML.`);
+    const block = imgs.find((item) => item.includes(encodeURIComponent(figure.src)));
+    if (block) {
+      const widths = [...block.matchAll(/[?&](?:amp;)?w=(\d+)/g)].map((item) => Number(item[1]));
+      if (widths.some((width) => width > figure.width)) failures.push(`${slug}: optimized image exceeds the source width of ${figure.width}px.`);
+    }
   }
   if (rendered.length !== items.length) failures.push(`${slug}: ${items.length} figure(s) declared, ${rendered.length} rendered.`);
 }
