@@ -8,6 +8,7 @@ import { FAQ_PUBLISHED_DATE } from "@/lib/ai-content";
 import { TEAM_SOURCE_DATE, clinicalTeam } from "@/lib/clinical-team";
 import { caseImages } from "@/lib/gallery";
 import { pageFigures } from "@/lib/page-figures";
+import { shortsUpdatedIsoDate } from "@/lib/shorts";
 
 type Entry = MetadataRoute.Sitemap[number];
 const day = (iso: string) => new Date(`${iso.slice(0, 10)}T00:00:00Z`);
@@ -26,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
   const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date), ...withImages(slug) }));
   const expertDates = verifiedExperts.map((expert) => expert.lastVerified);
-  const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_LATEST_DATE, ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
+  const homeDate = latest([PRICING_UPDATED_ISO_DATE, GUIDES_LATEST_DATE, ...(shortsUpdatedIsoDate ? [shortsUpdatedIsoDate] : []), ...indexable.map((page) => page.lastUpdated ?? UPDATED_ISO_DATE)]);
 
   return [
     { url: SITE_URL, lastModified: day(homeDate) },
