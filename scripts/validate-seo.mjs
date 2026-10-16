@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
@@ -131,6 +132,7 @@ for (const [route, file] of routeFiles) {
     const linkedRoute = normalisePath(href);
     if (/[?&;](lead_source|cta_location|page_path|guide_source)=/.test(href)) fail(`${route}: internal link carries tracking parameters (${href.slice(0, 80)}); pass them via TrackedLink instead.`);
     if (linkedRoute.startsWith("/_next/") || linkedRoute.startsWith("/api/") || ["/icon", "/apple-icon", "/manifest.webmanifest", "/opengraph-image", "/twitter-image"].includes(linkedRoute)) continue;
+    if (linkedRoute.startsWith("/images/") && existsSync(path.join(process.cwd(), "public", linkedRoute))) continue;
     if (!knownRoutes.has(linkedRoute)) fail(`${route}: broken internal link to ${linkedRoute}.`);
   }
 

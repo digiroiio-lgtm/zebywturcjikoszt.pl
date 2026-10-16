@@ -38,14 +38,14 @@ if (existsSync(root + 'index.html')) {
     note = 'no approved video: the homepage has no Shorts section and no YouTube reference';
   } else {
     const at = (text) => html.indexOf(text);
-    const start = at('Akdeniz Dental w Antalyi'), section = at('patient-stories-title'), after = at('Zobacz przykładowe metamorfozy');
-    if (!(start > -1 && start < section && section < after)) fail('Shorts section is not between "Akdeniz Dental w Antalyi" and "Zobacz przykładowe metamorfozy"');
+    const start = at('Akdeniz Dental w Antalyi'), section = at('patient-stories-title'), after = at('home-travel-title');
+    if (!(start > -1 && start < section && section < after)) fail('Shorts section must follow the clinic and precede travel planning');
     if ((html.match(/class="shorts-play"/g) || []).length !== videos.length) fail('play button count differs from approved videos');
     const thumbnails = [...html.matchAll(/<img\b[^>]*>/g)].map(([tag]) => tag).filter((tag) => /(?:i\.ytimg\.com|Miniatura filmu:)/.test(tag));
     if (thumbnails.length !== videos.length) fail('thumbnail count differs from approved videos');
     for (const tag of thumbnails) if (!/alt="Miniatura filmu: [^"]+"/.test(tag)) fail('video thumbnail lacks descriptive Polish alt text');
     if (/<iframe/.test(html)) fail('iframe in initial HTML');
-    note = `${videos.length} approved video(s) rendered between the two sections, no iframe before Play`;
+    note = `${videos.length} approved video(s) rendered after the clinic and before travel planning, no iframe before Play`;
   }
 }
 if (failures.length) { console.error(`Shorts check failed with ${failures.length} issue(s):`); failures.forEach((f) => console.error('- ' + f)); process.exit(1); }

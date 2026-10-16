@@ -4,7 +4,7 @@ import { SITE_URL } from "@/lib/site";
 
 const testimonials = shortsVideos.length > 0 && shortsVideos.every((video) => video.kind === "patient-testimonial");
 
-/** Homepage section after "Akdeniz Dental w Antalyi". Renders nothing until approved videos exist in data/shorts.json. */
+/** Homepage section after clinic identity and approved case evidence. Renders nothing until approved videos exist in data/shorts.json. */
 export function PatientStoriesSection() {
   if (shortsVideos.length === 0) return null;
   const items = shortsVideos.map(({ id, url, title, description, thumbnail }) => ({ id, url, title, description, thumbnail }));
