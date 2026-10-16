@@ -51,12 +51,12 @@ export function ExitIntentOffer({ slug, leadSource = "OGZ-PL" }: { slug: string;
   return <dialog className="case-lead-dialog exit-intent-dialog" ref={dialogRef} aria-labelledby="exit-intent-title" onCancel={close} onClick={(event) => { if (event.target === event.currentTarget) close(); }}>
     <div className="case-lead-dialog-inner">
       <button type="button" className="dialog-close" aria-label="Zamknij" onClick={close}>×</button>
-      <p className="mini-label">Indywidualna wycena</p>
-      <h2 id="exit-intent-title">Cennik to ceny pozycji, nie koszt całego leczenia</h2>
-      <p>Opisz krótko, czego potrzebujesz. Wskażemy, jakie informacje są potrzebne do wstępnej oceny. Plan i ostateczny koszt ustala lekarz po badaniu. Nie przesyłaj dokumentacji medycznej w pierwszej wiadomości.</p>
+      <p className="mini-label">Porozmawiajmy po polsku</p>
+      <h2 id="exit-intent-title">Masz pytania o koszt leczenia? Zapytaj nasz zespół po polsku</h2>
+      <p>Cennik pokazuje ceny pojedynczych pozycji. Ile wyniesie Twoje leczenie, zależy od tego, czego faktycznie potrzebujesz. Napisz kilka słów, a zespół kliniki w Antalyi odpowie i podpowie, co przygotować do wstępnej wyceny. Bez zobowiązań, bez wysyłania dokumentacji medycznej.</p>
       <div className="button-row">
-        <TrackedLink href={guideAssessmentHref(`/${slug}`, location, leadSource)} event="exit_intent_cta" tracking={tracking} className="button">Poproś o wstępną wycenę</TrackedLink>
-        <button type="button" className="text-link" onClick={close}>Nie, dziękuję</button>
+        <TrackedLink href={guideAssessmentHref(`/${slug}`, location, leadSource)} event="exit_intent_cta" tracking={tracking} className="button">Napisz do nas</TrackedLink>
+        <button type="button" className="text-link" onClick={close}>Może później</button>
       </div>
     </div>
   </dialog>;
