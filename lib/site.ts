@@ -393,7 +393,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy klinika powinna mieć obsługę po polsku?", answer: "To nie jest wymóg, ale ułatwia komunikację. Ustal na piśmie, kto i w jakim języku prowadzi kontakt przed wyjazdem, na miejscu i po powrocie oraz w jakim języku będą plan leczenia, zgoda i umowa." }
     ],
     sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }, nhsAbroad],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-17",
     ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "clinic_check_cta"
   },
   "o-nas": {

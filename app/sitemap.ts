@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: abs(`/${page.slug}`),
     // The price page also changes whenever the price list does; pages with reviewed medical text keep their own date.
     lastModified: day(page.slug === "koszt" ? latest([page.lastUpdated ?? UPDATED_ISO_DATE, PRICING_UPDATED_ISO_DATE]) : page.lastUpdated ?? UPDATED_ISO_DATE),
-    ...withImages(page.slug, page.slug === "przed-i-po" ? caseImages.map((item) => abs(item.src)) : [])
+    ...withImages(page.slug, page.slug === "przed-i-po" ? caseImages.map((item) => abs(item.src)) : page.slug === "jak-wybrac-klinike" ? [abs("/images/klinika/portfolio-02b.webp")] : [])
   }));
   const guideEntries: Entry[] = [{ slug: "poradniki", date: GUIDES_LATEST_DATE }, ...Object.values(newGuides).map((guide) => ({ slug: guide.slug, date: guide.lastUpdated! }))].map(({ slug, date }) => ({ url: abs(`/${slug}`), lastModified: day(date), ...withImages(slug) }));
   const expertDates = verifiedExperts.map((expert) => expert.lastVerified);
