@@ -1,0 +1,141 @@
+﻿country,region,city_or_authority,neighbourhood_or_area,postcode_district_candidate,classification,population_data_status,notes
+England,Greater London,Ealing,Ealing Broadway,W5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,South Ealing,W5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,Northfields,W13,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,Acton,W3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,Greenford,UB6,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,Perivale,UB6,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Ealing,Northolt,UB5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hammersmith and Fulham,Hammersmith,W6,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hammersmith and Fulham,Ravenscourt Park,W6,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hounslow,Hounslow Central,TW3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hounslow,Hounslow West,TW4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hounslow,Brentford,TW8,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Brent,Wembley,HA0,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Brent,Wembley,HA9,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Brent,Willesden,NW10,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Barnet,Hendon,NW4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Haringey,Tottenham,N17,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Croydon,Croydon Central,CR0,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Merton,Mitcham,CR4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hillingdon,Hayes,UB3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Greater London,Hillingdon,Hayes,UB4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Southampton,Shirley,SO15,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Southampton,St Marys,SO14,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Southampton,Portswood,SO17,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Southampton,City Centre,SO14,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Slough,Slough Central,SL1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Slough,Langley,SL3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Luton,Luton Central,LU1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Luton,Bury Park,LU4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bournemouth Christchurch and Poole,Bournemouth Central,BH1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bournemouth Christchurch and Poole,Bournemouth Central,BH2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bournemouth Christchurch and Poole,Boscombe,BH1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bournemouth Christchurch and Poole,Boscombe,BH5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bristol,Easton,BS5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bristol,Bedminster,BS3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,South and Southeast,Bristol,Central Bristol,BS1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Northampton,Town Centre,NN1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Northampton,Town Centre,NN2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Northampton,Abington,NN1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Corby,Town Centre,NN17,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Wellingborough,Town Centre,NN8,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Kettering,Town Centre,NN16,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Peterborough,Central,PE1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Peterborough,Millfield,PE1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Peterborough,Eastfield,PE1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Peterborough,Fletton,PE2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Boston,Town Centre,PE21,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Spalding,Town Centre,PE11,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Wisbech,Town Centre,PE13,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Nottingham,City Centre,NG1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Nottingham,Radford,NG7,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Leicester,City Centre,LE1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Leicester,Highfields,LE2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Coventry,City Centre,CV1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Birmingham,City Centre,B1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Birmingham,City Centre,B2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Birmingham,City Centre,B3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Birmingham,City Centre,B4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,Midlands and East,Birmingham,City Centre,B5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Hull,Newington,HU3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Hull,City Centre,HU1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Leeds,City Centre,LS1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Leeds,Harehills,LS8,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Wakefield,City Centre,WF1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Doncaster,City Centre,DN1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Manchester,City Centre,M1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Manchester,Cheetham Hill,M8,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Bradford,City Centre,BD1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Sheffield,City Centre,S1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Liverpool,City Centre,L1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+England,North England,Newcastle upon Tyne,City Centre,NE1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Tillydrone,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Seaton,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Old Aberdeen,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Northfield,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Mastrick North,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Torry,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Ferryhill,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Hilton,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Woodside,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Stockethill,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,George Street,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Harbour,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Kincorth,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Nigg,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Cove,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Kingswells,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Sheddocksley,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Summerhill,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Dyce,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Bucksburn,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Danestone,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Midstocket,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Rosemount,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Aberdeen,Bridge of Don,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Edinburgh,Leith,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Edinburgh,Sighthill / Gorgie,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Glasgow,City,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Dundee,City,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Perth,City,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Scotland,Scotland,Inverness,City,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Wrexham,Central,LL11,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Wrexham,Central,LL13,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Flintshire,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Merthyr Tydfil,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Newport,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Swansea,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Cardiff,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Carmarthenshire,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Wales,Wales,Ceredigion,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT1,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT2,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT3,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT4,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT5,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT6,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT7,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT8,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT9,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT10,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT11,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT12,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT13,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT14,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Belfast,City,BT15,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Craigavon,Area,BT62,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Craigavon,Area,BT63,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Craigavon,Area,BT64,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Craigavon,Area,BT65,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Portadown,Area,,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Dungannon,Area,BT70,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Dungannon,Area,BT71,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Newry,Area,BT34,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Newry,Area,BT35,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Ballymena,Area,BT42,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Ballymena,Area,BT43,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Lisburn,Area,BT27,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Lisburn,Area,BT28,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Coleraine,Area,BT51,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk
+Northern Ireland,Northern Ireland,Coleraine,Area,BT52,RESEARCH_CANDIDATE,NO_VERIFIED_NEIGHBOURHOOD_POPULATION,Do not publish population claims without official spatial crosswalk

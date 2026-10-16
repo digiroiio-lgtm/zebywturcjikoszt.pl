@@ -1,0 +1,8 @@
+﻿dataset_id,census_year,population_measure,geographic_coverage,official_url,file_type,acquisition_status
+ONS_TS012,2021,Poland-born,England and Wales,https://www.nomisweb.co.uk/output/census/2021/census2021-ts012.zip,OFFICIAL_ZIP_CSV,download_link_verified_binary_not_retrieved
+ONS_TS024,2021,Polish main language,England and Wales,https://www.nomisweb.co.uk/output/census/2021/census2021-ts024.zip,OFFICIAL_ZIP_CSV,download_link_verified_binary_not_retrieved
+ONS_TS012_DATASET,2021,Country of birth detailed,England and Wales,https://www.ons.gov.uk/datasets/TS012/editions/2021/versions/2,OFFICIAL_DATASET_PAGE,verified
+ONS_TS024_DATASET,2021,Main language detailed,England and Wales,https://www.ons.gov.uk/datasets/TS024/editions/2021/versions/3,OFFICIAL_DATASET_PAGE,verified
+NOMIS_BULK,2021,Census 2021 geographic CSV downloads,England and Wales,https://www.nomisweb.co.uk/census/2021/bulk,OFFICIAL_DOWNLOAD_INDEX,verified
+SCOTLAND_CHART_DATA,2022,Ethnic and language chart data,Scotland,https://www.scotlandscensus.gov.uk/media/1ioiuhvx/scotland-s-census-2022-ethnic-group-national-identity-language-and-religion-chart-data_new-1.xlsx,OFFICIAL_XLSX,download_link_verified_binary_not_retrieved
+SCOTLAND_CENSUS,2022,Area-level Scottish census data,Scotland,https://www.scotlandscensus.gov.uk/,OFFICIAL_DATA_PORTAL,Area-level Polish ethnicity CSV export remains to be identified
