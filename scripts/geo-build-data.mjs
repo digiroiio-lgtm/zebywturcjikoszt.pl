@@ -21,7 +21,7 @@ for (const block of INVENTORY) {
     let id = `${block.country}/${slugify(block.authority)}/${slugify(area.name)}`;
     assert(!seen.has(id), `duplicate id ${id}`); seen.add(id);
     locations.push({
-      id, kind: area.kind ?? 'area', name: area.name, group: block.group, country: block.country, region: block.region, authority: block.authority, cityGroup: block.cityGroup,
+      id, origin: area.origin ?? 'brief', kind: area.kind ?? 'area', name: area.name, group: block.group, country: block.country, region: block.region, authority: block.authority, cityGroup: block.cityGroup,
       postalDistricts: area.districts ?? [], districtStatus: (area.districts ?? []).length ? 'brief-claimed-unverified' : 'none-in-brief',
       evidenceLevel: 'brief-candidate', stage, note: [block.note, area.note].filter(Boolean).join(' ') || null
     });
@@ -30,7 +30,7 @@ for (const block of INVENTORY) {
 
 // Counts must equal the brief's own tally; a dropped or invented location fails the build, not a reviewer.
 for (const [group, expected] of Object.entries(BRIEF_AREA_COUNTS)) {
-  const actual = locations.filter((l) => l.group === group && l.kind !== 'authority').length;
+  const actual = locations.filter((l) => l.group === group && l.kind !== 'authority' && l.origin === 'brief').length;
   assert.equal(actual, expected, `group ${group}: ${actual} area records, brief lists ${expected}`);
 }
 for (const name of BRIEF_AUTHORITY_CANDIDATES) assert(locations.some((l) => l.kind === 'authority' && l.name === name), `authority candidate ${name} missing`);

@@ -30,6 +30,7 @@
   "locations": [
     {
       "id": "england/ealing/ealing-broadway",
+      "origin": "brief",
       "kind": "area",
       "name": "Ealing Broadway",
       "group": "A",
@@ -47,6 +48,7 @@
     },
     {
       "id": "england/ealing/south-ealing",
+      "origin": "brief",
       "kind": "area",
       "name": "South Ealing",
       "group": "A",
@@ -64,6 +66,7 @@
     },
     {
       "id": "england/ealing/northfields",
+      "origin": "brief",
       "kind": "area",
       "name": "Northfields",
       "group": "A",
@@ -81,6 +84,7 @@
     },
     {
       "id": "england/ealing/acton",
+      "origin": "brief",
       "kind": "area",
       "name": "Acton",
       "group": "A",
@@ -98,6 +102,7 @@
     },
     {
       "id": "england/ealing/greenford",
+      "origin": "brief",
       "kind": "area",
       "name": "Greenford",
       "group": "A",
@@ -115,6 +120,7 @@
     },
     {
       "id": "england/ealing/perivale",
+      "origin": "brief",
       "kind": "area",
       "name": "Perivale",
       "group": "A",
@@ -132,6 +138,7 @@
     },
     {
       "id": "england/ealing/northolt",
+      "origin": "brief",
       "kind": "area",
       "name": "Northolt",
       "group": "A",
@@ -149,6 +156,7 @@
     },
     {
       "id": "england/hammersmith-and-fulham/hammersmith",
+      "origin": "brief",
       "kind": "area",
       "name": "Hammersmith",
       "group": "A",
@@ -166,6 +174,7 @@
     },
     {
       "id": "england/hammersmith-and-fulham/ravenscourt-park",
+      "origin": "brief",
       "kind": "area",
       "name": "Ravenscourt Park",
       "group": "A",
@@ -183,6 +192,7 @@
     },
     {
       "id": "england/hammersmith-and-fulham/polish-social-and-cultural-association-posk-238-246-king-street-london-w6-0rf",
+      "origin": "brief",
       "kind": "landmark",
       "name": "Polish Social and Cultural Association (POSK), 238–246 King Street, London W6 0RF",
       "group": "A",
@@ -200,6 +210,7 @@
     },
     {
       "id": "england/hounslow/hounslow-central",
+      "origin": "brief",
       "kind": "area",
       "name": "Hounslow Central",
       "group": "A",
@@ -217,6 +228,7 @@
     },
     {
       "id": "england/hounslow/hounslow-west",
+      "origin": "brief",
       "kind": "area",
       "name": "Hounslow West",
       "group": "A",
@@ -234,6 +246,7 @@
     },
     {
       "id": "england/hounslow/brentford",
+      "origin": "brief",
       "kind": "area",
       "name": "Brentford",
       "group": "A",
@@ -251,6 +264,7 @@
     },
     {
       "id": "england/brent/wembley",
+      "origin": "brief",
       "kind": "area",
       "name": "Wembley",
       "group": "A",
@@ -269,6 +283,7 @@
     },
     {
       "id": "england/brent/willesden",
+      "origin": "brief",
       "kind": "area",
       "name": "Willesden",
       "group": "A",
@@ -286,6 +301,7 @@
     },
     {
       "id": "england/barnet/hendon",
+      "origin": "brief",
       "kind": "area",
       "name": "Hendon",
       "group": "A",
@@ -303,6 +319,7 @@
     },
     {
       "id": "england/haringey/tottenham",
+      "origin": "brief",
       "kind": "area",
       "name": "Tottenham",
       "group": "A",
@@ -320,6 +337,7 @@
     },
     {
       "id": "england/croydon/croydon-central",
+      "origin": "brief",
       "kind": "area",
       "name": "Croydon Central",
       "group": "A",
@@ -337,6 +355,7 @@
     },
     {
       "id": "england/merton/mitcham",
+      "origin": "brief",
       "kind": "area",
       "name": "Mitcham",
       "group": "A",
@@ -354,6 +373,7 @@
     },
     {
       "id": "england/hillingdon/hayes",
+      "origin": "brief",
       "kind": "area",
       "name": "Hayes",
       "group": "A",
@@ -372,6 +392,7 @@
     },
     {
       "id": "england/southampton/shirley",
+      "origin": "brief",
       "kind": "area",
       "name": "Shirley",
       "group": "B",
@@ -389,6 +410,7 @@
     },
     {
       "id": "england/southampton/shirley-road",
+      "origin": "brief",
       "kind": "area",
       "name": "Shirley Road",
       "group": "B",
@@ -406,6 +428,7 @@
     },
     {
       "id": "england/southampton/st-marys",
+      "origin": "brief",
       "kind": "area",
       "name": "St Mary's",
       "group": "B",
@@ -423,6 +446,7 @@
     },
     {
       "id": "england/southampton/portswood",
+      "origin": "brief",
       "kind": "area",
       "name": "Portswood",
       "group": "B",
@@ -440,6 +464,7 @@
     },
     {
       "id": "england/southampton/southampton-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Southampton City Centre",
       "group": "B",
@@ -457,6 +482,7 @@
     },
     {
       "id": "england/slough/slough-central",
+      "origin": "brief",
       "kind": "area",
       "name": "Slough Central",
       "group": "B",
@@ -474,6 +500,7 @@
     },
     {
       "id": "england/slough/langley",
+      "origin": "brief",
       "kind": "area",
       "name": "Langley",
       "group": "B",
@@ -491,6 +518,7 @@
     },
     {
       "id": "england/luton/luton-central",
+      "origin": "brief",
       "kind": "area",
       "name": "Luton Central",
       "group": "B",
@@ -508,6 +536,7 @@
     },
     {
       "id": "england/luton/bury-park",
+      "origin": "brief",
       "kind": "area",
       "name": "Bury Park",
       "group": "B",
@@ -525,6 +554,7 @@
     },
     {
       "id": "england/bournemouth-christchurch-and-poole/bournemouth-central",
+      "origin": "brief",
       "kind": "area",
       "name": "Bournemouth Central",
       "group": "B",
@@ -543,6 +573,7 @@
     },
     {
       "id": "england/bournemouth-christchurch-and-poole/boscombe",
+      "origin": "brief",
       "kind": "area",
       "name": "Boscombe",
       "group": "B",
@@ -561,6 +592,7 @@
     },
     {
       "id": "england/bournemouth-christchurch-and-poole/christchurch",
+      "origin": "brief",
       "kind": "area",
       "name": "Christchurch",
       "group": "B",
@@ -576,6 +608,7 @@
     },
     {
       "id": "england/bournemouth-christchurch-and-poole/poole",
+      "origin": "brief",
       "kind": "area",
       "name": "Poole",
       "group": "B",
@@ -591,6 +624,7 @@
     },
     {
       "id": "england/bristol/easton",
+      "origin": "brief",
       "kind": "area",
       "name": "Easton",
       "group": "B",
@@ -608,6 +642,7 @@
     },
     {
       "id": "england/bristol/bedminster",
+      "origin": "brief",
       "kind": "area",
       "name": "Bedminster",
       "group": "B",
@@ -625,6 +660,7 @@
     },
     {
       "id": "england/bristol/central-bristol",
+      "origin": "brief",
       "kind": "area",
       "name": "Central Bristol",
       "group": "B",
@@ -702,6 +738,7 @@
     },
     {
       "id": "england/west-northamptonshire/northampton-town-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Northampton Town Centre",
       "group": "C",
@@ -720,6 +757,7 @@
     },
     {
       "id": "england/west-northamptonshire/abington",
+      "origin": "brief",
       "kind": "area",
       "name": "Abington",
       "group": "C",
@@ -737,6 +775,7 @@
     },
     {
       "id": "england/north-northamptonshire/corby",
+      "origin": "brief",
       "kind": "area",
       "name": "Corby",
       "group": "C",
@@ -754,6 +793,7 @@
     },
     {
       "id": "england/north-northamptonshire/wellingborough",
+      "origin": "brief",
       "kind": "area",
       "name": "Wellingborough",
       "group": "C",
@@ -771,6 +811,7 @@
     },
     {
       "id": "england/north-northamptonshire/kettering",
+      "origin": "brief",
       "kind": "area",
       "name": "Kettering",
       "group": "C",
@@ -788,6 +829,7 @@
     },
     {
       "id": "england/peterborough/central-peterborough",
+      "origin": "brief",
       "kind": "area",
       "name": "Central Peterborough",
       "group": "C",
@@ -805,6 +847,7 @@
     },
     {
       "id": "england/peterborough/millfield",
+      "origin": "brief",
       "kind": "area",
       "name": "Millfield",
       "group": "C",
@@ -822,6 +865,7 @@
     },
     {
       "id": "england/peterborough/eastfield",
+      "origin": "brief",
       "kind": "area",
       "name": "Eastfield",
       "group": "C",
@@ -839,6 +883,7 @@
     },
     {
       "id": "england/peterborough/fletton",
+      "origin": "brief",
       "kind": "area",
       "name": "Fletton",
       "group": "C",
@@ -856,6 +901,7 @@
     },
     {
       "id": "england/boston/boston-town-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Boston Town Centre",
       "group": "C",
@@ -873,6 +919,7 @@
     },
     {
       "id": "england/south-holland/spalding",
+      "origin": "brief",
       "kind": "area",
       "name": "Spalding",
       "group": "C",
@@ -890,6 +937,7 @@
     },
     {
       "id": "england/fenland/wisbech",
+      "origin": "brief",
       "kind": "area",
       "name": "Wisbech",
       "group": "C",
@@ -907,6 +955,7 @@
     },
     {
       "id": "england/nottingham/nottingham-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Nottingham City Centre",
       "group": "C",
@@ -924,6 +973,7 @@
     },
     {
       "id": "england/nottingham/radford",
+      "origin": "brief",
       "kind": "area",
       "name": "Radford",
       "group": "C",
@@ -941,6 +991,7 @@
     },
     {
       "id": "england/leicester/leicester-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Leicester City Centre",
       "group": "C",
@@ -958,6 +1009,7 @@
     },
     {
       "id": "england/leicester/highfields",
+      "origin": "brief",
       "kind": "area",
       "name": "Highfields",
       "group": "C",
@@ -975,6 +1027,7 @@
     },
     {
       "id": "england/coventry/coventry-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Coventry City Centre",
       "group": "C",
@@ -992,6 +1045,7 @@
     },
     {
       "id": "england/birmingham/central-birmingham",
+      "origin": "brief",
       "kind": "area",
       "name": "Central Birmingham",
       "group": "C",
@@ -1013,6 +1067,7 @@
     },
     {
       "id": "england/kingston-upon-hull/hull-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Hull City Centre",
       "group": "D",
@@ -1030,6 +1085,7 @@
     },
     {
       "id": "england/kingston-upon-hull/newington",
+      "origin": "brief",
       "kind": "area",
       "name": "Newington",
       "group": "D",
@@ -1047,6 +1103,7 @@
     },
     {
       "id": "england/leeds/leeds-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Leeds City Centre",
       "group": "D",
@@ -1064,6 +1121,7 @@
     },
     {
       "id": "england/leeds/harehills",
+      "origin": "brief",
       "kind": "area",
       "name": "Harehills",
       "group": "D",
@@ -1081,6 +1139,7 @@
     },
     {
       "id": "england/wakefield/wakefield-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Wakefield City Centre",
       "group": "D",
@@ -1098,6 +1157,7 @@
     },
     {
       "id": "england/doncaster/doncaster-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Doncaster City Centre",
       "group": "D",
@@ -1115,6 +1175,7 @@
     },
     {
       "id": "england/manchester/manchester-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Manchester City Centre",
       "group": "D",
@@ -1132,6 +1193,7 @@
     },
     {
       "id": "england/manchester/cheetham-hill",
+      "origin": "brief",
       "kind": "area",
       "name": "Cheetham Hill",
       "group": "D",
@@ -1149,6 +1211,7 @@
     },
     {
       "id": "england/bradford/bradford-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Bradford City Centre",
       "group": "D",
@@ -1166,6 +1229,7 @@
     },
     {
       "id": "england/sheffield/sheffield-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Sheffield City Centre",
       "group": "D",
@@ -1183,6 +1247,7 @@
     },
     {
       "id": "england/liverpool/liverpool-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Liverpool City Centre",
       "group": "D",
@@ -1200,6 +1265,7 @@
     },
     {
       "id": "england/newcastle-upon-tyne/newcastle-city-centre",
+      "origin": "brief",
       "kind": "area",
       "name": "Newcastle City Centre",
       "group": "D",
@@ -1217,6 +1283,7 @@
     },
     {
       "id": "scotland/aberdeen-city/tillydrone",
+      "origin": "brief",
       "kind": "area",
       "name": "Tillydrone",
       "group": "E",
@@ -1232,6 +1299,7 @@
     },
     {
       "id": "scotland/aberdeen-city/seaton",
+      "origin": "brief",
       "kind": "area",
       "name": "Seaton",
       "group": "E",
@@ -1247,6 +1315,7 @@
     },
     {
       "id": "scotland/aberdeen-city/old-aberdeen",
+      "origin": "brief",
       "kind": "area",
       "name": "Old Aberdeen",
       "group": "E",
@@ -1262,6 +1331,7 @@
     },
     {
       "id": "scotland/aberdeen-city/northfield",
+      "origin": "brief",
       "kind": "area",
       "name": "Northfield",
       "group": "E",
@@ -1277,6 +1347,7 @@
     },
     {
       "id": "scotland/aberdeen-city/mastrick-north",
+      "origin": "brief",
       "kind": "area",
       "name": "Mastrick North",
       "group": "E",
@@ -1292,6 +1363,7 @@
     },
     {
       "id": "scotland/aberdeen-city/torry",
+      "origin": "brief",
       "kind": "area",
       "name": "Torry",
       "group": "E",
@@ -1307,6 +1379,7 @@
     },
     {
       "id": "scotland/aberdeen-city/ferryhill",
+      "origin": "brief",
       "kind": "area",
       "name": "Ferryhill",
       "group": "E",
@@ -1322,6 +1395,7 @@
     },
     {
       "id": "scotland/aberdeen-city/hilton",
+      "origin": "brief",
       "kind": "area",
       "name": "Hilton",
       "group": "E",
@@ -1337,6 +1411,7 @@
     },
     {
       "id": "scotland/aberdeen-city/woodside",
+      "origin": "brief",
       "kind": "area",
       "name": "Woodside",
       "group": "E",
@@ -1352,6 +1427,7 @@
     },
     {
       "id": "scotland/aberdeen-city/stockethill",
+      "origin": "brief",
       "kind": "area",
       "name": "Stockethill",
       "group": "E",
@@ -1367,6 +1443,7 @@
     },
     {
       "id": "scotland/aberdeen-city/george-street",
+      "origin": "brief",
       "kind": "area",
       "name": "George Street",
       "group": "E",
@@ -1382,6 +1459,7 @@
     },
     {
       "id": "scotland/aberdeen-city/harbour",
+      "origin": "brief",
       "kind": "area",
       "name": "Harbour",
       "group": "E",
@@ -1397,6 +1475,7 @@
     },
     {
       "id": "scotland/aberdeen-city/kincorth",
+      "origin": "brief",
       "kind": "area",
       "name": "Kincorth",
       "group": "E",
@@ -1412,6 +1491,7 @@
     },
     {
       "id": "scotland/aberdeen-city/nigg",
+      "origin": "brief",
       "kind": "area",
       "name": "Nigg",
       "group": "E",
@@ -1427,6 +1507,7 @@
     },
     {
       "id": "scotland/aberdeen-city/cove",
+      "origin": "brief",
       "kind": "area",
       "name": "Cove",
       "group": "E",
@@ -1442,6 +1523,7 @@
     },
     {
       "id": "scotland/aberdeen-city/kingswells",
+      "origin": "brief",
       "kind": "area",
       "name": "Kingswells",
       "group": "E",
@@ -1457,6 +1539,7 @@
     },
     {
       "id": "scotland/aberdeen-city/sheddocksley",
+      "origin": "brief",
       "kind": "area",
       "name": "Sheddocksley",
       "group": "E",
@@ -1472,6 +1555,7 @@
     },
     {
       "id": "scotland/aberdeen-city/summerhill",
+      "origin": "brief",
       "kind": "area",
       "name": "Summerhill",
       "group": "E",
@@ -1487,6 +1571,7 @@
     },
     {
       "id": "scotland/aberdeen-city/dyce",
+      "origin": "brief",
       "kind": "area",
       "name": "Dyce",
       "group": "E",
@@ -1502,6 +1587,7 @@
     },
     {
       "id": "scotland/aberdeen-city/bucksburn",
+      "origin": "brief",
       "kind": "area",
       "name": "Bucksburn",
       "group": "E",
@@ -1517,6 +1603,7 @@
     },
     {
       "id": "scotland/aberdeen-city/danestone",
+      "origin": "brief",
       "kind": "area",
       "name": "Danestone",
       "group": "E",
@@ -1532,6 +1619,7 @@
     },
     {
       "id": "scotland/aberdeen-city/midstocket",
+      "origin": "brief",
       "kind": "area",
       "name": "Midstocket",
       "group": "E",
@@ -1547,6 +1635,7 @@
     },
     {
       "id": "scotland/aberdeen-city/rosemount",
+      "origin": "brief",
       "kind": "area",
       "name": "Rosemount",
       "group": "E",
@@ -1562,6 +1651,7 @@
     },
     {
       "id": "scotland/aberdeen-city/bridge-of-don",
+      "origin": "brief",
       "kind": "area",
       "name": "Bridge of Don",
       "group": "E",
@@ -1576,7 +1666,120 @@
       "note": "The brief gives no postal districts for Aberdeen; none are invented."
     },
     {
+      "id": "scotland/aberdeen-city/lower-deeside",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Lower Deeside",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/hazlehead",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Hazlehead",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/queens-cross",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Queens Cross",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/countesswells",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Countesswells",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/airyhall",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Airyhall",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/broomhill",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Broomhill",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
+      "id": "scotland/aberdeen-city/garthdee",
+      "origin": "council-table",
+      "kind": "area",
+      "name": "Garthdee",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented. Named in Aberdeen City Council's table 4-5.9 (ward-group share), not in the brief; ward boundaries to be verified."
+    },
+    {
       "id": "scotland/city-of-edinburgh/edinburgh",
+      "origin": "brief",
       "kind": "area",
       "name": "Edinburgh",
       "group": "E",
@@ -1592,6 +1795,7 @@
     },
     {
       "id": "scotland/city-of-edinburgh/leith",
+      "origin": "brief",
       "kind": "area",
       "name": "Leith",
       "group": "E",
@@ -1607,6 +1811,7 @@
     },
     {
       "id": "scotland/city-of-edinburgh/sighthill-gorgie",
+      "origin": "brief",
       "kind": "area",
       "name": "Sighthill / Gorgie",
       "group": "E",
@@ -1622,6 +1827,7 @@
     },
     {
       "id": "scotland/glasgow-city/glasgow",
+      "origin": "brief",
       "kind": "area",
       "name": "Glasgow",
       "group": "E",
@@ -1637,6 +1843,7 @@
     },
     {
       "id": "scotland/dundee-city/dundee",
+      "origin": "brief",
       "kind": "area",
       "name": "Dundee",
       "group": "E",
@@ -1652,6 +1859,7 @@
     },
     {
       "id": "scotland/perth-and-kinross/perth",
+      "origin": "brief",
       "kind": "area",
       "name": "Perth",
       "group": "E",
@@ -1667,6 +1875,7 @@
     },
     {
       "id": "scotland/highland/inverness",
+      "origin": "brief",
       "kind": "area",
       "name": "Inverness",
       "group": "E",
@@ -1682,6 +1891,7 @@
     },
     {
       "id": "wales/wrexham/wrexham",
+      "origin": "brief",
       "kind": "area",
       "name": "Wrexham",
       "group": "F",
@@ -1700,6 +1910,7 @@
     },
     {
       "id": "wales/flintshire/flintshire",
+      "origin": "brief",
       "kind": "area",
       "name": "Flintshire",
       "group": "F",
@@ -1715,6 +1926,7 @@
     },
     {
       "id": "wales/merthyr-tydfil/merthyr-tydfil",
+      "origin": "brief",
       "kind": "area",
       "name": "Merthyr Tydfil",
       "group": "F",
@@ -1730,6 +1942,7 @@
     },
     {
       "id": "wales/newport/newport",
+      "origin": "brief",
       "kind": "area",
       "name": "Newport",
       "group": "F",
@@ -1745,6 +1958,7 @@
     },
     {
       "id": "wales/swansea/swansea",
+      "origin": "brief",
       "kind": "area",
       "name": "Swansea",
       "group": "F",
@@ -1760,6 +1974,7 @@
     },
     {
       "id": "wales/cardiff/cardiff",
+      "origin": "brief",
       "kind": "area",
       "name": "Cardiff",
       "group": "F",
@@ -1775,6 +1990,7 @@
     },
     {
       "id": "wales/carmarthenshire/carmarthenshire",
+      "origin": "brief",
       "kind": "area",
       "name": "Carmarthenshire",
       "group": "F",
@@ -1790,6 +2006,7 @@
     },
     {
       "id": "wales/ceredigion/ceredigion",
+      "origin": "brief",
       "kind": "area",
       "name": "Ceredigion",
       "group": "F",
@@ -1805,6 +2022,7 @@
     },
     {
       "id": "northern-ireland/belfast/belfast",
+      "origin": "brief",
       "kind": "area",
       "name": "Belfast",
       "group": "G",
@@ -1836,6 +2054,7 @@
     },
     {
       "id": "northern-ireland/armagh-city-banbridge-and-craigavon/craigavon",
+      "origin": "brief",
       "kind": "area",
       "name": "Craigavon",
       "group": "G",
@@ -1856,6 +2075,7 @@
     },
     {
       "id": "northern-ireland/armagh-city-banbridge-and-craigavon/portadown",
+      "origin": "brief",
       "kind": "area",
       "name": "Portadown",
       "group": "G",
@@ -1871,6 +2091,7 @@
     },
     {
       "id": "northern-ireland/mid-ulster/dungannon",
+      "origin": "brief",
       "kind": "area",
       "name": "Dungannon",
       "group": "G",
@@ -1889,6 +2110,7 @@
     },
     {
       "id": "northern-ireland/newry-mourne-and-down/newry",
+      "origin": "brief",
       "kind": "area",
       "name": "Newry",
       "group": "G",
@@ -1907,6 +2129,7 @@
     },
     {
       "id": "northern-ireland/mid-and-east-antrim/ballymena",
+      "origin": "brief",
       "kind": "area",
       "name": "Ballymena",
       "group": "G",
@@ -1925,6 +2148,7 @@
     },
     {
       "id": "northern-ireland/lisburn-and-castlereagh/lisburn",
+      "origin": "brief",
       "kind": "area",
       "name": "Lisburn",
       "group": "G",
@@ -1943,6 +2167,7 @@
     },
     {
       "id": "northern-ireland/causeway-coast-and-glens/coleraine",
+      "origin": "brief",
       "kind": "area",
       "name": "Coleraine",
       "group": "G",

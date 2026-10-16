@@ -35,6 +35,9 @@ export type GeoPageRecord = {
   /** Census claims awaiting verification; they are NOT demographicClaims and may not be shown. */
   pendingClaimIds?: string[];
   draftedOn?: string;
+  /** A preserved draft that is folded into another record by default. */
+  foldInto?: string;
+  relatedSlugs?: string[];
   /** Why this record cannot advance; informational. */
   blockers?: string[];
   canonicalPath?: string; approvedBy?: string; approvedOn?: string; publishedOn?: string;
