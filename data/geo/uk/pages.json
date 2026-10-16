@@ -1,1 +1,155 @@
-{ "note": "Publication records. An empty list means nothing is published or routed. A record never appears here by import; a human adds it after each gate.", "pages": [] }
+{
+  "note": "Publication records. An empty list means nothing is published or routed. A record never appears here by import; a human adds it after each gate.",
+  "pages": [
+    {
+      "slug": "uk/aberdeen",
+      "kind": "city",
+      "locationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen",
+        "scotland/aberdeen-city/northfield",
+        "scotland/aberdeen-city/mastrick-north",
+        "scotland/aberdeen-city/torry",
+        "scotland/aberdeen-city/ferryhill",
+        "scotland/aberdeen-city/hilton",
+        "scotland/aberdeen-city/woodside",
+        "scotland/aberdeen-city/stockethill",
+        "scotland/aberdeen-city/george-street",
+        "scotland/aberdeen-city/harbour",
+        "scotland/aberdeen-city/kincorth",
+        "scotland/aberdeen-city/nigg",
+        "scotland/aberdeen-city/cove",
+        "scotland/aberdeen-city/kingswells",
+        "scotland/aberdeen-city/sheddocksley",
+        "scotland/aberdeen-city/summerhill",
+        "scotland/aberdeen-city/dyce",
+        "scotland/aberdeen-city/bucksburn",
+        "scotland/aberdeen-city/danestone",
+        "scotland/aberdeen-city/midstocket",
+        "scotland/aberdeen-city/rosemount",
+        "scotland/aberdeen-city/bridge-of-don"
+      ],
+      "stage": "verified",
+      "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
+      "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
+      "blockers": [
+        "Aberdeen-specific content is still thin: most paragraphs would fit any UK city (see docs/geo-uk/15-aberdeen-pilot.md); census, travel and local evidence must replace or fold them",
+        "no dated search-demand evidence",
+        "no unique-content evidence beyond the Aberdeen census claim",
+        "flight facts unverified",
+        "clinic facts beyond Antalya address/hours/languages unconfirmed",
+        "no Polish editorial review",
+        "no clinical review",
+        "census statement rests on the official-secondary tier (council publication citing Scotland's Census 2022): percentages only, PDF not retrieved by the build; replace or confirm with the Scotland's Census 2022 ward-level extract when available"
+      ],
+      "content": {
+        "slug": "uk/aberdeen",
+        "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
+        "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
+        "eyebrow": "Dla Polaków w UK",
+        "h1": "Leczenie zębów w Turcji dla Polaków mieszkających w Aberdeen",
+        "lead": "Ta strona zbiera pytania, które zadają sobie mieszkańcy Aberdeen i okolic, zanim zdecydują się na leczenie zębów w Antalyi. Leczenie odbywa się w Turcji; w Wielkiej Brytanii nie prowadzimy kliniki.",
+        "answer": "Z Aberdeen jedzie się do Antalyi na leczenie planowane z wyprzedzeniem. Przed decyzją ustal na piśmie plan i zakres ceny, sprawdź, co obejmuje polisa (karta GHIC nie obejmuje planowanego leczenia za granicą), i zaplanuj, kto zajmie się kontrolą po powrocie. Lekarz ustala plan dopiero po badaniu.",
+        "sections": [
+          {
+            "title": "Dlaczego osobna strona dla Aberdeen?",
+            "paragraphs": [
+              "W Aberdeen mieszka i pracuje wielu Polaków, a pytania o leczenie za granicą bywają podobne: jak zorganizować wyjazd, co ustalić z kliniką i co zrobić po powrocie.",
+              "Według Aberdeen City Council (dokument Local Housing Strategy Evidence Base, tab. 4-5.9), który powołuje się na Scotland's Census 2022, mieszkańcy o polskim pochodzeniu etnicznym stanowili w 2022 roku 13,2% populacji grupy okręgów Tillydrone / Seaton / Old Aberdeen oraz 8,8% grupy Northfield / Mastrick North. To udział w populacji tych okręgów, odpowiedź na pytanie o grupę etniczną (nie o obywatelstwo ani kraj urodzenia), a nie liczba Polaków. Dane pochodzą z publikacji urzędu, nie z bezpośredniego zestawienia spisu, i opisują rok 2022, nie dzisiejszą sytuację."
+            ]
+          },
+          {
+            "title": "Jak zaplanować wyjazd z Aberdeen do Antalyi?",
+            "paragraphs": [
+              "Liczba wizyt i dni pobytu zależy od planu leczenia, który ustala lekarz po badaniu i dokumentacji. Nie planuj terminów lotów, zanim nie poznasz zakresu leczenia i kolejności etapów.",
+              "[DO UZUPEŁNIENIA: zweryfikowane połączenia z lotnisk w Szkocji do Antalyi (przewoźnik, sezonowość, czas podróży), z linkiem do rozkładu przewoźnika. Bez źródła nie podajemy żadnych połączeń.]",
+              "Orientacyjną sumę kosztów wyjazdu opisuje poradnik o całkowitym koszcie wyjazdu."
+            ]
+          },
+          {
+            "title": "Co ustalić z kliniką przed wpłatą?",
+            "bullets": [
+              "plan leczenia, liczbę zębów lub implantów i kolejność etapów,",
+              "zakres ceny: co obejmuje, a czego nie (np. łącznik, korona na implancie, diagnostyka),",
+              "co się zmieni w cenie, jeśli plan zmieni się po badaniu,",
+              "w jakiej walucie i według jakiego kursu rozliczasz płatność,",
+              "kto i jak zajmie się kontrolą po powrocie do Szkocji oraz jak przekazać dokumentację."
+            ]
+          },
+          {
+            "title": "Ubezpieczenie i kontrola po powrocie",
+            "paragraphs": [
+              "Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą, a większość polis podróżnych też go nie obejmuje. Sprawdź warunki polisy przed wyjazdem.",
+              "Nie zakładaj, że dentysta w Szkocji przejmie opiekę nad leczeniem rozpoczętym w Turcji. Ustal to wcześniej. Szczegóły opisuje przewodnik dla Polaków w UK."
+            ]
+          },
+          {
+            "title": "Ceny i kontakt",
+            "paragraphs": [
+              "Cennik kliniki jest w euro. Pozycje cennika to nie automatycznie pełny plan leczenia; przeliczenie na funty jest dodatkowe i orientacyjne. Zobacz cennik oraz przeliczenie w funtach.",
+              "Klinika Akdeniz Dental w Antalyi obsługuje pacjentów także po polsku. Godziny pracy i dane kontaktowe są na stronie kontaktu. Przez formularz nie przesyłaj dokumentacji medycznej."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "question": "Czy macie klinikę w Aberdeen lub w Wielkiej Brytanii?",
+            "answer": "Nie. Akdeniz Dental działa w Antalyi w Turcji i leczenie odbywa się tam. Ta strona jest informacją dla osób z Aberdeen, które rozważają wyjazd."
+          },
+          {
+            "question": "Czy karta GHIC pokryje leczenie zębów w Turcji?",
+            "answer": "Nie. Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą. Sprawdź też warunki swojej polisy podróżnej."
+          },
+          {
+            "question": "Kto zajmie się kontrolą po powrocie do Szkocji?",
+            "answer": "Nie można zakładać, że zrobi to dentysta w UK. Ustal z kliniką przed leczeniem, kto i w jaki sposób zapewni kontrolę oraz jak przekazać dokumentację."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NHS: Going abroad for medical treatment (leczenie za granicą)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/going-abroad-for-medical-treatment/"
+          },
+          {
+            "label": "NHS: lista kontrolna leczenia za granicą (Treatment abroad checklist)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/"
+          },
+          {
+            "label": "NHS: karty GHIC i EHIC",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/"
+          },
+          {
+            "label": "Aberdeen City Council: Local Housing Strategy Evidence Base, tab. 4-5.9 (dane ze Scotland's Census 2022)",
+            "href": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf"
+          }
+        ],
+        "ctaLabel": "Poproś o wstępną ocenę",
+        "ctaEvent": "uk_aberdeen_cta"
+      },
+      "focusLocationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen"
+      ],
+      "pendingClaimIds": [
+        "sc2022/aberdeen/torry",
+        "sc2022/aberdeen/hilton",
+        "sc2022/aberdeen/george-street",
+        "sc2022/aberdeen/dyce",
+        "sc2022/aberdeen/bridge-of-don",
+        "sc2022/aberdeen/kingswells",
+        "sc2022/aberdeen/midstocket",
+        "sc2022/aberdeen/lower-deeside",
+        "sc2022/aberdeen/hazlehead",
+        "sc2022/aberdeen/airyhall",
+        "sc2022/aberdeen/kincorth"
+      ],
+      "draftedOn": "2026-10-16",
+      "demographicClaims": [
+        "sc2022/aberdeen/tillydrone",
+        "sc2022/aberdeen/northfield"
+      ]
+    }
+  ]
+}

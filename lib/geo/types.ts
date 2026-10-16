@@ -12,11 +12,15 @@ export type GeoLocation = {
 };
 
 /** The three demographic definitions are separate metrics and are never summed or substituted for each other. */
-export type MetricName = "polandBorn" | "polishMainLanguage" | "polishNationalIdentity";
+export type MetricName = "polandBorn" | "polishMainLanguage" | "polishNationalIdentity" | "polishEthnicGroup";
 export type CensusClaim = {
   id: string; geography: { level: string; name: string; country: CountryId }; metric: MetricName;
   value: number | null; unit: string; denominator: number | null; year: number | null; definition: string | null; dataset: string | null;
-  sourceUrl: string | null; verifiedOn: string | null; confidence: "unverified" | "low" | "medium" | "high"; verified: boolean; source: "brief" | "official";
+  sourceUrl: string | null; verifiedOn: string | null; confidence: "unverified" | "low" | "medium" | "high"; verified: boolean; source: "brief" | "official" | "official-secondary";
+  /** How a verified:true claim was checked; required for the official-secondary tier. */
+  verificationBasis?: string;
+  /** Independent publications that report the same figure. Corroboration never sets `verified`. */
+  corroboration?: { type: string; publisher: string; document: string; table: string; sourceUrl: string; value: number; matchesFirstSource: boolean | null; limits: string; receivedOn: string }[];
 };
 
 export type ClinicFact = { id: string; claim: string; status: "verified" | "needs-operator-confirmation"; evidence: string };
@@ -26,6 +30,13 @@ export type GeoPageRecord = {
   slug: string; kind: "city" | "region"; locationIds: string[]; stage: Stage; title: string; description: string;
   demographicClaims?: string[]; uniqueContentEvidence?: string; searchDemandEvidence?: { source: string; date: string };
   editorialApproval?: { by: string; on: string }; clinicalReview?: { reviewer: string; on: string; approvalReference: string };
+  /** Subset of locationIds a page section focuses on (e.g. Tillydrone, Seaton, Old Aberdeen). */
+  focusLocationIds?: string[];
+  /** Census claims awaiting verification; they are NOT demographicClaims and may not be shown. */
+  pendingClaimIds?: string[];
+  draftedOn?: string;
+  /** Why this record cannot advance; informational. */
+  blockers?: string[];
   canonicalPath?: string; approvedBy?: string; approvedOn?: string; publishedOn?: string;
   content?: import("../site").PageContent;
 };
