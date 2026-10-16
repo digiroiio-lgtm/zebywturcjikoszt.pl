@@ -45,4 +45,15 @@ The footer explicitly discloses positive selection and links to the unfiltered p
 
 `npm run test:reviews` is included in `verify` and checks source filtering, duplicates, the 12-record cap, permission-controlled payloads, five SSR cards, source links, no pending quote leakage, accessible track labelling and correct section placement. Existing SEO/build tests remain applicable.
 
-Browser viewport, touch/keyboard behavior and accessibility checks are recorded separately in the PR. One Vercel project exceeded its daily quota, while the other eventually produced a working preview. Initial desktop QA found that absolutely positioned screen-reader labels in offscreen cards escaped the scroll container; a relative containing block on each card fixes that layout boundary. Static contract tests do not substitute for browser results. The PageSpeed Insights Lighthouse request returned HTTP 429, so no Lighthouse score is claimed.
+Browser viewport, touch/keyboard behavior and accessibility checks are recorded separately in the PR. One Vercel project exceeded its daily quota, while the other eventually produced a working preview. Initial desktop QA found that absolutely positioned screen-reader labels in offscreen cards escaped the scroll container; a relative containing block on each card fixes that layout boundary. Static contract tests do not substitute for browser results. The PageSpeed Insights request returned HTTP 429. A separate local Lighthouse/Chromium audit then succeeded; measured results are in `docs/polish-reviews-validation.json`. Mobile/tablet/desktop layouts were inspected from the final production-build screenshots. There is no horizontal page overflow at 390px, 1024px or 1440px and all author names fit. Physical touch-device testing remains separate.
+
+
+### Final local lab results
+
+| Viewport | Performance | Accessibility | Best practices | SEO |
+| --- | ---: | ---: | ---: | ---: |
+| Mobile 390px | 96 | 96 | 96 | 100 |
+| Tablet 1024px | 84 | 96 | 96 | 100 |
+| Desktop 1440px | 85 | 96 | 96 | 100 |
+
+These are Lighthouse 13.5.0 / Chromium 153 local production-build lab runs, not production field data or conversion claims. Accessibility findings concern the unchanged header-brand name and decision-card label contrast. Local Vercel analytics endpoints produce 404/MIME errors and affect best practices. No new carousel accessibility finding was reported. The final scoped layout check measured root/body widths within the viewport and five equal-height cards at each size. Desktop gutters/scrollbars may reduce the content width by 15px. No claim of a separately tested physical touch device is made.

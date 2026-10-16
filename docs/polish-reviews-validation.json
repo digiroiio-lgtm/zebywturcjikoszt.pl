@@ -1,0 +1,104 @@
+{
+  "environment": "Local production build; Lighthouse 13.5.0, headless Chromium 153.0.0, simulated throttling. Lab results, not production CrUX.",
+  "codeCommit": "c2554dd0c0b027f59615ea83bd32b1804be4d824",
+  "results": [
+    {
+      "device": "mobile",
+      "width": 390,
+      "lighthouse": {
+        "performance": 96,
+        "accessibility": 96,
+        "best-practices": 96,
+        "seo": 100
+      },
+      "pageScrollWidth": 390,
+      "bodyScrollWidth": 390,
+      "trackWidth": 362,
+      "cardWidths": [
+        312.71875,
+        312.71875,
+        312.71875,
+        312.71875,
+        312.71875
+      ],
+      "cardHeights": [
+        261.3125,
+        261.3125,
+        261.3125,
+        261.3125,
+        261.3125
+      ],
+      "horizontalPageOverflow": false,
+      "allNamesFit": true,
+      "cardCount": 5
+    },
+    {
+      "device": "tablet",
+      "width": 1024,
+      "lighthouse": {
+        "performance": 84,
+        "accessibility": 96,
+        "best-practices": 96,
+        "seo": 100
+      },
+      "pageScrollWidth": 1009,
+      "bodyScrollWidth": 1009,
+      "trackWidth": 969,
+      "cardWidths": [
+        473.5,
+        473.5,
+        473.5,
+        473.5,
+        473.5
+      ],
+      "cardHeights": [
+        265,
+        265,
+        265,
+        265,
+        265
+      ],
+      "horizontalPageOverflow": false,
+      "allNamesFit": true,
+      "cardCount": 5
+    },
+    {
+      "device": "desktop",
+      "width": 1440,
+      "lighthouse": {
+        "performance": 85,
+        "accessibility": 96,
+        "best-practices": 96,
+        "seo": 100
+      },
+      "pageScrollWidth": 1425,
+      "bodyScrollWidth": 1425,
+      "trackWidth": 1180,
+      "cardWidths": [
+        379.984375,
+        379.984375,
+        379.984375,
+        379.984375,
+        379.984375
+      ],
+      "cardHeights": [
+        265,
+        265,
+        265,
+        265,
+        265
+      ],
+      "horizontalPageOverflow": false,
+      "allNamesFit": true,
+      "cardCount": 5
+    }
+  ],
+  "notes": [
+    "Carousel layout measured after the relative-position fix. Desktop scrollbars consume 15px, so page widths can be smaller than window.innerWidth.",
+    "Accessibility 96: existing decision-card label contrast and header brand accessible-name issues. No carousel nodes in those findings.",
+    "Best practices 96: Vercel analytics endpoint 404/MIME errors on localhost; deployment-only services are not present locally.",
+    "Real connected-browser controls passed on the first preview: Next moved one card; End reached the last position and disabled Next; Home returned to zero and disabled Previous; Tab focused the first source link with visible outline.",
+    "The first preview worked; the subsequent CSS-only fix preview hit the Vercel daily quota. Final corrected layout and screenshots were checked against the local production build.",
+    "Touch swipe uses native overflow; a physical touch device was not separately tested."
+  ]
+}
