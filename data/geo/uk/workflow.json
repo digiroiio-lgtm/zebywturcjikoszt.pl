@@ -1,0 +1,24 @@
+{
+  "note": "Single source for the publication gate; lib/geo/workflow.ts and scripts/verify-geo.mjs both read it. Only a record at stage \"published\" can create a route, a sitemap entry, an llms entry or an internal link.",
+  "stages": ["research", "verified", "draft", "editorial-review", "clinical-review", "seo-qa", "approved", "published"],
+  "requiredBefore": {
+    "verified": ["demographicClaims"],
+    "draft": ["uniqueContentEvidence", "searchDemandEvidence"],
+    "editorial-review": ["editorialApproval"],
+    "clinical-review": ["clinicalReview"],
+    "seo-qa": ["canonicalPath"],
+    "approved": ["approvedBy", "approvedOn"],
+    "published": ["publishedOn"]
+  },
+  "fieldRules": {
+    "demographicClaims": "Every claim id must exist in census-claims.json with verified:true and value, denominator, year, definition, dataset, sourceUrl and verifiedOn all filled.",
+    "uniqueContentEvidence": "Written evidence that this place needs its own page (distinct patient situations, travel, local sources), not a template with the city name swapped.",
+    "searchDemandEvidence": "A dated source (Search Console export, keyword tool export) showing demand for this location-intent query. Absent demand folds the place into its region page.",
+    "editorialApproval": "{ by, on } by a Polish-speaking editor.",
+    "clinicalReview": "{ reviewer, on, approvalReference } by a clinician; reuses the gate in lib/medical-review.ts.",
+    "canonicalPath": "Self-referencing /uk/<slug> path.",
+    "approvedBy": "Named human approver.",
+    "approvedOn": "ISO date.",
+    "publishedOn": "ISO date."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "cities": [
+    {
+      "id": "london-ealing-hounslow",
+      "label": "Londyn (Ealing, Hounslow)",
+      "cityGroups": [
+        "london"
+      ],
+      "authorities": [
+        "Ealing",
+        "Hounslow"
+      ]
+    },
+    {
+      "id": "southampton",
+      "label": "Southampton",
+      "cityGroups": [
+        "southampton"
+      ]
+    },
+    {
+      "id": "slough",
+      "label": "Slough",
+      "cityGroups": [
+        "slough"
+      ]
+    },
+    {
+      "id": "luton",
+      "label": "Luton",
+      "cityGroups": [
+        "luton"
+      ]
+    },
+    {
+      "id": "peterborough",
+      "label": "Peterborough",
+      "cityGroups": [
+        "peterborough"
+      ]
+    },
+    {
+      "id": "northamptonshire",
+      "label": "Northamptonshire",
+      "cityGroups": [
+        "northamptonshire"
+      ]
+    },
+    {
+      "id": "boston-lincolnshire",
+      "label": "Boston / Lincolnshire",
+      "cityGroups": [
+        "boston-lincolnshire"
+      ]
+    },
+    {
+      "id": "nottingham",
+      "label": "Nottingham",
+      "cityGroups": [
+        "nottingham"
+      ]
+    },
+    {
+      "id": "hull",
+      "label": "Hull",
+      "cityGroups": [
+        "hull"
+      ]
+    },
+    {
+      "id": "aberdeen",
+      "label": "Aberdeen",
+      "cityGroups": [
+        "aberdeen"
+      ]
+    }
+  ]
+}

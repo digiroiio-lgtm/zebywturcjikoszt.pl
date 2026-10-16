@@ -1,0 +1,250 @@
+{
+  "files": [],
+  "result": [
+    {
+      "id": "ts024/ealing",
+      "geography": "Ealing",
+      "brief": 15449,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/southampton",
+      "geography": "Southampton",
+      "brief": 10436,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/north-northamptonshire",
+      "geography": "North Northamptonshire",
+      "brief": 9297,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/hounslow",
+      "geography": "Hounslow",
+      "brief": 9219,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/kingston-upon-hull",
+      "geography": "Kingston upon Hull",
+      "brief": 8564,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/leeds",
+      "geography": "Leeds",
+      "brief": 8271,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/leicester",
+      "geography": "Leicester",
+      "brief": 7940,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/birmingham",
+      "geography": "Birmingham",
+      "brief": 7907,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/wakefield",
+      "geography": "Wakefield",
+      "brief": 7900,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/west-northamptonshire",
+      "geography": "West Northamptonshire",
+      "brief": 7828,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/nottingham",
+      "geography": "Nottingham",
+      "brief": 7826,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/luton",
+      "geography": "Luton",
+      "brief": 7823,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/slough",
+      "geography": "Slough",
+      "brief": 7724,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/coventry",
+      "geography": "Coventry",
+      "brief": 7719,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/peterborough",
+      "geography": "Peterborough",
+      "brief": 7507,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/bristol",
+      "geography": "Bristol",
+      "brief": 7017,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/somerset",
+      "geography": "Somerset",
+      "brief": 6614,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/bournemouth-christchurch-and-poole",
+      "geography": "Bournemouth, Christchurch and Poole",
+      "brief": 6563,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/doncaster",
+      "geography": "Doncaster",
+      "brief": 6495,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/manchester",
+      "geography": "Manchester",
+      "brief": 6471,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/croydon",
+      "geography": "Croydon",
+      "brief": 6262,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/bradford",
+      "geography": "Bradford",
+      "brief": 5992,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/haringey",
+      "geography": "Haringey",
+      "brief": 5921,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/brent",
+      "geography": "Brent",
+      "brief": 5817,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/merton",
+      "geography": "Merton",
+      "brief": 5761,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/sandwell",
+      "geography": "Sandwell",
+      "brief": 5685,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/barnet",
+      "geography": "Barnet",
+      "brief": 5542,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/buckinghamshire",
+      "geography": "Buckinghamshire",
+      "brief": 5434,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/cheshire-east",
+      "geography": "Cheshire East",
+      "brief": 5102,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "ts024/hillingdon",
+      "geography": "Hillingdon",
+      "brief": 5016,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/tillydrone",
+      "geography": "Tillydrone / Seaton / Old Aberdeen",
+      "brief": 13.2,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/northfield",
+      "geography": "Northfield / Mastrick North",
+      "brief": 8.8,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/torry",
+      "geography": "Torry / Ferryhill",
+      "brief": 6.6,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/hilton",
+      "geography": "Hilton / Woodside / Stockethill",
+      "brief": 6.3,
+      "official": null,
+      "status": "unverified (no official row)"
+    },
+    {
+      "id": "sc2022/aberdeen/george-street",
+      "geography": "George Street / Harbour",
+      "brief": 4.8,
+      "official": null,
+      "status": "unverified (no official row)"
+    }
+  ]
+}
