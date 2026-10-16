@@ -28,11 +28,15 @@ for (const slug of ['leczenie-zebow-w-turcji','licowki-czy-korony','calkowity-ko
   assert.equal(graph.find((s) => s['@type'] === 'BreadcrumbList').itemListElement.length, 3);
   assert(read('sitemap.xml.body').includes(`${origin}/${route}`));
   assert(read('llms-full.txt.body').includes(`${origin}/${route}`));
-  for (const id of ['zirconia-crown','composite-veneer','aiser']) assert(html.includes(`data-price-id="${id}"`));
-  const plain = html.replace(/<!--.*?-->/gs, '');
-  assert(/≈\s*656\s*zł/.test(plain) && /≈\s*568\s*zł/.test(plain) && /≈\s*1\s?967\s*zł/.test(plain), 'PLN conversions are rounded to whole zloty');
-  assert(!/\d,\d{2}\s*zł/.test(plain), 'no decimal zloty amounts');
-  assert(html.replace(/<!--.*?-->/gs, '').includes('1 EUR = 4,37 PLN'));
-  assert(html.includes('09:11 UTC'));
+  const hasPriceTable = !['opieka-po-leczeniu', 'rankingi-klinik-dentystycznych-w-turcji'].includes(slug);
+  assert.equal(html.includes('id="guide-prices-title"'), hasPriceTable, `${slug}: price section must match the guide's topic`);
+  if (hasPriceTable) {
+    for (const id of ['zirconia-crown','composite-veneer','aiser']) assert(html.includes(`data-price-id="${id}"`));
+    const plain = html.replace(/<!--.*?-->/gs, '');
+    assert(/≈\s*656\s*zł/.test(plain) && /≈\s*568\s*zł/.test(plain) && /≈\s*1\s?967\s*zł/.test(plain), 'PLN conversions are rounded to whole zloty');
+    assert(!/\d,\d{2}\s*zł/.test(plain), 'no decimal zloty amounts');
+    assert(plain.includes('1 EUR = 4,37 PLN'));
+    assert(html.includes('09:11 UTC'));
+  }
 }
 console.log('Guide contract passed: 17 destinations, 7 unique standalone guides, Article/breadcrumb schema, price conversions, honest review scope, canonical, sitemap and AI exports.');
