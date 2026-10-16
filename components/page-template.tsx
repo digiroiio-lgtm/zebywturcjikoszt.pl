@@ -3,6 +3,7 @@ import { GuideNextSteps } from "./guide-next-steps";
 import { GuidePrices } from "./guide-prices";
 import { guideAssessmentHref } from "@/lib/guides";
 import { Fragment } from "react";
+import { ExitIntentOffer } from "./exit-intent-offer";
 import type { PageContent } from "@/lib/site";
 import { legalSlugs } from "@/lib/site";
 import { pageHistory } from "@/lib/page-history";
@@ -10,7 +11,7 @@ import { OPERATOR_DISCLOSURE } from "@/lib/operator";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { Breadcrumbs } from "./breadcrumbs";
 import { reviewFor, approvedReviewer } from "@/lib/medical-review";
-import { PRICING_UPDATED_ISO_DATE, priceItems } from "@/lib/pricing";
+import { PRICING_UPDATED_ISO_DATE, priceItems, pricesForPage } from "@/lib/pricing";
 import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
@@ -165,6 +166,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
+            {(pricesForPage(page.slug).length > 0 || page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach") && <ExitIntentOffer slug={page.slug} leadSource={uk ? "OGZ-UK" : "OGZ-PL"} />}
             {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
             {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
             {page.slug === "kontakt" && <OpeningHours />}
