@@ -1,0 +1,81 @@
+{
+  "updatedOn": "2026-10-17",
+  "targetCount": 12,
+  "reviews": [
+    {
+      "id": "6ac64d9f5f34a5fabca8ccf3",
+      "author": "Andrzej G.",
+      "publishedAt": "2026-10-07T15:48:15.000Z",
+      "rating": 5,
+      "language": "pl",
+      "sourceUrl": "https://pl.trustpilot.com/reviews/6ac64d9f5f34a5fabca8ccf3",
+      "sourcePage": "https://pl.trustpilot.com/review/akdenizdental.com",
+      "sourceCheckedOn": "2026-10-17",
+      "sourceVerified": true,
+      "excerpt": "bardzo profesjonalne podejście całego zespołu",
+      "excerptPermissionReference": null,
+      "originalTextSha256": "dff92ab6f4277b2ea2695e447228b3324188875b28f04cb61ebf38d07a155777",
+      "excerptKind": "body"
+    },
+    {
+      "id": "6abe1c7c75f77b84dc353a49",
+      "author": "Miroslaw Jagielo",
+      "publishedAt": "2026-10-01T10:40:28.000Z",
+      "rating": 5,
+      "language": "pl",
+      "sourceUrl": "https://pl.trustpilot.com/reviews/6abe1c7c75f77b84dc353a49",
+      "sourcePage": "https://pl.trustpilot.com/review/akdenizdental.com",
+      "sourceCheckedOn": "2026-10-17",
+      "sourceVerified": true,
+      "excerpt": "Polecam z całego serca klinikę i jedna i druga filie.",
+      "excerptPermissionReference": null,
+      "originalTextSha256": "a379be730b6fe576639f5763269e53e0fb8b58c1c38e47536e5e46c8c6d08a30",
+      "excerptKind": "body"
+    },
+    {
+      "id": "6aad78b8284b1f70dd4bddee",
+      "author": "Robert Rachowiecki",
+      "publishedAt": "2026-09-18T19:45:28.000Z",
+      "rating": 5,
+      "language": "pl",
+      "sourceUrl": "https://pl.trustpilot.com/reviews/6aad78b8284b1f70dd4bddee",
+      "sourcePage": "https://pl.trustpilot.com/review/akdenizdental.com",
+      "sourceCheckedOn": "2026-10-17",
+      "sourceVerified": true,
+      "excerpt": "Bardzo profesjonalna obsługa",
+      "excerptPermissionReference": null,
+      "originalTextSha256": "fc6e7f45a54d3ab854d9be43041c610442b9f226c6efdb3f9c67aa62febb1777",
+      "excerptKind": "title"
+    },
+    {
+      "id": "6a9974ea6eb1c2a06da7bf20",
+      "author": "Robert Róziecki",
+      "publishedAt": "2026-09-03T15:23:55.000Z",
+      "rating": 5,
+      "language": "pl",
+      "sourceUrl": "https://pl.trustpilot.com/reviews/6a9974ea6eb1c2a06da7bf20",
+      "sourcePage": "https://pl.trustpilot.com/review/akdenizdental.com",
+      "sourceCheckedOn": "2026-10-17",
+      "sourceVerified": true,
+      "excerpt": "Pełny profesjonalizm 👌.",
+      "excerptPermissionReference": null,
+      "originalTextSha256": "17fb166c04848b2e07e07a95cb34e8667d520c264ba1a319b263a2e56b2c6d53",
+      "excerptKind": "body"
+    },
+    {
+      "id": "699773f148ea8d9f6ed31c93",
+      "author": "Anna Broniek",
+      "publishedAt": "2026-02-19T22:34:57.000Z",
+      "rating": 5,
+      "language": "pl",
+      "sourceUrl": "https://pl.trustpilot.com/reviews/699773f148ea8d9f6ed31c93",
+      "sourcePage": "https://pl.trustpilot.com/review/akdenizdental.com",
+      "sourceCheckedOn": "2026-10-17",
+      "sourceVerified": true,
+      "excerpt": "Z calego serca polecam klinike.",
+      "excerptPermissionReference": null,
+      "originalTextSha256": "eae7a896a2f19e7a884f89b4329d902a97023d442ff46a916e89be261fb8191a",
+      "excerptKind": "body"
+    }
+  ]
+}
