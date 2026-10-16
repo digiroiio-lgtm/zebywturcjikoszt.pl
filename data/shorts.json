@@ -1,0 +1,4 @@
+{
+  "instructions": "Edit only this file to change the homepage Shorts section. An empty list hides the section. A video is shown only when approved is true AND consentReference points to the clinic's written consent record (a reference only, never personal data). kind is \"patient-testimonial\" only for videos in which a patient speaks about their own experience. thumbnail is optional: a self-hosted file under /public (recommended; no request to YouTube until Play). uploadDate (YYYY-MM-DD) enables VideoObject structured data; without it none is emitted.",
+  "videos": []
+}

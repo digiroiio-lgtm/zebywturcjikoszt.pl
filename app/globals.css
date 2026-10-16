@@ -355,3 +355,30 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
 
 .commercial-note { margin: 12px 0 0; font-size: .9rem; color: var(--muted); }
 .commercial-note a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Homepage Shorts section (components/youtube-shorts-carousel.tsx). Fixed 9:16 frames prevent layout shift. */
+.patient-stories { border-top:1px solid var(--line); }
+.shorts-track { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin:0; padding:0; list-style:none; }
+.shorts-track:focus-visible { outline:3px solid var(--green-dark); outline-offset:6px; border-radius:12px; }
+.shorts-card { position:relative; min-width:0; } /* positioned so the absolutely placed .sr-only text is clipped with its card and cannot widen the page */
+.shorts-frame { position:relative; aspect-ratio:9/16; overflow:hidden; border-radius:20px; background:var(--ink); box-shadow:var(--shadow); }
+.shorts-frame img,.shorts-frame iframe,.shorts-fallback { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; }
+.shorts-fallback { background:linear-gradient(160deg,var(--green-dark),var(--ink)); }
+.shorts-play { position:absolute; inset:0; display:grid; place-items:center; width:100%; border:0; background:transparent; cursor:pointer; }
+.shorts-play svg { filter:drop-shadow(0 6px 14px rgba(0,0,0,.35)); transition:transform .2s; }
+.shorts-play:hover svg { transform:scale(1.08); }
+.shorts-play:focus-visible { outline:3px solid #fff; outline-offset:-6px; border-radius:20px; }
+.shorts-caption { padding:16px 4px 0; }
+.shorts-caption h3 { margin:0 0 6px; font-size:18px; line-height:1.3; }
+.shorts-caption p { margin:0 0 10px; color:var(--muted); font-size:14px; }
+.shorts-nav { display:none; }
+.shorts-note { max-width:760px; margin:26px 0 0; color:var(--muted); font-size:13px; }
+.sr-only { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+@media (max-width:760px) {
+  .shorts-track { display:flex; gap:14px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; scroll-padding-inline:0; }
+  .shorts-track::-webkit-scrollbar { display:none; }
+  .shorts-card { flex:0 0 calc((100% - 14px) / 1.15); scroll-snap-align:start; }
+  .shorts-nav { display:flex; gap:10px; margin-top:16px; }
+  .shorts-nav button { width:44px; height:44px; border:1px solid var(--line); border-radius:50%; background:white; color:var(--ink); font-size:20px; cursor:pointer; }
+  .shorts-nav button:hover { border-color:var(--green); color:var(--green-dark); }
+}
