@@ -5,7 +5,7 @@ Scope agreed with the operator: **audit + infrastructure; nothing is published o
 ## What was built
 | Piece | Where |
 | --- | --- |
-| Location universe from the brief (117 records: 115 areas incl. the POSK landmark, 4 authority-only candidates counted separately), generated, tally-checked against the brief | `lib/geo/inventory.mjs` → `scripts/geo-build-data.mjs` → `data/geo/uk/locations.json` |
+| Location universe from the brief (117 records: 112 areas, 1 landmark (POSK), 4 authority-only candidates), generated, tally-checked against the brief | `lib/geo/inventory.mjs` → `scripts/geo-build-data.mjs` → `data/geo/uk/locations.json` |
 | 35 census claims from the brief (30 TS024 authorities, 5 Aberdeen ward groups), all `verified:false, source:"brief"`, three metrics kept separate | `data/geo/uk/census-claims.json` |
 | Publication gate (research → … → published), single implementation shared by the site and the verifier | `data/geo/uk/workflow.json`, `lib/geo/gate.mjs`, `lib/geo/workflow.ts` |
 | Publication records (empty = nothing published) | `data/geo/uk/pages.json` |
