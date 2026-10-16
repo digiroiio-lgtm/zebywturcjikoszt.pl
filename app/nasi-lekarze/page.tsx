@@ -10,6 +10,7 @@ import { ClinicProfiles } from "@/components/clinic-profiles";
 import { SourceList } from "@/components/source-list";
 import { FaqSection } from "@/components/faq-section";
 
+import { CommercialNote } from "@/components/commercial-note";
 const teamFaq = [
   { question: "Czy każdy lekarz z tej listy recenzuje treści serwisu?", answer: "Nie. Lista przedstawia zespół kliniki prowadzonej przez operatora serwisu. Recenzję medyczną wykonują tylko osoby wskazane w sekcji Eksperci, wyłącznie dla przypisanych im stron." },
   { question: "Czy obszar pracy lekarza oznacza tytuł specjalisty?", answer: "Nie. Obszary pracy pochodzą z profili kliniki i nie są niezależnie potwierdzonym tytułem specjalisty." },
@@ -35,8 +36,7 @@ export default function ClinicalTeam() {
   ] };
   return <main className="shell section-space content-section clinical-team-page">
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / Nasi lekarze</nav>
-    <p className="eyebrow">Klinika prowadzona przez operatora serwisu</p><h1>Nasi lekarze</h1>
-    <p className="lead">Poznaj lekarzy stomatologów współpracującej z nami kliniki Akdeniz Dental w Antalyi. Sprawdź ich wykształcenie, doświadczenie kliniczne oraz obszary, którymi zajmują się w codziennej praktyce.</p>
+    <p className="eyebrow">Klinika prowadzona przez operatora serwisu</p><h1>Nasi lekarze</h1><p className="lead">Poznaj lekarzy stomatologów współpracującej z nami kliniki Akdeniz Dental w Antalyi. Sprawdź ich wykształcenie, doświadczenie kliniczne oraz obszary, którymi zajmują się w codziennej praktyce.</p><CommercialNote />
     <p>Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Obszary pracy nie są równoznaczne z niezależnie potwierdzonym tytułem specjalisty. Zdjęcia przedstawiają lekarzy wskazanych w tych profilach.</p>
     <div className="clinical-team-grid">{clinicalTeam.map((doctor) => <article className="clinical-team-card" id={doctor.slug} key={doctor.slug}>
       <Image src={doctor.imageUrl} alt={`Lek. dent. ${doctor.name} – Akdeniz Dental`} width={600} height={600} sizes="(max-width: 760px) 100vw, (max-width: 1000px) 50vw, 33vw" className="clinical-team-portrait" />

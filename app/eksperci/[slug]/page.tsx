@@ -8,6 +8,7 @@ import { SITE_URL, UPDATED_ISO_DATE, pages } from "@/lib/site";
 import { SourceList } from "@/components/source-list";
 import { reviewedPagesBy } from "@/lib/medical-review";
 import { ogImagesFor, twitterImagesFor, breadcrumbList } from "@/lib/seo";
+import { CommercialNote } from "@/components/commercial-note";
 export const dynamicParams = false;
 export function generateStaticParams() { return verifiedExperts.map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -24,7 +25,7 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
   const schema = { "@context": "https://schema.org", "@type": "Person", "@id": `${SITE_URL}${expert.profileUrl}/#person`, name: expert.name, alternateName: doctor?.alternateNames, image: doctor ? `${SITE_URL}${doctor.imageUrl}` : undefined, jobTitle: "Dentysta i recenzent medyczny serwisu", url: `${SITE_URL}${expert.profileUrl}`, description: expert.biography, knowsAbout: expert.professionalFocus, worksFor: { "@type": "Organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" }, sameAs: expert.sources.map(({ url }) => url) };
   return <main className="shell expert-profile content-section">
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/eksperci">Eksperci</Link> / {expert.name}</nav>
-    <p className="eyebrow">Recenzent medyczny serwisu</p><h1>Lek. dent. {expert.name}</h1><p className="lead">{expert.introduction ?? "Dentysta oraz założyciel i właściciel Akdeniz Dental w Antalyi, w Turcji."}</p>
+    <p className="eyebrow">Recenzent medyczny serwisu</p><h1>Lek. dent. {expert.name}</h1><p className="lead">{expert.introduction ?? "Dentysta oraz założyciel i właściciel Akdeniz Dental w Antalyi, w Turcji."}</p><CommercialNote />
     {doctor && <Image className="reviewer-portrait" src={doctor.imageUrl} alt={`Lek. dent. ${expert.name} – Akdeniz Dental`} width={300} height={300} sizes="300px" />}
     <p><Link className="text-link" href="/nasi-lekarze">Poznaj zespół kliniki prowadzonej przez operatora serwisu →</Link></p>
     <section><h2>Biografia i wykształcenie</h2><p>{expert.biography}</p></section>

@@ -7,7 +7,10 @@ import { verifiedExperts } from "./evidence";
 import { OPERATOR, OPERATOR_DISCLOSURE, operatorRows } from "./operator";
 import { credentialsPublished } from "./credentials";
 import { CLINIC_ADDRESS_TEXT, RATINGS_CHECKED_ISO_DATE, clinicProfiles } from "./clinic-profiles";
-import { EUR_GBP_RATE, EUR_GBP_RATE_SOURCE, EUR_GBP_RATE_TIMESTAMP, EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, gbpPublished, priceItems } from "./pricing";
+import { EUR_GBP_RATE, EUR_GBP_RATE_SOURCE, EUR_GBP_RATE_TIMESTAMP, EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_ISO_DATE, gbpPublished, priceItems, toPln } from "./pricing";
+
+/** AI-readable files must carry absolute URLs: a relative source link cannot be resolved outside the site. */
+export const absoluteUrl = (href: string) => (href.startsWith("/") ? `${SITE_URL}${href}` : href);
 
 export const FAQ_PATH = "/pytania-i-odpowiedzi";
 export const FAQ_PUBLISHED_DATE = "2026-09-30";
@@ -20,7 +23,7 @@ export function reviewSummary(slug: string) {
   const state = reviewFor(slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const expert = approvedReviewer(state);
   return expert && state.reviewStatus === "reviewed"
-    ? `Recenzja medyczna: ${expert.name}, ${state.reviewDate}. Profil: ${SITE_URL}${expert.profileUrl}.`
+    ? `Recenzja medyczna: ${expert.name}, ${state.reviewDate}. Profil: [${expert.name}](${SITE_URL}${expert.profileUrl}).`
     : "Recenzja medyczna tej strony: jeszcze niepotwierdzona.";
 }
 const context = `Polskojęzyczny serwis informacyjny o celu komercyjnym dla pacjentów rozważających leczenie w Turcji. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja. Godziny otwarcia kliniki: ${hoursSummary}. Języki obsługi: ${languagesSummary}. ${OPERATOR_DISCLOSURE} Serwis nie zastępuje badania ani indywidualnej porady lekarza.`;
@@ -31,7 +34,7 @@ function lastContentUpdate() {
 }
 
 export function llmsIndex() {
-  return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Canonical origin: " + SITE_URL + ". Ostatnia aktualizacja treści: " + lastContentUpdate() + ".", ...(OPERATOR.legalName ? [`Operator serwisu: ${OPERATOR.legalName}, ${operatorRows(OPERATOR, false).find((row) => row.label === "Adres")?.value ?? ""}. Szczegóły: ${SITE_URL}/o-nas`] : []), pricingScope,
+  return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Ostatnia aktualizacja treści: " + lastContentUpdate() + ". Canonical origin: " + SITE_URL, ...(OPERATOR.legalName ? [`Operator serwisu: ${OPERATOR.legalName}, ${operatorRows(OPERATOR, false).find((row) => row.label === "Adres")?.value ?? ""}. Szczegóły: ${SITE_URL}/o-nas`] : []), pricingScope,
     "Skład zespołu nie oznacza recenzji wszystkich treści. Status i data recenzji są przypisane konkretnej stronie. Zdjęcia przed i po nie mają jeszcze potwierdzonego zakresu klinicznego.",
     "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
     "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki prowadzonej przez operatora serwisu i źródła zawodowe.`, ...clinicProfiles.map((profile) => `- [Akdeniz Dental w serwisie ${profile.label}](${profile.href}): zewnętrzny profil kliniki, ocena ${profile.rating}/5 (${profile.reviewCount} opinii) wg odczytu z ${RATINGS_CHECKED_ISO_DATE}; zmienia się w czasie, sprawdź w serwisie.`), `- Adres kliniki prowadzonej przez operatora serwisu (wg Map Google i Trustpilot): ${CLINIC_ADDRESS_TEXT}.`,
@@ -45,9 +48,9 @@ export function llmsFull() {
     `## ${page.h1}`, `Canonical URL: ${SITE_URL}/${page.slug}`, `Aktualizacja treści: ${page.lastUpdated ?? UPDATED_ISO_DATE}.`, reviewSummary(page.slug), "", page.lead, "", page.answer,
     ...page.sections.flatMap((section) => ["", `### ${section.title}`, ...(section.paragraphs ?? []), ...(section.bullets ?? []).map((item) => `- ${item}`), ...(section.cards ?? []).map((card) => `- ${card.title}: ${card.text}`), ...(section.table ? [`| ${section.table.headers.join(" | ")} |`, `| ${section.table.headers.map(() => "---").join(" | ")} |`, ...section.table.rows.map((row) => `| ${row.join(" | ")} |`)] : [])]),
     ...(page.faq?.length ? ["", "### Pytania i odpowiedzi", ...page.faq.flatMap((faq, index) => [`#### ${faq.question}`, faq.answer, `Źródło: ${SITE_URL}/${page.slug}#faq-${index + 1}`, ""])] : []),
-    ...(page.sources?.length ? ["### Źródła", ...page.sources.map((source) => `- [${source.label}](${source.href})`)] : []), ""
+    ...(page.sources?.length ? ["### Źródła", ...page.sources.map((source) => `- [${source.label}](${absoluteUrl(source.href)})`)] : []), ""
   ].join("\n"));
-  return [`# ${SITE_NAME}: przewodniki dla pacjentów`, `> ${context}`, "", "Ten tekst jest generowany z danych widocznych przewodników. Pierwszeństwo ma aktualna strona pod adresem canonical; informacje nie kwalifikują pacjenta do leczenia.",
+  return [`# ${SITE_NAME}: przewodniki dla pacjentów`, `> ${context}`, "", "Ten tekst jest generowany z danych widocznych przewodników. Pierwszeństwo ma aktualna strona pod adresem canonical; informacje nie kwalifikują pacjenta do leczenia.", `Ostatnia aktualizacja treści: ${lastContentUpdate()}.`,
     "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`, ...(gbpPublished ? [`Przeliczenie na GBP (strona dla Polaków w UK): 1 EUR = ${EUR_GBP_RATE!.toFixed(2)} GBP, kurs z dnia ${EUR_GBP_RATE_TIMESTAMP}, źródło: ${EUR_GBP_RATE_SOURCE}, zaokrąglony do dwóch miejsc po przecinku. To przeliczenie, a nie oferta kliniki w GBP.`] : []), pricingScope,
-    "| Pozycja | EUR |", "| --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} |`), "", ...sections].join("\n");
+    "| Pozycja | EUR | Około PLN |", "| --- | --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} | ${toPln(item.eur)} |`), "", ...sections].join("\n");
 }
