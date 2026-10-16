@@ -1,8 +1,8 @@
 # Census source verification
 
-No official file is present in `data/geo/uk/raw/`, so **nothing is verified**. The official sources could not be reached from the build environment (proxy), so the brief's figures stay `verified:false`.
+No official file is present in `data/geo/uk/raw/`, so **no claim is verified against a direct official extract**. (13 Aberdeen claims are verified at the *official-secondary* tier through a council publication; see the last section.) The official sources could not be reached from the build environment (proxy), so the brief's figures stay `verified:false`.
 
-Claims: 43. Match: 0. Differs: 0. Unverified: 43.
+Claims: 43. Match: 0. Differs: 0. Without a direct official row: 43.
 
 | Claim | Geography | Brief | Official | Status |
 | --- | --- | ---: | ---: | --- |
@@ -56,11 +56,11 @@ Aberdeen City Council's *Local Housing Strategy Evidence Base*, table 4-5.9 (per
 
 | Claim | Ward group | First source | Council table | Agrees |
 | --- | --- | ---: | ---: | --- |
-| sc2022/aberdeen/tillydrone | Tillydrone / Seaton / Old Aberdeen | 13.2 | 13.2 | yes |
-| sc2022/aberdeen/northfield | Northfield / Mastrick North | 8.8 | 8.8 | yes |
-| sc2022/aberdeen/torry | Torry / Ferryhill | 6.6 | 6.6 | yes |
-| sc2022/aberdeen/hilton | Hilton / Woodside / Stockethill | 6.3 | 6.3 | yes |
-| sc2022/aberdeen/george-street | George Street / Harbour | 4.8 | 4.8 | yes |
+| sc2022/aberdeen/tillydrone | Tillydrone / Seaton / Old Aberdeen | – | 13.2 | yes |
+| sc2022/aberdeen/northfield | Northfield / Mastrick North | – | 8.8 | yes |
+| sc2022/aberdeen/torry | Torry / Ferryhill | – | 6.6 | yes |
+| sc2022/aberdeen/hilton | Hilton / Woodside / Stockethill | – | 6.3 | yes |
+| sc2022/aberdeen/george-street | George Street / Harbour | – | 4.8 | yes |
 | sc2022/aberdeen/dyce | Dyce / Bucksburn / Danestone | – | 3.1 | council only (new group) |
 | sc2022/aberdeen/bridge-of-don | Bridge of Don | – | 1.9 | council only (new group) |
 | sc2022/aberdeen/kingswells | Kingswells / Sheddocksley / Summerhill | – | 3.5 | council only (new group) |

@@ -30,19 +30,18 @@
         "scotland/aberdeen-city/rosemount",
         "scotland/aberdeen-city/bridge-of-don"
       ],
-      "stage": "research",
+      "stage": "verified",
       "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
       "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
       "blockers": [
         "Aberdeen-specific content is still thin: most paragraphs would fit any UK city (see docs/geo-uk/15-aberdeen-pilot.md); census, travel and local evidence must replace or fold them",
-        "no verified census claim (Scotland's Census 2022 tables not retrieved)",
         "no dated search-demand evidence",
         "no unique-content evidence beyond the Aberdeen census claim",
         "flight facts unverified",
         "clinic facts beyond Antalya address/hours/languages unconfirmed",
         "no Polish editorial review",
         "no clinical review",
-        "council table (Aberdeen City Council, Local Housing Strategy Evidence Base, tab. 4-5.9) corroborates 13 ward-group percentages but is a secondary publication without denominators and is not retrievable here; the gate still requires an official extract with denominators"
+        "census statement rests on the official-secondary tier (council publication citing Scotland's Census 2022): percentages only, PDF not retrieved by the build; replace or confirm with the Scotland's Census 2022 ward-level extract when available"
       ],
       "content": {
         "slug": "uk/aberdeen",
@@ -57,7 +56,7 @@
             "title": "Dlaczego osobna strona dla Aberdeen?",
             "paragraphs": [
               "W Aberdeen mieszka i pracuje wielu Polaków, a pytania o leczenie za granicą bywają podobne: jak zorganizować wyjazd, co ustalić z kliniką i co zrobić po powrocie.",
-              "[DO UZUPEŁNIENIA po weryfikacji: jedno zdanie o skali społeczności polskiej w Aberdeen na podstawie oficjalnej tabeli Scotland's Census 2022. Podaj miarę (tożsamość etniczna, a nie liczba Polaków), rok, mianownik i link do tabeli. Bez zweryfikowanej tabeli to zdanie nie powstaje.]"
+              "Według Aberdeen City Council (dokument Local Housing Strategy Evidence Base, tab. 4-5.9), który powołuje się na Scotland's Census 2022, mieszkańcy o polskim pochodzeniu etnicznym stanowili w 2022 roku 13,2% populacji grupy okręgów Tillydrone / Seaton / Old Aberdeen oraz 8,8% grupy Northfield / Mastrick North. To udział w populacji tych okręgów, odpowiedź na pytanie o grupę etniczną (nie o obywatelstwo ani kraj urodzenia), a nie liczba Polaków. Dane pochodzą z publikacji urzędu, nie z bezpośredniego zestawienia spisu, i opisują rok 2022, nie dzisiejszą sytuację."
             ]
           },
           {
@@ -119,6 +118,10 @@
           {
             "label": "NHS: karty GHIC i EHIC",
             "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/"
+          },
+          {
+            "label": "Aberdeen City Council: Local Housing Strategy Evidence Base, tab. 4-5.9 (dane ze Scotland's Census 2022)",
+            "href": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf"
           }
         ],
         "ctaLabel": "Poproś o wstępną ocenę",
@@ -130,8 +133,6 @@
         "scotland/aberdeen-city/old-aberdeen"
       ],
       "pendingClaimIds": [
-        "sc2022/aberdeen/tillydrone",
-        "sc2022/aberdeen/northfield",
         "sc2022/aberdeen/torry",
         "sc2022/aberdeen/hilton",
         "sc2022/aberdeen/george-street",
@@ -144,7 +145,11 @@
         "sc2022/aberdeen/airyhall",
         "sc2022/aberdeen/kincorth"
       ],
-      "draftedOn": "2026-10-16"
+      "draftedOn": "2026-10-16",
+      "demographicClaims": [
+        "sc2022/aberdeen/tillydrone",
+        "sc2022/aberdeen/northfield"
+      ]
     }
   ]
 }

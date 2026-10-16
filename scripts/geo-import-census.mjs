@@ -23,8 +23,8 @@ writeFileSync('data/geo/uk/census-imported.json', JSON.stringify({ files, result
 mkdirSync('docs/geo-uk', { recursive: true });
 writeFileSync('docs/geo-uk/02-source-verification.md', [
   '# Census source verification', '',
-  files.length ? `Official files read: ${files.join(', ')}.` : 'No official file is present in `data/geo/uk/raw/`, so **nothing is verified**. The official sources could not be reached from the build environment (proxy), so the brief\'s figures stay `verified:false`.', '',
-  `Claims: ${result.length}. Match: ${count('match')}. Differs: ${count('differs')}. Unverified: ${result.length - count('match') - count('differs')}.`, '',
+  files.length ? `Official files read: ${files.join(', ')}.` : 'No official file is present in `data/geo/uk/raw/`, so **no claim is verified against a direct official extract**. (13 Aberdeen claims are verified at the *official-secondary* tier through a council publication; see the last section.) The official sources could not be reached from the build environment (proxy), so the brief\'s figures stay `verified:false`.', '',
+  `Claims: ${result.length}. Match: ${count('match')}. Differs: ${count('differs')}. Without a direct official row: ${result.length - count('match') - count('differs')}.`, '',
   '| Claim | Geography | Brief | Official | Status |', '| --- | --- | ---: | ---: | --- |', ...result.map((r) => `| ${r.id} | ${r.geography} | ${r.brief} | ${r.official ?? ''} | ${r.status} |`), '',
   '## Aberdeen ward groups: corroboration by a council publication', '',
   "Aberdeen City Council's *Local Housing Strategy Evidence Base*, table 4-5.9 (percentages citing Scotland's Census 2022; no ward counts or denominators; file supplied by the operator, the PDF could not be retrieved from the build environment). Corroboration never sets `verified`.", '',

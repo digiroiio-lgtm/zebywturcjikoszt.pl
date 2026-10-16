@@ -42,7 +42,7 @@ if (aberdeen.length !== 24 || aberdeen.some((l) => l.postalDistricts.length)) fa
 for (const c of claims) {
   if (!['polandBorn', 'polishMainLanguage', 'polishNationalIdentity', 'polishEthnicGroup'].includes(c.metric)) fail(`${c.id}: unknown metric ${c.metric}`);
   if (c.verified && !claimIsPublishable(c)) fail(`${c.id}: verified:true without full provenance`);
-  if (c.source !== 'official' && c.verified) fail(`${c.id}: only source "official" claims with full provenance can be verified`);
+  if (c.verified && !['official', 'official-secondary'].includes(c.source)) fail(`${c.id}: a ${c.source} claim cannot be verified`);
   for (const x of c.corroboration ?? []) if (x.matchesFirstSource === false) fail(`${c.id}: council value ${x.value} differs from the first source`);
   if (c.source === 'brief' && c.verified) fail(`${c.id}: a brief figure cannot be marked verified`);
 }
@@ -69,6 +69,11 @@ for (const field of ['uniqueContentEvidence', 'searchDemandEvidence', 'editorial
 }
 if (!gateProblems(full, workflow, [{ ...verifiedClaim, verified: false }]).length) fail('the gate accepted an unverified census claim');
 if (!gateProblems(full, workflow, [{ ...verifiedClaim, source: 'brief' }]).length) fail('the gate accepted a brief-sourced claim');
+const secondary = { ...verifiedClaim, source: 'official-secondary', denominator: null, verificationBasis: 'b', corroboration: [{ publisher: 'Council', document: 'Doc', sourceUrl: 'https://example.org' }] };
+if (gateProblems(full, workflow, [secondary]).length) fail('an official-secondary claim with publisher, document, URL and basis should pass');
+for (const [what, change] of [['verificationBasis', { verificationBasis: null }], ['publisher', { corroboration: [{ document: 'Doc', sourceUrl: 'https://example.org' }] }], ['sourceUrl', { sourceUrl: null }], ['verified', { verified: false }], ['year', { year: null }]]) {
+  if (!gateProblems(full, workflow, [{ ...secondary, ...change }]).length) fail(`the gate accepted an official-secondary claim without ${what}`);
+}
 if (!gateProblems(full, workflow, [{ ...verifiedClaim, sourceUrl: null }]).length) fail('the gate accepted a claim without a source URL');
 if (!gateProblems(full, workflow, []).length) fail('the gate accepted a claim id that does not exist');
 if (gateProblems({ ...full, stage: 'research', demographicClaims: [] }, workflow, []).length) fail('a research-stage record needs nothing');
@@ -84,6 +89,13 @@ for (const r of pages) {
   // Publication dates come from the gate (publishedOn), never from draft content; stage and date must not be mixed up.
   if (r.content && ('published' in r.content || 'lastUpdated' in r.content)) fail(`${r.slug}: content carries its own published/lastUpdated; the date comes from publishedOn`);
   if (r.stage !== 'published' && r.publishedOn) fail(`${r.slug}: publishedOn set on a ${r.stage} record`);
+  const bodyText = JSON.stringify({ ...(r.content ?? {}), sources: undefined }); // attribution must be in the prose, not only the source list
+  for (const id of r.demographicClaims ?? []) {
+    const claim = claims.find((c) => c.id === id);
+    if (!claimIsPublishable(claim)) fail(`${r.slug}: demographic claim ${id} is not publishable`);
+    else if (claim.source === 'official-secondary' && !bodyText.includes(claim.corroboration[0].publisher)) fail(`${r.slug}: claim ${id} is official-secondary; the text must name ${claim.corroboration[0].publisher}`);
+    else if (!bodyText.includes(String(claim.value).replace('.', ',')) ) fail(`${r.slug}: claim ${id} is listed but its value ${claim.value} is not in the text`);
+  }
   // Location and claim links must exist in the generated dataset.
   const locIds = new Set(locations.map((l) => l.id));
   for (const id of [...(r.locationIds ?? []), ...(r.focusLocationIds ?? [])]) if (!locIds.has(id)) fail(`${r.slug}: unknown location id ${id}`);

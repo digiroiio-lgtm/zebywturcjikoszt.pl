@@ -70,7 +70,14 @@ for (const group of groupDefs) {
   });
   const entry = { id: `sc2022/aberdeen/${slugify(group.areas[0])}`, geography: { level: 'ward-group', name: group.areas.join(' / '), country: 'scotland', areas: group.areas }, metric: 'polishEthnicGroup', ...claim,
     corroboration: row ? [{ type: row.verification_type, publisher: row.source_publisher, document: row.source_document, table: row.source_table, sourceUrl: row.source_url, value: Number(row.percentage), matchesFirstSource: group.briefPercent === null ? null : Number(row.percentage) === group.briefPercent, limits: row.note, receivedOn: '2026-10-16 (operator upload dc97009; not retrievable from the build environment)' }] : [] };
-  if (row) corroborated += 1;
+  if (row) {
+    corroborated += 1;
+    // Council publication = official-secondary tier: usable on a page only with attribution to the publisher (see lib/geo/gate.mjs).
+    Object.assign(entry, { source: 'official-secondary', verified: true, confidence: 'medium', sourceUrl: row.source_url, verifiedOn: '2026-10-16',
+      dataset: `${row.source_publisher}, ${row.source_document}, ${row.source_table} (cites Scotland's Census 2022; not a direct census extract)`,
+      verificationBasis: 'Operator-supplied extract of the council publication (commit dc97009); the PDF itself could not be retrieved from the build environment. Percentage only: no ward count or denominator is published.',
+      firstSource: group.briefPercent === null ? null : { source: 'brief', value: group.briefPercent } });
+  }
   assert(!row || group.briefPercent === null || Number(row.percentage) === group.briefPercent || true);
   census.push(entry);
 }
@@ -92,4 +99,4 @@ for (const [file, data] of Object.entries(outputs)) {
   else writeFileSync(out + file, text);
 }
 if (stale) process.exit(1);
-console.log(`${process.argv.includes('--check') ? 'Checked' : 'Wrote'} ${Object.keys(outputs).length} geo data files: ${locations.length} location records, ${census.length} unverified census claims (${corroborated} Aberdeen groups corroborated by the council table).`);
+console.log(`${process.argv.includes('--check') ? 'Checked' : 'Wrote'} ${Object.keys(outputs).length} geo data files: ${locations.length} location records, ${census.length} census claims (${corroborated} Aberdeen groups corroborated by the council table).`);

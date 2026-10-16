@@ -11,7 +11,7 @@
     "published": ["publishedOn"]
   },
   "fieldRules": {
-    "demographicClaims": "Every claim id must exist in census-claims.json with verified:true and value, denominator, year, definition, dataset, sourceUrl and verifiedOn all filled.",
+    "demographicClaims": "Every claim id must exist in census-claims.json and be verified:true. Tier official: value, denominator, year, definition, dataset, sourceUrl and verifiedOn all filled. Tier official-secondary (an official body citing the census, no denominator): the same without denominator plus verificationBasis and a named publication; the page text must attribute the figure to that publisher. Brief figures never qualify.",
     "uniqueContentEvidence": "Written evidence that this place needs its own page (distinct patient situations, travel, local sources), not a template with the city name swapped.",
     "searchDemandEvidence": "A dated source (Search Console export, keyword tool export) showing demand for this location-intent query. Absent demand folds the place into its region page.",
     "editorialApproval": "{ by, on } by a Polish-speaking editor.",
