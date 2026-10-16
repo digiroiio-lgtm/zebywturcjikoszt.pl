@@ -5,7 +5,10 @@ const securityHeaders = [
   { key: "X-Frame-Options", value: "DENY" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" }
+  { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+  // The site loads nothing from other origins. Inline scripts/styles stay allowed because Next.js bootstraps with inline
+  // scripts and a nonce would need middleware, which turns the prerendered pages into dynamic ones.
+  { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" }
 ];
 
 const nextConfig: NextConfig = {
