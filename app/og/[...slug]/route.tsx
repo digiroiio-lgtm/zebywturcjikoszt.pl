@@ -12,6 +12,7 @@ type Card = { slug: string; eyebrow: string; h1: string };
 const standalone: Card[] = [
   { slug: "poradniki", eyebrow: "Poradniki dla pacjentów", h1: "Poradniki dla pacjentów z Polski" },
   { slug: "pytania-i-odpowiedzi", eyebrow: "Pytania i odpowiedzi", h1: "Pytania pacjentów o leczenie zębów w Turcji" },
+  { slug: "nasz-zespol", eyebrow: "Organizacja wizyty", h1: "Poznaj zespół Akdeniz Dental w Antalyi" },
   { slug: "nasi-lekarze", eyebrow: "Zespół kliniki", h1: "Nasi lekarze: zespół Akdeniz Dental w Antalyi" },
   { slug: "eksperci", eyebrow: "Recenzja medyczna", h1: "Eksperci serwisu" },
   ...verifiedExperts.map((expert) => ({ slug: `eksperci/${expert.slug}`, eyebrow: "Recenzent medyczny", h1: `Lek. dent. ${expert.name}` }))

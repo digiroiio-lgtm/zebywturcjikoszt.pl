@@ -10,6 +10,8 @@ import { caseImages } from "@/lib/gallery";
 import { pageFigures } from "@/lib/page-figures";
 import { shortsUpdatedIsoDate } from "@/lib/shorts";
 
+import { SUPPORT_TEAM_UPDATED } from "@/lib/support-team";
+
 type Entry = MetadataRoute.Sitemap[number];
 const day = (iso: string) => new Date(`${iso.slice(0, 10)}T00:00:00Z`);
 const latest = (dates: string[]) => dates.reduce((a, b) => (a > b ? a : b));
@@ -35,6 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideEntries,
     ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!), ...withImages(page.slug) })),
     { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE) },
+    { url: abs("/nasz-zespol"), lastModified: day(SUPPORT_TEAM_UPDATED) },
     { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
     { url: abs("/eksperci"), lastModified: day(latest(expertDates)) },
     ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(expert.lastVerified) }))
