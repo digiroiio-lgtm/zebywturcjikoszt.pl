@@ -9,6 +9,8 @@ const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(/\/+$/, "");
 export const PUBLISHED_ISO_DATE = "2026-09-18";
 export const UPDATED_ISO_DATE = "2026-09-19";
+/** Date of the last change to the home page text itself (hero copy, sections); feeds its sitemap lastmod. */
+export const HOME_UPDATED_ISO_DATE = "2026-10-16";
 export const PUBLISHED_DATE = "18 września 2026";
 export const UPDATED_DATE = "19 września 2026";
 
