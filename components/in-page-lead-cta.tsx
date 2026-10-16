@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { LeadForm } from "./lead-form";
 import { trackEvent } from "./tracked-link";
 
-export function InPageLeadCta({ title, text, buttonLabel, location, caseReference, formEnabled, final = false }: { title: string; text: string; buttonLabel: string; location: string; caseReference?: string; formEnabled: boolean; final?: boolean }) {
+export function InPageLeadCta({ title, formTitle, text, buttonLabel, location, caseReference, formEnabled, final = false }: { title: string; formTitle: string; text: string; buttonLabel: string; location: string; caseReference?: string; formEnabled: boolean; final?: boolean }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const tracking = { lead_source: "OGZ-PL", cta_location: location, case_reference: caseReference ?? "", source_page_path: "/przed-i-po" };
 
@@ -21,7 +21,7 @@ export function InPageLeadCta({ title, text, buttonLabel, location, caseReferenc
     <dialog className="case-lead-dialog" ref={dialogRef} aria-labelledby={`${location}-dialog-title`} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}>
       <div className="case-lead-dialog-inner">
         <button type="button" className="dialog-close" aria-label="Zamknij formularz" onClick={() => dialogRef.current?.close()}>×</button>
-        <LeadForm headingId={`${location}-dialog-title`} enabled={formEnabled} context={{ leadSource: "OGZ-PL", ctaLocation: location, sourcePagePath: "/przed-i-po", caseReference }} />
+        <LeadForm heading={formTitle} headingId={`${location}-dialog-title`} enabled={formEnabled} context={{ leadSource: "OGZ-PL", ctaLocation: location, sourcePagePath: "/przed-i-po", caseReference }} />
       </div>
     </dialog>
   </>;
