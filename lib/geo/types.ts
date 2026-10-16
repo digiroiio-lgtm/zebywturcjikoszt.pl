@@ -26,6 +26,8 @@ export type GeoPageRecord = {
   slug: string; kind: "city" | "region"; locationIds: string[]; stage: Stage; title: string; description: string;
   demographicClaims?: string[]; uniqueContentEvidence?: string; searchDemandEvidence?: { source: string; date: string };
   editorialApproval?: { by: string; on: string }; clinicalReview?: { reviewer: string; on: string; approvalReference: string };
+  /** Why this record cannot advance; informational. */
+  blockers?: string[];
   canonicalPath?: string; approvedBy?: string; approvedOn?: string; publishedOn?: string;
   content?: import("../site").PageContent;
 };

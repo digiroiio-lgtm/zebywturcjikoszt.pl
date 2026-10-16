@@ -77,6 +77,7 @@ for (const r of pages) {
   const problems = gateProblems(r, workflow, claims);
   if (r.stage === 'published' && problems.length) fail(`published record ${r.slug}: ${problems.join('; ')}`);
   const text = JSON.stringify(r.content ?? {});
+  if (r.stage === 'published' && /DO UZUPE/.test(text)) fail(`${r.slug}: unresolved [DO UZUPEŁNIENIA] placeholder`);
   for (const re of forbidden) if (re.test(text)) fail(`${r.slug}: forbidden wording ${re}`);
   if (!/^uk\/[a-z0-9-]+$/.test(r.slug)) fail(`${r.slug}: geo pages live under /uk/<slug>`);
 }
