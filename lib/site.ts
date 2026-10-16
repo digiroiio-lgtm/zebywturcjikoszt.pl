@@ -561,7 +561,6 @@ export const pages: Record<string, PageContent> = {
 export const legalSlugs = ["polityka-prywatnosci", "cookies", "regulamin", "reklamacje"];
 
 export const primaryNav = [
-  { label: "Poradniki", href: "/poradniki" },
-  { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Licówki", href: "/licowki" }, { label: "Korony", href: "/korony-cyrkonowe" },
-  { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "Opinie", href: "/opinie" }, { label: "Przed i po", href: "/przed-i-po" }, { label: "Antalya", href: "/antalya" }
+  { label: "Poradniki", href: "/poradniki" }, { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Korony", href: "/korony-cyrkonowe" },
+  { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "Opinie", href: "/opinie" }, { label: "Antalya", href: "/antalya" }
 ];
