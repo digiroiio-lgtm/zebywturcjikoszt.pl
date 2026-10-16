@@ -40,9 +40,9 @@ Placement is data-driven: `lib/page-figures.json` maps a page slug to figures re
 | --- | --- | --- |
 | `klinika/clinic-5.jpeg` | `/koszt` | Reception; caption states the photo does not document scope or price |
 | `klinika/clinic-3.jpeg` | `/jak-wybrac-klinike`, `/kontakt` | Entrance with the facility name sign; two different alt texts per page by design |
-| `klinika/portfolio-02b.jpeg` | `/jak-wybrac-klinike` | Reception and entrance |
-| `klinika/portfolio-05b.jpeg` | `/implanty` | Treatment room through glass door; caption: interior, not a result |
-| `klinika/portfolio-04b.jpeg` | `/licowki` | Treatment room; windows show outside shop signs (acceptable, no readable personal data) |
+| `klinika/portfolio-02b.webp` | `/jak-wybrac-klinike` | Reception and entrance |
+| `klinika/portfolio-05b.webp` | `/implanty` | Treatment room through glass door; caption: interior, not a result |
+| `klinika/portfolio-04b.webp` | `/licowki` | Treatment room; windows show outside shop signs (acceptable, no readable personal data) |
 | `klinika/portfolio-06b.jpeg` | `/korony-cyrkonowe` | Treatment room |
 | `klinika/clinic-6.jpeg` | `/cala-szczeka`, `/uk` | Waiting lounge |
 | `klinika/clinic-4.jpeg` | `/all-on-4`, `/opinie` | Waiting area; on `/opinie` the caption says it is not a patient opinion |

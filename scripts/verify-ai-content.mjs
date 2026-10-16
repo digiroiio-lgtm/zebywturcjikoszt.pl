@@ -47,8 +47,19 @@ for (const question of faq.mainEntity) {
 }
 for (const [slug, reviewer, reviewDate] of [['implanty','mehmet-onur-merey','2026-09-30'],['licowki','mustafa-akca','2026-09-30'],['all-on-4','mehmet-onur-merey','2026-10-02'],['cala-szczeka','mustafa-akca','2026-10-02']]) {
   const page = schemas(read(slug + '.html')).find((s) => s['@type'] === 'MedicalWebPage');
-  assert.equal(page.lastReviewed, reviewDate);
-  assert.equal(page.reviewedBy['@id'], `${origin}/eksperci/${reviewer}/#person`);
+  // Editorial changes after approval must withdraw the old review attribution.
+  if (page.dateModified.slice(0, 10) > reviewDate) {
+    assert.equal(page.lastReviewed, undefined);
+    assert.equal(page.reviewedBy, undefined);
+    assert(!read(slug + '.html').includes('Treść zweryfikowana pod kątem informacji stomatologicznych'));
+    const profile = read(`eksperci/${reviewer}.html`);
+    const reviewedSection = profile.match(/<section><h2>Zweryfikowane treści<\/h2>(.*?)<\/section>/s)?.[1];
+    assert(reviewedSection, 'reviewer profile must show its review scope');
+    assert(!reviewedSection.includes(`href="/${slug}"`), `${slug}: stale approval remains on the reviewer profile`);
+  } else {
+    assert.equal(page.lastReviewed, reviewDate);
+    assert.equal(page.reviewedBy['@id'], `${origin}/eksperci/${reviewer}/#person`);
+  }
   if (page.citation) assert(page.citation.every((source) => source.url && source.name));
 }
 for (const slug of ['koszt','korony-cyrkonowe']) {

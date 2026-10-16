@@ -34,8 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...guideEntries,
     ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!), ...withImages(page.slug) })),
     { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE) },
-    { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
-    { url: abs("/eksperci"), lastModified: day(latest(expertDates)) },
-    ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(expert.lastVerified) }))
+    { url: abs("/nasi-lekarze"), lastModified: day(latest([TEAM_SOURCE_DATE, "2026-10-16"])), images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
+    { url: abs("/eksperci"), lastModified: day(latest([...expertDates, "2026-10-16"])) },
+    ...verifiedExperts.map((expert): Entry => ({ url: abs(expert.profileUrl), lastModified: day(latest([expert.lastVerified, "2026-10-16"])) }))
   ];
 }

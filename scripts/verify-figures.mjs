@@ -15,7 +15,7 @@ for (const [slug, items] of Object.entries(figures)) {
   const rendered = imgs.map((block) => {
     const tag = block.match(/<img\b[^>]*>/)?.[0] ?? "";
     const src = tag.match(/\bsrc="([^"]*)"/)?.[1] ?? "";
-    return { src: decodeURIComponent(src.match(/[?&]url=([^&]+)/)?.[1] ?? src), alt: decode(tag.match(/\balt="([^"]*)"/)?.[1] ?? ""), caption: decode(block.match(/<figcaption>(.*?)<\/figcaption>/)?.[1] ?? "") };
+    return { src: decodeURIComponent(src.match(/[?&]url=([^&]+)/)?.[1] ?? src), optimized: src.startsWith("/_next/image?"), lazy: tag.includes('loading="lazy"'), alt: decode(tag.match(/\balt="([^"]*)"/)?.[1] ?? ""), caption: decode(block.match(/<figcaption>(.*?)<\/figcaption>/)?.[1] ?? "") };
   });
   for (const figure of items) {
     count += 1;
@@ -23,6 +23,12 @@ for (const [slug, items] of Object.entries(figures)) {
     const match = rendered.find((item) => item.src === figure.src && item.alt === figure.alt);
     if (!match) failures.push(`${slug}: figure ${figure.src} with the declared alt text is not in the built HTML.`);
     else if (match.caption !== figure.caption) failures.push(`${slug}: figure ${figure.src} has a different caption in the built HTML.`);
+    if (figure.src.endsWith(".webp")) {
+      const bytes = await readFile(path.join(process.cwd(), "public", figure.src));
+      if (bytes.length >= 100000) failures.push(`${slug}: precompressed figure exceeds the 100 KB budget.`);
+      if (bytes.toString("ascii", 0, 4) !== "RIFF" || bytes.toString("ascii", 8, 12) !== "WEBP") failures.push(`${slug}: invalid WebP figure.`);
+      if (match?.optimized || !match?.lazy) failures.push(`${slug}: precompressed figure must be served directly and lazy loaded.`);
+    }
   }
   if (rendered.length !== items.length) failures.push(`${slug}: ${items.length} figure(s) declared, ${rendered.length} rendered.`);
 }
