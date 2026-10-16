@@ -79,6 +79,15 @@ for (const r of pages) {
   const text = JSON.stringify(r.content ?? {});
   if (r.stage === 'published' && /DO UZUPE/.test(text)) fail(`${r.slug}: unresolved [DO UZUPEŁNIENIA] placeholder`);
   for (const re of forbidden) if (re.test(text)) fail(`${r.slug}: forbidden wording ${re}`);
+  // Publication dates come from the gate (publishedOn), never from draft content; stage and date must not be mixed up.
+  if (r.content && ('published' in r.content || 'lastUpdated' in r.content)) fail(`${r.slug}: content carries its own published/lastUpdated; the date comes from publishedOn`);
+  if (r.stage !== 'published' && r.publishedOn) fail(`${r.slug}: publishedOn set on a ${r.stage} record`);
+  // Location and claim links must exist in the generated dataset.
+  const locIds = new Set(locations.map((l) => l.id));
+  for (const id of [...(r.locationIds ?? []), ...(r.focusLocationIds ?? [])]) if (!locIds.has(id)) fail(`${r.slug}: unknown location id ${id}`);
+  for (const id of r.focusLocationIds ?? []) if (!(r.locationIds ?? []).includes(id)) fail(`${r.slug}: focus location ${id} is not in locationIds`);
+  for (const id of r.pendingClaimIds ?? []) if (!claims.some((c) => c.id === id)) fail(`${r.slug}: unknown claim id ${id}`);
+  if (r.stage !== 'research' && !(r.locationIds ?? []).length) fail(`${r.slug}: a record past research needs locationIds`);
   if (!/^uk\/[a-z0-9-]+$/.test(r.slug)) fail(`${r.slug}: geo pages live under /uk/<slug>`);
 }
 

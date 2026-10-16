@@ -26,6 +26,11 @@ export type GeoPageRecord = {
   slug: string; kind: "city" | "region"; locationIds: string[]; stage: Stage; title: string; description: string;
   demographicClaims?: string[]; uniqueContentEvidence?: string; searchDemandEvidence?: { source: string; date: string };
   editorialApproval?: { by: string; on: string }; clinicalReview?: { reviewer: string; on: string; approvalReference: string };
+  /** Subset of locationIds a page section focuses on (e.g. Tillydrone, Seaton, Old Aberdeen). */
+  focusLocationIds?: string[];
+  /** Census claims awaiting verification; they are NOT demographicClaims and may not be shown. */
+  pendingClaimIds?: string[];
+  draftedOn?: string;
   /** Why this record cannot advance; informational. */
   blockers?: string[];
   canonicalPath?: string; approvedBy?: string; approvedOn?: string; publishedOn?: string;

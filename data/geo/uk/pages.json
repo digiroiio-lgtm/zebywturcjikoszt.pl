@@ -4,11 +4,37 @@
     {
       "slug": "uk/aberdeen",
       "kind": "city",
-      "locationIds": [],
+      "locationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen",
+        "scotland/aberdeen-city/northfield",
+        "scotland/aberdeen-city/mastrick-north",
+        "scotland/aberdeen-city/torry",
+        "scotland/aberdeen-city/ferryhill",
+        "scotland/aberdeen-city/hilton",
+        "scotland/aberdeen-city/woodside",
+        "scotland/aberdeen-city/stockethill",
+        "scotland/aberdeen-city/george-street",
+        "scotland/aberdeen-city/harbour",
+        "scotland/aberdeen-city/kincorth",
+        "scotland/aberdeen-city/nigg",
+        "scotland/aberdeen-city/cove",
+        "scotland/aberdeen-city/kingswells",
+        "scotland/aberdeen-city/sheddocksley",
+        "scotland/aberdeen-city/summerhill",
+        "scotland/aberdeen-city/dyce",
+        "scotland/aberdeen-city/bucksburn",
+        "scotland/aberdeen-city/danestone",
+        "scotland/aberdeen-city/midstocket",
+        "scotland/aberdeen-city/rosemount",
+        "scotland/aberdeen-city/bridge-of-don"
+      ],
       "stage": "research",
       "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
       "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
       "blockers": [
+        "Aberdeen-specific content is still thin: most paragraphs would fit any UK city (see docs/geo-uk/15-aberdeen-pilot.md); census, travel and local evidence must replace or fold them",
         "no verified census claim (Scotland's Census 2022 tables not retrieved)",
         "no dated search-demand evidence",
         "no unique-content evidence beyond the Aberdeen census claim",
@@ -19,8 +45,6 @@
       ],
       "content": {
         "slug": "uk/aberdeen",
-        "published": "2026-10-16",
-        "lastUpdated": "2026-10-16",
         "title": "Leczenie zębów w Turcji dla Polaków z Aberdeen",
         "description": "Mieszkasz w Aberdeen lub okolicy? Co ustalić przed leczeniem zębów w Antalyi: plan i zakres ceny, polisa, kontrola po powrocie i kontakt po polsku.",
         "eyebrow": "Dla Polaków w UK",
@@ -98,7 +122,20 @@
         ],
         "ctaLabel": "Poproś o wstępną ocenę",
         "ctaEvent": "uk_aberdeen_cta"
-      }
+      },
+      "focusLocationIds": [
+        "scotland/aberdeen-city/tillydrone",
+        "scotland/aberdeen-city/seaton",
+        "scotland/aberdeen-city/old-aberdeen"
+      ],
+      "pendingClaimIds": [
+        "sc2022/aberdeen/tillydrone",
+        "sc2022/aberdeen/northfield",
+        "sc2022/aberdeen/torry",
+        "sc2022/aberdeen/hilton",
+        "sc2022/aberdeen/george-street"
+      ],
+      "draftedOn": "2026-10-16"
     }
   ]
 }
