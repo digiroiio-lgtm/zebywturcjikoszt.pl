@@ -1,4 +1,29 @@
 {
   "instructions": "Edit only this file to change the homepage Shorts section. An empty list hides the section. A video is shown only when approved is true AND consentReference points to the clinic's written consent record (a reference only, never personal data). kind is \"patient-testimonial\" only for videos in which a patient speaks about their own experience. thumbnail is optional: a self-hosted file under /public (recommended; no request to YouTube until Play). uploadDate (YYYY-MM-DD) enables VideoObject structured data; without it none is emitted.",
-  "videos": []
+  "videos": [
+    {
+      "url": "https://www.youtube.com/shorts/z7viy7taQ1I",
+      "title": "Akdeniz Dental: film o estetyce uśmiechu (1)",
+      "description": "Krótki film kliniki Akdeniz Dental o leczeniu estetycznym. Tytuł oryginalny na YouTube: „Luxury is in the details. Especially when it comes to your smile.”",
+      "kind": "other",
+      "approved": false,
+      "consentReference": ""
+    },
+    {
+      "url": "https://www.youtube.com/shorts/wf6tWL6t4eA",
+      "title": "Akdeniz Dental: film o estetyce uśmiechu (2)",
+      "description": "Krótki film kliniki Akdeniz Dental o leczeniu estetycznym. Tytuł oryginalny na YouTube: „#aestheticdentistry Your smile deserves a second chance. Let’s make it unforgettable.”",
+      "kind": "other",
+      "approved": false,
+      "consentReference": ""
+    },
+    {
+      "url": "https://www.youtube.com/shorts/m2MZ3TMLLGc",
+      "title": "Akdeniz Dental: film o precyzji i estetyce (3)",
+      "description": "Krótki film kliniki Akdeniz Dental o leczeniu estetycznym. Tytuł oryginalny na YouTube: „Millimetric Precision, Timeless Aesthetics”.",
+      "kind": "other",
+      "approved": false,
+      "consentReference": ""
+    }
+  ]
 }
