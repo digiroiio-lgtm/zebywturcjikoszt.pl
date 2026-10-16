@@ -1,0 +1,1963 @@
+{
+  "generatedFrom": "lib/geo/inventory.mjs",
+  "note": "Generated; do not edit. Every record is a research candidate, none is a validated Polish concentration.",
+  "countries": [
+    {
+      "id": "england",
+      "name": "Anglia",
+      "nameEn": "England",
+      "slug": "anglia"
+    },
+    {
+      "id": "scotland",
+      "name": "Szkocja",
+      "nameEn": "Scotland",
+      "slug": "szkocja"
+    },
+    {
+      "id": "wales",
+      "name": "Walia",
+      "nameEn": "Wales",
+      "slug": "walia"
+    },
+    {
+      "id": "northern-ireland",
+      "name": "Irlandia Północna",
+      "nameEn": "Northern Ireland",
+      "slug": "irlandia-polnocna"
+    }
+  ],
+  "locations": [
+    {
+      "id": "england/ealing/ealing-broadway",
+      "kind": "area",
+      "name": "Ealing Broadway",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/south-ealing",
+      "kind": "area",
+      "name": "South Ealing",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/northfields",
+      "kind": "area",
+      "name": "Northfields",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W13"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/acton",
+      "kind": "area",
+      "name": "Acton",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W3"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/greenford",
+      "kind": "area",
+      "name": "Greenford",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "UB6"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/perivale",
+      "kind": "area",
+      "name": "Perivale",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "UB6"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/ealing/northolt",
+      "kind": "area",
+      "name": "Northolt",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Ealing",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "UB5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hammersmith-and-fulham/hammersmith",
+      "kind": "area",
+      "name": "Hammersmith",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hammersmith & Fulham",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W6"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hammersmith-and-fulham/ravenscourt-park",
+      "kind": "area",
+      "name": "Ravenscourt Park",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hammersmith & Fulham",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W6"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hammersmith-and-fulham/polish-social-and-cultural-association-posk-238-246-king-street-london-w6-0rf",
+      "kind": "landmark",
+      "name": "Polish Social and Cultural Association (POSK), 238–246 King Street, London W6 0RF",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hammersmith & Fulham",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "W6"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "A Polish cultural landmark. Not a clinic, not a census area; carries no population metric."
+    },
+    {
+      "id": "england/hounslow/hounslow-central",
+      "kind": "area",
+      "name": "Hounslow Central",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hounslow",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "TW3"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hounslow/hounslow-west",
+      "kind": "area",
+      "name": "Hounslow West",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hounslow",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "TW4"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hounslow/brentford",
+      "kind": "area",
+      "name": "Brentford",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hounslow",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "TW8"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/brent/wembley",
+      "kind": "area",
+      "name": "Wembley",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Brent",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "HA0",
+        "HA9"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/brent/willesden",
+      "kind": "area",
+      "name": "Willesden",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Brent",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "NW10"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/barnet/hendon",
+      "kind": "area",
+      "name": "Hendon",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Barnet",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "NW4"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/haringey/tottenham",
+      "kind": "area",
+      "name": "Tottenham",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Haringey",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "N17"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/croydon/croydon-central",
+      "kind": "area",
+      "name": "Croydon Central",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Croydon",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "CR0"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/merton/mitcham",
+      "kind": "area",
+      "name": "Mitcham",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Merton",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "CR4"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/hillingdon/hayes",
+      "kind": "area",
+      "name": "Hayes",
+      "group": "A",
+      "country": "england",
+      "region": "Greater London",
+      "authority": "Hillingdon",
+      "cityGroup": "london",
+      "postalDistricts": [
+        "UB3",
+        "UB4"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/southampton/shirley",
+      "kind": "area",
+      "name": "Shirley",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Southampton",
+      "cityGroup": "southampton",
+      "postalDistricts": [
+        "SO15"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/southampton/shirley-road",
+      "kind": "area",
+      "name": "Shirley Road",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Southampton",
+      "cityGroup": "southampton",
+      "postalDistricts": [
+        "SO15"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "A road rather than a statistical area."
+    },
+    {
+      "id": "england/southampton/st-marys",
+      "kind": "area",
+      "name": "St Mary's",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Southampton",
+      "cityGroup": "southampton",
+      "postalDistricts": [
+        "SO14"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/southampton/portswood",
+      "kind": "area",
+      "name": "Portswood",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Southampton",
+      "cityGroup": "southampton",
+      "postalDistricts": [
+        "SO17"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/southampton/southampton-city-centre",
+      "kind": "area",
+      "name": "Southampton City Centre",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Southampton",
+      "cityGroup": "southampton",
+      "postalDistricts": [
+        "SO14"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/slough/slough-central",
+      "kind": "area",
+      "name": "Slough Central",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Slough",
+      "cityGroup": "slough",
+      "postalDistricts": [
+        "SL1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/slough/langley",
+      "kind": "area",
+      "name": "Langley",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Slough",
+      "cityGroup": "slough",
+      "postalDistricts": [
+        "SL3"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/luton/luton-central",
+      "kind": "area",
+      "name": "Luton Central",
+      "group": "B",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Luton",
+      "cityGroup": "luton",
+      "postalDistricts": [
+        "LU1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/luton/bury-park",
+      "kind": "area",
+      "name": "Bury Park",
+      "group": "B",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Luton",
+      "cityGroup": "luton",
+      "postalDistricts": [
+        "LU4"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bournemouth-christchurch-and-poole/bournemouth-central",
+      "kind": "area",
+      "name": "Bournemouth Central",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bournemouth, Christchurch and Poole",
+      "cityGroup": "bcp",
+      "postalDistricts": [
+        "BH1",
+        "BH2"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bournemouth-christchurch-and-poole/boscombe",
+      "kind": "area",
+      "name": "Boscombe",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bournemouth, Christchurch and Poole",
+      "cityGroup": "bcp",
+      "postalDistricts": [
+        "BH1",
+        "BH5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bournemouth-christchurch-and-poole/christchurch",
+      "kind": "area",
+      "name": "Christchurch",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bournemouth, Christchurch and Poole",
+      "cityGroup": "bcp",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "To be researched separately where justified; the brief gives no postal district."
+    },
+    {
+      "id": "england/bournemouth-christchurch-and-poole/poole",
+      "kind": "area",
+      "name": "Poole",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bournemouth, Christchurch and Poole",
+      "cityGroup": "bcp",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "To be researched separately where justified; the brief gives no postal district."
+    },
+    {
+      "id": "england/bristol/easton",
+      "kind": "area",
+      "name": "Easton",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bristol",
+      "cityGroup": "bristol",
+      "postalDistricts": [
+        "BS5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bristol/bedminster",
+      "kind": "area",
+      "name": "Bedminster",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bristol",
+      "cityGroup": "bristol",
+      "postalDistricts": [
+        "BS3"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bristol/central-bristol",
+      "kind": "area",
+      "name": "Central Bristol",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Bristol",
+      "cityGroup": "bristol",
+      "postalDistricts": [
+        "BS1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/somerset",
+      "kind": "authority",
+      "name": "Somerset",
+      "group": "B",
+      "country": "england",
+      "region": "South West",
+      "authority": "Somerset",
+      "cityGroup": "somerset",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/buckinghamshire",
+      "kind": "authority",
+      "name": "Buckinghamshire",
+      "group": "B",
+      "country": "england",
+      "region": "South East",
+      "authority": "Buckinghamshire",
+      "cityGroup": "buckinghamshire",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/cheshire-east",
+      "kind": "authority",
+      "name": "Cheshire East",
+      "group": "B",
+      "country": "england",
+      "region": "North West",
+      "authority": "Cheshire East",
+      "cityGroup": "cheshire-east",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/sandwell",
+      "kind": "authority",
+      "name": "Sandwell",
+      "group": "B",
+      "country": "england",
+      "region": "West Midlands",
+      "authority": "Sandwell",
+      "cityGroup": "sandwell",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/west-northamptonshire/northampton-town-centre",
+      "kind": "area",
+      "name": "Northampton Town Centre",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "West Northamptonshire",
+      "cityGroup": "northamptonshire",
+      "postalDistricts": [
+        "NN1",
+        "NN2"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Current unitary authority; respect it when mapping Northampton postal districts."
+    },
+    {
+      "id": "england/west-northamptonshire/abington",
+      "kind": "area",
+      "name": "Abington",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "West Northamptonshire",
+      "cityGroup": "northamptonshire",
+      "postalDistricts": [
+        "NN1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Current unitary authority; respect it when mapping Northampton postal districts."
+    },
+    {
+      "id": "england/north-northamptonshire/corby",
+      "kind": "area",
+      "name": "Corby",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "North Northamptonshire",
+      "cityGroup": "northamptonshire",
+      "postalDistricts": [
+        "NN17"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Current unitary authority; respect it when mapping Corby, Wellingborough and Kettering."
+    },
+    {
+      "id": "england/north-northamptonshire/wellingborough",
+      "kind": "area",
+      "name": "Wellingborough",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "North Northamptonshire",
+      "cityGroup": "northamptonshire",
+      "postalDistricts": [
+        "NN8"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Current unitary authority; respect it when mapping Corby, Wellingborough and Kettering."
+    },
+    {
+      "id": "england/north-northamptonshire/kettering",
+      "kind": "area",
+      "name": "Kettering",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "North Northamptonshire",
+      "cityGroup": "northamptonshire",
+      "postalDistricts": [
+        "NN16"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Current unitary authority; respect it when mapping Corby, Wellingborough and Kettering."
+    },
+    {
+      "id": "england/peterborough/central-peterborough",
+      "kind": "area",
+      "name": "Central Peterborough",
+      "group": "C",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Peterborough",
+      "cityGroup": "peterborough",
+      "postalDistricts": [
+        "PE1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/peterborough/millfield",
+      "kind": "area",
+      "name": "Millfield",
+      "group": "C",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Peterborough",
+      "cityGroup": "peterborough",
+      "postalDistricts": [
+        "PE1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/peterborough/eastfield",
+      "kind": "area",
+      "name": "Eastfield",
+      "group": "C",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Peterborough",
+      "cityGroup": "peterborough",
+      "postalDistricts": [
+        "PE1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/peterborough/fletton",
+      "kind": "area",
+      "name": "Fletton",
+      "group": "C",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Peterborough",
+      "cityGroup": "peterborough",
+      "postalDistricts": [
+        "PE2"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/boston/boston-town-centre",
+      "kind": "area",
+      "name": "Boston Town Centre",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "Boston",
+      "cityGroup": "boston-lincolnshire",
+      "postalDistricts": [
+        "PE21"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Lincolnshire district; the brief groups it with 'Lincolnshire and Fenland'."
+    },
+    {
+      "id": "england/south-holland/spalding",
+      "kind": "area",
+      "name": "Spalding",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "South Holland",
+      "cityGroup": "boston-lincolnshire",
+      "postalDistricts": [
+        "PE11"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Lincolnshire district (analyst-assigned; verify)."
+    },
+    {
+      "id": "england/fenland/wisbech",
+      "kind": "area",
+      "name": "Wisbech",
+      "group": "C",
+      "country": "england",
+      "region": "East of England",
+      "authority": "Fenland",
+      "cityGroup": "boston-lincolnshire",
+      "postalDistricts": [
+        "PE13"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Cambridgeshire district, not Lincolnshire (analyst-assigned; verify)."
+    },
+    {
+      "id": "england/nottingham/nottingham-city-centre",
+      "kind": "area",
+      "name": "Nottingham City Centre",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "Nottingham",
+      "cityGroup": "nottingham",
+      "postalDistricts": [
+        "NG1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/nottingham/radford",
+      "kind": "area",
+      "name": "Radford",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "Nottingham",
+      "cityGroup": "nottingham",
+      "postalDistricts": [
+        "NG7"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/leicester/leicester-city-centre",
+      "kind": "area",
+      "name": "Leicester City Centre",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "Leicester",
+      "cityGroup": "leicester",
+      "postalDistricts": [
+        "LE1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/leicester/highfields",
+      "kind": "area",
+      "name": "Highfields",
+      "group": "C",
+      "country": "england",
+      "region": "East Midlands",
+      "authority": "Leicester",
+      "cityGroup": "leicester",
+      "postalDistricts": [
+        "LE2"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/coventry/coventry-city-centre",
+      "kind": "area",
+      "name": "Coventry City Centre",
+      "group": "C",
+      "country": "england",
+      "region": "West Midlands",
+      "authority": "Coventry",
+      "cityGroup": "coventry",
+      "postalDistricts": [
+        "CV1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/birmingham/central-birmingham",
+      "kind": "area",
+      "name": "Central Birmingham",
+      "group": "C",
+      "country": "england",
+      "region": "West Midlands",
+      "authority": "Birmingham",
+      "cityGroup": "birmingham",
+      "postalDistricts": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/kingston-upon-hull/hull-city-centre",
+      "kind": "area",
+      "name": "Hull City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Kingston upon Hull",
+      "cityGroup": "hull",
+      "postalDistricts": [
+        "HU1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/kingston-upon-hull/newington",
+      "kind": "area",
+      "name": "Newington",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Kingston upon Hull",
+      "cityGroup": "hull",
+      "postalDistricts": [
+        "HU3"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/leeds/leeds-city-centre",
+      "kind": "area",
+      "name": "Leeds City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Leeds",
+      "cityGroup": "leeds",
+      "postalDistricts": [
+        "LS1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/leeds/harehills",
+      "kind": "area",
+      "name": "Harehills",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Leeds",
+      "cityGroup": "leeds",
+      "postalDistricts": [
+        "LS8"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/wakefield/wakefield-city-centre",
+      "kind": "area",
+      "name": "Wakefield City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Wakefield",
+      "cityGroup": "wakefield",
+      "postalDistricts": [
+        "WF1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/doncaster/doncaster-city-centre",
+      "kind": "area",
+      "name": "Doncaster City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Doncaster",
+      "cityGroup": "doncaster",
+      "postalDistricts": [
+        "DN1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/manchester/manchester-city-centre",
+      "kind": "area",
+      "name": "Manchester City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "North West",
+      "authority": "Manchester",
+      "cityGroup": "manchester",
+      "postalDistricts": [
+        "M1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/manchester/cheetham-hill",
+      "kind": "area",
+      "name": "Cheetham Hill",
+      "group": "D",
+      "country": "england",
+      "region": "North West",
+      "authority": "Manchester",
+      "cityGroup": "manchester",
+      "postalDistricts": [
+        "M8"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/bradford/bradford-city-centre",
+      "kind": "area",
+      "name": "Bradford City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Bradford",
+      "cityGroup": "bradford",
+      "postalDistricts": [
+        "BD1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/sheffield/sheffield-city-centre",
+      "kind": "area",
+      "name": "Sheffield City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "Yorkshire and the Humber",
+      "authority": "Sheffield",
+      "cityGroup": "sheffield",
+      "postalDistricts": [
+        "S1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/liverpool/liverpool-city-centre",
+      "kind": "area",
+      "name": "Liverpool City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "North West",
+      "authority": "Liverpool",
+      "cityGroup": "liverpool",
+      "postalDistricts": [
+        "L1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "england/newcastle-upon-tyne/newcastle-city-centre",
+      "kind": "area",
+      "name": "Newcastle City Centre",
+      "group": "D",
+      "country": "england",
+      "region": "North East",
+      "authority": "Newcastle upon Tyne",
+      "cityGroup": "newcastle",
+      "postalDistricts": [
+        "NE1"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "scotland/aberdeen-city/tillydrone",
+      "kind": "area",
+      "name": "Tillydrone",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/seaton",
+      "kind": "area",
+      "name": "Seaton",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/old-aberdeen",
+      "kind": "area",
+      "name": "Old Aberdeen",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/northfield",
+      "kind": "area",
+      "name": "Northfield",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/mastrick-north",
+      "kind": "area",
+      "name": "Mastrick North",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/torry",
+      "kind": "area",
+      "name": "Torry",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/ferryhill",
+      "kind": "area",
+      "name": "Ferryhill",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/hilton",
+      "kind": "area",
+      "name": "Hilton",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/woodside",
+      "kind": "area",
+      "name": "Woodside",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/stockethill",
+      "kind": "area",
+      "name": "Stockethill",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/george-street",
+      "kind": "area",
+      "name": "George Street",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/harbour",
+      "kind": "area",
+      "name": "Harbour",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/kincorth",
+      "kind": "area",
+      "name": "Kincorth",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/nigg",
+      "kind": "area",
+      "name": "Nigg",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/cove",
+      "kind": "area",
+      "name": "Cove",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/kingswells",
+      "kind": "area",
+      "name": "Kingswells",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/sheddocksley",
+      "kind": "area",
+      "name": "Sheddocksley",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/summerhill",
+      "kind": "area",
+      "name": "Summerhill",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/dyce",
+      "kind": "area",
+      "name": "Dyce",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/bucksburn",
+      "kind": "area",
+      "name": "Bucksburn",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/danestone",
+      "kind": "area",
+      "name": "Danestone",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/midstocket",
+      "kind": "area",
+      "name": "Midstocket",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/rosemount",
+      "kind": "area",
+      "name": "Rosemount",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/aberdeen-city/bridge-of-don",
+      "kind": "area",
+      "name": "Bridge of Don",
+      "group": "E",
+      "country": "scotland",
+      "region": "North East Scotland",
+      "authority": "Aberdeen City",
+      "cityGroup": "aberdeen",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "The brief gives no postal districts for Aberdeen; none are invented."
+    },
+    {
+      "id": "scotland/city-of-edinburgh/edinburgh",
+      "kind": "area",
+      "name": "Edinburgh",
+      "group": "E",
+      "country": "scotland",
+      "region": "Lothian",
+      "authority": "City of Edinburgh",
+      "cityGroup": "edinburgh",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/city-of-edinburgh/leith",
+      "kind": "area",
+      "name": "Leith",
+      "group": "E",
+      "country": "scotland",
+      "region": "Lothian",
+      "authority": "City of Edinburgh",
+      "cityGroup": "edinburgh",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/city-of-edinburgh/sighthill-gorgie",
+      "kind": "area",
+      "name": "Sighthill / Gorgie",
+      "group": "E",
+      "country": "scotland",
+      "region": "Lothian",
+      "authority": "City of Edinburgh",
+      "cityGroup": "edinburgh",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/glasgow-city/glasgow",
+      "kind": "area",
+      "name": "Glasgow",
+      "group": "E",
+      "country": "scotland",
+      "region": "Greater Glasgow",
+      "authority": "Glasgow City",
+      "cityGroup": "glasgow",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/dundee-city/dundee",
+      "kind": "area",
+      "name": "Dundee",
+      "group": "E",
+      "country": "scotland",
+      "region": "Tayside",
+      "authority": "Dundee City",
+      "cityGroup": "dundee",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/perth-and-kinross/perth",
+      "kind": "area",
+      "name": "Perth",
+      "group": "E",
+      "country": "scotland",
+      "region": "Tayside",
+      "authority": "Perth and Kinross",
+      "cityGroup": "perth",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "scotland/highland/inverness",
+      "kind": "area",
+      "name": "Inverness",
+      "group": "E",
+      "country": "scotland",
+      "region": "Highlands and Islands",
+      "authority": "Highland",
+      "cityGroup": "inverness",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": "Obtain verified census geography before assigning any population share."
+    },
+    {
+      "id": "wales/wrexham/wrexham",
+      "kind": "area",
+      "name": "Wrexham",
+      "group": "F",
+      "country": "wales",
+      "region": "North Wales",
+      "authority": "Wrexham",
+      "cityGroup": "wrexham",
+      "postalDistricts": [
+        "LL11",
+        "LL13"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/flintshire/flintshire",
+      "kind": "area",
+      "name": "Flintshire",
+      "group": "F",
+      "country": "wales",
+      "region": "North Wales",
+      "authority": "Flintshire",
+      "cityGroup": "flintshire",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/merthyr-tydfil/merthyr-tydfil",
+      "kind": "area",
+      "name": "Merthyr Tydfil",
+      "group": "F",
+      "country": "wales",
+      "region": "South Wales",
+      "authority": "Merthyr Tydfil",
+      "cityGroup": "merthyr-tydfil",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/newport/newport",
+      "kind": "area",
+      "name": "Newport",
+      "group": "F",
+      "country": "wales",
+      "region": "South Wales",
+      "authority": "Newport",
+      "cityGroup": "newport",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/swansea/swansea",
+      "kind": "area",
+      "name": "Swansea",
+      "group": "F",
+      "country": "wales",
+      "region": "South Wales",
+      "authority": "Swansea",
+      "cityGroup": "swansea",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/cardiff/cardiff",
+      "kind": "area",
+      "name": "Cardiff",
+      "group": "F",
+      "country": "wales",
+      "region": "South Wales",
+      "authority": "Cardiff",
+      "cityGroup": "cardiff",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/carmarthenshire/carmarthenshire",
+      "kind": "area",
+      "name": "Carmarthenshire",
+      "group": "F",
+      "country": "wales",
+      "region": "West Wales",
+      "authority": "Carmarthenshire",
+      "cityGroup": "carmarthenshire",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "wales/ceredigion/ceredigion",
+      "kind": "area",
+      "name": "Ceredigion",
+      "group": "F",
+      "country": "wales",
+      "region": "West Wales",
+      "authority": "Ceredigion",
+      "cityGroup": "ceredigion",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/belfast/belfast",
+      "kind": "area",
+      "name": "Belfast",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Belfast",
+      "authority": "Belfast",
+      "cityGroup": "belfast",
+      "postalDistricts": [
+        "BT1",
+        "BT2",
+        "BT3",
+        "BT4",
+        "BT5",
+        "BT6",
+        "BT7",
+        "BT8",
+        "BT9",
+        "BT10",
+        "BT11",
+        "BT12",
+        "BT13",
+        "BT14",
+        "BT15"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/armagh-city-banbridge-and-craigavon/craigavon",
+      "kind": "area",
+      "name": "Craigavon",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Armagh City, Banbridge and Craigavon",
+      "authority": "Armagh City, Banbridge and Craigavon",
+      "cityGroup": "craigavon",
+      "postalDistricts": [
+        "BT62",
+        "BT63",
+        "BT64",
+        "BT65"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/armagh-city-banbridge-and-craigavon/portadown",
+      "kind": "area",
+      "name": "Portadown",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Armagh City, Banbridge and Craigavon",
+      "authority": "Armagh City, Banbridge and Craigavon",
+      "cityGroup": "craigavon",
+      "postalDistricts": [],
+      "districtStatus": "none-in-brief",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/mid-ulster/dungannon",
+      "kind": "area",
+      "name": "Dungannon",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Mid Ulster",
+      "authority": "Mid Ulster",
+      "cityGroup": "dungannon",
+      "postalDistricts": [
+        "BT70",
+        "BT71"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/newry-mourne-and-down/newry",
+      "kind": "area",
+      "name": "Newry",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Newry, Mourne and Down",
+      "authority": "Newry, Mourne and Down",
+      "cityGroup": "newry",
+      "postalDistricts": [
+        "BT34",
+        "BT35"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/mid-and-east-antrim/ballymena",
+      "kind": "area",
+      "name": "Ballymena",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Mid and East Antrim",
+      "authority": "Mid and East Antrim",
+      "cityGroup": "ballymena",
+      "postalDistricts": [
+        "BT42",
+        "BT43"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/lisburn-and-castlereagh/lisburn",
+      "kind": "area",
+      "name": "Lisburn",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Lisburn and Castlereagh",
+      "authority": "Lisburn and Castlereagh",
+      "cityGroup": "lisburn",
+      "postalDistricts": [
+        "BT27",
+        "BT28"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    },
+    {
+      "id": "northern-ireland/causeway-coast-and-glens/coleraine",
+      "kind": "area",
+      "name": "Coleraine",
+      "group": "G",
+      "country": "northern-ireland",
+      "region": "Causeway Coast and Glens",
+      "authority": "Causeway Coast and Glens",
+      "cityGroup": "coleraine",
+      "postalDistricts": [
+        "BT51",
+        "BT52"
+      ],
+      "districtStatus": "brief-claimed-unverified",
+      "evidenceLevel": "brief-candidate",
+      "stage": "research",
+      "note": null
+    }
+  ]
+}

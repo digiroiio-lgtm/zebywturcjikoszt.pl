@@ -1,0 +1,135 @@
+{
+  "note": "Hypotheses only. No search volume, difficulty or lead forecast exists for any keyword.",
+  "clusters": [
+    {
+      "id": "c1",
+      "name": "Leczenie zębów w Turcji",
+      "targetPage": "/uk (hub) or existing treatment pages",
+      "keywords": [
+        "leczenie zębów w Turcji",
+        "dentysta w Turcji",
+        "klinika stomatologiczna w Turcji",
+        "leczenie stomatologiczne w Antalyi",
+        "dentysta Antalya",
+        "polski dentysta w Turcji",
+        "leczenie zębów w Turcji dla Polaków w UK",
+        "stomatologia Turcja ceny"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c2",
+      "name": "Implanty",
+      "targetPage": "/implanty",
+      "keywords": [
+        "implanty zębowe Turcja",
+        "implanty zębów Antalya",
+        "implanty zębowe Turcja ceny",
+        "implanty w Turcji opinie",
+        "implanty zębów Turcja dla Polaków",
+        "implanty Turcja czy warto",
+        "implanty w Turcji a leczenie w Wielkiej Brytanii"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c3",
+      "name": "Pełna odbudowa",
+      "targetPage": "/cala-szczeka, /all-on-4",
+      "keywords": [
+        "odbudowa całego uzębienia Turcja",
+        "pełna odbudowa uzębienia Antalya",
+        "All-on-4 Turcja",
+        "All-on-6 Turcja",
+        "pełna szczęka implanty Turcja",
+        "kompleksowe leczenie zębów w Turcji",
+        "proteza stała na implantach Turcja"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c4",
+      "name": "Estetyka",
+      "targetPage": "/licowki, /korony-cyrkonowe",
+      "keywords": [
+        "metamorfoza uśmiechu Turcja",
+        "smile makeover Turcja",
+        "licówki porcelanowe Turcja",
+        "licówki Antalya",
+        "korony cyrkonowe Turcja",
+        "Hollywood Smile Turcja",
+        "estetyczna odbudowa zębów Turcja"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c5",
+      "name": "Porównanie cen",
+      "targetPage": "/koszt, /uk/ceny-leczenia-zebow-w-turcji-w-funtach",
+      "keywords": [
+        "ile kosztują implanty w Turcji",
+        "ceny leczenia zębów w Turcji",
+        "implanty UK vs Turcja",
+        "implanty Turcja ceny w funtach",
+        "licówki Turcja cena GBP",
+        "korony cyrkonowe Turcja cena",
+        "koszt leczenia zębów w Antalyi"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c6",
+      "name": "Polacy z konkretnych miast UK",
+      "targetPage": "city pages only after the publication gate",
+      "keywords": [
+        "leczenie zębów w Turcji dla Polaków z Londynu",
+        "implanty w Turcji dla Polaków z Ealing",
+        "leczenie zębów w Turcji z Southampton",
+        "implanty Turcja z Peterborough",
+        "dentysta w Turcji dla Polaków z Manchesteru",
+        "leczenie zębów w Antalyi z Aberdeen",
+        "leczenie implantologiczne Turcja z Birmingham",
+        "metamorfoza uśmiechu Antalya z Leeds"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c7",
+      "name": "NHS i porównania",
+      "targetPage": "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji",
+      "keywords": [
+        "implanty zębowe NHS czy prywatnie",
+        "implanty prywatnie w UK czy w Turcji",
+        "leczenie dentystyczne w UK vs Turcja",
+        "ile kosztują implanty w Anglii",
+        "alternatywy dla prywatnego leczenia dentystycznego w UK",
+        "planowanie wizyt stomatologicznych w Turcji"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    },
+    {
+      "id": "c8",
+      "name": "Droga pacjenta i zaufanie",
+      "targetPage": "/poradniki, /jak-wybrac-klinike",
+      "keywords": [
+        "jak wygląda leczenie zębów w Turcji",
+        "ile wizyt potrzeba do implantów",
+        "gojenie po implantach",
+        "ile dni w Turcji na korony",
+        "jak wybrać klinikę w Turcji",
+        "opieka po leczeniu zębów za granicą",
+        "leczenie zębów w Turcji opinie",
+        "gwarancja na implanty Turcja"
+      ],
+      "status": "hypothesis",
+      "searchDemandEvidence": null
+    }
+  ]
+}

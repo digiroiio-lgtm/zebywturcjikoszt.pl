@@ -1,0 +1,705 @@
+{
+  "note": "Brief figures, all verified:false. They may not appear on any page, in llms files or in any internal link until verified:true with every provenance field filled.",
+  "claims": [
+    {
+      "id": "ts024/ealing",
+      "geography": {
+        "level": "local-authority",
+        "name": "Ealing",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 15449,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/southampton",
+      "geography": {
+        "level": "local-authority",
+        "name": "Southampton",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 10436,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/north-northamptonshire",
+      "geography": {
+        "level": "local-authority",
+        "name": "North Northamptonshire",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 9297,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/hounslow",
+      "geography": {
+        "level": "local-authority",
+        "name": "Hounslow",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 9219,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/kingston-upon-hull",
+      "geography": {
+        "level": "local-authority",
+        "name": "Kingston upon Hull",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 8564,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/leeds",
+      "geography": {
+        "level": "local-authority",
+        "name": "Leeds",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 8271,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/leicester",
+      "geography": {
+        "level": "local-authority",
+        "name": "Leicester",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7940,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/birmingham",
+      "geography": {
+        "level": "local-authority",
+        "name": "Birmingham",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7907,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/wakefield",
+      "geography": {
+        "level": "local-authority",
+        "name": "Wakefield",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7900,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/west-northamptonshire",
+      "geography": {
+        "level": "local-authority",
+        "name": "West Northamptonshire",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7828,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/nottingham",
+      "geography": {
+        "level": "local-authority",
+        "name": "Nottingham",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7826,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/luton",
+      "geography": {
+        "level": "local-authority",
+        "name": "Luton",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7823,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/slough",
+      "geography": {
+        "level": "local-authority",
+        "name": "Slough",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7724,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/coventry",
+      "geography": {
+        "level": "local-authority",
+        "name": "Coventry",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7719,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/peterborough",
+      "geography": {
+        "level": "local-authority",
+        "name": "Peterborough",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7507,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/bristol",
+      "geography": {
+        "level": "local-authority",
+        "name": "Bristol",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 7017,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/somerset",
+      "geography": {
+        "level": "local-authority",
+        "name": "Somerset",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 6614,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/bournemouth-christchurch-and-poole",
+      "geography": {
+        "level": "local-authority",
+        "name": "Bournemouth, Christchurch and Poole",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 6563,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/doncaster",
+      "geography": {
+        "level": "local-authority",
+        "name": "Doncaster",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 6495,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/manchester",
+      "geography": {
+        "level": "local-authority",
+        "name": "Manchester",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 6471,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/croydon",
+      "geography": {
+        "level": "local-authority",
+        "name": "Croydon",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 6262,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/bradford",
+      "geography": {
+        "level": "local-authority",
+        "name": "Bradford",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5992,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/haringey",
+      "geography": {
+        "level": "local-authority",
+        "name": "Haringey",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5921,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/brent",
+      "geography": {
+        "level": "local-authority",
+        "name": "Brent",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5817,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/merton",
+      "geography": {
+        "level": "local-authority",
+        "name": "Merton",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5761,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/sandwell",
+      "geography": {
+        "level": "local-authority",
+        "name": "Sandwell",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5685,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/barnet",
+      "geography": {
+        "level": "local-authority",
+        "name": "Barnet",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5542,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/buckinghamshire",
+      "geography": {
+        "level": "local-authority",
+        "name": "Buckinghamshire",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5434,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/cheshire-east",
+      "geography": {
+        "level": "local-authority",
+        "name": "Cheshire East",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5102,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "ts024/hillingdon",
+      "geography": {
+        "level": "local-authority",
+        "name": "Hillingdon",
+        "country": "england"
+      },
+      "metric": "polishMainLanguage",
+      "value": 5016,
+      "unit": "persons",
+      "denominator": null,
+      "year": 2021,
+      "definition": "Residents aged 3+ whose main language is Polish (ONS Census 2021, TS024 Main language).",
+      "dataset": "ONS Census 2021 TS024 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "sc2022/aberdeen/tillydrone",
+      "geography": {
+        "level": "ward-group",
+        "name": "Tillydrone / Seaton / Old Aberdeen",
+        "country": "scotland"
+      },
+      "metric": "polishNationalIdentity",
+      "value": 13.2,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "sc2022/aberdeen/northfield",
+      "geography": {
+        "level": "ward-group",
+        "name": "Northfield / Mastrick North",
+        "country": "scotland"
+      },
+      "metric": "polishNationalIdentity",
+      "value": 8.8,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "sc2022/aberdeen/torry",
+      "geography": {
+        "level": "ward-group",
+        "name": "Torry / Ferryhill",
+        "country": "scotland"
+      },
+      "metric": "polishNationalIdentity",
+      "value": 6.6,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "sc2022/aberdeen/hilton",
+      "geography": {
+        "level": "ward-group",
+        "name": "Hilton / Woodside / Stockethill",
+        "country": "scotland"
+      },
+      "metric": "polishNationalIdentity",
+      "value": 6.3,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    },
+    {
+      "id": "sc2022/aberdeen/george-street",
+      "geography": {
+        "level": "ward-group",
+        "name": "George Street / Harbour",
+        "country": "scotland"
+      },
+      "metric": "polishNationalIdentity",
+      "value": 4.8,
+      "unit": "percent-of-residents",
+      "denominator": null,
+      "year": 2022,
+      "definition": "Share of residents reporting Polish ethnic identity (Scotland's Census 2022); the brief says \"to be revalidated\".",
+      "dataset": "Scotland's Census 2022 (value quoted in the brief; not read from the dataset)",
+      "sourceUrl": null,
+      "verifiedOn": null,
+      "confidence": "unverified",
+      "verified": false,
+      "source": "brief"
+    }
+  ]
+}

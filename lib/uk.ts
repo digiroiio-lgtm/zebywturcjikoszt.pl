@@ -1,5 +1,6 @@
 import type { PageContent } from "./site";
 import { gbpPublished } from "./pricing";
+import { publishedGeoContent } from "./geo";
 
 /**
  * Polish-language section for Poles living in the UK. Stage 1 contains no finance product: no credit, instalment,
@@ -88,7 +89,9 @@ const gbpGuide: PageContent = {
 /** Keys are the last URL segment; the GBP page exists only once a dated EUR to GBP rate is set in lib/pricing.ts. */
 export const ukArticles: Record<string, PageContent> = {
   "jak-zaplacic-za-leczenie-zebow-w-turcji": paymentGuide,
-  ...(gbpPublished ? { "ceny-leczenia-zebow-w-turcji-w-funtach": gbpGuide } : {})
+  ...(gbpPublished ? { "ceny-leczenia-zebow-w-turcji-w-funtach": gbpGuide } : {}),
+  // Geo pages exist here only after every publication gate (data/geo/uk/workflow.json); the list is empty today.
+  ...publishedGeoContent
 };
 
 export const allUkPages: PageContent[] = [ukHub, ...Object.values(ukArticles)];

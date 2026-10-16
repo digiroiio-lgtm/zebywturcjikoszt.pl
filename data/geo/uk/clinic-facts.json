@@ -1,0 +1,64 @@
+{
+  "facts": [
+    {
+      "id": "address-antalya",
+      "claim": "Klinika Akdeniz Dental działa w Antalyi (Muratpaşa), Turcja.",
+      "status": "verified",
+      "evidence": "lib/clinic-profiles.ts (CLINIC_ADDRESS_TEXT), Google Maps i Trustpilot"
+    },
+    {
+      "id": "opening-hours",
+      "claim": "Godziny otwarcia kliniki zgodne z lib/clinic-hours.ts.",
+      "status": "verified",
+      "evidence": "lib/clinic-hours.ts"
+    },
+    {
+      "id": "service-languages",
+      "claim": "Języki obsługi: polski, angielski, rosyjski, niemiecki, rumuński.",
+      "status": "verified",
+      "evidence": "lib/clinic-hours.ts (languagesSummary)"
+    },
+    {
+      "id": "no-uk-clinic",
+      "claim": "Akdeniz Dental nie prowadzi kliniki w Wielkiej Brytanii.",
+      "status": "verified",
+      "evidence": "Brief §2 and the site's single-address schema; every UK page must say patients travel to Antalya"
+    },
+    {
+      "id": "two-branches",
+      "claim": "Klinika ma dwa oddziały w Antalyi.",
+      "status": "needs-operator-confirmation",
+      "evidence": "Brief only"
+    },
+    {
+      "id": "own-lab",
+      "claim": "Klinika ma własne laboratorium protetyczne.",
+      "status": "needs-operator-confirmation",
+      "evidence": "Brief only"
+    },
+    {
+      "id": "patient-volume",
+      "claim": "220–250 pacjentów miesięcznie.",
+      "status": "needs-operator-confirmation",
+      "evidence": "Brief only"
+    },
+    {
+      "id": "polish-coordinator",
+      "claim": "Polskojęzyczny koordynator pacjenta.",
+      "status": "needs-operator-confirmation",
+      "evidence": "Brief only; the site names Polish-language health advisers only in the exit-intent offer"
+    },
+    {
+      "id": "uk-aftercare",
+      "claim": "Plan opieki po leczeniu po powrocie do UK (kto, jak, w jakim czasie).",
+      "status": "needs-operator-confirmation",
+      "evidence": "Not stated anywhere in the repository"
+    },
+    {
+      "id": "gbp-payment",
+      "claim": "Klinika przyjmuje płatność w GBP.",
+      "status": "needs-operator-confirmation",
+      "evidence": "lib/uk.ts says the price list is in EUR; GBP is a conversion only"
+    }
+  ]
+}
