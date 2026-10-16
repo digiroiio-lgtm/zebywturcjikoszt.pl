@@ -21,12 +21,13 @@ const expectFail = (label, fn) => { try { fn(); } catch { return; } fail(`negati
 
 // 1. Location universe: nothing from the brief is lost, nothing is invented, every record is a candidate.
 for (const [group, expected] of Object.entries(BRIEF_AREA_COUNTS)) {
-  const actual = locations.filter((l) => l.group === group && l.kind !== 'authority').length;
+  const actual = locations.filter((l) => l.group === group && l.kind !== 'authority' && l.origin === 'brief').length;
   if (actual !== expected) fail(`group ${group}: ${actual} area records, brief has ${expected}`);
 }
 for (const name of BRIEF_AUTHORITY_CANDIDATES) if (!locations.some((l) => l.kind === 'authority' && l.name === name)) fail(`authority candidate ${name} missing`);
 const inventoryAreas = INVENTORY.reduce((n, b) => n + b.areas.length, 0);
-if (locations.filter((l) => l.kind !== 'authority').length !== inventoryAreas) fail('locations.json is out of step with lib/geo/inventory.mjs (run npm run geo:build)');
+const inventoryAreas2 = inventoryAreas;
+if (locations.filter((l) => l.kind !== 'authority').length !== inventoryAreas2) fail('locations.json is out of step with lib/geo/inventory.mjs (run npm run geo:build)');
 if (new Set(locations.map((l) => l.id)).size !== locations.length) fail('duplicate location ids');
 for (const l of locations) {
   if (l.evidenceLevel !== 'brief-candidate') fail(`${l.id}: evidenceLevel ${l.evidenceLevel} without a verification record`);
@@ -36,7 +37,8 @@ for (const l of locations) {
 }
 if (!locations.some((l) => l.kind === 'landmark' && l.name.startsWith('Polish Social and Cultural Association'))) fail('POSK must be kept as a landmark record');
 const aberdeen = locations.filter((l) => l.cityGroup === 'aberdeen');
-if (aberdeen.length !== 24 || aberdeen.some((l) => l.postalDistricts.length)) fail('Aberdeen must have 24 areas and no invented postal districts');
+if (aberdeen.filter((l) => l.origin === 'brief').length !== 24 || aberdeen.some((l) => l.postalDistricts.length)) fail('Aberdeen must have the brief\'s 24 areas and no invented postal districts');
+for (const claim of claims.filter((c) => c.geography.areas)) for (const area of claim.geography.areas) if (!locations.some((l) => l.name === area && l.country === claim.geography.country)) fail(`${claim.id}: area ${area} has no location record`);
 
 // 2. Demographic claims: separate metrics, none verified without full provenance, none mixing definitions.
 for (const c of claims) {

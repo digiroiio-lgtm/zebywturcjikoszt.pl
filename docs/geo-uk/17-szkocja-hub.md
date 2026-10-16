@@ -30,5 +30,5 @@ Internal links (via `contextualLinks["uk/szkocja"]`): `/implanty`, `/all-on-4`, 
 4. NHS Scotland wording confirmed by an editor (NHS inform pages concern surgery and S2; no dental-specific page found; Turkey outside S2).
 5. Clinical review of treatment and two-stage wording; unconfirmed clinic facts stay unused.
 6. Polish editorial review; UK ASA/CAP and UK GDPR/PECR review.
-7. Aberdeen groups Lower Deeside, Hazlehead / Queens Cross / Countesswells and Airyhall / Broomhill / Garthdee are missing from the 24-area inventory.
+7. ~~Aberdeen council-table areas missing from the inventory~~ Done: seven areas (Lower Deeside, Hazlehead, Queens Cross, Countesswells, Airyhall, Broomhill, Garthdee) added with `origin: "council-table"`; ward boundaries still to be verified.
 8. `publishedOn`, approvals and the other gate fields are set by a human at publication.
