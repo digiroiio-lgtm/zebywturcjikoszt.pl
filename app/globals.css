@@ -435,3 +435,15 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   .clinic-guide-hero-grid { grid-template-columns:1fr; gap:28px; }
   .clinic-guide-hero h1 { font-size:34px; }
 }
+
+.patient-journey-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin-bottom:28px; }
+.patient-journey-card { display:flex; flex-direction:column; padding:26px; border:1px solid var(--line); border-radius:18px; background:white; }
+.patient-journey-card>p:not(.mini-label) { color:var(--muted); font-size:15px; }
+.patient-journey-card .text-link { margin-top:auto; padding-top:12px; }
+.home-patient-reviews { padding:32px; border:1px solid var(--line); border-radius:20px; background:var(--sand); }
+@media (max-width:1000px) { .patient-journey-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:760px) {
+  .patient-journey-grid { grid-template-columns:1fr; }
+  .patient-journey-card { padding:22px; }
+  .home-patient-reviews { padding:24px 20px; }
+}
