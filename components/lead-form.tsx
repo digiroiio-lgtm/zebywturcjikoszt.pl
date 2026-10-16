@@ -14,7 +14,7 @@ export type LeadContext = {
   caseReference?: string;
 };
 
-export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolean; context?: LeadContext; headingId?: string }) {
+export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłatna indywidualna wstępna ocena" }: { enabled: boolean; context?: LeadContext; headingId?: string; heading?: string }) {
   const generatedId = useId();
   const titleId = headingId ?? `${generatedId}-consultation-title`;
   const descriptionId = `${generatedId}-consultation-description`;
@@ -109,7 +109,7 @@ export function LeadForm({ enabled, context = {}, headingId }: { enabled: boolea
       const labels: Record<string, string> = { name: "Podaj imię i nazwisko.", contact: channel === "email" ? "Podaj prawidłowy adres e-mail." : "Podaj numer telefonu z numerem kierunkowym.", country: "Wybierz kraj.", message: "Sprawdź długość wiadomości." };
       field.setCustomValidity(labels[field.name] ?? "Uzupełnij wymagane pole.");
     }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
-      <h2 id={titleId}>Bezpłatna indywidualna wstępna ocena</h2>
+      <h2 id={titleId}>{heading}</h2>
       <p id={descriptionId} className="consultation-intro">Opisz swoją sytuację i oczekiwania. Na podstawie przekazanych informacji otrzymasz bezpłatną wstępną ocenę możliwych opcji leczenia. Ostateczny plan leczenia wymaga konsultacji i badania przez lekarza.</p>
       <div className="form-grid" hidden={status === "sent"}>
         <label className="full">Imię *<input name="name" type="text" autoComplete="name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Jak mamy się do Ciebie zwracać?" />{fieldError("name")}</label>
