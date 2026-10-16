@@ -57,3 +57,15 @@ Still needed (PR 2, supplied by the owner): new real photographs and diagrams, `
 ## Caching and replacing images
 
 Files under `/images` are served with `Cache-Control: public, max-age=604800, stale-while-revalidate=86400`. File names are not hashed, so a replaced file can stay stale in browsers and CDNs for up to a week. When an image changes, add it under a new file name and update `lib/page-figures.json` (and any other reference); do not overwrite the old name. `npm run audit:seo` checks that every figure image is in the sitemap entry of its page.
+
+## Homepage treatment cards: AI-generated editorial images (2026-10-16)
+
+Three of the six cards under "Od czego zacząć?" use AI-generated editorial images instead of the diagrams (`poradniki/karta-*.webp`, 1280×720 WebP, shown at 16:9 with `object-fit: cover`). They are labelled "Ilustracja AI" on the card and in the `alt` text, and none of them depicts a real patient, a clinic employee or a treatment outcome.
+
+| File | Card | Subject | Notes |
+| --- | --- | --- | --- |
+| `karta-koszt-leczenia.webp` | Koszt leczenia | Smiling woman, bright neutral clinic | Generated with ElevenLabs (Seedream 5 Pro), 2026-10-16 |
+| `karta-implanty.webp` | Implanty | Implant crown on a screw above a jaw model, gloved hands | Same; illustrative, not a specific implant system |
+| `karta-korony-cyrkonowe.webp` | Korony cyrkonowe | Close-up natural smile, ivory-toned teeth | Same; must not be read as a result of zirconia treatment |
+
+The diagrams `cost-scope.svg`, `implant-plan.svg` and `veneer-options.svg` stay in use on guide pages (`lib/page-figures.json`). The other three cards (Licówki, Cała szczęka, All-on-4) still use diagrams until their images exist.
