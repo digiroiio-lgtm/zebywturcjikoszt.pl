@@ -231,7 +231,7 @@
         "uk/aberdeen"
       ],
       "blockers": [
-        "no verified flight connections from Scottish airports to Antalya (aggregators suggest Edinburgh and Glasgow have direct service and Aberdeen has none, but carrier timetables were not checked) ([DO UZUPEŁNIENIA] placeholder remains)",
+        "flight sentence rests on carrier and airport pages surfaced by web search (easyJet, Jet2, Glasgow Airport); the build could not open them; an editor must open the four links and confirm the routes and carriers before publication (Aberdeen: no offer found, not claimed)",
         "no dated search-demand evidence for Scotland-focused Polish queries (Search Console: 5 impressions in 90 days, none UK-related; absence of data, not evidence of no demand)",
         "census statements cover Aberdeen only, at the official-secondary tier (council publication citing Scotland's Census 2022; PDF not retrieved by the build; candidate primary document: aberdeencity.gov.uk/services/housing/local-housing-strategy-2025-2030-evidence-base (media/24483), to be opened by a person); Edinburgh, Glasgow, Dundee, Perth, Inverness have no verified figures and none are shown",
         "NHS Scotland section relies on NHS inform pages about surgery abroad and the S2 scheme; no NHS inform page on dental treatment abroad was found; editor to confirm wording and that Turkey is outside S2",
@@ -332,7 +332,7 @@
             "title": "Podróż ze Szkocji do Antalyi",
             "paragraphs": [
               "Dostępność połączeń ze szkockich lotnisk do Antalyi zależy od sezonu i przewoźnika. Nie zakładamy, że istnieje bezpośredni lot z twojego lotniska, i nie kupuj biletów, zanim nie poznasz harmonogramu leczenia i liczby pobytów.",
-              "[DO UZUPEŁNIENIA: zweryfikowane połączenia z lotnisk w Szkocji (Aberdeen, Edynburg, Glasgow) do Antalyi, z linkiem do rozkładu przewoźnika lub lotniska. Do czasu źródła nie podajemy żadnych połączeń.]",
+              "Według stron przewoźników i lotniska (stan na 16 października 2026) loty z Edynburga i Glasgow do Antalyi oferują easyJet i Jet2; Glasgow Airport wymienia na swojej stronie także Corendon Airlines. Dla Aberdeen nie znaleźliśmy oferty lotu do Antalyi, więc dojazd może wymagać przesiadki albo wylotu z innego lotniska. Dostępne daty i częstotliwość zmieniają się z sezonem, dlatego sprawdź aktualne terminy u przewoźnika, zanim kupisz bilety.",
               "Całkowity budżet wyjazdu (podróż, noclegi, transfery, kontrole, możliwy drugi pobyt) opisuje poradnik o całkowitym koszcie wyjazdu."
             ]
           },
@@ -445,6 +445,22 @@
           {
             "label": "Aberdeen City Council: Local Housing Strategy Evidence Base, tab. 4-5.9 (dane ze Scotland's Census 2022)",
             "href": "https://committees.aberdeencity.gov.uk/documents/s172774/Notice_of_Review_-_Appendix_6A-2463418.pdf"
+          },
+          {
+            "label": "easyJet: loty z Edynburga do Antalyi",
+            "href": "https://www.easyjet.com/en/cheap-flights/edinburgh/antalya"
+          },
+          {
+            "label": "easyJet: loty z Glasgow do Antalyi",
+            "href": "https://www.easyjet.com/en/cheap-flights/glasgow/antalya"
+          },
+          {
+            "label": "Jet2: loty do Antalyi",
+            "href": "https://www.jet2.com/en/Flights/Turkey/Antalya"
+          },
+          {
+            "label": "Glasgow Airport: Antalya",
+            "href": "https://www.glasgowairport.com/destinations/antalya/"
           }
         ],
         "ctaLabel": "Poproś o wstępną ocenę",
