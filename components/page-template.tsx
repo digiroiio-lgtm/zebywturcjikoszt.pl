@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { GuideNextSteps } from "./guide-next-steps";
 import { GuidePrices } from "./guide-prices";
 import { guideAssessmentHref } from "@/lib/guides";
@@ -16,7 +17,7 @@ import { LeadForm } from "./lead-form";
 import { TrackedLink } from "./tracked-link";
 import { DirectAnswerVisual, SectionVisual } from "./visual-guides";
 import { BeforeAfterCaseHub } from "./case-gallery";
-import { AntalyaJourneyImages, ClinicTeamImage } from "./context-images";
+import { AntalyaJourneyImages } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { ClinicProfiles } from "./clinic-profiles";
@@ -133,6 +134,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
   const uk = isUkSlug(page.slug);
   const pageUrl = `${SITE_URL}/${page.slug}`;
   const related = contextualLinks[page.slug] ?? [];
+  const clinicGuide = page.slug === "jak-wybrac-klinike";
   const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE);
   const reviewer = approvedReviewer(review);
   const breadcrumbSchema = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
@@ -173,7 +175,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
       {articleSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />}
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
       <main>
-        <section className="page-hero"><div className="shell narrow">{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : section ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href={section.href}>{section.label}</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{!legalSlugs.includes(page.slug) && OPERATOR_DISCLOSURE && <p className="commercial-note"><strong>Informacja komercyjna.</strong> {OPERATOR_DISCLOSURE} <Link href="/wlasciciel-serwisu">Właściciel serwisu</Link></p>}{guide && <p className="hero-partner">Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div></section>
+        <section className={`page-hero${clinicGuide ? " clinic-guide-hero" : ""}`}><div className={clinicGuide ? "shell clinic-guide-hero-grid" : "shell narrow"}><div>{guide ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/poradniki">Poradniki</Link> / {page.h1}</nav> : section ? <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href={section.href}>{section.label}</Link> / {page.h1}</nav> : <Breadcrumbs current={page.h1} />}<p className="eyebrow">{page.eyebrow}</p><h1>{page.h1}</h1><p className="lead">{page.lead}</p>{!legalSlugs.includes(page.slug) && OPERATOR_DISCLOSURE && <p className="commercial-note"><strong>Informacja komercyjna.</strong> {OPERATOR_DISCLOSURE} <Link href="/wlasciciel-serwisu">Właściciel serwisu</Link></p>}{guide && <p className="hero-partner">Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya, Turcja</p>}{(page.ctaLabel || guide) && <TrackedLink href={page.ctaHref ?? guideAssessmentHref(`/${page.slug}`, guide ? "guide_top" : (page.ctaEvent ?? "page_cta"))} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_top" } : undefined} className="button">{page.form ? page.ctaLabel : "Poproś o wstępną wycenę"}</TrackedLink>}</div>{clinicGuide && <figure className="clinic-guide-hero-photo"><Image src="/images/klinika/portfolio-02b.webp" alt="Recepcja kliniki Akdeniz Dental w Antalyi z widocznym logo placówki" width={1200} height={1000} sizes="(max-width: 760px) calc(100vw - 28px), 480px" priority unoptimized /><figcaption>Akdeniz Dental · Antalya, Turcja</figcaption></figure>}</div></section>
         <article className={`shell content-layout${page.slug === "przed-i-po" ? " content-layout-cases" : ""}`}>
           <div className="article-main">
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
@@ -191,15 +193,14 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2 id={sectionId(section.title)}>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-              {section.bullets && <ul className="check-list">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>}
-              {section.cards && <div className="cards">{section.cards.map((card) => <div className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.text}</p></div>)}</div>}
+              {section.bullets && (clinicGuide && section.title.startsWith("20 pytań") ? <div className="clinic-checklist-groups">{[{ title: "Klinika i lekarz", start: 0, end: 4 }, { title: "Diagnostyka i plan leczenia", start: 4, end: 10 }, { title: "Cena, etapy i ryzyko", start: 10, end: 14 }, { title: "Opieka, dokumenty i warunki", start: 14, end: 20 }].map((group) => <div key={group.title}><h3>{group.title}</h3><ol start={group.start + 1}>{section.bullets!.slice(group.start, group.end).map((item) => <li key={item}>{item}</li>)}</ol></div>)}</div> : <ul className="check-list">{section.bullets.map((item) => <li key={item}>{item}</li>)}</ul>)}
+              {section.cards && <div className={`cards${clinicGuide && section.title === "Czerwone flagi" ? " clinic-risk-cards" : ""}`}>{section.cards.map((card) => <div className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.text}</p></div>)}</div>}
               {section.table && <div className="table-wrap"><table><thead><tr>{section.table.headers.map((header) => <th key={header}>{header}</th>)}</tr></thead><tbody>{section.table.rows.map((row) => <tr key={row.join("|")}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></div>}
               <SectionVisual slug={page.slug} sectionTitle={section.title} />
             </section>
               {figuresAfter(page.slug, section.title).map((figure) => <ContentFigure key={figure.src} figure={figure} />)}
               {page.slug === "przed-i-po" && section.title === "Jak czytać materiał przed i po" && <BeforeAfterCaseHub formEnabled={formEnabled} />}
               {page.slug === "antalya" && section.title === "Przed wyjazdem" && <AntalyaJourneyImages />}
-              {page.slug === "jak-wybrac-klinike" && section.title === "Lista kontroli przed wpłatą" && <ClinicTeamImage />}
             </Fragment>)}
             {page.form && <section className="content-section" id="assessment-form"><LeadForm enabled={formEnabled} /></section>}
             {page.faq && <section className="content-section" id="faq"><h2>Najczęstsze pytania</h2><div className="faq-list">{page.faq.map((item, index) => <details id={`faq-${index + 1}`} key={item.question}><summary><h3>{item.question}</h3></summary><p>{item.answer}</p></details>)}</div><p><Link className="text-link" href="/pytania-i-odpowiedzi">Wszystkie pytania pacjentów →</Link></p></section>}
