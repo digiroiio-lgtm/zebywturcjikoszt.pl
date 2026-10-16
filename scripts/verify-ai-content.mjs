@@ -17,6 +17,19 @@ assert.match(index, /^# /);
 assert.match(index, /llms-full\.txt/);
 assert.match(full, /Kurs nie jest aktualizowany automatycznie/);
 assert.match(full, /nie automatycznie kompletnego leczenia/);
+// The AI-readable files must stay resolvable outside the site: absolute links only, every internal URL published, dates stated.
+const sitemapPaths = new Set([...read('sitemap.xml.body').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+const publishedFiles = new Set(['llms-full.txt', 'content-provenance.json', 'clinic-verification.json', 'sitemap.xml', 'feed.xml', 'llms.txt', 'robots.txt'].map((file) => `${origin}/${file}`));
+for (const [name, body] of [['llms.txt', index], ['llms-full.txt', full]]) {
+  assert(!/\]\(\/[^)]*\)/.test(body), `${name} contains a relative markdown link`);
+  assert(!/https?:\/\/[^\s)<>]+[.,;:](?:\s|$)/m.test(body.replace(/\]\([^)]*\)/g, '')), `${name} has a URL with trailing punctuation outside a Markdown link`);
+  for (const url of [...body.matchAll(new RegExp(`${origin}/[^\\s)<>]*`, 'g'))].map((m) => m[0].split('#')[0].replace(/\/$/, ''))) {
+    assert(sitemapPaths.has(url) || publishedFiles.has(url) || url === origin, `${name} links to an unpublished URL: ${url}`);
+  }
+}
+assert.match(index, /Ostatnia aktualizacja treści: \d{4}-\d{2}-\d{2}\./);
+assert.match(full, /^Ostatnia aktualizacja treści: \d{4}-\d{2}-\d{2}\.$/m);
+assert.match(full, /\| Pozycja \| EUR \| Około PLN \|/);
 const hub = read('pytania-i-odpowiedzi.html');
 const faq = schemas(hub).find((s) => s['@type'] === 'FAQPage');
 assert(faq.mainEntity.length > 20);

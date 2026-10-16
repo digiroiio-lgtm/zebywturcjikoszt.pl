@@ -1,7 +1,12 @@
 import Link from "next/link";
-import { formatEur, formatPln, priceSubtotal } from "@/lib/pricing";
+import { formatEur, formatPln, priceById, priceSubtotal } from "@/lib/pricing";
 
 const commercialPages = ["koszt", "implanty", "korony-cyrkonowe", "licowki", "cala-szczeka", "all-on-4"];
+
+/** Every price sentence below is derived from lib/pricing.ts, so a changed price cannot leave a stale figure in the text. */
+const eurText = (amount: number) => `${amount.toLocaleString("en-US").replace(/,/g, " ")} EUR`;
+const itemEur = (id: string) => eurText(priceById(id).eur);
+const implantEur = priceById("aiser").eur === priceById("medentika").eur ? `Aiser / Medentika: ${itemEur("aiser")}` : `Aiser: ${itemEur("aiser")}; Medentika: ${itemEur("medentika")}`;
 
 export function TreatmentCostScope({ slug }: { slug: string }) {
   if (!commercialPages.includes(slug)) return null;
@@ -23,12 +28,12 @@ export function TreatmentCostScope({ slug }: { slug: string }) {
         const total = priceSubtotal(scenario.lines);
         return <tr key={scenario.label} data-subtotal-eur={total}><th scope="row">{scenario.label}</th><td>{formatEur(total)}</td><td>≈ {formatPln(total)}</td></tr>;
       })}</tbody></table></div>
-      <p className="pricing-scope">{implants ? "Łącznik, diagnostyka, praca tymczasowa, zabiegi dodatkowe i koszt pobytu nie mają tu potwierdzonej ceny ani statusu włączenia. Korona z cennika wymaga potwierdzenia zastosowania na danym implancie. Suma 600 EUR lub 1 050 EUR nie jest ceną kompletnego implantu zęba." : "Suma obejmuje tylko wymienione odbudowy. Badania, przygotowanie zębów, prace tymczasowe, leczenie dodatkowe i pobyt wymagają osobnego potwierdzenia. Liczbę odbudów ustala lekarz po ocenie."}</p>
+      <p className="pricing-scope">{implants ? `Łącznik, diagnostyka, praca tymczasowa, zabiegi dodatkowe i koszt pobytu nie mają tu potwierdzonej ceny ani statusu włączenia. Korona z cennika wymaga potwierdzenia zastosowania na danym implancie. Suma ${[...new Set(scenarios.map((scenario) => priceSubtotal(scenario.lines)))].sort((a, b) => a - b).map(eurText).join(" lub ")} nie jest ceną kompletnego implantu zęba.` : "Suma obejmuje tylko wymienione odbudowy. Badania, przygotowanie zębów, prace tymczasowe, leczenie dodatkowe i pobyt wymagają osobnego potwierdzenia. Liczbę odbudów ustala lekarz po ocenie."}</p>
     </section>}
     <section className="content-section" id={slug === "implanty" ? "zakres-implantu" : "zakres-wyceny"} aria-labelledby="scope-title">
       <h2 id="scope-title">{slug === "implanty" ? "Co obejmuje cena implantu, a co wymaga potwierdzenia?" : "Co musi obejmować całkowita wycena?"}</h2>
       <div className="table-wrap"><table><caption>Zakres ceny: informacje dostępne i brakujące</caption><thead><tr><th scope="col">Element</th><th scope="col">Co wiemy z cennika</th><th scope="col">Co potwierdzić w ofercie</th></tr></thead><tbody>
-        <tr><th scope="row">{crowns ? "Korony cyrkonowe" : veneers ? "Licówki i materiał" : "Implanty i odbudowa"}</th><td>{crowns ? "Korona cyrkonowa: 150 EUR" : veneers ? "Licówka kompozytowa: 130 EUR; E-max: 225 EUR; „Veneer kuron”: 400 EUR" : "Aiser / Medentika: 450 EUR; Straumann: 900 EUR; korona cyrkonowa: 150 EUR"}</td><td>Jednostka rozliczenia, liczba, dokładny rodzaj odbudowy, materiał i zastosowanie.</td></tr>
+        <tr><th scope="row">{crowns ? "Korony cyrkonowe" : veneers ? "Licówki i materiał" : "Implanty i odbudowa"}</th><td>{crowns ? `Korona cyrkonowa: ${itemEur("zirconia-crown")}` : veneers ? `Licówka kompozytowa: ${itemEur("composite-veneer")}; E-max: ${itemEur("emax")}; „Veneer kuron”: ${itemEur("veneer-crown")}` : `${implantEur}; Straumann: ${itemEur("straumann")}; korona cyrkonowa: ${itemEur("zirconia-crown")}`}</td><td>Jednostka rozliczenia, liczba, dokładny rodzaj odbudowy, materiał i zastosowanie.</td></tr>
         {!crowns && !veneers && <tr><th scope="row">Łącznik (abutment)</th><td>Brak osobnej ceny i potwierdzenia włączenia.</td><td>Typ łącznika, zgodność z implantem oraz czy koszt jest zawarty w cenie.</td></tr>}
         <tr><th scope="row">Diagnostyka i kwalifikacja</th><td>Brak cen konsultacji i badań obrazowych.</td><td>Jakie badania są potrzebne, gdzie są wykonywane i kto za nie płaci.</td></tr>
         <tr><th scope="row">Prace tymczasowe i docelowe</th><td>Brak potwierdzonego pakietu.</td><td>Oddzielny opis obu etapów, materiał, liczba wizyt i cena.</td></tr>

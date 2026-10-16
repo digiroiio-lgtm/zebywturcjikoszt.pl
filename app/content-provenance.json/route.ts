@@ -2,11 +2,12 @@ import { newGuides } from "@/lib/guides";
 import { allUkPages } from "@/lib/uk";
 import { pages, SITE_URL, PUBLISHED_ISO_DATE, UPDATED_ISO_DATE } from "@/lib/site";
 import { approvedReviewer, reviewFor } from "@/lib/medical-review";
+import { absoluteUrl } from "@/lib/ai-content";
 export function GET() {
   const records = [...Object.values(pages), ...Object.values(newGuides), ...allUkPages].map((page) => {
     const review = reviewFor(page.slug, page.lastUpdated ?? UPDATED_ISO_DATE);
     const reviewer = approvedReviewer(review);
-    return { path: `/${page.slug}`, url: `${SITE_URL}/${page.slug}`, schemaType: page.schemaType ?? "WebPage", author: "Redakcja serwisu", published: page.published ?? PUBLISHED_ISO_DATE, updated: review.lastUpdated, reviewStatus: reviewer ? "reviewed" : review.reviewStatus === "review-pending" ? "review-pending" : "not-reviewed", reviewer: reviewer?.name ?? null, reviewerUrl: reviewer ? `${SITE_URL}${reviewer.profileUrl}` : null, reviewDate: reviewer && review.reviewStatus === "reviewed" ? review.reviewDate : null, sources: page.sources?.map(({ href }) => href) ?? [] };
+    return { path: `/${page.slug}`, url: `${SITE_URL}/${page.slug}`, schemaType: page.schemaType ?? "WebPage", author: "Redakcja serwisu", published: page.published ?? PUBLISHED_ISO_DATE, updated: review.lastUpdated, reviewStatus: reviewer ? "reviewed" : review.reviewStatus === "review-pending" ? "review-pending" : "not-reviewed", reviewer: reviewer?.name ?? null, reviewerUrl: reviewer ? `${SITE_URL}${reviewer.profileUrl}` : null, reviewDate: reviewer && review.reviewStatus === "reviewed" ? review.reviewDate : null, sources: page.sources?.map(({ href }) => absoluteUrl(href)) ?? [] };
   });
   return Response.json({ records }, { headers: { "Content-Language": "pl", "Cache-Control": "public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800" } });
 }
