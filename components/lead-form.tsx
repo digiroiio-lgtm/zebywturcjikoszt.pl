@@ -20,7 +20,7 @@ export type LeadContext = {
 const PINNED_COUNTRIES = ["Polska", "Wielka Brytania", "Niemcy"];
 const orderedCountries = [...PINNED_COUNTRIES.map((label) => countries.find((country) => country.label === label)).filter((country): country is (typeof countries)[number] => Boolean(country)), ...countries.filter((country) => !PINNED_COUNTRIES.includes(country.label))];
 
-export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj możliwości leczenia i orientacyjny koszt" }: { enabled: boolean; context?: LeadContext; headingId?: string; heading?: string }) {
+export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj możliwości leczenia i orientacyjny koszt", headingLevel = "h2" }: { enabled: boolean; context?: LeadContext; headingId?: string; headingLevel?: "h2" | "h3"; heading?: string }) {
   const generatedId = useId();
   const titleId = headingId ?? `${generatedId}-consultation-title`;
   const descriptionId = `${generatedId}-consultation-description`;
@@ -172,7 +172,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj m
       field.setCustomValidity(labels[field.name] ?? "Uzupełnij wymagane pole.");
     }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
       {status === "sent" && inModal ? successBody : <>
-      <h2 id={titleId}>{heading}</h2>
+      {headingLevel === "h3" ? <h3 id={titleId}>{heading}</h3> : <h2 id={titleId}>{heading}</h2>}
       <p id={descriptionId} className="consultation-intro">Zostaw kontakt. Odezwiemy się po polsku, aby omówić Twoje potrzeby i kolejne kroki.</p>
       <div className="form-grid" hidden={status === "sent"}>
         <label className="full"><span className="label-text">Imię *</span><input name="name" type="text" autoComplete="given-name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Jak mamy się do Ciebie zwracać?" />{fieldError("name")}</label>

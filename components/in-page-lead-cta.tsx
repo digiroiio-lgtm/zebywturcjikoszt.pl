@@ -21,7 +21,7 @@ export function InPageLeadCta({ title, text, buttonLabel, location, caseReferenc
     <dialog className="case-lead-dialog" ref={dialogRef} aria-labelledby={`${location}-dialog-title`} onClick={(event) => { if (event.target === event.currentTarget) dialogRef.current?.close(); }}>
       <div className="case-lead-dialog-inner">
         <button type="button" className="dialog-close" aria-label="Zamknij formularz" onClick={() => dialogRef.current?.close()}>×</button>
-        <LeadForm headingId={`${location}-dialog-title`} enabled={formEnabled} context={{ leadSource: "OGZ-PL", ctaLocation: location, sourcePagePath: "/przed-i-po", caseReference }} />
+        <LeadForm headingLevel="h3" headingId={`${location}-dialog-title`} enabled={formEnabled} context={{ leadSource: "OGZ-PL", ctaLocation: location, sourcePagePath: "/przed-i-po", caseReference }} />
       </div>
     </dialog>
   </>;

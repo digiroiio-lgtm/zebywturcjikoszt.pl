@@ -22,6 +22,7 @@ import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { TreatmentWhatsappCta } from "./treatment-whatsapp-cta";
 import { ClinicProfiles } from "./clinic-profiles";
+import { PolishReviewsSection } from "./polish-reviews-section";
 import { OperatorDetails } from "./operator-details";
 import { OpeningHours } from "./opening-hours";
 import { CredentialList } from "./credential-list";
@@ -188,6 +189,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             {page.slug === "kontakt" && <OpeningHours />}
             {page.slug === "dokumenty-i-licencje" && <CredentialList credentials={clinicCredentials} />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
+            {page.slug === "opinie" && <PolishReviewsSection embedded />}
             {guide && <GuidePrices slug={page.slug} />}
             {page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach" && <GbpPrices />}
             <TreatmentCostScope slug={page.slug} />
