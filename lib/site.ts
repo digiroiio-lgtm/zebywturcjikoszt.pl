@@ -272,6 +272,8 @@ export const pages: Record<string, PageContent> = {
         { title: "Presja sprzedażowa", text: "Opinia połączona z ograniczoną czasowo ofertą lub nakłanianiem do szybkiej wpłaty." }
       ]},
       { title: "Jak porównywać źródła opinii", bullets: ["sprawdź kilka niezależnych serwisów, a nie jeden profil wskazany przez organizatora", "zwróć uwagę na rozkład ocen i daty, nie tylko na średnią", "przeczytaj także oceny negatywne i odpowiedzi kliniki na nie", "sprawdź, czy serwis informuje, czy i jak weryfikuje autentyczność opinii", "szukaj opisów konkretnego leczenia, kosztów dodatkowych i kontaktu po powrocie"] },
+      { title: "Oceny Akdeniz Dental: dane z datą odczytu", paragraphs: ["Poniżej zestawiono publiczne oceny kliniki Akdeniz Dental z dwóch serwisów, odczytane przez operatora tego serwisu. Pochodzą od użytkowników tych platform, zmieniają się w czasie i nie są weryfikowane przez nas ani oznaczone jako dane strukturalne. Serwis prowadzi spółka, która prowadzi tę klinikę, więc sprawdź oba profile samodzielnie."], table: { headers: ["Źródło", "Ocena", "Liczba opinii", "Odczyt"], rows: [[trustpilotProfile.label, `${trustpilotProfile.rating}/5`, trustpilotProfile.reviewCount, RATINGS_CHECKED_DATE], [googleProfile.label, `${googleProfile.rating}/5`, googleProfile.reviewCount, RATINGS_CHECKED_DATE]] } },
+      { title: "Opinie o implantach i odbudowie: czego szukać", bullets: ["opis etapów: badanie, wszczepienie, okres gojenia, odbudowa protetyczna", "informacja, ile wyjazdów lub wizyt było potrzebnych i ile czasu minęło między etapami", "wzmianka o kontroli przed wyjazdem i kontakcie po powrocie do Polski", "dopłaty i zmiany planu po badaniu opisane wprost", "data wizyty, żeby odróżnić doświadczenie sprzed lat od aktualnego"] },
       { title: "Opinie w świetle prawa konsumenckiego", paragraphs: ["Według UOKiK przedsiębiorca udostępniający opinie konsumentów powinien poinformować, czy i jak weryfikuje ich autentyczność oraz czy pokazuje także oceny negatywne. Nie może sugerować, że opinie pochodzą od osób, które skorzystały z usługi, jeśli tego nie sprawdzał. Tworzenie i publikowanie fałszywych opinii jest zakazane.", "Dla pacjenta wynika z tego prosty test: opinia bez źródła, daty i możliwości weryfikacji nie powinna decydować o wyborze kliniki."] },
       { title: "Co sprawdzić poza opiniami", paragraphs: ["Poproś o dane operatora, nazwę kliniki, lekarza prowadzącego, pisemny plan leczenia, zasady opieki po powrocie i procedurę reklamacyjną. Zobacz również poradnik wyboru kliniki oraz zasady oceny zdjęć przed i po."] }
     ],
@@ -282,8 +284,8 @@ export const pages: Record<string, PageContent> = {
       { question: "Jakie są opinie o tureckich zębach i klinikach w Turcji?", answer: "Opinie o leczeniu w Turcji mogą się znacznie różnić i pochodzą z wielu źródeł: portali z ocenami, map, mediów społecznościowych i nagrań wideo. Pojedyncza opinia ani średnia ocena nie przesądza o jakości leczenia, dlatego porównuj źródła, daty, odpowiedzi kliniki i konkretne informacje o leczeniu." },
       { question: "Jakie są opinie o Akdeniz Dental w Antalyi?", answer: `Na Trustpilot klinika Akdeniz Dental ma ocenę ${trustpilotProfile.rating}/5 (${trustpilotProfile.reviewCount} opinii), a w Mapach Google ${googleProfile.rating}/5 (${googleProfile.reviewCount} opinii), według odczytu z ${RATINGS_CHECKED_DATE}. Oceny zmieniają się w czasie i pochodzą od użytkowników tych platform. Operator serwisu prowadzi tę klinikę, więc sprawdź profile samodzielnie.` }
     ],
-    sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }],
-    lastUpdated: "2026-10-03",
+    sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Trustpilot: profil Akdeniz Dental Clinic (odczyt operatora)", href: trustpilotProfile.href }, { label: "Mapy Google: Antalya Akdeniz Dental Clinic (odczyt operatora)", href: googleProfile.href }],
+    lastUpdated: "2026-10-17",
     ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   "przed-i-po": {
@@ -316,6 +318,12 @@ export const pages: Record<string, PageContent> = {
     lead: "Podróż do Antalyi warto zaplanować wokół wizyt i zaleceń lekarza. Zwiedzanie powinno zejść na dalszy plan, jeśli wymaga tego leczenie.",
     answer: "Przed rezerwacją lotu z Polski ustal wstępny plan leczenia, możliwą liczbę wizyt i zasady kontaktu po powrocie. Plan może się zmienić po badaniu w Antalyi.",
     sections: [
+      { title: "Etapy leczenia w Antalyi: od kontaktu do kontroli", paragraphs: ["Liczba wizyt, długość pobytu i zakres opieki zależą od indywidualnego planu. Nie zakładaj, że leczenie zakończy się podczas jednego wyjazdu."], table: { headers: ["Etap", "Co się dzieje", "Co ustalić na piśmie"], rows: [
+        ["1. Kontakt i dokumentacja", "Opisujesz potrzeby i przekazujesz dokumentację bezpiecznym kanałem", "Kto prowadzi kontakt i jakie dokumenty są potrzebne"],
+        ["2. Badanie i plan", "Lekarz bada pacjenta i potwierdza lub zmienia wstępny plan", "Zakres, alternatywy, koszt i elementy, które mogą się zmienić"],
+        ["3. Leczenie", "Wykonanie etapów zaplanowanych przez lekarza", "Kolejność etapów, przerwy na gojenie i możliwy kolejny pobyt"],
+        ["4. Kontrola i powrót", "Kontrola przed lotem, dokumentacja i zasady kontaktu po powrocie", "Kto odpowiada za pomoc po powrocie i jak zgłaszać problem"]
+      ] } },
       { title: "Przed wyjazdem", bullets: ["przekaż dokumentację bezpiecznym kanałem wskazanym przez organizatora", "uzyskaj pisemny zakres wstępnego planu i kosztów", "nie rezerwuj zbyt krótkiego pobytu bez potwierdzenia harmonogramu", "sprawdź ważność dokumentów podróży i aktualne zalecenia konsularne", "zostaw czas na kontrolę przed lotem powrotnym"] },
       { title: "Na miejscu", cards: [
         { title: "Badanie i potwierdzenie planu", text: "Wstępna propozycja może zmienić się po badaniu klinicznym i diagnostyce." },
@@ -345,7 +353,7 @@ export const pages: Record<string, PageContent> = {
       { label: "NFZ: EKUZ obowiązuje w państwach UE i EFTA", href: "https://www.nfz.gov.pl/dla-pacjenta/nasze-zdrowie-w-ue/leczenie-w-krajach-unii-europejskiej-i-efta/wypoczynek-w-panstwach-czlonkowskich-ueefta-ekuz/" },
       { label: "Europejskie Centrum Konsumenckie: wyjazd zorganizowany i prawa konsumenta", href: "https://konsument.gov.pl/wyjazd-zorganizowany-prawa-konsumenta/" }
     ],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-17",
     ctaLabel: "Zapytaj o plan wyjazdu", ctaEvent: "antalya_cta"
   },
   "jak-wybrac-klinike": {
@@ -356,6 +364,15 @@ export const pages: Record<string, PageContent> = {
     answer: "Nie wybieraj kliniki wyłącznie na podstawie ceny, zdjęć w mediach społecznościowych albo obietnicy szybkiego efektu. Najpierw zweryfikuj podmiot, lekarza, zakres odpowiedzialności i dokumentację.",
     sections: [
       { title: "Co sprawdzić przed wpłatą", bullets: ["pełna nazwa i adres podmiotu wykonującego leczenie", "imię, nazwisko, specjalizacja i możliwość weryfikacji lekarza", "pisemny plan z alternatywami i kosztami dodatkowymi", "nazwa materiałów i systemów, które zostaną użyte", "zasady przechowywania i przekazania dokumentacji", "opieka po leczeniu, reklamacje i sytuacje nagłe", "jasne warunki zaliczki, odwołania i zwrotu"] },
+      { title: "Jak porównać dwie oferty klinik", paragraphs: ["Zestaw oferty obok siebie według tych samych kryteriów. Tabela nie zawiera cen ani rankingu: pokazuje, co ustalić i co powinno wzbudzić pytania."], table: { headers: ["Kryterium", "Co ustalić", "Sygnał ostrzegawczy"], rows: [
+        ["Podmiot i adres", "Pełna nazwa, adres i strona umowy z pacjentem", "Tylko nazwa handlowa lub profil w mediach społecznościowych"],
+        ["Lekarz prowadzący", "Imię, nazwisko, specjalizacja i sposób weryfikacji", "Brak nazwiska lub odpowiedź „zajmie się Pan/Pani ktoś z zespołu”"],
+        ["Plan i alternatywy", "Pisemny plan z mniej inwazyjnymi opcjami i etapami", "Plan bez badania i bez opisu alternatyw"],
+        ["Zakres ceny", "Co obejmuje cena, a co może być dopłatą", "Jedna kwota bez rozbicia na elementy"],
+        ["Materiały i prace", "Nazwy implantów, materiałów i laboratorium", "Odmowa podania nazw materiałów"],
+        ["Po leczeniu", "Kontrola przed wylotem, kontakt po powrocie, reklamacje", "Brak opisu opieki po powrocie do Polski"],
+        ["Płatności", "Zaliczka a zadatek, zwrot, odwołanie na piśmie", "Presja na szybką wpłatę, cena „ważna tylko dziś”"]
+      ] } },
       { title: "Zaliczka, zadatek i zwrot", paragraphs: ["Zanim wpłacisz pieniądze, ustal na piśmie, czy jest to zaliczka, czy zadatek, i na co jest przeznaczona. UOKiK wskazuje, że zaliczka podlega zwrotowi, gdy konsument rezygnuje z usługi, a zadatek wykonawca może wtedy zatrzymać. Wpłata nie może pokrywać całego wynagrodzenia za usługę."] },
       { title: "Kto odpowiada za co", paragraphs: ["Jeżeli w procesie uczestniczy pośrednik, koordynator lub strona informacyjna, zapytaj, kto odpowiada za organizację wyjazdu, a kto za leczenie. Decyzje medyczne powinien podejmować uprawniony lekarz, a umowa wskazywać właściwy podmiot."] },
       { title: "20 pytań, które warto zadać przed wpłatą zaliczki", paragraphs: ["Odpowiedzi powinny być możliwe do zachowania w wiadomości, planie leczenia albo warunkach umowy. Brak odpowiedzi nie przesądza o jakości leczenia, ale wymaga wyjaśnienia przed decyzją."], bullets: [
