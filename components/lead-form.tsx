@@ -6,6 +6,7 @@ import { countries } from "@/lib/countries";
 import { contactPromiseLines } from "@/lib/contact-promise";
 import { contactChannels, leadTopics, topicFromPath, type ContactChannelId } from "@/lib/lead-options";
 import { readAttribution, trackEvent } from "./tracked-link";
+import { LEAD_ENGAGED_KEY, POPUP_DISMISSED_KEY, readStoredCampaign, storeCampaign, clearStoredCampaign } from "@/lib/campaign-state";
 
 export type LeadContext = {
   leadSource?: string;
@@ -29,6 +30,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
   const [topic, setTopic] = useState("");
   const [sentChannel, setSentChannel] = useState<ContactChannelId>("whatsapp");
   const ctaOverride = useRef("");
+  const [campaign, setCampaign] = useState("");
   const channelConfig = contactChannels.find((item) => item.id === channel)!;
   const promiseLines = contactPromiseLines();
   useEffect(() => {
@@ -37,12 +39,17 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
   // A "Poproś o wycenę" button elsewhere on the page can preselect the topic and name the section the visitor came from.
   useEffect(() => {
     const onTopic = (event: Event) => {
-      const detail = (event as CustomEvent<{ topic?: string; cta_location?: string }>).detail ?? {};
+      const detail = (event as CustomEvent<{ topic?: string; cta_location?: string; campaign?: string }>).detail ?? {};
+      if (detail.campaign) { setCampaign(detail.campaign); storeCampaign({ name: detail.campaign, cta_location: detail.cta_location, page_path: window.location.pathname }); }
       if (detail.topic && leadTopics.some((item) => item.id === detail.topic)) setTopic(detail.topic);
       if (detail.cta_location) ctaOverride.current = detail.cta_location;
     };
     window.addEventListener("lead-form:topic", onTopic);
-    return () => window.removeEventListener("lead-form:topic", onTopic);
+    // A campaign picked on another page (popup CTA followed by a navigation) travels in sessionStorage.
+    const stored = readStoredCampaign();
+    if (stored?.cta_location) ctaOverride.current = stored.cta_location;
+    const frame = stored ? requestAnimationFrame(() => setCampaign(stored.name)) : 0;
+    return () => { cancelAnimationFrame(frame); window.removeEventListener("lead-form:topic", onTopic); };
   }, []);
   function errorProps(field: string) {
     return { "aria-invalid": Boolean(fieldErrors[field]), "aria-describedby": fieldErrors[field] ? `${generatedId}-${field}-error` : undefined };
@@ -56,7 +63,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
     return {
       lead_source: context.leadSource ?? attribution.lead_source ?? "OGZ-PL",
       cta_location: ctaOverride.current || (context.ctaLocation ?? attribution.cta_location ?? "contact_page"),
-      source_page_path: context.sourcePagePath ?? attribution.page_path ?? window.location.pathname,
+      source_page_path: context.sourcePagePath ?? readStoredCampaign()?.page_path ?? attribution.page_path ?? window.location.pathname,
       landing_page: window.location.pathname,
       guide_source: attribution.guide_source ?? "",
       case_reference: context.caseReference ?? params.get("case_reference") ?? "",
@@ -70,6 +77,8 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
   function startForm() {
     if (started.current) return;
     started.current = true;
+    try { sessionStorage.setItem(LEAD_ENGAGED_KEY, "1"); } catch { /* best effort */ }
+    window.dispatchEvent(new CustomEvent("lead-form:started"));
     const leadContext = getLeadContext();
     if (!topic) setTopic(topicFromPath(leadContext.source_page_path));
     trackEvent("contact_start", leadContext);
@@ -91,12 +100,15 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
     setFieldErrors({});
     const form = event.currentTarget;
     const entries = Object.fromEntries(new FormData(form));
-    const data = { name: entries.name, country: entries.country, message: entries.message, website: entries.website, [channelConfig.field]: contactValue.trim(), preferred_channel: channel, topic, ...getLeadContext() };
+    const data = { name: entries.name, country: entries.country, message: entries.message, website: entries.website, [channelConfig.field]: contactValue.trim(), preferred_channel: channel, topic, ...(campaign ? { campaign } : {}), ...getLeadContext() };
     try {
       const response = await fetch("/api/lead", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
       const result = await response.json().catch(() => null);
       if (response.ok && result?.ok === true) {
-        trackEvent("contact_submit", { ...getLeadContext(), preferred_channel: channel, topic });
+        trackEvent("contact_submit", { ...getLeadContext(), preferred_channel: channel, topic, ...(campaign ? { campaign } : {}) });
+        if (campaign) trackEvent("campaign_lead_submit", { cta_location: getLeadContext().cta_location, campaign, topic });
+        try { sessionStorage.setItem(LEAD_ENGAGED_KEY, "1"); localStorage.setItem(POPUP_DISMISSED_KEY, String(Date.now())); } catch { /* best effort */ }
+        clearStoredCampaign(); setCampaign("");
         setSentChannel(channel);
         setStatus("sent");
         form.reset();
@@ -136,6 +148,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
         </fieldset>
         <label className="full">Wiadomość <span className="optional">(opcjonalnie)</span><textarea name="message" maxLength={1200} rows={3} disabled={!enabled} {...errorProps("message")} placeholder="Opisz krótko swoją sytuację lub pytania do lekarza. Nie wysyłaj dokumentacji medycznej." />{fieldError("message")}</label>
       </div>
+      {campaign && status !== "sent" && <p className="campaign-note" data-campaign-note>Oferta: <strong>{campaign}</strong></p>}
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
       {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną wstępną ocenę <span aria-hidden="true">→</span></>}</button>}

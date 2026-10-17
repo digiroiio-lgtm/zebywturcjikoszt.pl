@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { knownCampaignNames } from "@/lib/campaigns";
 
 function validPhone(value: string) {
   return /^[+\d][\d\s().-]{6,39}$/.test(value) && value.replace(/\D/g, "").length >= 7;
@@ -36,6 +37,8 @@ export async function POST(request: NextRequest) {
   const utmCampaign = String(body.utm_campaign ?? "").slice(0, 160);
   const utmContent = String(body.utm_content ?? "").slice(0, 160);
   const utmTerm = String(body.utm_term ?? "").slice(0, 160);
+  const campaignRaw = String(body.campaign ?? "");
+  const campaign = knownCampaignNames.includes(campaignRaw) ? campaignRaw : "";
   const fieldErrors: Record<string, string> = {};
   if (!name || name.length > 80) fieldErrors.name = "Podaj imię i nazwisko (maksymalnie 80 znaków).";
   // At least one way to reach the patient is required; every value that is provided must be valid.
@@ -59,9 +62,9 @@ export async function POST(request: NextRequest) {
         Referer: `${request.nextUrl.origin}/`
       },
       body: JSON.stringify({
-        name, phone, whatsapp, email, country, message, topic, preferred_channel: preferredChannel,
+        name, phone, whatsapp, email, country, message, topic, preferred_channel: preferredChannel, ...(campaign ? { campaign } : {}),
         ...(email ? { _replyto: email } : {}),
-        _subject: "Nowe zapytanie o konsultację | leczeniezebowwturcji.pl",
+        _subject: `Nowe zapytanie o konsultację${campaign ? ` [${campaign}]` : ""} | leczeniezebowwturcji.pl`,
         contact: (preferredChannel && contacts[preferredChannel]) || whatsapp || phone || email, contact_requested: true, source: "leczeniezebowwturcji.pl",
         lead_source: leadSource, cta_location: ctaLocation, page_path: sourcePagePath,
         guide_source: guideSource, source_page_path: sourcePagePath, landing_page: landingPage, case_reference: caseReference,

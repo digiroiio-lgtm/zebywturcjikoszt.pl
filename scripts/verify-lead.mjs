@@ -10,7 +10,11 @@ const source = await readFile(new URL("../app/api/lead/route.ts", import.meta.ur
 const compiled = ts.transpileModule(source, {
   compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 }
 }).outputText;
-const require = createRequire(import.meta.url);
+const nodeRequire = createRequire(import.meta.url);
+const campaignsSource = ts.transpileModule(await readFile(new URL("../lib/campaigns.ts", import.meta.url), "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 } }).outputText;
+const campaignsModule = { exports: {} };
+vm.runInNewContext(campaignsSource, { module: campaignsModule, exports: campaignsModule.exports });
+const require = (id) => (id === "@/lib/campaigns" ? campaignsModule.exports : nodeRequire(id));
 const origin = "https://leczeniezebowwturcji.pl";
 const lead = {
   name: "Test Contact", phone: "+48 123 456 789", whatsapp: "+48 123 456 789",
@@ -39,6 +43,15 @@ async function submit(body, { env = {}, requestOrigin = origin, upstream, rawBod
   const response = await routeModule.exports.POST(request);
   return { status: response.status, result: await response.json(), calls };
 }
+
+const campaignName = campaignsModule.exports.knownCampaignNames[0];
+const withCampaign = await submit({ ...lead, campaign: campaignName });
+assert.equal(withCampaign.status, 200);
+const forwarded = JSON.parse(withCampaign.calls[0].options.body);
+assert.equal(forwarded.campaign, campaignName, "a known campaign must reach the notification");
+assert(forwarded._subject.includes(campaignName), "the notification subject must name the campaign");
+const unknownCampaign = await submit({ ...lead, campaign: "Free everything" });
+assert.equal(JSON.parse(unknownCampaign.calls[0].options.body).campaign, undefined, "an unknown campaign string must be dropped");
 
 const accepted = await submit(lead);
 assert.equal(accepted.status, 200);
