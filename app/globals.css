@@ -691,3 +691,37 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 @media (min-width:761px) { .patient-stories .shorts-track { max-width:880px; margin-inline:auto; } .patient-stories .shorts-frame { max-height:520px; } }
 @media (max-width:1000px) { .process-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:760px) { .home-trust-list { grid-template-columns:1fr 1fr; gap:14px; } .process-steps { grid-template-columns:1fr; } .home-review-profiles { margin-top:-18px; padding-bottom:26px; } .home-lead-section { padding:44px 0; } .home-trust-strip>.shell { padding-block:16px; } .home-trust-list span { display:none; } }
+
+/* MAGDELENA gallery: one horizontal strip of vertical photos above the hero. */
+.home-gallery { padding:14px 0 16px; background:white; border-bottom:1px solid var(--line); }
+.home-gallery-head { display:flex; align-items:flex-end; justify-content:space-between; gap:12px 32px; margin-bottom:10px; }
+.home-gallery-head .eyebrow { margin-bottom:4px; }
+.home-gallery-head h2 { margin:0; font-size:clamp(22px,2.6vw,30px); }
+.home-gallery-head>p { max-width:420px; margin:0; color:var(--muted); font-size:14px; line-height:1.5; }
+.home-gallery-stage { position:relative; }
+.home-gallery-track { display:flex; gap:14px; margin:0; padding:2px 0; list-style:none; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.home-gallery-track::-webkit-scrollbar { display:none; }
+.home-gallery-track:focus-visible { outline:3px solid var(--green-dark); outline-offset:4px; border-radius:14px; }
+.home-gallery-track li { flex:0 0 calc((100% - 5 * 14px) / 6); aspect-ratio:3/4; max-height:300px; min-width:0; scroll-snap-align:start; overflow:hidden; border-radius:16px; background:var(--ink); }
+.home-gallery-track img { display:block; width:100%; height:100%; object-fit:cover; }
+.home-gallery-arrow { position:absolute; top:50%; z-index:2; display:grid; place-items:center; width:44px; height:44px; margin-top:-22px; border:0; border-radius:50%; background:rgba(255,255,255,.94); color:var(--ink); box-shadow:0 6px 18px rgba(22,18,19,.28); font-size:26px; line-height:1; cursor:pointer; }
+.home-gallery-arrow:hover { background:white; color:var(--green-dark); }
+.home-gallery-arrow:focus-visible { outline:3px solid var(--green-dark); outline-offset:2px; }
+.home-gallery-prev { left:-10px; }
+.home-gallery-next { right:-10px; }
+.home-gallery-foot { display:flex; align-items:center; gap:12px 18px; margin-top:10px; flex-wrap:wrap; }
+.home-gallery-foot .button { min-height:42px; padding:0 20px; font-size:14px; }
+.home-gallery-foot p { margin:0; color:var(--muted); font-size:13px; }
+@media (min-width:761px) and (max-width:1000px) { .home-gallery-track li { flex-basis:calc((100% - 3 * 14px) / 4.4); } }
+@media (max-width:760px) {
+  .home-gallery { padding:12px 0 14px; }
+  .home-gallery-head { display:block; margin-bottom:10px; }
+  .home-gallery-head h2 { font-size:22px; line-height:1.15; }
+  .home-gallery-head>p { margin-top:6px; font-size:13px; line-height:1.4; }
+  .home-gallery-track { gap:10px; }
+  .home-gallery-track li { flex:0 0 128px; max-height:none; height:170px; aspect-ratio:auto; border-radius:14px; }
+  .home-gallery-arrow { display:none; }
+  .home-gallery-foot { margin-top:10px; gap:8px 14px; }
+  .home-gallery-foot .button { width:100%; }
+  .home-gallery-foot p { font-size:12px; }
+}
