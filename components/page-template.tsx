@@ -20,6 +20,7 @@ import { BeforeAfterCaseHub } from "./case-gallery";
 import { AntalyaJourneyImages } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
+import { TreatmentWhatsappCta } from "./treatment-whatsapp-cta";
 import { ClinicProfiles } from "./clinic-profiles";
 import { OperatorDetails } from "./operator-details";
 import { OpeningHours } from "./opening-hours";
@@ -190,6 +191,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             {guide && <GuidePrices slug={page.slug} />}
             {page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach" && <GbpPrices />}
             <TreatmentCostScope slug={page.slug} />
+            {pricesForPage(page.slug).length > 0 && <TreatmentWhatsappCta slug={page.slug} />}
             {page.sections.map((section) => <Fragment key={section.title}><section className="content-section">
               <h2 id={sectionId(section.title)}>{section.title}</h2>
               {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

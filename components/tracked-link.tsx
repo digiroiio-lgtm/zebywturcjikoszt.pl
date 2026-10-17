@@ -10,7 +10,7 @@ declare global {
 }
 
 /** Only these keys are forwarded to Vercel Analytics (cookieless). They describe the page and the CTA, never the visitor. */
-const ANALYTICS_KEYS = ["page_type", "geographic_market", "geographic_region", "city_slug", "selected_treatment", "content_cluster", "page_path", "cta_location", "lead_source", "guide_source", "source_page_path", "destination_path", "case_reference", "preferred_channel", "topic", "utm_source", "utm_medium", "utm_campaign"];
+const ANALYTICS_KEYS = ["page_type", "geographic_market", "geographic_region", "city_slug", "selected_treatment", "content_cluster", "page_path", "cta_location", "lead_source", "guide_source", "source_page_path", "destination_path", "case_reference", "preferred_channel", "topic", "button_location", "treatment", "campaign", "utm_source", "utm_medium", "utm_campaign"];
 
 function forwardToAnalytics(event: string, payload: Record<string, unknown>) {
   const properties: Record<string, string> = {};
