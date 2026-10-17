@@ -1,5 +1,6 @@
 "use client";
 
+import { SECTION_CTA } from "@/lib/cta";
 import Image from "next/image";
 import { useRef, type KeyboardEvent } from "react";
 import { magdelenaPhotos } from "@/lib/magdelena-gallery";
@@ -33,7 +34,7 @@ export function HomeMagdelenaGallery() {
         <button type="button" className="home-gallery-arrow home-gallery-next" aria-label="Następne zdjęcia" onClick={() => move(1)}><span aria-hidden="true">›</span></button>
       </div>
       <div className="home-gallery-foot">
-        <SectionCta location="home_gallery" event="home_gallery_cta">Poproś o bezpłatną wstępną ocenę</SectionCta>
+        <SectionCta location="home_gallery" event="home_gallery_cta">{SECTION_CTA.gallery}</SectionCta>
         <p>Sesja promocyjna z udziałem modelki MAGDELENY.</p>
       </div>
     </div>

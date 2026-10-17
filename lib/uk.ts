@@ -1,3 +1,4 @@
+import { PRIMARY_CTA } from "./cta";
 import type { PageContent } from "./site";
 import { gbpPublished } from "./pricing";
 import { publishedGeoContent } from "./geo";
@@ -36,7 +37,7 @@ export const ukHub: PageContent = {
     { question: "Czy dentysta w UK zajmie się kontrolą po leczeniu w Turcji?", answer: "Nie można tego zakładać. Ustal przed leczeniem z kliniką, kto zapewni kontrolę i w jaki sposób przekażesz dokumentację." }
   ],
   sources: [nhsGhic, nhsGoing, nhsChecklist, msz],
-  ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "uk_hub_cta"
+  ctaLabel: PRIMARY_CTA, ctaEvent: "uk_hub_cta"
 };
 
 const paymentGuide: PageContent = {
@@ -64,7 +65,7 @@ const paymentGuide: PageContent = {
     { question: "Czy karta kredytowa chroni przy płatności za leczenie za granicą?", answer: "Według MoneyHelper ochrona z art. 75 obejmuje zakupy za granicą przy płatności kartą kredytową bezpośrednio sprzedawcy, gdy cena mieści się między 100 a 30 000 funtów. To nie jest gwarancja wyniku leczenia; warunki sprawdź w banku." }
   ],
   sources: [moneyLoans, moneySection75, fcaCheck, nhsChecklist],
-  ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "uk_payment_cta"
+  ctaLabel: PRIMARY_CTA, ctaEvent: "uk_payment_cta"
 };
 
 const gbpGuide: PageContent = {
@@ -83,7 +84,7 @@ const gbpGuide: PageContent = {
     { question: "Dlaczego kwoty w funtach mogą się różnić od ceny przy płatności?", answer: "Przeliczamy po jednym kursie z podaną datą, a bank lub operator płatności stosuje własny kurs i może doliczyć prowizję." }
   ],
   sources: [{ label: "Cennik kliniki i zasady wyceny", href: "/koszt" }, { label: "Poradnik: całkowity koszt wyjazdu", href: "/poradniki/calkowity-koszt-wyjazdu" }, { label: "Jak zapłacić za leczenie mieszkając w UK", href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji" }],
-  ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "uk_gbp_cta"
+  ctaLabel: PRIMARY_CTA, ctaEvent: "uk_gbp_cta"
 };
 
 /** Keys are the last URL segment; the GBP page exists only once a dated EUR to GBP rate is set in lib/pricing.ts. */
