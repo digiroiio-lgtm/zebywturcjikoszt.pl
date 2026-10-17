@@ -108,3 +108,15 @@ Related searches show topic demand, not volume or competition. Order: purchase i
 | P3 13 | zęby w Turcji Meditravel | no page | Brand search of a third party; not pursued |
 
 The homepage serves the general "zęby w Turcji" query and sends visitors to prices (`/koszt`), real results (`/przed-i-po`) and clinic choice (`/jak-wybrac-klinike`) through three entry links under the hero.
+
+## Search-intent PR 2 (2026-10-17)
+
+Added from existing data only; nothing invented.
+
+| Page | Added | Source of facts |
+|---|---|---|
+| `/jak-wybrac-klinike` | Table "Jak porównać dwie oferty klinik" (criterion, what to establish, warning sign); no prices, no ranking | Existing page checklist and UOKiK/NHS sources |
+| `/opinie` | Dated ratings table (Trustpilot, Google Maps) and "implant and reconstruction reviews: what to look for"; profile links as sources | `lib/clinic-profiles.ts` (operator reading of 2 Oct 2026, relationship disclosed) |
+| `/antalya` | Four-stage table "Etapy leczenia w Antalyi" (contact, examination and plan, treatment, check and return) | Same stages as the home page process; no day counts |
+
+Still waiting on data (not written, no placeholders): documented patient cases and a physician-reviewed summary; a confirmed Polish-speaking coordinator or physician (languages are listed on the site, a coordinator role is not confirmed); implant-specific patient reviews with verifiable sources; a cited source for flight duration. Polish-language service stays owned by the `/jak-wybrac-klinike` FAQ.
