@@ -31,12 +31,12 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
   const title = page.h1.length > 100 ? `${page.h1.slice(0, 97)}…` : page.h1;
   return new ImageResponse(
     (
-      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, background: "#075b54", color: "#ffffff" }}>
-        <div style={{ fontSize: 34, color: "#bfe6df" }}>{page.eyebrow}</div>
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 72, background: "linear-gradient(135deg,#161213 0%,#4a0f1d 60%,#b3122a 100%)", color: "#ffffff" }}>
+        <div style={{ fontSize: 34, color: "#f3c4cb" }}>{page.eyebrow}</div>
         <div style={{ fontSize: title.length > 60 ? 64 : 78, fontWeight: 700, lineHeight: 1.1 }}>{title}</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 40, fontWeight: 700 }}>Zęby w Turcji</div>
-          <div style={{ fontSize: 28, marginTop: 8, color: "#e8f4f1" }}>Serwis informacyjny dla pacjentów z Polski. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya.</div>
+          <div style={{ fontSize: 28, marginTop: 8, color: "#fdf1f2" }}>Serwis informacyjny dla pacjentów z Polski. Klinika prowadzona przez operatora serwisu: Akdeniz Dental, Antalya.</div>
         </div>
       </div>
     ),
