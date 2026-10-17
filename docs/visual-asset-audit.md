@@ -26,6 +26,17 @@ No treatment category is assigned to a before/after image unless it is supported
 | `before-after18.webp` | Face and smile before/after | Unverified | Strong, 700×700 | `/przed-i-po` case 18 |
 | `before-after19.webp` | Face and smile before/after | Unverified | Strong, 700×700, visually distinct | Homepage curated set and `/przed-i-po` case 19 |
 | `before-after20.webp` | Face and smile before/after | Unverified | Strong, 700×700 | `/przed-i-po` case 20 |
+| `before-after21.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 37 KB (original JPG 299 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after22.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 40 KB (original JPG 333 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after23.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 38 KB (original JPG 288 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after24.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 35 KB (original JPG 245 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after25.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 47 KB (original JPG 418 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after26.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 43 KB (original JPG 338 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after27.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 50 KB (original JPG 332 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after28.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 42 KB (original JPG 331 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after29.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 33 KB (original JPG 250 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after30.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 35 KB (original JPG 207 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
+| `before-after31.webp` | Face and smile before/after, two-panel original cropped to a square | Unverified | 800×800, 69 KB (original JPG 521 KB, kept in `assets-src/2026-10-17-cases/`) | Home page lead set (cases shown first) and `/przed-i-po`, newest cases first |
 | `setp-03.jpeg` | Aircraft over the Antalya coastline | Travel and logistics, not clinical | Small, 240×240, acceptable supporting image | `/antalya`, after pre-travel guidance |
 | `setp-04.jpeg` | Antalya coastline and urban area | Destination and logistics, not clinical | Small, 240×240, acceptable supporting image | `/antalya`, after pre-travel guidance |
 | `img-02.png` | Three people in clinical clothing in a dental setting | Team image; identities and qualifications not established by image | Good cut-out, 588×712 | `/jak-wybrac-klinike`, next to clinician-verification guidance |
@@ -70,3 +81,10 @@ The operator states that written permission to use these photos exists; the perm
 
 ## MAGDELENA gallery photos (2026-10-17)
 Ten studio and clinic portraits of the model MAGDELENA, supplied by the operator (written permission stated by the operator; no record stored in the repository). Used only as promotional atmosphere above the homepage hero; not patient results or before/after. One further frame (`12.41.04`) shows a second person and is not used. Source files are kept in `assets-src/2026-10-17/`, outside `public/`. Details: `docs/magdelena-gallery.md`.
+
+## New before/after cases (2026-10-17)
+
+Eleven further patient photos (`before-after21..31`) were added and now come first in `lib/gallery.ts`; the earlier 20 follow. Each original is a two-panel 4:5 JPG (1179×~1470). The published file is a 1050 px square taken from the top (faces and smiles stay centred in both panels), resized to 800×800 WebP at quality 76; this also drops the social-media dot indicator and the lower clothing logos from the frame. Total size of the 11 files: about 470 KB (originals about 3.8 MB).
+
+- Consent: the operator stated on 2026-10-17 that the clinic holds written patient permission for publishing these photos. No personal consent documents are stored in the repository; a patient who withdraws permission is handled by deleting the file and its list entry.
+- Treatment classification stays unverified; labels are sequence numbers. No "latest cases" claim and no dates are shown: the cases are only listed first.
