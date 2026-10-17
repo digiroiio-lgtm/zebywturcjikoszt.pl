@@ -67,7 +67,7 @@ export function readAttribution(): Attribution {
 function rememberAttribution(cleanHref: string, fromHref: Attribution, tracking: Record<string, string>) {
   const here = window.location.pathname;
   const guide = fromHref.guide_source ?? tracking.guide_source ?? readAttribution().guide_source;
-  const leadSource = fromHref.lead_source ?? tracking.lead_source ?? (here === "/uk" || here.startsWith("/uk/") ? "OGZ-UK" : undefined);
+  const leadSource = fromHref.lead_source ?? tracking.lead_source;
   const cta: StoredCta = {
     target: new URL(cleanHref, window.location.origin).pathname,
     at: Date.now(),

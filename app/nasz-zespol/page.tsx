@@ -11,7 +11,7 @@ import { publishedTeamImages, supportRoles } from "@/lib/support-team";
 const title = "Nasz zespół w Antalyi | Akdeniz Dental";
 const description = "Poznaj osoby wspierające pacjentów Akdeniz Dental w Antalyi: koordynację leczenia, kontakt z pacjentem, asystę stomatologiczną, laboratorium i organizację transferów.";
 export const metadata: Metadata = {
-  title: { absolute: title }, description, alternates: { canonical: "/nasz-zespol" },
+  title: { absolute: title }, description, alternates: { canonical: "/nasz-zespol", languages: { "pl-PL": "/nasz-zespol" } },
   openGraph: { title, description, url: "/nasz-zespol", type: "website", images: ogImagesFor("nasz-zespol", title) },
   twitter: { title, description, card: "summary_large_image", images: twitterImagesFor("nasz-zespol") },
 };
