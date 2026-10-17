@@ -59,7 +59,7 @@ const faqQuestionRoutes = new Map();
 const h2Routes = new Map();
 const altOwners = new Map();
 // Headings produced by shared components (price scope, operator data, clinic profiles, pricing tables) repeat by design.
-const sharedH2 = new Set(["Poznaj możliwości leczenia i orientacyjny koszt", "Najczęstsze pytania", "Źródła i podstawa informacji", "Powiązane przewodniki", "Co zrobić dalej?", "Przykładowe pozycje w EUR i około PLN", "Najpierw ustal, jakie leczenie może być potrzebne", "Dane operatora serwisu", "Profile kliniki w niezależnych serwisach", "Bezpłatna indywidualna wstępna ocena", "Przykładowe ceny leczenia", "Ceny wybranych elementów leczenia", "Co musi obejmować całkowita wycena?", "Potwierdzona cena całkowita: co jest potrzebne?", "Cennik zabiegów związanych z leczeniem", "Ile wynosi suma wybranych pozycji?"]);
+const sharedH2 = new Set(["Twoja bezpłatna wstępna wycena", "Najczęstsze pytania", "Źródła i podstawa informacji", "Powiązane przewodniki", "Co zrobić dalej?", "Przykładowe pozycje w EUR i około PLN", "Najpierw ustal, jakie leczenie może być potrzebne", "Dane operatora serwisu", "Profile kliniki w niezależnych serwisach", "Bezpłatna indywidualna wstępna ocena", "Przykładowe ceny leczenia", "Ceny wybranych elementów leczenia", "Co musi obejmować całkowita wycena?", "Potwierdzona cena całkowita: co jest potrzebne?", "Cennik zabiegów związanych z leczeniem", "Ile wynosi suma wybranych pozycji?"]);
 const decode = (text) => text.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").trim();
 
 for (const [route, file] of routeFiles) {

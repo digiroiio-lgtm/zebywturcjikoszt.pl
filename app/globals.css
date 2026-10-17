@@ -792,3 +792,8 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-intent-card span { color:var(--muted); font-size:13px; line-height:1.45; }
 .home-intent-card b { position:absolute; right:18px; top:50%; margin-top:-12px; color:var(--green); font-size:22px; }
 @media (max-width:760px) { .home-intent { padding:12px 0; } .home-intent-list { grid-template-columns:1fr; gap:8px; } .home-intent-card { padding:12px 40px 12px 14px; } .home-intent-card span { display:none; } }
+
+.cta-assurance { margin:10px 0 0; color:var(--ink); font-size:14px; font-weight:700; }
+.hero-whatsapp { gap:8px; }
+.hero-whatsapp svg { color:#0b6e63; }
+.polish-reviews-cta { margin:18px 0 0; }

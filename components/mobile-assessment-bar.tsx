@@ -6,6 +6,7 @@ import { TrackedLink, trackEvent } from "./tracked-link";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { useActiveCampaign } from "./use-active-campaign";
+import { HEADER_CTA } from "@/lib/cta";
 import { topicFromPath } from "@/lib/lead-options";
 
 /** One contact component: a two-action bar on phones (quote 60 % / WhatsApp 40 %) and a floating WhatsApp button on larger screens; CSS shows exactly one of them. */
@@ -36,7 +37,7 @@ export function MobileAssessmentBar() {
   const home = pathname === "/";
   const guide = pathname.startsWith("/poradniki");
   const uk = pathname === "/uk" || pathname.startsWith("/uk/");
-  const label = guide ? "Poproś o wstępną wycenę" : "Bezpłatna wycena";
+  const label = HEADER_CTA;
   const context = { ...(topic ? { treatment: topic } : {}), ...(campaign ? { campaign } : {}) };
   const whatsapp = (location: string) => <a className="whatsapp-button" href={whatsappUrl(topic, campaign)} target="_blank" rel="noopener noreferrer" aria-label="Zapytaj na WhatsApp (otwiera się w nowej karcie)" onClick={() => trackEvent("whatsapp_click", { button_location: location, ...context })}><WhatsAppIcon /><span>WhatsApp</span></a>;
 
