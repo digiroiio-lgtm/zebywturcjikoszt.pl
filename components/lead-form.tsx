@@ -28,11 +28,22 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
   const [contactValue, setContactValue] = useState("");
   const [topic, setTopic] = useState("");
   const [sentChannel, setSentChannel] = useState<ContactChannelId>("whatsapp");
+  const ctaOverride = useRef("");
   const channelConfig = contactChannels.find((item) => item.id === channel)!;
   const promiseLines = contactPromiseLines();
   useEffect(() => {
     if (status === "sent" || status === "error") feedbackRef.current?.focus();
   }, [status]);
+  // A "Poproś o wycenę" button elsewhere on the page can preselect the topic and name the section the visitor came from.
+  useEffect(() => {
+    const onTopic = (event: Event) => {
+      const detail = (event as CustomEvent<{ topic?: string; cta_location?: string }>).detail ?? {};
+      if (detail.topic && leadTopics.some((item) => item.id === detail.topic)) setTopic(detail.topic);
+      if (detail.cta_location) ctaOverride.current = detail.cta_location;
+    };
+    window.addEventListener("lead-form:topic", onTopic);
+    return () => window.removeEventListener("lead-form:topic", onTopic);
+  }, []);
   function errorProps(field: string) {
     return { "aria-invalid": Boolean(fieldErrors[field]), "aria-describedby": fieldErrors[field] ? `${generatedId}-${field}-error` : undefined };
   }
@@ -44,7 +55,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Bezpłat
     const attribution = readAttribution();
     return {
       lead_source: context.leadSource ?? attribution.lead_source ?? "OGZ-PL",
-      cta_location: context.ctaLocation ?? attribution.cta_location ?? "contact_page",
+      cta_location: ctaOverride.current || (context.ctaLocation ?? attribution.cta_location ?? "contact_page"),
       source_page_path: context.sourcePagePath ?? attribution.page_path ?? window.location.pathname,
       landing_page: window.location.pathname,
       guide_source: attribution.guide_source ?? "",

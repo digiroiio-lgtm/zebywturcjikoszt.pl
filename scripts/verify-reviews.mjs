@@ -27,8 +27,8 @@ assert.equal((section.match(/class="polish-review-card"/g) ?? []).length, 5);
 assert.equal((section.match(/class="polish-review-stars"/g) ?? []).length, 5);
 for (const item of items) { assert(section.includes(item.sourceUrl)); assert(section.includes(item.author)); }
 for (const row of config.reviews) assert(!html.includes(row.excerpt), "Pending excerpts must not leak into HTML or hydration props");
-assert(html.indexOf('aria-labelledby="home-partner-title"') < html.indexOf('aria-labelledby="polish-reviews-title"'));
-assert(html.indexOf('aria-labelledby="polish-reviews-title"') < html.indexOf('aria-labelledby="home-travel-title"'));
+assert(html.indexOf('aria-labelledby="home-trust-title"') < html.indexOf('aria-labelledby="polish-reviews-title"'));
+assert(html.indexOf('aria-labelledby="polish-reviews-title"') < html.indexOf('aria-labelledby="home-treatments-title"'));
 assert(section.includes('tabindex="0"') && section.includes('aria-describedby="polish-reviews-help"'));
 assert(section.includes("Zobacz wszystkie opinie na Trustpilot"));
 assert(!section.includes("<blockquote") && !section.includes("<iframe") && !section.includes("<img"));
