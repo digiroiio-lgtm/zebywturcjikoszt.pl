@@ -4,9 +4,9 @@ One horizontal strip of vertical photos between the header and the hero (`compon
 
 ## Source mapping and sizes
 
-Originals stay untouched in `public/images/`. Masters are 720 px wide WebP (quality 86, no EXIF/ICC), cropped to about 2:3 around the face with the letterbox bars of the two wide screenshots removed; `next/image` serves AVIF/WebP at the sizes the card needs (`sizes` 132 px mobile, 216 px desktop).
+Originals live in `assets-src/2026-10-17/` (outside `public/`, so they are not served); they were recompressed losslessly (see `assets-src/README.md`). Masters are 720 px wide WebP (quality 86, no EXIF/ICC), cropped to about 2:3 around the face with the letterbox bars of the two wide screenshots removed; `next/image` serves AVIF/WebP at the sizes the card needs (`sizes` 132 px mobile, 216 px desktop).
 
-| # | Source file (`public/images/`) | Original | Master | Note |
+| # | Source file (`assets-src/2026-10-17/`) | Original | Master | Note |
 | --- | --- | --- | --- | --- |
 | 01 | Screenshot 2026-10-17 at 12.38.18.png | 2223 KB | `magdelena-01.webp` 31 KB | 720x1063, face at 32% |
 | 02 | Screenshot 2026-10-17 at 12.38.32.png | 2353 KB | `magdelena-02.webp` 36 KB | 720x1064, face at 36% |
@@ -24,5 +24,5 @@ Total of the 10 used photos: 24738 KB original, 381 KB masters.
 
 ## Open points
 - `magdelena-09` (12.41.04) shows another person next to the model. It is not in the gallery; add it only if that person has agreed to appear.
-- The original PNGs sit in `public/`, so they are reachable by URL (2-3 MB each). Move them out of `public/` if they should not be served.
+- The original PNGs were moved out of `public/` to `assets-src/2026-10-17/`; they are no longer reachable by URL.
 - Desktop gallery adds about 400 px above the hero; mobile about 380 px.
