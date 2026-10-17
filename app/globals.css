@@ -116,7 +116,7 @@ main:has(.home-hero) .closing-cta a:focus-visible { outline-color:white; }
 .dialog-intro { margin:0 48px 24px 0; color:var(--muted); }
 .dialog-close { position:absolute; top:18px; right:18px; width:40px; height:40px; border:1px solid var(--line); border-radius:50%; background:white; color:var(--ink); font-size:27px; line-height:1; cursor:pointer; }
 .dialog-close:hover { border-color:var(--green); color:var(--green-dark); }
-.case-lead-dialog .lead-form { padding:0; box-shadow:none; }
+.case-lead-dialog .lead-form { max-width:none; padding:0; box-shadow:none; }
 .case-lead-dialog .lead-form h2 { padding-right:40px; }
 body:has(.case-lead-dialog[open]),body:has(.campaign-dialog[open]) { overflow:hidden; }
 .campaign-dialog { width:min(820px,calc(100% - 32px)); max-height:90vh; padding:0; border:0; border-radius:20px; background:#161213; color:#fff; box-shadow:0 30px 90px rgba(0,0,0,.4); overflow:hidden; }
@@ -242,25 +242,27 @@ tr:last-child td { border-bottom:0; }
 .price-highlight-card h3 { min-height:44px; margin-bottom:12px; }
 .price-highlight-card strong { font-size:30px; line-height:1.2; }
 .price-highlight-card span { color:var(--green-dark); font-size:20px; font-weight:800; }
-.lead-form { padding:40px 32px; border:0; border-radius:16px; background:#f8fafc; color:#111827; }
-.lead-form h2 { margin-bottom:18px; font-family:Arial,Helvetica,sans-serif; font-size:clamp(28px,3.5vw,40px); font-weight:700; line-height:1.2; letter-spacing:-.025em; }
-.consultation-intro { margin:0 0 40px; color:#4b5563; font-size:20px; line-height:1.5; }
-.form-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; }
+.lead-form { max-width:720px; margin-inline:auto; padding:32px; border:0; border-radius:16px; background:#f8fafc; color:#111827; }
+.lead-form h2 { margin-bottom:10px; font-family:Arial,Helvetica,sans-serif; font-size:clamp(26px,1.6vw + 20px,36px); font-weight:700; line-height:1.2; letter-spacing:-.025em; overflow-wrap:anywhere; }
+.consultation-intro { margin:0 0 24px; color:#4b5563; font-size:18px; line-height:1.5; }
+.form-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:22px; }
 .form-grid[hidden] { display:none; }
-.field-error { color:#a52b2b; font-size:14px; font-weight:600; }
+.field-error { color:#a52b2b; font-size:14px; font-weight:600; overflow-wrap:anywhere; }
 .lead-form [aria-invalid="true"] { border-color:#a52b2b; }
-.form-grid label { display:grid; gap:10px; min-width:0; font-size:20px; line-height:1.4; font-weight:500; color:#374151; }
+.form-grid label { display:grid; gap:8px; min-width:0; font-size:17px; line-height:1.4; font-weight:600; color:#374151; }
+.form-grid .label-text { white-space:nowrap; }
+.field-hint { color:#4b5563; font-size:13px; font-weight:400; }
 .form-grid .full { grid-column:1/-1; }
 input,select,textarea { width:100%; padding:12px 13px; border:1px solid #d4aeb5; border-radius:8px; background:white; color:var(--ink); }
 input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16); border-color:var(--green); }
-.lead-form input,.lead-form select,.lead-form textarea { min-width:0; min-height:64px; padding:16px 20px; border:1.5px solid #d1d5db; border-radius:12px; background:white; color:#111827; font-size:20px; line-height:1.45; }
+.lead-form input,.lead-form select,.lead-form textarea { min-width:0; min-height:54px; padding:12px 16px; border:1.5px solid #d1d5db; border-radius:12px; background:white; color:#111827; font-size:17px; line-height:1.45; }
 .lead-form input::placeholder,.lead-form textarea::placeholder { color:#9ca3af; opacity:1; }
-.lead-form textarea { min-height:172px; resize:vertical; }
+.lead-form textarea { min-height:96px; resize:vertical; }
 .lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus { outline:3px solid rgba(30,64,175,.18); border-color:#1e40af; }
-.lead-form .consultation-submit { width:100%; min-height:76px; margin-top:36px; gap:10px; padding:16px 22px; border-radius:20px; background:#1e40af; color:white; font-size:22px; line-height:1.3; box-shadow:none; }
+.lead-form .consultation-submit { width:100%; min-height:58px; margin-top:26px; gap:10px; padding:14px 22px; border-radius:14px; background:#1e40af; color:white; font-size:19px; line-height:1.3; box-shadow:none; }
 .lead-form .consultation-submit:hover { background:#1e3a8a; }
 .choice-group { margin:0; padding:0; border:0; min-width:0; }
-.choice-group legend { margin-bottom:12px; padding:0; font-size:20px; font-weight:500; color:#374151; }
+.choice-group legend { margin-bottom:10px; padding:0; font-size:17px; font-weight:600; color:#374151; }
 .optional { color:#6b7280; font-size:.8em; font-weight:400; }
 .choice-chips { display:flex; flex-wrap:wrap; gap:10px; }
 .lead-form .choice-chip { position:relative; display:inline-block; font-size:17px; }
@@ -268,8 +270,18 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .choice-chip span { display:inline-flex; align-items:center; min-height:48px; padding:0 18px; border:1.5px solid #d1d5db; border-radius:999px; background:white; color:#374151; font-weight:600; }
 .choice-chip input:checked+span { border-color:#1e40af; background:#e8eefc; color:#1e3a8a; }
 .choice-chip input:focus-visible+span { outline:3px solid rgba(30,64,175,.28); outline-offset:2px; }
-.form-assurance { margin:18px 0 0; padding:0; list-style:none; display:grid; gap:6px; color:#4b5563; font-size:14px; }
-.form-assurance li::before { content:"✓ "; color:#1e40af; font-weight:700; }
+.form-assurance { margin:14px 0 0; display:grid; gap:4px; color:#4b5563; font-size:14px; text-align:center; }
+.form-assurance p { margin:0; }
+.form-assurance-facts { font-size:12px; color:#6b7280; }
+.form-success-body { display:grid; gap:12px; justify-items:start; }
+.form-success-body h3 { margin:0; font-size:26px; line-height:1.2; overflow-wrap:anywhere; }
+.form-success-body p { margin:0; color:#374151; }
+.form-success-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:6px; }
+.button-secondary { border:1.5px solid #d1d5db; background:white; color:#111827; }
+.button-secondary:hover { background:#f3f4f6; }
+.form-success-dialog { width:min(520px,calc(100% - 32px)); }
+.form-success-dialog .form-success-body { padding-top:6px; }
+.lead-form .error { margin:14px 0 0; overflow-wrap:anywhere; }
 .form-sent { display:grid; gap:14px; justify-items:start; }
 .form-sent h3 { margin:6px 0 0; font-size:22px; }
 .next-steps { margin:0; padding-left:22px; display:grid; gap:10px; color:#374151; }
@@ -355,12 +367,14 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 #zakres-implantu, #zakres-wyceny, #cena-calkowita, #przykladowe-sumy { scroll-margin-top:110px; }
 
 @media (max-width:760px) {
-  .lead-form { padding:28px 20px; }
-  .form-grid { gap:22px; }
-  .form-grid label { font-size:18px; }
-  .lead-form input,.lead-form select,.lead-form textarea { font-size:18px; min-height:60px; padding:14px 16px; }
-  .consultation-intro { margin-bottom:30px; font-size:18px; }
-  .lead-form .consultation-submit { min-height:68px; margin-top:28px; font-size:20px; }
+  .lead-form { padding:18px 16px; }
+  .form-grid { gap:20px; }
+  .form-grid label { font-size:16px; }
+  .lead-form input,.lead-form select,.lead-form textarea { font-size:16px; min-height:54px; padding:12px 14px; }
+  .consultation-intro { margin-bottom:20px; font-size:16px; }
+  .lead-form .consultation-submit { min-height:58px; margin-top:22px; font-size:18px; }
+  .form-success-actions .button,.form-success-actions .whatsapp-button { flex:1 1 100%; justify-content:center; }
+  body:has(.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus) .mobile-assessment-bar { display:none; }
 }
 
 /* Team cards use the existing card palette and responsive breakpoints. */
