@@ -67,3 +67,6 @@ Files under `/images` are served with `Cache-Control: public, max-age=604800, st
 | `hero/model-smile-card.webp` | Close-up of the smile | Promotional photo | Homepage hero, desktop card |
 
 The operator states that written permission to use these photos exists; the permission record (who, date, scope, term) is kept by the operator and is not stored in the repository. Captions and alt text call the person a model and the photos promotional; they must not be used as before/after or patient evidence. If the permission does not cover website use, remove the figure.
+
+## MAGDELENA gallery photos (2026-10-17)
+Ten studio and clinic portraits of the model MAGDELENA, supplied by the operator (written permission stated by the operator; no record stored in the repository). Used only as promotional atmosphere above the homepage hero; not patient results or before/after. One further frame (`12.41.04`) shows a second person and is not used. Details: `docs/magdelena-gallery.md`.

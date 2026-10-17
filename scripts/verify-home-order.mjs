@@ -9,7 +9,7 @@ const body = html.replace(/<script[\s\S]*?<\/script>/g, '');
 const shortsApproved = body.includes('patient-stories-title');
 
 const order = [
-  'class="home-hero"', 'id="home-trust-title"', 'id="home-clinic-strip-title"', 'id="visual-proof-title"', 'id="price-highlights-title"',
+  'id="home-gallery-title"', 'class="home-hero"', 'id="home-trust-title"', 'id="home-clinic-strip-title"', 'id="visual-proof-title"', 'id="price-highlights-title"',
   'id="polish-reviews-title"', 'id="home-treatments-title"', 'id="home-doctors-title"', ...(shortsApproved ? ['id="patient-stories-title"'] : []),
   'id="home-process-title"', 'id="home-aftercare-title"', 'id="home-lead-form"'
 ];
