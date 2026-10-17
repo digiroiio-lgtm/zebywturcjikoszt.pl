@@ -3,6 +3,7 @@ import { OPERATOR } from "./operator";
 import { clinicCredentials, credentialsPublished } from "./credentials";
 import { legalPages } from "./legal-content";
 import { RATINGS_CHECKED_DATE, clinicProfiles } from "./clinic-profiles";
+import { languagesSummary } from "./clinic-hours";
 
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
@@ -178,7 +179,7 @@ export const pages: Record<string, PageContent> = {
     lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "licowki",
     title: "Licówki w Turcji – cena, planowanie i świadomy wybór",
-    description: "Licówki w Turcji: czym są, kiedy bywają rozważane, jak ocenić plan estetyczny i od czego zależy indywidualna cena.",
+    description: "Licówki w Turcji: czym są, kiedy bywają rozważane, jak ocenić plan estetyczny, licówki a korony i od czego zależy indywidualna cena.",
     eyebrow: "Stomatologia estetyczna", h1: "Licówki w Turcji",
     lead: "Licówki mogą zmieniać wygląd przedniej powierzchni zębów. Decyzja powinna uwzględniać stan szkliwa, zgryz, zdrowie dziąseł i rozwiązania mniej inwazyjne.",
     answer: "Licówki nie są uniwersalnym sposobem na każdy problem estetyczny. Przed leczeniem potrzebna jest diagnoza, omówienie zakresu preparacji zębów, materiału oraz oczekiwanego efektu.",
@@ -259,7 +260,7 @@ export const pages: Record<string, PageContent> = {
   },
   opinie: {
     slug: "opinie", title: "Zęby w Turcji – opinie pacjentów i jak je weryfikować",
-    description: "Jak czytać opinie o leczeniu zębów w Turcji, odróżniać doświadczenie pacjenta od reklamy i sprawdzić klinikę przed decyzją.",
+    description: "Opinie o leczeniu zębów w Turcji: jak je czytać, dane z Trustpilot i Google z datą odczytu oraz opinie po polsku z linkami do źródeł.",
     eyebrow: "Opinie i doświadczenia", h1: "Zęby w Turcji: jak oceniać opinie",
     lead: "Opinie pomagają poznać organizację wyjazdu i komunikację, ale nie potwierdzają kwalifikacji medycznej ani jakości leczenia w Twoim przypadku.",
     answer: "Nie prowadzimy forum ani nie publikujemy opinii, których autentyczności nie możemy potwierdzić. Na tej stronie pokazujemy, jak weryfikować doświadczenia pacjentów i które informacje sprawdzić niezależnie przed wyborem kliniki.",
@@ -291,7 +292,7 @@ export const pages: Record<string, PageContent> = {
   "przed-i-po": {
     lastUpdated: "2026-10-17",
     slug: "przed-i-po", title: "Zęby w Turcji przed i po – jak oceniać efekty leczenia",
-    description: "Jak odpowiedzialnie oceniać zdjęcia zębów przed i po leczeniu w Turcji oraz o co zapytać przed podjęciem decyzji.",
+    description: "Zęby w Turcji przed i po: jak odpowiedzialnie oceniać zdjęcia, czego nie pokazują i o co zapytać, zanim zdecydujesz się na leczenie w Antalyi.",
     eyebrow: "Efekty leczenia", h1: "Zęby w Turcji przed i po",
     lead: "Zdjęcia mogą pokazać zmianę estetyczną, ale nie pokazują pełnej diagnozy, funkcji zgryzu, trwałości ani przebiegu leczenia.",
     answer: "Galeria pokazuje zmiany wyglądu uśmiechu. Same zdjęcia nie potwierdzają diagnozy, metody ani czasu leczenia, dlatego nie przypisujemy im niepotwierdzonych szczegółów.",
@@ -334,6 +335,7 @@ export const pages: Record<string, PageContent> = {
       { title: "Po powrocie do Polski", paragraphs: ["Zachowaj dokumentację i dane kontaktowe kliniki. Jeszcze przed wyjazdem ustal, do kogo zwrócisz się po powrocie do Polski, jeśli będzie potrzebna kontrola, korekta lub pilna pomoc."] },
       { title: "Ubezpieczenie zdrowotne i polisa podróżna", paragraphs: ["Europejska Karta Ubezpieczenia Zdrowotnego (EKUZ) uprawnia do świadczeń tylko w państwach UE i EFTA. Turcja do nich nie należy, więc EKUZ nie jest podstawą pokrycia kosztów leczenia w Antalyi. Informacje o leczeniu za granicą publikuje portal pacjent.gov.pl.", "Przed wyjazdem sprawdź w warunkach polisy, czy obejmuje ona planowe leczenie stomatologiczne, powikłania po zabiegu oraz ewentualny dodatkowy pobyt. Zapisz odpowiedź ubezpieczyciela, zamiast opierać się na ustnym zapewnieniu."] },
       { title: "Umowa, zaliczka i warunki wyjazdu", paragraphs: ["Jeżeli organizator sprzedaje wyjazd jako pakiet, Europejskie Centrum Konsumenckie wskazuje elementy, które powinna zawierać umowa: miejsce i czas trwania, rodzaj zakwaterowania, cenę łączną, warunki płatności, zasady odwołania i ubezpieczenie. Przy leczeniu rozdziel w dokumentach część medyczną, którą wykonuje klinika, od części organizacyjnej, za którą może odpowiadać pośrednik.", "Zachowaj pisemne potwierdzenie zaliczki, jej przeznaczenia i warunków zwrotu. Jeśli umowa nie wymienia hotelu, transferu lub kontroli przed wylotem, traktuj je jako niewliczone, dopóki nie otrzymasz potwierdzenia."] },
+      { title: "Obsługa po polsku: o co zapytać", paragraphs: [`Klinika podaje obsługę w językach: ${languagesSummary}. Przed rezerwacją ustal, co to oznacza w Twoim przypadku: rozmowa po polsku z lekarzem to co innego niż pomoc koordynatora lub doradcy. Więcej o wyborze kliniki znajdziesz w poradniku o wyborze kliniki.`], bullets: ["Czy po polsku rozmawia lekarz prowadzący, czy tylko koordynator lub doradca?", "Kto będzie Twoją osobą kontaktową i w jakich godzinach jest dostępna?", "W jakim języku otrzymasz plan leczenia, zgodę na zabieg i zalecenia po leczeniu?", "Kto wyjaśni Ci przebieg wizyty w gabinecie, jeśli lekarz nie mówi po polsku?", "Jak wygląda kontakt po powrocie do Polski i w jakim języku jest prowadzony?"] },
       { title: "Plan rozmowy z kliniką przed rezerwacją lotu", bullets: ["zakres wstępnego planu i etapy, które mogą wymagać kolejnego pobytu", "kto prowadzi leczenie i kto będzie dostępny po Twoim wyjeździe", "jak wygląda przekazanie dokumentacji, zdjęć RTG i listy użytych materiałów", "co klinika uznaje za zdarzenie wymagające szybkiego kontaktu po powrocie", "jakie czynności muszą zostać wykonane przed lotem powrotnym"] }
     ],
     faq: [
@@ -358,7 +360,7 @@ export const pages: Record<string, PageContent> = {
   },
   "jak-wybrac-klinike": {
     slug: "jak-wybrac-klinike", title: "Jak wybrać klinikę stomatologiczną w Turcji",
-    description: "Co sprawdzić w klinice stomatologicznej w Turcji: lekarze, plan leczenia, materiały, opieka po zabiegu i reklamacje.",
+    description: "Jak wybrać klinikę stomatologiczną w Turcji: tabela porównania ofert, 20 pytań przed wpłatą, lekarz, plan leczenia, opieka po powrocie i reklamacje.",
     eyebrow: "Bezpieczna decyzja", h1: "Jak wybrać klinikę stomatologiczną w Turcji",
     lead: "Dobra decyzja opiera się na możliwych do sprawdzenia informacjach: kto leczy, gdzie odbywa się leczenie, jaki jest plan i co dzieje się po powrocie.",
     answer: "Nie wybieraj kliniki wyłącznie na podstawie ceny, zdjęć w mediach społecznościowych albo obietnicy szybkiego efektu. Najpierw zweryfikuj podmiot, lekarza, zakres odpowiedzialności i dokumentację.",
@@ -443,7 +445,7 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   kontakt: {
-    slug: "kontakt", lastUpdated: "2026-10-02", title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną konsultację. Podaj imię i nazwisko, telefon, WhatsApp, e-mail i kraj oraz opcjonalnie dodaj wiadomość.",
+    slug: "kontakt", lastUpdated: "2026-10-02", title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną wycenę leczenia zębów w Antalyi: podaj imię, wybierz WhatsApp, telefon lub e-mail i kraj zamieszkania. Wiadomość jest opcjonalna.",
     eyebrow: "Następny krok", h1: "Poproś o wstępną ocenę leczenia",
     lead: "W formularzu możesz krótko opisać, jakie leczenie rozważasz i o co chcesz zapytać. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz potwierdzonego bezpiecznego kanału.",
     answer: "Podaj dane kontaktowe i krótko opisz, czego potrzebujesz. Zgłoszenie jest przesyłane przez Formspree. Plan leczenia ustala lekarz po badaniu; nie przesyłaj dokumentacji medycznej przez formularz.",
