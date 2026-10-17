@@ -2,7 +2,7 @@
   "auditedOn": "2026-10-17",
   "images": [
     {
-      "source": "public/images/Screenshot 2026-10-17 at 01.15.56.png",
+      "source": "assets-src/2026-10-17/Screenshot 2026-10-17 at 01.15.56.png",
       "sourceSha256": "2b12af8aaf4bab931e36f5086c0ccd703c8dfa71dab712f0617f59abf7854e43",
       "sourceWidth": 2976,
       "sourceHeight": 1622,
@@ -25,7 +25,7 @@
       "proposedAltPl": "Plansza Akdeniz Dental z portretami osób opisanych jako koordynatorzy pacjentów i kierownik"
     },
     {
-      "source": "public/images/Screenshot 2026-10-17 at 01.16.21.png",
+      "source": "assets-src/2026-10-17/Screenshot 2026-10-17 at 01.16.21.png",
       "sourceSha256": "4a2cbb7152ae29a16bd3b97211fcffe2ea5146fafbe7605195d345e0b6fb47ea",
       "sourceWidth": 2822,
       "sourceHeight": 1570,
@@ -48,7 +48,7 @@
       "proposedAltPl": "Plansza Akdeniz Dental z portretami osób opisanych jako asysta stomatologiczna i zespół mediów"
     },
     {
-      "source": "public/images/Screenshot 2026-10-17 at 01.16.35.png",
+      "source": "assets-src/2026-10-17/Screenshot 2026-10-17 at 01.16.35.png",
       "sourceSha256": "429ab50b8b16971be437580b673f3a85c85a70079cc12224ac1db3e18b07247a",
       "sourceWidth": 2760,
       "sourceHeight": 462,
@@ -71,7 +71,7 @@
       "proposedAltPl": "Cztery portrety osób opisanych w materiale Akdeniz Dental jako kierowcy"
     },
     {
-      "source": "public/images/Screenshot 2026-10-17 at 01.17.05.png",
+      "source": "assets-src/2026-10-17/Screenshot 2026-10-17 at 01.17.05.png",
       "sourceSha256": "626072b198eca91ef6943ea2dc1ef0050a3307e4402423624ce9417bb4cd734c",
       "sourceWidth": 1048,
       "sourceHeight": 1334,
@@ -94,7 +94,7 @@
       "proposedAltPl": "Plansza Akdeniz Dental z portretami osób opisanych jako zespół laboratorium dentystycznego"
     },
     {
-      "source": "public/images/Screenshot 2026-10-17 at 01.17.20.png",
+      "source": "assets-src/2026-10-17/Screenshot 2026-10-17 at 01.17.20.png",
       "sourceSha256": "2f301ac315ae8d5c35845baa0ebb872363df616fafc4699ca331b8e787246f7a",
       "sourceWidth": 1026,
       "sourceHeight": 1266,
