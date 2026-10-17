@@ -605,3 +605,39 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(8,127,114,.16);
   .hero-cases-note { margin:4px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
 }
 @media (max-width:760px) and (prefers-reduced-motion:no-preference) { .hero-cases-track { scroll-behavior:auto; } }
+
+/* Home: mobile clinic photo strip and compact price rows (both mobile only; desktop keeps its layout). */
+.clinic-strip { display:none; }
+.clinic-strip-card { display:block; width:112px; height:84px; overflow:hidden; border-radius:8px; background:var(--mint); }
+.clinic-strip-card img { display:block; width:112px; height:84px; object-fit:cover; }
+.clinic-strip-card:focus-visible { outline:3px solid var(--green-dark); outline-offset:2px; }
+@media (max-width:760px) {
+  .clinic-strip { display:block; padding-block:14px 6px; }
+  .clinic-strip-head { display:flex; align-items:baseline; justify-content:space-between; gap:10px; margin-bottom:8px; }
+  .clinic-strip-head h2 { margin:0; font-family:Arial,Helvetica,sans-serif; font-size:16px; font-weight:800; line-height:1.25; letter-spacing:0; }
+  .clinic-strip-head span { flex:none; color:var(--muted); font-size:13px; }
+  .clinic-strip-track { display:flex; gap:7px; margin:0 -14px; padding:0 14px 2px; list-style:none; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:14px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .clinic-strip-track::-webkit-scrollbar { display:none; }
+  .clinic-strip-track:focus-visible { outline:3px solid var(--green-dark); outline-offset:-3px; border-radius:8px; }
+  .clinic-strip-track li { flex:0 0 112px; scroll-snap-align:start; }
+  .clinic-strip-link { margin:8px 0 0; font-size:14px; }
+  .clinic-strip-link .text-link { font-size:14px; }
+  .clinic-strip-note { margin:4px 0 0; color:var(--muted); font-size:12px; line-height:1.4; }
+
+  .price-highlights.section-space { padding-block:16px 8px; }
+  .price-highlights .section-heading { gap:2px; margin-bottom:8px; }
+  .price-highlights .section-heading .eyebrow { margin-bottom:2px; font-size:11px; }
+  .price-highlights .section-heading h2 { font-size:20px; line-height:1.2; }
+  .price-highlights .section-heading>p { font-size:12px; line-height:1.4; }
+  .price-highlight-grid { gap:6px; margin-bottom:10px; }
+  .price-highlight-card { display:flex; align-items:baseline; justify-content:space-between; gap:8px; min-height:44px; padding:10px 12px; border-radius:10px; }
+  .price-highlight-card h3 { flex:1 1 auto; min-width:0; margin:0; font-size:15px; line-height:1.25; }
+  .price-highlight-card strong { flex:none; font-size:15px; line-height:1.25; white-space:nowrap; }
+  .price-highlight-card span { flex:none; font-size:14px; white-space:nowrap; }
+  .price-highlights>.text-link { display:none; } /* same target (/koszt#cennik) as the link inside the budget note below */
+  .price-highlights .case-cta .text-link { font-size:13px; }
+  .price-highlights .case-cta { display:grid; gap:8px; margin:10px 0 0; padding:12px; border-radius:12px; }
+  .price-highlights .case-cta p { margin:0; font-size:12.5px; line-height:1.4; }
+  .price-highlights .case-cta p:first-child { font-size:13px; }
+  .price-highlights .case-cta .button { width:100%; min-height:44px; }
+}

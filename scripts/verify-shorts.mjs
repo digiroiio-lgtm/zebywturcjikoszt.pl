@@ -38,14 +38,14 @@ if (existsSync(root + 'index.html')) {
     note = 'no approved video: the homepage has no Shorts section and no YouTube reference';
   } else {
     const at = (text) => html.indexOf(text);
-    const start = at('home-travel-title'), section = at('patient-stories-title'), after = at('home-decision-title');
-    if (!(start > -1 && start < section && section < after)) fail('Shorts section must follow the patient journey and precede decision guides');
+    const start = at('visual-proof-title'), section = at('patient-stories-title'), after = at('home-doctors-title');
+    if (!(start > -1 && start < section && section < after)) fail('Shorts section must follow the before/after gallery and precede the doctors');
     if ((html.match(/class="shorts-play"/g) || []).length !== videos.length) fail('play button count differs from approved videos');
     const thumbnails = [...html.matchAll(/<img\b[^>]*>/g)].map(([tag]) => tag).filter((tag) => /(?:i\.ytimg\.com|Miniatura filmu:)/.test(tag));
     if (thumbnails.length !== videos.length) fail('thumbnail count differs from approved videos');
     for (const tag of thumbnails) if (!/alt="Miniatura filmu: [^"]+"/.test(tag)) fail('video thumbnail lacks descriptive Polish alt text');
     if (/<iframe/.test(html)) fail('iframe in initial HTML');
-    note = `${videos.length} approved video(s) rendered after the patient journey and before decision guides, no iframe before Play`;
+    note = `${videos.length} approved video(s) rendered after the before/after gallery and before the doctors, no iframe before Play`;
   }
 }
 if (failures.length) { console.error(`Shorts check failed with ${failures.length} issue(s):`); failures.forEach((f) => console.error('- ' + f)); process.exit(1); }
