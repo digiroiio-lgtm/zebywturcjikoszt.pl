@@ -7,6 +7,8 @@ import { contactPromiseLines } from "@/lib/contact-promise";
 import { contactChannels, leadTopics, topicFromPath, type ContactChannelId } from "@/lib/lead-options";
 import { readAttribution, trackEvent } from "./tracked-link";
 import { WhatsAppIcon } from "./whatsapp-icon";
+import { CTA_ASSURANCE, SUBMIT_CTA } from "@/lib/cta";
+import { campaigns } from "@/lib/campaigns";
 import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import { LEAD_ENGAGED_KEY, POPUP_DISMISSED_KEY, readStoredCampaign, storeCampaign, clearStoredCampaign } from "@/lib/campaign-state";
 
@@ -17,10 +19,12 @@ export type LeadContext = {
   caseReference?: string;
 };
 
+/** The visitor sees the Polish display name; the tracking/notification label stays the campaign name. */
+const campaignLabel = (name: string) => campaigns.find((item) => item.name === name)?.displayName ?? name;
 const PINNED_COUNTRIES = ["Polska", "Wielka Brytania", "Niemcy"];
 const orderedCountries = [...PINNED_COUNTRIES.map((label) => countries.find((country) => country.label === label)).filter((country): country is (typeof countries)[number] => Boolean(country)), ...countries.filter((country) => !PINNED_COUNTRIES.includes(country.label))];
 
-export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj możliwości leczenia i orientacyjny koszt", headingLevel = "h2" }: { enabled: boolean; context?: LeadContext; headingId?: string; headingLevel?: "h2" | "h3"; heading?: string }) {
+export function LeadForm({ enabled, context = {}, headingId, heading = "Twoja bezpłatna wstępna wycena", headingLevel = "h2" }: { enabled: boolean; context?: LeadContext; headingId?: string; headingLevel?: "h2" | "h3"; heading?: string }) {
   const generatedId = useId();
   const titleId = headingId ?? `${generatedId}-consultation-title`;
   const descriptionId = `${generatedId}-consultation-description`;
@@ -173,7 +177,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj m
     }} onInput={(event) => (event.target as HTMLInputElement).setCustomValidity("")} onFocus={startForm} onSubmit={submit}>
       {status === "sent" && inModal ? successBody : <>
       {headingLevel === "h3" ? <h3 id={titleId}>{heading}</h3> : <h2 id={titleId}>{heading}</h2>}
-      <p id={descriptionId} className="consultation-intro">Zostaw kontakt. Odezwiemy się po polsku, aby omówić Twoje potrzeby i kolejne kroki.</p>
+      <p id={descriptionId} className="consultation-intro">Podaj imię i wybierz sposób kontaktu. Skontaktujemy się z Tobą po polsku, aby omówić Twoje potrzeby i przygotowanie wstępnej wyceny.</p>
       <div className="form-grid" hidden={status === "sent"}>
         <label className="full"><span className="label-text">Imię *</span><input name="name" type="text" autoComplete="given-name" maxLength={80} required disabled={!enabled} {...errorProps("name")} placeholder="Jak mamy się do Ciebie zwracać?" />{fieldError("name")}</label>
         <fieldset className="full choice-group" disabled={!enabled}>
@@ -188,11 +192,11 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Poznaj m
         </fieldset>
         <label className="full"><span className="label-text">Wiadomość <span className="optional">(opcjonalnie)</span></span><textarea name="message" maxLength={1200} rows={3} disabled={!enabled} {...errorProps("message")} placeholder="Co chcesz poprawić w swoim uśmiechu?" />{fieldError("message")}<span className="field-hint">Nie przesyłaj dokumentacji medycznej przez formularz.</span></label>
       </div>
-      {campaign && status !== "sent" && <p className="campaign-note" data-campaign-note>Oferta: <strong>{campaign}</strong></p>}
+      {campaign && status !== "sent" && <p className="campaign-note" data-campaign-note>Wybrana oferta: <strong>{campaignLabel(campaign)}</strong></p>}
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       {!enabled && <p className="form-notice"><strong>Formularz jeszcze nie przyjmuje zgłoszeń.</strong> Spróbuj ponownie później.</p>}
-      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>Poproś o bezpłatną wycenę <span aria-hidden="true">→</span></>}</button>}
-      {status !== "sent" && <div className="form-assurance"><p>Bezpłatna wstępna wycena.</p><p>Ostateczny plan i koszt leczenia ustala lekarz po badaniu i diagnostyce.</p>{promiseLines.length > 0 && <p className="form-assurance-facts">{promiseLines.join(" ")}</p>}</div>}
+      {status !== "sent" && <button className="button consultation-submit" type="submit" disabled={!enabled || status === "sending"}>{status === "sending" ? "Wysyłanie…" : <>{SUBMIT_CTA} <span aria-hidden="true">→</span></>}</button>}
+      {status !== "sent" && <div className="form-assurance"><p>{CTA_ASSURANCE}</p><p>Ostateczny plan i koszt leczenia ustala lekarz po badaniu i diagnostyce.</p>{promiseLines.length > 0 && <p className="form-assurance-facts">{promiseLines.join(" ")}</p>}</div>}
       <p className="form-privacy">Zgłoszenie jest przesyłane przez Formspree. <Link href="/polityka-prywatnosci">Informacje o prywatności</Link></p>
       {status === "sent" && <div className="form-sent"><p ref={feedbackRef} tabIndex={-1} role="status" className="success">Dziękujemy! Twoje zapytanie zostało wysłane. Skontaktujemy się z Tobą wybranym kanałem.</p>
         <p className="form-sent-links"><Link className="text-link" href="/poradniki/calkowity-koszt-wyjazdu">Policz koszt całego wyjazdu →</Link> <Link className="text-link" href="/listy-kontrolne">Listy kontrolne dla pacjentów →</Link></p>

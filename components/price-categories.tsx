@@ -1,3 +1,4 @@
+import { PRIMARY_CTA } from "@/lib/cta";
 import type { ReactNode } from "react";
 import { TrackedLink } from "./tracked-link";
 import { guideAssessmentHref } from "@/lib/guides";
@@ -41,7 +42,7 @@ export function PriceCategoriesInfographic() {
     <div className="price-infographic-cta">
       <div><strong>Chcesz wiedzieć, które pozycje dotyczą Ciebie?</strong><p>Opisz krótko, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej. Wstępna wycena porządkuje rozmowę, a plan i cenę ustala lekarz po badaniu.</p></div>
       <div className="price-infographic-actions">
-        <TrackedLink href={guideAssessmentHref("/koszt", "price_infographic")} event="page_cta" tracking={{ cta_location: "price_infographic" }} className="button">Poproś o wstępną wycenę</TrackedLink>
+        <TrackedLink href={guideAssessmentHref("/koszt", "price_infographic")} event="page_cta" tracking={{ cta_location: "price_infographic" }} className="button">{PRIMARY_CTA}</TrackedLink>
         <TrackedLink href="/poradniki/calkowity-koszt-wyjazdu" event="guide_open" tracking={{ destination_path: "/poradniki/calkowity-koszt-wyjazdu" }} className="text-link">Policz koszt całego wyjazdu →</TrackedLink>
       </div>
     </div>

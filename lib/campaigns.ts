@@ -6,6 +6,8 @@ export type Campaign = {
   id: string;
   /** Operator's own wording; sent with the lead and appended to the WhatsApp message. */
   name: string;
+  /** What the visitor sees in the form (Polish, no price); `name` stays the tracking and notification label. */
+  displayName: string;
   active: boolean;
   startsAt: string | null;
   endsAt: string | null;
@@ -33,6 +35,7 @@ export type Campaign = {
 export const christmasCampaign: Campaign = {
   id: "christmas-hollywood-smile",
   name: "Christmas Hollywood Smile | 16 crowns | £2,390",
+  displayName: "Oferta świąteczna: 16 koron cyrkonowych",
   active: true,
   // Operator-supplied, Antalya time (UTC+03:00): 17.10.2026 to 01.01.2027 00:01.
   startsAt: "2026-10-17T00:00:00+03:00",
