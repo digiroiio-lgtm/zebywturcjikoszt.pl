@@ -1,6 +1,6 @@
 # Homepage Shorts section
 
-Section "Poznaj historie naszych pacjentów" between "Akdeniz Dental w Antalyi" and "Zobacz przykładowe metamorfozy". It renders **nothing** until `data/shorts.json` has an approved video, so the homepage is unchanged today.
+Section "Filmy Akdeniz Dental" sits after the before/after gallery ("Zobacz przykładowe metamorfozy") and before the doctors on the home page. It renders **nothing** until `data/shorts.json` has an approved video.
 
 ## Adding videos
 Edit only `data/shorts.json`:
