@@ -9,7 +9,7 @@
 - Analytics (`trackEvent`): `quote_cta_click`, `whatsapp_click` with page_path, button_location, treatment, campaign. No name, phone, health data or message text. A click is not a lead.
 
 ## Christmas campaign popup
-- Config: `lib/campaigns.ts` (`active`, `startsAt`, `endsAt`; dates are null = not specified, none invented). Dates apply in the browser; the static home-page image follows them at the next deploy.
+- Config: `lib/campaigns.ts` (`active`, `startsAt`, `endsAt`). Christmas Hollywood Smile runs 17.10.2026 00:00 to 01.01.2027 00:01, Antalya time (UTC+03:00), as supplied by the operator. The window is checked in the browser (popup, home-page photo, WhatsApp message), so it ends on time without a redeploy; `null` still means "not specified".
 - Opens once per session when 20 s of visible time (kept across client navigations) AND 35 % scroll of the current page are both reached, in either order; never on load; not on `/kontakt` and legal pages.
 - Waits while another `<dialog>` is open (or an element with `data-blocks-popup`, for a future cookie notice). Not shown once the lead form was started or sent. Closing (×, Escape, backdrop) snoozes it 7 days.
 - CTA closes the popup and scrolls to/focuses the form (`#home-lead-form`, `#assessment-form`), else goes to `/kontakt#assessment-form`; topic "crowns". The campaign name is shown in the form, posted to `/api/lead` (known names only) and appears in the Formspree notification (field `campaign` and subject).
