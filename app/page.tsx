@@ -8,6 +8,7 @@ import { HomeModelHero } from "@/components/home-model-hero";
 import { HomeMagdelenaGallery } from "@/components/home-magdelena-gallery";
 import { HomeClinicStrip } from "@/components/home-clinic-strip";
 import { HomeTrustStrip } from "@/components/home-trust-strip";
+import { HomeIntentLinks } from "@/components/home-intent-links";
 import { SectionCta } from "@/components/section-cta";
 import { LeadForm } from "@/components/lead-form";
 import { PolishReviewsSection } from "@/components/polish-reviews-section";
@@ -57,6 +58,7 @@ export default function Home() {
   return <main>
     <HomeMagdelenaGallery />
     <section className="home-hero"><div className="shell hero-grid"><div className="hero-copy"><p className="eyebrow">Przewodnik dla pacjentów z Polski</p><h1>Leczenie zębów w Turcji – <span className="hero-wide">implanty i </span><span className="hero-accent">metamorfozy uśmiechu</span></h1><p className="hero-lead"><span className="hero-wide">Dowiedz się, jakie opcje leczenia pasują do Ciebie i ile mogą kosztować. Cennik w EUR i PLN, lekarze kliniki i opieka po powrocie w jednym miejscu.</span><span className="hero-narrow">Poznaj możliwości leczenia w Akdeniz Dental w Antalyi. Sprawdź ceny i zobacz efekty leczenia naszych pacjentów.</span></p><HomeHeroCases /><p className="hero-partner">Akdeniz Dental · Antalya, Turcja · klinika operatora serwisu</p><div className="button-row"><TrackedLink href="/kontakt?lead_source=OGZ-PL&cta_location=home_hero&page_path=%2F" event="home_assessment_cta" tracking={{ lead_source: "OGZ-PL", cta_location: "home_hero", page_path: "/" }} className="button">Poproś o bezpłatną wycenę<span className="hero-cta-arrow" aria-hidden="true"> →</span></TrackedLink><Link href="#visual-proof-title" className="text-link">Zobacz efekty leczenia <span aria-hidden="true">→</span></Link></div><p className="microcopy">Ostateczny plan leczenia wymaga konsultacji i odpowiedniej diagnostyki.</p></div><HomeModelHero /></div></section>
+    <HomeIntentLinks />
     <HomeTrustStrip />
     <HomeClinicStrip />
     <CuratedCaseGallery />

@@ -35,6 +35,8 @@ export type PageContent = {
   faq?: { question: string; answer: string }[];
   sources?: { label: string; href: string }[];
   ctaLabel?: string;
+  /** Text of the two on-page assessment buttons (hero and closing); defaults to "Poproś o wstępną wycenę". Separate from ctaLabel, which only labels the form page. */
+  ctaText?: string;
   ctaEvent?: string;
   ctaHref?: string;
   schemaType?: "MedicalWebPage" | "WebPage";
@@ -50,16 +52,22 @@ const googleProfile = clinicProfiles.find((profile) => profile.key === "google-m
 
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-17",
     slug: "koszt",
-    title: "Ile kosztują zęby w Turcji? Ceny i zakres leczenia",
-    description: `Cennik ${priceItems.length} zabiegów stomatologicznych w Turcji w EUR i PLN: implanty, korony, licówki, leczenie kanałowe i zabiegi dodatkowe. Aktualizacja: 30.09.2026.`,
+    title: "Zęby w Turcji – ceny i koszty leczenia | Akdeniz Dental",
+    description: `Zęby w Turcji cena i koszt zrobienia zębów: cennik ${priceItems.length} zabiegów w EUR i PLN (implanty, korony, licówki), z datą i kursem. Aktualizacja: 30.09.2026.`,
     eyebrow: "Koszt leczenia",
-    h1: "Ile kosztują zęby w Turcji?",
+    h1: "Ile kosztuje zrobienie zębów w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
-    answer: `Cennik kliniki obejmuje ${priceItems.length} pozycji, od zabiegów na dziąsłach po implanty i znieczulenie ogólne. Kwoty podajemy w EUR oraz orientacyjnie w PLN przy kursie 1 EUR = 4,37 PLN. Pełny koszt zależy od indywidualnego planu leczenia.`,
+    answer: `Ceny podajemy w EUR i orientacyjnie w PLN (1 EUR = 4,37 PLN z 30.09.2026). Korona cyrkonowa kosztuje ${formatEur(priceById("zirconia-crown").eur)}, implant Aiser lub Medentika ${formatEur(priceById("aiser").eur)}, Straumann ${formatEur(priceById("straumann").eur)}. To ceny pozycji cennika, a nie całego leczenia.`,
     schemaType: "MedicalWebPage",
     sections: [
+      { title: "Koszt: jeden ząb, kilka koron, implant, cała szczęka", paragraphs: ["Każdy z tych przypadków liczy się inaczej. Poniżej wskazujemy pozycję cennika i to, co trzeba doliczyć; sum nie podajemy tam, gdzie zależą od planu lekarza."], table: { headers: ["Potrzeba", "Pozycja cennika (EUR)", "Co zwykle trzeba doliczyć"], rows: [
+        ["Jeden ząb (korona)", `korona cyrkonowa ${formatEur(priceById("zirconia-crown").eur)}`, "leczenie kanałowe, wkład lub odbudowa zęba, jeśli plan je przewiduje"],
+        ["Kilka koron", `cena jednej korony × liczba zębów`, "etap przygotowania zębów i ewentualne leczenie dodatkowe"],
+        ["Implant", `Aiser lub Medentika ${formatEur(priceById("aiser").eur)}, Straumann ${formatEur(priceById("straumann").eur)}`, "łącznik i korona na implancie (osobne pozycje), a przy ubytku kości zabiegi dodatkowe"],
+        ["Cała szczęka", "brak jednej ceny: zależy od wariantu leczenia", "liczba implantów, odbudowa tymczasowa i docelowa; zobacz stronę o całej szczęce"]
+      ]}},
       { title: "Co powinno znaleźć się w wycenie", cards: [
         { title: "Zakres kliniczny", text: "Rozpoznanie, proponowane leczenie, liczba zębów lub implantów oraz możliwe alternatywy." },
         { title: "Materiały i systemy", text: "Rodzaj odbudowy, marka systemu implantologicznego i elementy protetyczne, jeśli dotyczą planu." },
@@ -105,7 +113,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Ile kosztuje higienizacja i leczenie dziąseł w Turcji?", answer: `Cennik kliniki podaje higienizację całej jamy ustnej za ${formatEur(priceById("full-mouth-cleaning").eur)} (około ${formatPln(priceById("full-mouth-cleaning").eur)}), kiretaż periodontologiczny (jeden łuk) za ${formatEur(priceById("curettage").eur)} (około ${formatPln(priceById("curettage").eur)}) i gingiwektomię za ${formatEur(priceById("gingivectomy").eur)} (około ${formatPln(priceById("gingivectomy").eur)}). Zakres leczenia dziąseł ustala lekarz po badaniu.` }
     ],
     sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
-    ctaLabel: "Poproś o indywidualną wycenę", ctaEvent: "cost_page_cta"
+    ctaLabel: "Poproś o indywidualną wycenę", ctaText: "Poproś o indywidualną wycenę leczenia", ctaEvent: "cost_page_cta"
   },
   "korony-cyrkonowe": {
     slug: "korony-cyrkonowe", published: PRICING_UPDATED_ISO_DATE, lastUpdated: PRICING_UPDATED_ISO_DATE,
@@ -142,8 +150,8 @@ export const pages: Record<string, PageContent> = {
   implanty: {
     lastUpdated: PRICING_UPDATED_ISO_DATE,
     slug: "implanty",
-    title: "Implanty zębów w Turcji – proces, koszt i kwalifikacja",
-    description: "Implanty w Turcji: Aiser i Medentika 450 EUR, Straumann 900 EUR. Ceny w PLN, zakres implantu, łącznika i korony oraz przykładowe sumy i pełna wycena.",
+    title: "Implanty zębów w Turcji – ceny i zakres leczenia",
+    description: "Implanty w Turcji: Aiser i Medentika 450 EUR, Straumann 900 EUR. Ceny w PLN, zakres implantu, łącznika i korony oraz przykładowe sumy i pełna wycena z odbudową.",
     eyebrow: "Leczenie implantologiczne", h1: "Implanty zębów w Turcji",
     lead: "Implant zastępuje korzeń brakującego zęba i stanowi podporę dla odbudowy protetycznej. To, czy implant będzie odpowiedni i ile wizyt będzie potrzebnych, zależy od oceny lekarza.",
     answer: "Plan implantologiczny powinien wynikać z badania, obrazowania i oceny ogólnego stanu zdrowia. Cenę można rzetelnie ocenić dopiero wtedy, gdy wiadomo, jaki system implantów, odbudowę i zabiegi obejmuje plan.",
@@ -164,7 +172,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy każdy może mieć implant?", answer: "Nie. Kwalifikację przeprowadza lekarz po ocenie stanu jamy ustnej, warunków anatomicznych, zdrowia ogólnego i czynników ryzyka." }
     ],
     sources: [{ label: "American Dental Association: informacje dla pacjentów o implantach", href: "https://www.mouthhealthy.org/all-topics-a-z/implants" }, { label: "FDA: elementy systemu implantologicznego", href: "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know" }],
-    ctaLabel: "Skonsultuj możliwość leczenia implantologicznego", ctaEvent: "implant_cta"
+    ctaLabel: "Skonsultuj możliwość leczenia implantologicznego", ctaText: "Poproś o wycenę implantu z odbudową", ctaEvent: "implant_cta"
   },
   licowki: {
     lastUpdated: PRICING_UPDATED_ISO_DATE,
@@ -194,8 +202,8 @@ export const pages: Record<string, PageContent> = {
   },
   "cala-szczeka": {
     lastUpdated: "2026-10-02",
-    slug: "cala-szczeka", title: "Cała szczęka w Turcji – pełna odbudowa uzębienia",
-    description: "Co może oznaczać leczenie całej szczęki w Turcji: implanty, korony, All-on-4, All-on-6 i indywidualna rekonstrukcja.",
+    slug: "cala-szczeka", title: "Cała szczęka w Turcji – ceny i opcje odbudowy",
+    description: "Ile kosztuje cała szczęka w Turcji? Opcje odbudowy: implanty, korony, All-on-4, All-on-6 i zachowanie własnych zębów. Cena zależy od indywidualnego planu.",
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
     lead: "„Cała szczęka” to opis potrzeby pacjenta, a nie nazwa jednego zabiegu. W zależności od stanu zębów i kości plan może dotyczyć zachowania własnych zębów, implantów albo odbudowy protetycznej.",
     answer: "Nie wybieraj All-on-4, All-on-6, koron ani pojedynczych implantów wyłącznie na podstawie ceny. Najpierw trzeba ustalić, które zęby można zachować i jaki cel funkcjonalny ma leczenie.",
@@ -225,7 +233,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Czy All-on-6 jest zawsze lepsze niż All-on-4?", answer: "Nie. Większa liczba implantów sama w sobie nie przesądza o lepszym wyniku. Wybór zależy od diagnostyki i planu protetycznego." }
     ],
     sources: [{ label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }],
-    ctaLabel: "Skonsultuj pełną odbudowę uzębienia", ctaEvent: "full_mouth_cta"
+    ctaLabel: "Skonsultuj pełną odbudowę uzębienia", ctaText: "Zapytaj o plan odbudowy całej szczęki", ctaEvent: "full_mouth_cta"
   },
   "all-on-4": {
     lastUpdated: "2026-10-02",
@@ -279,6 +287,7 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
   },
   "przed-i-po": {
+    lastUpdated: "2026-10-17",
     slug: "przed-i-po", title: "Zęby w Turcji przed i po – jak oceniać efekty leczenia",
     description: "Jak odpowiedzialnie oceniać zdjęcia zębów przed i po leczeniu w Turcji oraz o co zapytać przed podjęciem decyzji.",
     eyebrow: "Efekty leczenia", h1: "Zęby w Turcji przed i po",
@@ -298,7 +307,7 @@ export const pages: Record<string, PageContent> = {
       { question: "Dlaczego nie podajecie rodzaju leczenia pod zdjęciami?", answer: "Same zdjęcia nie dostarczają wystarczających informacji, by rzetelnie podać diagnozę, metodę, liczbę odbudowanych zębów lub czas leczenia. Nie uzupełniamy tych informacji domysłami." },
       { question: "Czy zdjęcie wystarczy do wyboru kliniki?", answer: "Nie. Powinno być tylko jednym z elementów oceny obok kwalifikacji lekarzy, planu leczenia, dokumentacji i opieki po zabiegu." }
     ],
-    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "before_after_hero_cta", ctaHref: "/kontakt?lead_source=OGZ-PL&cta_location=before_after_hero&page_path=%2Fprzed-i-po"
+    ctaLabel: "Poproś o wstępną ocenę", ctaText: "Zapytaj o możliwości leczenia w Twoim przypadku", ctaEvent: "before_after_hero_cta", ctaHref: "/kontakt?lead_source=OGZ-PL&cta_location=before_after_hero&page_path=%2Fprzed-i-po"
   },
   antalya: {
     slug: "antalya", title: "Leczenie zębów w Antalyi – plan wyjazdu i wizyt",
