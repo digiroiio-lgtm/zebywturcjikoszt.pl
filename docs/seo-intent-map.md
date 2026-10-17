@@ -1,6 +1,6 @@
 # Keyword → intent → canonical URL map
 
-Updated: 2026-10-03
+Updated: 2026-10-17
 
 | Canonical URL | Primary query / intent | Secondary and supporting queries | Decision |
 |---|---|---|---|
@@ -86,3 +86,25 @@ No HIGH-overlap pair is published.
 - Implant scope must distinguish the implant, abutment, crown, diagnostics and temporary work. Unconfirmed inclusions are explicitly identified.
 - Full-arch and All-on-4 package totals remain unpublished until written scope, included and excluded services, date, validity and approval are supplied.
 - New crown content has its actual publication date and remains medically unreviewed until an evidenced page review is recorded.
+
+## Search-cluster prioritisation (2026-10-17)
+
+Related searches show topic demand, not volume or competition. Order: purchase intent, fit with an existing page, patient value. Same-intent searches are merged into existing pages; no `/cena`, `/cennik` or `/koszt-zebow` copies.
+
+| Priority | Search cluster | Target | Status |
+|---|---|---|---|
+| P0 1 | zęby w Turcji cena / koszt zrobienia zębów | `/koszt` | Done 2026-10-17: title, H1, short answer from `lib/pricing.ts`, one-tooth / several crowns / implant / full-arch table, CTA |
+| P0 2 | ile kosztują zęby w Turcji cała szczęka | `/cala-szczeka` | Head and CTA done (page is clinician-reviewed; H1 and body wait for re-approval by Mustafa Akça). No full-arch total is published. |
+| P0 3 | implanty zębów w Turcji cena | `/implanty` | Head and CTA done (reviewed page; body waits for re-approval by Mehmet Onur Merey) |
+| P0 4 | zęby w Turcji przed i po | `/przed-i-po` | CTA done. Grouping by treatment type and clinician-approved case summaries wait for verified case data (`lib/evidence.ts` has none). |
+| P1 5 | opinie forum / implanty opinie | `/opinie` | Next PR: implant experiences section, sources, problems and limits |
+| P1 6 | gdzie najlepiej zrobić zęby / dobra klinika | `/jak-wybrac-klinike` | Next PR: criteria table, no claim that our clinic is first |
+| P1 7 | jak to wygląda / Antalya | `/antalya` | Planned: stages with documents, owner and time |
+| P1 8 | zęby w Turcji po polsku | section in `/antalya` and `/kontakt` | Waits for confirmation of what Polish-language support covers; "Polish-speaking doctor" and "Polish coordinator" must be told apart |
+| P2 9 | zęby w jeden dzień Turcja | new guide later | After the foundation pages |
+| P2 10 | protezy zębowe w Turcji | new page later | After the foundation pages |
+| P2 11 | zęby w Polsce koszt | comparison guide later | Needs dated, sourced Polish prices |
+| P3 12 | wybielanie zębów Turcja | `/wybielanie-zebow` only if the service is confirmed | `bleaching` exists as a price item; page waits for confirmation |
+| P3 13 | zęby w Turcji Meditravel | no page | Brand search of a third party; not pursued |
+
+The homepage serves the general "zęby w Turcji" query and sends visitors to prices (`/koszt`), real results (`/przed-i-po`) and clinic choice (`/jak-wybrac-klinike`) through three entry links under the hero.

@@ -726,3 +726,13 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .home-gallery-foot .button { width:100%; }
   .home-gallery-foot p { font-size:12px; }
 }
+
+/* Three entrances under the hero: prices, real results, clinic choice. */
+.home-intent { padding:18px 0; background:white; border-bottom:1px solid var(--line); }
+.home-intent-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0; padding:0; list-style:none; }
+.home-intent-card { position:relative; display:grid; gap:3px; height:100%; padding:16px 44px 16px 18px; border:1px solid var(--line); border-radius:14px; background:var(--mint); text-decoration:none; transition:border-color .18s,box-shadow .18s; }
+.home-intent-card:hover { border-color:var(--green); box-shadow:0 8px 22px rgba(22,18,19,.08); }
+.home-intent-card strong { color:var(--green-dark); font-size:17px; }
+.home-intent-card span { color:var(--muted); font-size:13px; line-height:1.45; }
+.home-intent-card b { position:absolute; right:18px; top:50%; margin-top:-12px; color:var(--green); font-size:22px; }
+@media (max-width:760px) { .home-intent { padding:12px 0; } .home-intent-list { grid-template-columns:1fr; gap:8px; } .home-intent-card { padding:12px 40px 12px 14px; } .home-intent-card span { display:none; } }
