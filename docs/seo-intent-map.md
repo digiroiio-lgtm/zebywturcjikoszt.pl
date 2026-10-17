@@ -127,3 +127,4 @@ Still waiting on data (not written, no placeholders): documented patient cases a
 - `/antalya` has "Obsługa po polsku: o co zapytać": the five service languages (as listed on `/kontakt`) and five questions separating a Polish-speaking doctor from a coordinator or adviser. No coordinator claim is made.
 - Longer meta descriptions on `/opinie`, `/jak-wybrac-klinike`, `/przed-i-po`, `/kontakt`, `/licowki` (head only; `/licowki` is clinician-reviewed and its body and date are unchanged).
 - Search Console to be re-read around 2026-11-14 to 2026-11-28 before any P2/P3 page is opened.
+- Fixes from the audit: dialog forms use an `h3` (the in-page forms on `/` and `/kontakt` keep one `h2`) and the shared form heading is exempt from the duplicate-H2 warning; `/cala-szczeka` title shortened to "Cała szczęka w Turcji – ceny i odbudowa" (55 characters with the brand suffix). Head only: the page body, H1 and review dates are unchanged.

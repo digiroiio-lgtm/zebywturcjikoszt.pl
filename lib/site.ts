@@ -203,7 +203,7 @@ export const pages: Record<string, PageContent> = {
   },
   "cala-szczeka": {
     lastUpdated: "2026-10-02",
-    slug: "cala-szczeka", title: "Cała szczęka w Turcji – ceny i opcje odbudowy",
+    slug: "cala-szczeka", title: "Cała szczęka w Turcji – ceny i odbudowa",
     description: "Ile kosztuje cała szczęka w Turcji? Opcje odbudowy: implanty, korony, All-on-4, All-on-6 i zachowanie własnych zębów. Cena zależy od indywidualnego planu.",
     eyebrow: "Pełna rekonstrukcja", h1: "Zęby w Turcji na całą szczękę",
     lead: "„Cała szczęka” to opis potrzeby pacjenta, a nie nazwa jednego zabiegu. W zależności od stanu zębów i kości plan może dotyczyć zachowania własnych zębów, implantów albo odbudowy protetycznej.",
