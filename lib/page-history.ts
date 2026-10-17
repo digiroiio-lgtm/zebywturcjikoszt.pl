@@ -18,7 +18,7 @@ export const pageHistory: Record<string, HistoryEntry[]> = {
   "weryfikacja-medyczna": [{ date: "2026-10-02", note: "Dodano opis oznaczeń, powiązania recenzentów z kliniką i skutków zmiany treści dla recenzji." }],
   "poradniki/rankingi-klinik-dentystycznych-w-turcji": [{ date: "2026-10-03", note: "Opublikowano poradnik o tym, jak powstają rankingi klinik i jak je czytać." }],
   "poradniki/tureckie-zeby": [{ date: "2026-10-03", note: "Opublikowano poradnik o tym, czym są „tureckie zęby”, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }],
-  "uk/ceny-leczenia-zebow-w-turcji-w-funtach": [{ date: "2026-10-03", note: "Opublikowano przeliczenie wybranych pozycji cennika na funty po kursie 0,85 z dnia 3 października 2026 (Yahoo Finance, odczyt właściciela serwisu)." }],
+  "uk/ceny-leczenia-zebow-w-turcji-w-funtach": [{ date: "2026-10-17", note: "Zaktualizowano kurs EUR/GBP do 0,84 (odczyt właściciela serwisu z 17 października 2026, 22:09 UTC) i przeliczone kwoty w funtach." }, { date: "2026-10-03", note: "Opublikowano przeliczenie wybranych pozycji cennika na funty po kursie 0,85 z dnia 3 października 2026 (Yahoo Finance, odczyt właściciela serwisu)." }],
   uk: [{ date: "2026-10-03", note: "Opublikowano sekcję dla Polaków mieszkających w UK: GHIC i polisa, waluta płatności, kontrola po powrocie." }],
   "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [{ date: "2026-10-03", note: "Opublikowano poradnik o sposobach płatności i ich ryzykach; serwis nie oferuje ani nie pośredniczy w kredytach." }],
   kontakt: [{ date: "2026-10-02", note: "Dodano informacje o danych z formularza i pytania." }]
