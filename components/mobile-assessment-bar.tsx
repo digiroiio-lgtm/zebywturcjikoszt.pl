@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { TrackedLink, trackEvent } from "./tracked-link";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { activeCampaign } from "@/lib/campaigns";
+import { useActiveCampaign } from "./use-active-campaign";
 import { topicFromPath } from "@/lib/lead-options";
 
 /** One contact component: a two-action bar on phones (quote 60 % / WhatsApp 40 %) and a floating WhatsApp button on larger screens; CSS shows exactly one of them. */
@@ -32,13 +32,13 @@ export function MobileAssessmentBar() {
   }, [pathname]);
 
   const topic = topicFromPath(pathname);
-  const campaign = activeCampaign()?.name;
+  const campaign = useActiveCampaign()?.name;
   const home = pathname === "/";
   const guide = pathname.startsWith("/poradniki");
   const uk = pathname === "/uk" || pathname.startsWith("/uk/");
   const label = guide ? "Poproś o wstępną wycenę" : "Bezpłatna wycena";
   const context = { ...(topic ? { treatment: topic } : {}), ...(campaign ? { campaign } : {}) };
-  const whatsapp = (location: string) => <a className="whatsapp-button" href={whatsappUrl(topic)} target="_blank" rel="noopener noreferrer" aria-label="Zapytaj na WhatsApp (otwiera się w nowej karcie)" onClick={() => trackEvent("whatsapp_click", { button_location: location, ...context })}><WhatsAppIcon /><span>WhatsApp</span></a>;
+  const whatsapp = (location: string) => <a className="whatsapp-button" href={whatsappUrl(topic, campaign)} target="_blank" rel="noopener noreferrer" aria-label="Zapytaj na WhatsApp (otwiera się w nowej karcie)" onClick={() => trackEvent("whatsapp_click", { button_location: location, ...context })}><WhatsAppIcon /><span>WhatsApp</span></a>;
 
   return <>
     {pathname !== "/kontakt" && <nav className="mobile-assessment-bar" aria-label="Kontakt w sprawie leczenia" data-hidden={home && heroCtaInView ? "true" : undefined}>

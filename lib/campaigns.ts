@@ -34,8 +34,9 @@ export const christmasCampaign: Campaign = {
   id: "christmas-hollywood-smile",
   name: "Christmas Hollywood Smile | 16 crowns | £2,390",
   active: true,
-  startsAt: null,
-  endsAt: null,
+  // Operator-supplied, Antalya time (UTC+03:00): 17.10.2026 to 01.01.2027 00:01.
+  startsAt: "2026-10-17T00:00:00+03:00",
+  endsAt: "2027-01-01T00:01:00+03:00",
   image: "/images/kampanya/swiateczna-oferta.webp",
   imageAlt: "Uśmiechnięta modelka w świątecznej scenerii Akdeniz Dental, napis Healthy Smiles Brighter Holidays",
   popup: {
