@@ -663,3 +663,31 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 
 /* Brand palette: red labels on black surfaces use a lighter tint for contrast (4.5:1). */
 .decision-grid span { color:#ff8a9b; }
+
+/* Sales flow: trust strip, process, per-card quote links, shorter video cards, on-page form. */
+.home-trust-strip>.shell { display:block; padding-block:22px; }
+.home-trust-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px 28px; margin:0; padding:0; list-style:none; }
+.home-trust-list li { display:grid; gap:3px; padding-left:14px; border-left:3px solid var(--green); }
+.home-trust-list strong { color:var(--ink); font-size:15px; }
+.home-trust-list span { color:var(--muted); font-size:13px; line-height:1.5; }
+.home-trust-owner { margin:18px 0 0; color:var(--muted); font-size:13px; }
+.visual-proof-note { max-width:760px; margin:18px 0 0; color:var(--muted); font-size:13px; }
+.home-review-profiles { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:-26px; padding-bottom:40px; }
+.treatment-card { display:flex; flex-direction:column; }
+.treatment-card:hover { transform:none; box-shadow:none; }
+.treatment-card-link { display:block; flex:1; text-decoration:none; color:inherit; }
+.treatment-card:has(.treatment-card-link:hover) { transform:translateY(-4px); box-shadow:var(--shadow); }
+.treatment-card-quote { display:inline-block; margin-top:14px; font-weight:800; }
+.process-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin:0; padding:0; list-style:none; }
+.process-step { padding:22px; border:1px solid var(--line); border-radius:16px; background:white; }
+.process-step h3 { margin:6px 0 8px; font-size:19px; }
+.process-step p { color:var(--muted); font-size:14px; }
+.home-process-note { max-width:760px; margin:20px 0; color:var(--muted); font-size:13px; }
+.home-lead-section { padding:72px 0; }
+.home-lead-section .shell { text-align:left; }
+.home-lead-section>.shell>p:not(.eyebrow) { max-width:620px; margin-inline:auto; text-align:center; }
+.home-lead-section .eyebrow { text-align:center; }
+.home-lead-section .lead-form { margin-top:28px; text-align:left; }
+@media (min-width:761px) { .patient-stories .shorts-track { max-width:880px; margin-inline:auto; } .patient-stories .shorts-frame { max-height:520px; } }
+@media (max-width:1000px) { .process-steps { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:760px) { .home-trust-list { grid-template-columns:1fr 1fr; gap:14px; } .process-steps { grid-template-columns:1fr; } .home-review-profiles { margin-top:-18px; padding-bottom:26px; } .home-lead-section { padding:44px 0; } .home-trust-strip>.shell { padding-block:16px; } .home-trust-list span { display:none; } }

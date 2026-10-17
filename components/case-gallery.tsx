@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TrackedLink } from "./tracked-link";
 import { InPageLeadCta } from "./in-page-lead-cta";
+import { SectionCta } from "./section-cta";
 
 import { verifiedCases, type VerifiedCase } from "@/lib/evidence";
 import { caseImages } from "@/lib/gallery";
@@ -9,13 +9,11 @@ type CaseAsset = { reference: string; src: string; label: string; verified?: Ver
 
 const cases: CaseAsset[] = caseImages;
 
-function assessmentHref(location: string, pagePath: string, caseReference?: string) {
-  const params = new URLSearchParams({ lead_source: "OGZ-PL", cta_location: location, page_path: pagePath });
-  if (caseReference) params.set("case_reference", caseReference);
-  return `/kontakt?${params.toString()}`;
-}
-
-function CaseCard({ item, priority = false }: { item: CaseAsset; priority?: boolean }) {
+function CaseCard({ item, priority = false, neutralLabel }: { item: CaseAsset; priority?: boolean; neutralLabel?: string }) {
+  if (neutralLabel && item.verified?.status !== "verified") return <figure className="case-card" id={item.reference}>
+    <Image src={item.src} alt={`${neutralLabel}: uśmiech przed i po leczeniu`} width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
+    <figcaption><strong>{neutralLabel}</strong></figcaption>
+  </figure>;
   return <figure className="case-card" id={item.reference}>
     <Image src={item.src} alt={item.verified?.status === "verified" ? `${item.label}: uśmiech przed i po, ${item.verified.treatment}` : `${item.label}: uśmiech przed i po leczeniu (zakres leczenia niepotwierdzony)`} width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
     <figcaption><strong>{item.label}</strong><span>{item.verified?.status === "verified" ? item.verified.treatment : "Zakres leczenia nie został jeszcze zweryfikowany."}</span></figcaption>
@@ -29,8 +27,9 @@ export function CuratedCaseGallery() {
   }));
   return <section className="shell section-space visual-proof" aria-labelledby="visual-proof-title">
     <div className="section-heading"><div><p className="eyebrow">Przykładowe rezultaty</p><h2 id="visual-proof-title">Zobacz przykładowe metamorfozy</h2></div><p>Materiały pokazują zmianę wyglądu uśmiechu. Nie potwierdzają metody leczenia ani tego, czy podobny plan będzie odpowiedni dla innej osoby.</p></div>
-    <div className="case-grid case-grid-featured">{featured.map((item) => <CaseCard item={item} key={item.reference} />)}</div>
-    <div className="visual-proof-actions"><Link className="text-link" href="/przed-i-po">Zobacz więcej zdjęć <span aria-hidden="true">→</span></Link><TrackedLink href={assessmentHref("home_visual_proof", "/")} event="home_visual_assessment_cta" tracking={{ lead_source: "OGZ-PL", cta_location: "home_visual_proof" }} className="button">Poproś o bezpłatną wstępną ocenę</TrackedLink></div>
+    <div className="case-grid case-grid-featured">{featured.map((item, index) => <CaseCard item={item} key={item.reference} neutralLabel={`Uśmiech 0${index + 1}`} />)}</div>
+    <p className="visual-proof-note">Zakres leczenia nie jest potwierdzony dla każdego przypadku. Efekty są indywidualne i nie gwarantują takiego samego rezultatu.</p>
+    <div className="visual-proof-actions"><Link className="text-link" href="/przed-i-po">Zobacz więcej zdjęć <span aria-hidden="true">→</span></Link><SectionCta location="home_visual_proof" topic="other">Poznaj swoje możliwości</SectionCta></div>
   </section>;
 }
 
