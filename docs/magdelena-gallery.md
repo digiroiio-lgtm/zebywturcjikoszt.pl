@@ -25,4 +25,4 @@ Total of the 10 used photos: 24738 KB original, 381 KB masters.
 ## Open points
 - `magdelena-09` (12.41.04) shows another person next to the model. It is not in the gallery; add it only if that person has agreed to appear.
 - The original PNGs were moved out of `public/` to `assets-src/2026-10-17/`; they are no longer reachable by URL.
-- Desktop gallery adds about 400 px above the hero; mobile about 380 px.
+- Desktop gallery adds about 360 px above the hero (cards 156×208, container 88% up to 1600 px); mobile about 380 px.

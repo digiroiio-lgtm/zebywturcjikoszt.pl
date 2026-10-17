@@ -18,7 +18,7 @@ export function HomeMagdelenaGallery() {
     if (event.key === "ArrowLeft") { event.preventDefault(); move(-1); }
   };
   return <section className="home-gallery" aria-labelledby="home-gallery-title">
-    <div className="shell">
+    <div className="home-gallery-inner">
       <div className="home-gallery-head">
         <div><p className="eyebrow">Akdeniz Dental · Antalya</p><h2 id="home-gallery-title">Uśmiech, który przyciąga spojrzenia.</h2></div>
         <p>Zainspiruj się sesją MAGDELENY i poznaj możliwości dla swojego uśmiechu.</p>
