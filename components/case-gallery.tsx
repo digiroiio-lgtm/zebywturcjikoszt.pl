@@ -16,7 +16,7 @@ function assessmentHref(location: string, pagePath: string, caseReference?: stri
 }
 
 function CaseCard({ item, priority = false }: { item: CaseAsset; priority?: boolean }) {
-  return <figure className="case-card">
+  return <figure className="case-card" id={item.reference}>
     <Image src={item.src} alt={item.verified?.status === "verified" ? `${item.label}: uśmiech przed i po, ${item.verified.treatment}` : `${item.label}: uśmiech przed i po leczeniu (zakres leczenia niepotwierdzony)`} width={700} height={700} sizes="(max-width: 760px) calc(100vw - 28px), (max-width: 1100px) 45vw, 360px" priority={priority} />
     <figcaption><strong>{item.label}</strong><span>{item.verified?.status === "verified" ? item.verified.treatment : "Zakres leczenia nie został jeszcze zweryfikowany."}</span></figcaption>
   </figure>;
