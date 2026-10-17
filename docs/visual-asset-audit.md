@@ -57,3 +57,13 @@ Still needed (PR 2, supplied by the owner): new real photographs and diagrams, `
 ## Caching and replacing images
 
 Files under `/images` are served with `Cache-Control: public, max-age=604800, stale-while-revalidate=86400`. File names are not hashed, so a replaced file can stay stale in browsers and CDNs for up to a week. When an image changes, add it under a new file name and update `lib/page-figures.json` (and any other reference); do not overwrite the old name. `npm run audit:seo` checks that every figure image is in the sitemap entry of its page.
+
+## Homepage hero model photos (2026-10-17)
+
+| File | Observed image type | Classification | Placement |
+| --- | --- | --- | --- |
+| `hero/model-portrait.webp` (from supplied 4:5 original) | Studio portrait of a model smiling in front of the clinic logo wall | Promotional photo, not a patient and not a treatment result | Homepage hero, desktop main image |
+| `hero/model-chair.webp`, `hero/model-chair-card.webp` | Model in a dental chair with the branded hand mirror | Promotional photo | Homepage hero, mobile image and desktop card |
+| `hero/model-smile-card.webp` | Close-up of the smile | Promotional photo | Homepage hero, desktop card |
+
+The operator states that written permission to use these photos exists; the permission record (who, date, scope, term) is kept by the operator and is not stored in the repository. Captions and alt text call the person a model and the photos promotional; they must not be used as before/after or patient evidence. If the permission does not cover website use, remove the figure.
