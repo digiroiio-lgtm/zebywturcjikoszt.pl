@@ -6,16 +6,17 @@ import { useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
 declare global {
-  interface Window { dataLayer?: Record<string, unknown>[]; }
+  interface Window { dataLayer?: Record<string, unknown>[]; gtag?: (command: "event", name: string, params: Record<string, string>) => void; }
 }
 
-/** Only these keys are forwarded to Vercel Analytics (cookieless). They describe the page and the CTA, never the visitor. */
+/** Only these keys are forwarded to Vercel Analytics (cookieless) and Google Analytics. They describe the page and the CTA, never the visitor. */
 const ANALYTICS_KEYS = ["page_type", "geographic_market", "geographic_region", "city_slug", "selected_treatment", "content_cluster", "page_path", "cta_location", "lead_source", "guide_source", "source_page_path", "destination_path", "case_reference", "preferred_channel", "topic", "button_location", "treatment", "campaign", "utm_source", "utm_medium", "utm_campaign"];
 
 function forwardToAnalytics(event: string, payload: Record<string, unknown>) {
   const properties: Record<string, string> = {};
   for (const key of ANALYTICS_KEYS) if (typeof payload[key] === "string" && payload[key]) properties[key] = String(payload[key]).slice(0, 120);
   try { track(event, properties); } catch { /* analytics must never break a click or a form submission */ }
+  try { window.gtag?.("event", event, properties); } catch { /* same: GA is optional and may be blocked */ }
 }
 
 const ATTRIBUTION_KEYS = ["lead_source", "cta_location", "page_path", "guide_source"] as const;
