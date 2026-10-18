@@ -11,6 +11,7 @@ export function faqSchema(path: string, items: FaqItem[]) {
     "@id": `${url}#faq`,
     url: `${url}#faq`,
     inLanguage: "pl-PL",
+    isPartOf: { "@id": `${SITE_URL}${path === "/" ? "/" : path}#webpage` },
     mainEntity: items.map((item, index) => ({ "@type": "Question", "@id": `${url}#faq-${index + 1}`, url: `${url}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } }))
   };
 }

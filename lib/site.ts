@@ -40,7 +40,7 @@ export type PageContent = {
   ctaText?: string;
   ctaEvent?: string;
   ctaHref?: string;
-  schemaType?: "MedicalWebPage" | "WebPage";
+  schemaType?: "MedicalWebPage" | "WebPage" | "ContactPage";
   noindex?: boolean;
   form?: boolean;
   lastUpdated?: string;
@@ -60,6 +60,7 @@ export const pages: Record<string, PageContent> = {
     eyebrow: "Koszt leczenia",
     h1: "Ile kosztuje zrobienie zębów w Turcji?",
     lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
+    answerTitle: "Ile kosztuje leczenie zębów w Turcji?",
     answer: `Ceny podajemy w EUR i orientacyjnie w PLN (1 EUR = 4,37 PLN z 30.09.2026). Korona cyrkonowa kosztuje ${formatEur(priceById("zirconia-crown").eur)}, implant Aiser lub Medentika ${formatEur(priceById("aiser").eur)}, Straumann ${formatEur(priceById("straumann").eur)}. To ceny pozycji cennika, a nie całego leczenia.`,
     schemaType: "MedicalWebPage",
     sections: [
@@ -118,11 +119,12 @@ export const pages: Record<string, PageContent> = {
   },
   "korony-cyrkonowe": {
     slug: "korony-cyrkonowe", published: PRICING_UPDATED_ISO_DATE, lastUpdated: PRICING_UPDATED_ISO_DATE,
-    title: "Korony cyrkonowe w Turcji: cena 150 EUR, zakres i wycena",
-    description: "Korona cyrkonowa w Turcji: 150 EUR, około 656 PLN. Sprawdź zakres ceny, przykładowe sumy, różnicę między koroną a licówką i pytania przed wyceną.",
+    title: "Korony cyrkonowe w Antalyi: cena 150 EUR, zakres i wycena",
+    description: "Korona cyrkonowa w Antalyi: 150 EUR, około 656 PLN. Sprawdź zakres ceny, przykładowe sumy, różnicę między koroną a licówką i pytania przed wyceną.",
     eyebrow: "Korony i protetyka", h1: "Korony cyrkonowe w Turcji: cena i zakres leczenia",
     lead: "W cenniku kliniki korona cyrkonowa kosztuje 150 EUR, czyli orientacyjnie 656 PLN przy kursie 4,37. Cena pozycji nie określa całego planu leczenia. Przed decyzją potwierdź liczbę koron, ich zastosowanie i usługi wliczone w wycenę.",
-    answer: "Korona jest odbudową obejmującą ząb; może też stanowić część odbudowy na implancie. Korona cyrkonowa i licówka to różne pozycje. Wybór odbudowy powinien wynikać z oceny lekarza, a nie wyłącznie ceny lub oczekiwanego koloru uśmiechu.",
+    answerTitle: "Ile kosztują korony cyrkonowe w Antalyi?",
+    answer: "W cenniku kliniki korona cyrkonowa kosztuje 150 EUR, czyli orientacyjnie 656 PLN przy kursie 4,37. Korona jest odbudową obejmującą ząb; może też stanowić część odbudowy na implancie. Korona cyrkonowa i licówka to różne pozycje. Wybór odbudowy powinien wynikać z oceny lekarza, a nie wyłącznie ceny lub oczekiwanego koloru uśmiechu.",
     schemaType: "MedicalWebPage",
     sections: [
       { title: "Korona, licówka czy korona na implancie?", table: { headers: ["Odbudowa", "Co oznacza", "Co ustalić przed wyceną"], rows: [
@@ -263,6 +265,7 @@ export const pages: Record<string, PageContent> = {
     description: "Opinie o leczeniu zębów w Turcji: jak je czytać, dane z Trustpilot i Google z datą odczytu oraz opinie po polsku z linkami do źródeł.",
     eyebrow: "Opinie i doświadczenia", h1: "Zęby w Turcji: jak oceniać opinie",
     lead: "Opinie pomagają poznać organizację wyjazdu i komunikację, ale nie potwierdzają kwalifikacji medycznej ani jakości leczenia w Twoim przypadku.",
+    answerTitle: "Jak czytać opinie o klinice?",
     answer: "Nie prowadzimy forum ani nie publikujemy opinii, których autentyczności nie możemy potwierdzić. Na tej stronie pokazujemy, jak weryfikować doświadczenia pacjentów i które informacje sprawdzić niezależnie przed wyborem kliniki.",
     sections: [
       { title: "Na co zwrócić uwagę w opinii", bullets: ["opisuje konkretny zakres leczenia i etapy, a nie tylko ogólne wrażenie", "rozróżnia opiekę organizacyjną od oceny medycznej", "nie obiecuje identycznego rezultatu każdej osobie", "pokazuje datę i kontekst doświadczenia", "może zostać powiązana z rzeczywistym źródłem bez naruszania prywatności"] },
@@ -295,6 +298,7 @@ export const pages: Record<string, PageContent> = {
     description: "Zęby w Turcji przed i po: jak odpowiedzialnie oceniać zdjęcia, czego nie pokazują i o co zapytać, zanim zdecydujesz się na leczenie w Antalyi.",
     eyebrow: "Efekty leczenia", h1: "Zęby w Turcji przed i po",
     lead: "Zdjęcia mogą pokazać zmianę estetyczną, ale nie pokazują pełnej diagnozy, funkcji zgryzu, trwałości ani przebiegu leczenia.",
+    answerTitle: "Jak czytać zdjęcia przed i po?",
     answer: "Galeria pokazuje zmiany wyglądu uśmiechu. Same zdjęcia nie potwierdzają diagnozy, metody ani czasu leczenia, dlatego nie przypisujemy im niepotwierdzonych szczegółów.",
     sections: [
       { title: "Jak czytać materiał przed i po", bullets: ["sprawdź, czy zdjęcia wykonano w podobnym świetle i ustawieniu", "zapytaj, jaki dokładnie zakres leczenia przedstawiono", "odróżnij efekt tymczasowy od ostatecznej odbudowy", "nie oceniaj zdrowia tkanek wyłącznie na podstawie fotografii", "pamiętaj, że indywidualny wynik może być inny"] },
@@ -317,6 +321,7 @@ export const pages: Record<string, PageContent> = {
     description: "Jak zaplanować leczenie zębów w Antalyi: dokumentacja, harmonogram wizyt, ubezpieczenie, umowa i zaliczka, podróż oraz opieka po powrocie.",
     eyebrow: "Kierunek: Antalya", h1: "Leczenie zębów w Antalyi",
     lead: "Podróż do Antalyi warto zaplanować wokół wizyt i zaleceń lekarza. Zwiedzanie powinno zejść na dalszy plan, jeśli wymaga tego leczenie.",
+    answerTitle: "Jak wygląda leczenie zębów w Antalyi?",
     answer: "Przed rezerwacją lotu z Polski ustal wstępny plan leczenia, możliwą liczbę wizyt i zasady kontaktu po powrocie. Plan może się zmienić po badaniu w Antalyi.",
     sections: [
       { title: "Etapy leczenia w Antalyi: od kontaktu do kontroli", paragraphs: ["Liczba wizyt, długość pobytu i zakres opieki zależą od indywidualnego planu. Nie zakładaj, że leczenie zakończy się podczas jednego wyjazdu."], table: { headers: ["Etap", "Co się dzieje", "Co ustalić na piśmie"], rows: [
@@ -363,6 +368,7 @@ export const pages: Record<string, PageContent> = {
     description: "Jak wybrać klinikę stomatologiczną w Turcji: tabela porównania ofert, 20 pytań przed wpłatą, lekarz, plan leczenia, opieka po powrocie i reklamacje.",
     eyebrow: "Bezpieczna decyzja", h1: "Jak wybrać klinikę stomatologiczną w Turcji",
     lead: "Dobra decyzja opiera się na możliwych do sprawdzenia informacjach: kto leczy, gdzie odbywa się leczenie, jaki jest plan i co dzieje się po powrocie.",
+    answerTitle: "Jak wybrać klinikę stomatologiczną w Turcji?",
     answer: "Nie wybieraj kliniki wyłącznie na podstawie ceny, zdjęć w mediach społecznościowych albo obietnicy szybkiego efektu. Najpierw zweryfikuj podmiot, lekarza, zakres odpowiedzialności i dokumentację.",
     sections: [
       { title: "Co sprawdzić przed wpłatą", bullets: ["pełna nazwa i adres podmiotu wykonującego leczenie", "imię, nazwisko, specjalizacja i możliwość weryfikacji lekarza", "pisemny plan z alternatywami i kosztami dodatkowymi", "nazwa materiałów i systemów, które zostaną użyte", "zasady przechowywania i przekazania dokumentacji", "opieka po leczeniu, reklamacje i sytuacje nagłe", "jasne warunki zaliczki, odwołania i zwrotu"] },
@@ -445,7 +451,7 @@ export const pages: Record<string, PageContent> = {
     ]
   },
   kontakt: {
-    slug: "kontakt", lastUpdated: "2026-10-02", title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną wycenę leczenia zębów w Antalyi: podaj imię, wybierz WhatsApp, telefon lub e-mail i kraj zamieszkania. Wiadomość jest opcjonalna.",
+    slug: "kontakt", schemaType: "ContactPage", lastUpdated: "2026-10-02", title: "Kontakt i bezpłatna konsultacja", description: "Poproś o bezpłatną wycenę leczenia zębów w Antalyi: podaj imię, wybierz WhatsApp, telefon lub e-mail i kraj zamieszkania. Wiadomość jest opcjonalna.",
     eyebrow: "Następny krok", h1: "Poproś o wstępną ocenę leczenia",
     lead: "W formularzu możesz krótko opisać, jakie leczenie rozważasz i o co chcesz zapytać. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz potwierdzonego bezpiecznego kanału.",
     answer: "Podaj dane kontaktowe i krótko opisz, czego potrzebujesz. Zgłoszenie jest przesyłane przez Formspree. Plan leczenia ustala lekarz po badaniu; nie przesyłaj dokumentacji medycznej przez formularz.",
