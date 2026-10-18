@@ -25,11 +25,17 @@ export function ConsentBanner() {
   // "server" keeps the first render empty so the static HTML never differs from the hydrated page.
   const choice = useSyncExternalStore(subscribe, stored, () => "server" as const);
   const [reopened, setReopened] = useState(false);
+  // The first banner is held back until the page has loaded so it is never part of the initial paint (it would otherwise
+  // become the LCP element). Nothing is collected meanwhile: every consent type starts denied.
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const reopen = () => setReopened(true);
     window.addEventListener(CONSENT_OPEN_EVENT, reopen);
-    return () => window.removeEventListener(CONSENT_OPEN_EVENT, reopen);
+    let timer: number | undefined;
+    const show = () => { timer = window.setTimeout(() => setReady(true), 600); };
+    if (document.readyState === "complete") show(); else window.addEventListener("load", show, { once: true });
+    return () => { window.removeEventListener(CONSENT_OPEN_EVENT, reopen); window.removeEventListener("load", show); window.clearTimeout(timer); };
   }, []);
 
   function choose(next: Choice) {
@@ -39,9 +45,9 @@ export function ConsentBanner() {
     window.dispatchEvent(new Event(CHANGED));
   }
 
-  if (choice === "server" || (choice !== "none" && !reopened)) return null;
+  if (choice === "server" || (choice !== "none" && !reopened) || (choice === "none" && !ready && !reopened)) return null;
   return <div className="consent-banner" role="region" aria-label="Ustawienia cookies" data-blocks-popup>
-    <p>Za Twoją zgodą używamy Google Analytics 4 do statystyk odwiedzin (mogą zapisywać pliki cookies). Odmowa nie ogranicza korzystania z serwisu. <Link href="/cookies">Polityka cookies</Link></p>
+    <p>Za Twoją zgodą używamy Google Analytics 4 (statystyki, mogą zapisywać cookies). Odmowa nie ogranicza serwisu. <Link href="/cookies">Polityka cookies</Link></p>
     <div className="consent-actions">
       <button type="button" className="consent-button" onClick={() => choose("denied")}>Odrzucam</button>
       <button type="button" className="consent-button" onClick={() => choose("granted")}>Akceptuję</button>
