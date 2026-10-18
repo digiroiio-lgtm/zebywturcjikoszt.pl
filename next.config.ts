@@ -15,7 +15,7 @@ const securityHeaders = [
   { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
   // The only third-party origins are Google Analytics (gtag.js and its collect endpoints). Inline scripts/styles stay allowed because Next.js bootstraps with inline
   // scripts and a nonce would need middleware, which turns the prerendered pages into dynamic ones.
-  { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com" + ytImg + "; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; object-src 'none';" + frameSrc + " base-uri 'self'; form-action 'self'; frame-ancestors 'none'" }
+  { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://www.google.com https://www.google.pl https://www.google.com.tr" + ytImg + "; font-src 'self' data:; connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://www.google.com; object-src 'none';" + frameSrc + " base-uri 'self'; form-action 'self'; frame-ancestors 'none'" }
 ];
 
 const nextConfig: NextConfig = {
