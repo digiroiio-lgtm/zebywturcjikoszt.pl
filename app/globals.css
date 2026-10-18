@@ -836,3 +836,10 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .consent-settings { padding:0; border:0; background:none; color:#d8b6bc; font:inherit; font-size:14px; text-align:left; cursor:pointer; }
 .consent-settings:hover { color:white; }
 @media (max-width:760px) { .consent-banner { bottom:calc(84px + env(safe-area-inset-bottom,0px)); } .consent-actions { width:100%; } .consent-button { flex:1 1 0; } }
+
+.expert-quote-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin-top:24px; }
+.expert-quote { margin:0; padding:22px; border:1px solid var(--line); border-left:4px solid var(--green); border-radius:12px; background:white; }
+.expert-quote blockquote { margin:0 0 14px; font-size:17px; line-height:1.6; }
+.expert-quote blockquote p { margin:0; }
+.expert-quote figcaption { color:var(--muted); font-size:15px; }
+@media (max-width:760px) { .expert-quote-grid { grid-template-columns:1fr; } }
