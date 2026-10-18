@@ -20,7 +20,7 @@ export const expertQuotes: ExpertQuote[] = [
     id: "treatment-planning",
     slug: "mustafa-akca",
     name: "Mustafa Akça",
-    role: "lekarz dentysta, założyciel i właściciel Akdeniz Dental, Antalya",
+    role: "Lekarz dentysta | Akdeniz Dental Clinic, Antalya, Turcja",
     topic: "Tedavi planlaması",
     text: "Każdy pacjent wymaga indywidualnej oceny stomatologicznej. Przed wyborem implantów, koron lub licówek analizujemy stan uzębienia, zdrowie dziąseł oraz długoterminowe potrzeby pacjenta. Najważniejszy jest bezpieczny i odpowiednio dobrany plan leczenia.",
     approvedOn: null
@@ -29,7 +29,7 @@ export const expertQuotes: ExpertQuote[] = [
     id: "posterior-implants",
     slug: "mehmet-onur-merey",
     name: "Mehmet Onur Merey",
-    role: "lekarz dentysta, Akdeniz Dental, Antalya",
+    role: "Lekarz dentysta | Akdeniz Dental Clinic, Antalya, Turcja",
     topic: "Implanty w odcinku bocznym",
     text: "Utrata tylnych zębów to nie tylko problem estetyczny. Zęby trzonowe odgrywają kluczową rolę w żuciu i rozdrabnianiu pokarmów. Implanty stomatologiczne mogą pomóc przywrócić funkcję żucia i stabilność odbudowy protetycznej, bez konieczności szlifowania sąsiednich zdrowych zębów. Kluczowe znaczenie ma jednak indywidualna ocena warunków kostnych i prawidłowe zaplanowanie leczenia.",
     approvedOn: null

@@ -15,5 +15,5 @@ for (const quote of quotes) {
   else assert(rendered(quote.text), `approved quote "${quote.id}" is not rendered`);
 }
 const approved = quotes.filter((quote) => quote.approved !== 'null').length;
-if (approved) assert(/<blockquote[^>]*>/.test(body) && /<figcaption>/.test(body), 'approved quotes need blockquote and figcaption attribution');
+if (approved) assert(/<blockquote[^>]*>/.test(body) && /<figcaption>/.test(body) && /<cite>/.test(body), 'approved quotes need blockquote, figcaption and cite attribution');
 console.log(`Expert quote checks passed: ${approved} of ${quotes.length} approved and rendered, drafts hidden.`);
