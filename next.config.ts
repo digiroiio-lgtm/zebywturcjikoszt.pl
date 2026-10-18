@@ -33,6 +33,10 @@ const nextConfig: NextConfig = {
       moved(".+", "klinika")
     ];
   },
+  async rewrites() {
+    // Markdown twins of the patient pages: /koszt.md -> /md/koszt
+    return [{ source: "/:slug(.+)\\.md", destination: "/md/:slug" }];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
