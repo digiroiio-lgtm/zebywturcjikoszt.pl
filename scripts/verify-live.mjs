@@ -30,7 +30,7 @@ if (!local) {
 }
 
 const robots = await (await get(`${origin}/robots.txt`)).text();
-for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended"]) check(`robots.txt allows ${bot}`, robots.includes(`User-Agent: ${bot}`));
+for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended", "Bingbot", "ChatGPT-User", "Claude-SearchBot", "Perplexity-User"]) check(`robots.txt allows ${bot}`, robots.includes(`User-Agent: ${bot}`));
 check("robots.txt lists the sitemap on this origin", robots.includes(`Sitemap: ${site}/sitemap.xml`));
 check("robots.txt omits the unsupported Host directive", !/^Host:/im.test(robots));
 

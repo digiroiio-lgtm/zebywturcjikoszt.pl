@@ -23,6 +23,7 @@ import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { TreatmentWhatsappCta } from "./treatment-whatsapp-cta";
 import { ClinicProfiles } from "./clinic-profiles";
+import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { PolishReviewsSection } from "./polish-reviews-section";
 import { OperatorDetails } from "./operator-details";
 import { OpeningHours } from "./opening-hours";
@@ -138,7 +139,15 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   ],
   "przed-i-po": [
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Sprawdź także lekarza i plan leczenia." },
-    { href: "/opinie", label: "Jak oceniać opinie", text: "Odróżnij relację pacjenta od materiału reklamowego." }
+    { href: "/opinie", label: "Jak oceniać opinie", text: "Odróżnij relację pacjenta od materiału reklamowego." },
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    { href: "/implanty", label: "Implanty", text: "Co obejmuje cena implantu i jak wygląda pełny plan leczenia." }
+  ],
+  kontakt: [
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." },
+    { href: "/antalya", label: "Leczenie w Antalyi", text: "Jak wygląda organizacja leczenia na miejscu i co sprawdzić przed wyjazdem." },
+    { href: "/nasi-lekarze", label: "Nasi lekarze", text: "Zespół Akdeniz Dental, kliniki prowadzonej przez operatora serwisu." }
   ],
   antalya: [
     { href: "/koszt", label: "Koszt całego wyjazdu", text: "Uwzględnij leczenie, podróż, pobyt i możliwe korekty." },
@@ -190,7 +199,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
   };
   const articleSchema = guide ? { "@context": "https://schema.org", "@type": "Article", "@id": `${pageUrl}#article`, headline: page.h1, description: page.description, url: pageUrl, mainEntityOfPage: { "@id": `${pageUrl}#webpage` }, inLanguage: "pl-PL", datePublished: page.published, dateModified: page.lastUpdated, author: { "@id": `${SITE_URL}/#organization` }, publisher: { "@id": `${SITE_URL}/#organization` }, citation: page.sources?.map((source) => source.href.startsWith("/") ? `${SITE_URL}${source.href}` : source.href) } : null;
   const faqSchema = page.faq ? { "@context": "https://schema.org", "@type": "FAQPage", "@id": `${pageUrl}#faq`, url: `${pageUrl}#faq`, inLanguage: "pl-PL", isPartOf: { "@id": `${pageUrl}#webpage` }, mainEntity: page.faq.map((item, index) => ({ "@type": "Question", "@id": `${pageUrl}#faq-${index + 1}`, url: `${pageUrl}#faq-${index + 1}`, name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } : null;
-  const priceSchema = page.slug === "koszt" ? { "@context": "https://schema.org", "@type": "ItemList", "@id": `${pageUrl}#cennik`, name: "Cennik kliniki Akdeniz Dental (pozycje w EUR)", itemListElement: priceItems.map((item, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Offer", name: item.label, price: item.eur.toFixed(2), priceCurrency: "EUR", validFrom: PRICING_UPDATED_ISO_DATE, description: "Cena pozycji z cennika kliniki, nie ceny całkowitej leczenia ani pakietu.", seller: { "@type": "Organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" } } })) } : null;
+  const priceSchema = page.slug === "koszt" ? { "@context": "https://schema.org", "@type": "ItemList", "@id": `${pageUrl}#cennik`, name: "Cennik kliniki Akdeniz Dental (pozycje w EUR)", itemListElement: priceItems.map((item, index) => ({ "@type": "ListItem", position: index + 1, item: { "@type": "Offer", name: item.label, price: item.eur.toFixed(2), priceCurrency: "EUR", validFrom: PRICING_UPDATED_ISO_DATE, description: "Cena pozycji z cennika kliniki, nie ceny całkowitej leczenia ani pakietu.", seller: { "@id": CLINIC_ID } } })) } : null;
   const gallerySchema = page.slug === "przed-i-po" ? { "@context": "https://schema.org", "@type": "ImageGallery", "@id": `${pageUrl}#galeria`, name: "Zdjęcia przed i po", url: pageUrl, inLanguage: "pl-PL", image: caseImages.map((item) => ({ "@type": "ImageObject", contentUrl: `${SITE_URL}${item.src}`, name: `${item.label}: uśmiech przed i po`, description: "Zdjęcie przed i po leczeniu. Zakres leczenia nie został zweryfikowany; wynik jest indywidualny.", width: item.size, height: item.size, encodingFormat: "image/webp" })) } : null;
   return (
     <>

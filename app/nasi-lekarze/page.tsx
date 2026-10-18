@@ -29,7 +29,7 @@ export default function ClinicalTeam() {
   const url = `${SITE_URL}/nasi-lekarze`;
   const personId = (doctor: typeof clinicalTeam[number]) => doctor.reviewerUrl ? `${SITE_URL}${doctor.reviewerUrl}/#person` : `${url}#person-${doctor.slug}`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "CollectionPage", "@id": url, url, name: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", mainEntity: { "@id": `${url}#lista` } },
+    { "@type": "CollectionPage", "@id": `${url}#webpage`, url, name: "Nasi lekarze – zespół Akdeniz Dental w Antalyi", mainEntity: { "@id": `${url}#lista` } },
     breadcrumbList([{ name: "Nasi lekarze", path: "/nasi-lekarze" }]),
     { ...clinicSchema, employee: clinicalTeam.map((doctor) => ({ "@id": personId(doctor) })) },
     { "@type": "ItemList", "@id": `${url}#lista`, numberOfItems: clinicalTeam.length, itemListElement: clinicalTeam.map((doctor, index) => ({ "@type": "ListItem", position: index + 1, item: { "@id": personId(doctor) } })) },

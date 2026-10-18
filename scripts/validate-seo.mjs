@@ -41,7 +41,7 @@ const titleOwners = new Map();
 if (!sitemapOrigin) fail("Sitemap has no absolute URLs.");
 if (!robots.includes("Sitemap:")) fail("robots.txt does not advertise the sitemap.");
 if (/^Host:/im.test(robots)) fail("robots.txt contains the unsupported Host directive.");
-for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended", "DuckAssistBot", "Amazonbot", "MistralAI-User", "Meta-ExternalAgent"]) {
+for (const bot of ["GPTBot", "ClaudeBot", "PerplexityBot", "OAI-SearchBot", "Google-Extended", "DuckAssistBot", "Amazonbot", "MistralAI-User", "Meta-ExternalAgent", "Bingbot", "ChatGPT-User", "Claude-SearchBot", "Perplexity-User", "Applebot-Extended"]) {
   if (!robots.includes(`User-Agent: ${bot}`)) fail(`robots.txt lacks an explicit rule for ${bot}.`);
 }
 const llms = await readFile(path.join(appDir, "llms.txt.body"), "utf8");

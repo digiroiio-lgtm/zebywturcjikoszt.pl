@@ -22,3 +22,7 @@ jobs:
       - run: npm run audit:seo
       - run: npm run test:ai
       - run: npm run test:guides
+      - run: npm run test:markdown
+      - run: npm run test:prices
+      - run: npm run test:reviews
+      - run: npm run test:uk

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CommercialNote } from "@/components/commercial-note";
 import { SourceList } from "@/components/source-list";
+import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { breadcrumbList, ogImagesFor, twitterImagesFor } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import { publishedTeamImages, supportRoles } from "@/lib/support-team";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default function SupportTeamPage() {
   const url = `${SITE_URL}/nasz-zespol`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "WebPage", "@id": url, url, name: title, description, inLanguage: "pl-PL", about: { "@id": "https://akdenizdental.com/#organization" } },
+    { "@type": "WebPage", "@id": `${url}#webpage`, url, name: title, description, inLanguage: "pl-PL", about: { "@id": CLINIC_ID } },
     breadcrumbList([{ name: "Nasz zespół", path: "/nasz-zespol" }]),
   ] };
   return <main className="shell support-team-page">

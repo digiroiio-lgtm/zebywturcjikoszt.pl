@@ -7,6 +7,7 @@ import { verifiedExperts } from "@/lib/evidence";
 import { SITE_URL, UPDATED_ISO_DATE, pages } from "@/lib/site";
 import { SourceList } from "@/components/source-list";
 import { reviewedPagesBy } from "@/lib/medical-review";
+import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { ogImagesFor, twitterImagesFor, breadcrumbList } from "@/lib/seo";
 import { CommercialNote } from "@/components/commercial-note";
 import { EntitySchema } from "@/components/entity-schema";
@@ -23,7 +24,7 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
   if (!expert) notFound();
   const doctor = clinicalTeam.find((item) => item.slug === slug);
   const reviewedPages = reviewedPagesBy(slug, UPDATED_ISO_DATE, pages);
-  const schema = { "@context": "https://schema.org", "@type": "Person", "@id": `${SITE_URL}${expert.profileUrl}/#person`, name: expert.name, alternateName: doctor?.alternateNames, image: doctor ? `${SITE_URL}${doctor.imageUrl}` : undefined, jobTitle: "Dentysta i recenzent medyczny serwisu", url: `${SITE_URL}${expert.profileUrl}`, description: expert.biography, knowsAbout: expert.professionalFocus, worksFor: { "@type": "Organization", name: "Akdeniz Dental", url: "https://akdenizdental.com" }, sameAs: expert.sources.map(({ url }) => url) };
+  const schema = { "@context": "https://schema.org", "@type": "Person", "@id": `${SITE_URL}${expert.profileUrl}/#person`, name: expert.name, alternateName: doctor?.alternateNames, image: doctor ? `${SITE_URL}${doctor.imageUrl}` : undefined, jobTitle: "Dentysta i recenzent medyczny serwisu", url: `${SITE_URL}${expert.profileUrl}`, description: expert.biography, knowsAbout: expert.professionalFocus, worksFor: { "@id": CLINIC_ID }, sameAs: expert.sources.map(({ url }) => url) };
   return <main className="shell expert-profile content-section">
     <nav aria-label="Ścieżka nawigacji"><Link href="/">Strona główna</Link> / <Link href="/eksperci">Eksperci</Link> / {expert.name}</nav>
     <p className="eyebrow">Recenzent medyczny serwisu</p><h1>Lek. dent. {expert.name}</h1><p className="lead">{expert.introduction ?? "Dentysta oraz założyciel i właściciel Akdeniz Dental w Antalyi, w Turcji."}</p><CommercialNote />
@@ -37,6 +38,6 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
     <SourceList intro={`${expert.sourceNote ?? "Strona kliniki opisuje biografię i obszary pracy, a publiczne profile zawodowe podają zawód i lokalizację. Profil w serwisie Teeth Done in Turkey opisuje rolę recenzenta na tamtej stronie; nie potwierdza recenzji treści tego serwisu. Źródła nie stanowią rekomendacji naszego serwisu."} Ostatnia aktualizacja źródeł: ${expert.lastVerified}.`} sources={expert.sources.map((source) => ({ label: source.label, href: source.url }))} />
     <section><h2>Jak czytać ten profil</h2><p>Profil potwierdza tożsamość zawodową i powiązania recenzenta, a nie jakość leczenia w klinice ani wynik leczenia konkretnego pacjenta. Recenzja dotyczy wyłącznie stron wymienionych poniżej i ma datę wykonania. Zasady opisują strony <Link className="text-link" href="/weryfikacja-medyczna">Weryfikacja medyczna</Link> i <Link className="text-link" href="/polityka-redakcyjna">Polityka redakcyjna</Link>.</p></section>
     <section><h2>Zweryfikowane treści</h2>{reviewedPages.length > 0 ? <ul>{reviewedPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`}>{page.title}</Link></li>)}</ul> : <p>Lista zweryfikowanych artykułów pojawi się po potwierdzeniu daty recenzji. Sam profil lekarza nie oznacza, że sprawdził treść danej strony.</p>}</section>
-    <EntitySchema /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, breadcrumbList([{ name: "Eksperci", path: "/eksperci" }, { name: expert.name, path: expert.profileUrl }]), { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
+    <EntitySchema /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, breadcrumbList([{ name: "Eksperci", path: "/eksperci" }, { name: expert.name, path: expert.profileUrl }]), { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}#webpage`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
   </main>;
 }
