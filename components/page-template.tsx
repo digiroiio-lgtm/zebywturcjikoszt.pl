@@ -28,7 +28,7 @@ import { OperatorDetails } from "./operator-details";
 import { OpeningHours } from "./opening-hours";
 import { CredentialList } from "./credential-list";
 import { GbpPrices } from "./gbp-prices";
-import { isUkSlug } from "@/lib/uk";
+import { isUkSlug, ukArticles } from "@/lib/uk";
 import { gbpPublished } from "@/lib/pricing";
 import { clinicCredentials } from "@/lib/credentials";
 import { SourceList } from "./source-list";
@@ -54,18 +54,40 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
     { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja i kontrola po powrocie." },
     { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/uk/finansowanie-leczenia-zebow-w-turcji", label: "Finansowanie leczenia", text: "Jak działa finansowanie przez partnera, czego nie obiecujemy i o co zapytać." },
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." }
   ],
   uk: [
     { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/uk/finansowanie-leczenia-zebow-w-turcji", label: "Finansowanie leczenia", text: "Jak działa finansowanie przez partnera, czego nie obiecujemy i o co zapytać." },
+    ...(ukArticles["szkocja"] ? [{ href: "/uk/szkocja", label: "Dla Polaków w Szkocji", text: "Podróż, dwa pobyty, NHS Scotland i kontrola po powrocie." }] : []),
     { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
     { href: "/antalya", label: "Plan wyjazdu do Antalyi", text: "Przygotowanie, wizyty i pobyt na miejscu." },
     { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja i kontrola po powrocie." },
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Lista pytań przed wpłatą zaliczki." },
     ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP po kursie z podaną datą." }] : [])
   ],
-  "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [
+  "uk/ceny-leczenia-zebow-w-turcji-w-funtach": [
+    ...(ukArticles["szkocja"] ? [{ href: "/uk/szkocja", label: "Dla Polaków w Szkocji", text: "Podróż, dwa pobyty, NHS Scotland i kontrola po powrocie." }] : []),
     { href: "/uk", label: "Dla Polaków w UK", text: "GHIC, polisa, waluta i kontrola po powrocie." },
+    { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/uk/finansowanie-leczenia-zebow-w-turcji", label: "Finansowanie leczenia", text: "Jak działa finansowanie przez partnera, czego nie obiecujemy i o co zapytać." },
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." }
+  ],
+  "uk/finansowanie-leczenia-zebow-w-turcji": [
+    ...(ukArticles["szkocja"] ? [{ href: "/uk/szkocja", label: "Dla Polaków w Szkocji", text: "Podróż, dwa pobyty, NHS Scotland i kontrola po powrocie." }] : []),
+    { href: "/uk", label: "Dla Polaków w UK", text: "GHIC, polisa, waluta i kontrola po powrocie." },
+    { href: "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji", label: "Jak zapłacić mieszkając w UK", text: "Opcje płatności, ich ryzyka i pytania przed wpłatą." },
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
+    { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
+    { href: "/jak-wybrac-klinike", label: "Zaliczka, zadatek i zwrot", text: "Co ustalić na piśmie przed wpłatą." },
+    ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP." }] : [])
+  ],
+  "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [
+    ...(ukArticles["szkocja"] ? [{ href: "/uk/szkocja", label: "Dla Polaków w Szkocji", text: "Podróż, dwa pobyty, NHS Scotland i kontrola po powrocie." }] : []),
+    { href: "/uk", label: "Dla Polaków w UK", text: "GHIC, polisa, waluta i kontrola po powrocie." },
+    { href: "/uk/finansowanie-leczenia-zebow-w-turcji", label: "Finansowanie leczenia", text: "Jak działa finansowanie przez partnera, czego nie obiecujemy i o co zapytać." },
     { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
     { href: "/jak-wybrac-klinike", label: "Zaliczka, zadatek i zwrot", text: "Co ustalić na piśmie przed wpłatą." },
     ...(gbpPublished ? [{ href: "/uk/ceny-leczenia-zebow-w-turcji-w-funtach", label: "Ceny w funtach", text: "Wybrane pozycje cennika przeliczone na GBP." }] : [])
@@ -184,7 +206,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
             <DirectAnswerVisual slug={page.slug} />
             <PriceList slug={page.slug} />
-            {(pricesForPage(page.slug).length > 0 || page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach") && <ExitIntentOffer slug={page.slug} leadSource={uk ? "OGZ-UK" : "OGZ-PL"} />}
+            {(pricesForPage(page.slug).length > 0 || page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach") && <ExitIntentOffer slug={page.slug} leadSource={"OGZ-PL"} />}
             {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
             {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
             {page.slug === "kontakt" && <OpeningHours />}
@@ -216,7 +238,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
           </div>
           {!legalSlugs.includes(page.slug) && <TrustPanel review={review} reviewer={reviewer} published={page.published} history={pageHistory[page.slug]} />}
         </article>
-        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href={guideAssessmentHref(`/${page.slug}`, guide ? "guide_bottom" : (page.ctaEvent ?? "page_cta"), uk ? "OGZ-UK" : "OGZ-PL")} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_bottom" } : uk ? { lead_source: "OGZ-UK" } : undefined} className="button button-light">{page.ctaText ?? PRIMARY_CTA}</TrackedLink></div></section>}
+        {!page.form && <section className="closing-cta"><div className="shell narrow"><p className="eyebrow">Indywidualny przypadek</p><h2>Najpierw ustal, jakie leczenie może być potrzebne</h2><p>Opisz, czego potrzebujesz. Nie przesyłaj dokumentacji medycznej, dopóki nie otrzymasz bezpiecznego kanału kontaktu.</p><TrackedLink href={guideAssessmentHref(`/${page.slug}`, guide ? "guide_bottom" : (page.ctaEvent ?? "page_cta"), "OGZ-PL")} event={guide ? "guide_contact_cta" : (page.ctaEvent ?? "page_cta")} tracking={guide ? { guide_source: `/${page.slug}`, cta_location: "guide_bottom" } : { lead_source: "OGZ-PL" }} className="button button-light">{page.ctaText ?? PRIMARY_CTA}</TrackedLink></div></section>}
       </main>
     </>
   );

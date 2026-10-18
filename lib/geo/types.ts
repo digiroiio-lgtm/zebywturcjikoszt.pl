@@ -29,6 +29,8 @@ export type ClinicFact = { id: string; claim: string; status: "verified" | "need
 export type GeoPageRecord = {
   slug: string; kind: "city" | "region"; locationIds: string[]; stage: Stage; title: string; description: string;
   demographicClaims?: string[]; uniqueContentEvidence?: string; searchDemandEvidence?: { source: string; date: string };
+  /** Site-owner waivers of evidence fields (searchDemandEvidence, clinicalReview only); never of claims or approvals. */
+  waivers?: { field: string; by: string; on: string; reason: string }[];
   editorialApproval?: { by: string; on: string }; clinicalReview?: { reviewer: string; on: string; approvalReference: string };
   /** Subset of locationIds a page section focuses on (e.g. Tillydrone, Seaton, Old Aberdeen). */
   focusLocationIds?: string[];

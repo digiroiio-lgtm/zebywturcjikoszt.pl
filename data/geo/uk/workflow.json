@@ -1,14 +1,39 @@
 {
   "note": "Single source for the publication gate; lib/geo/workflow.ts and scripts/verify-geo.mjs both read it. Only a record at stage \"published\" can create a route, a sitemap entry, an llms entry or an internal link.",
-  "stages": ["research", "verified", "draft", "editorial-review", "clinical-review", "seo-qa", "approved", "published"],
+  "stages": [
+    "research",
+    "verified",
+    "draft",
+    "editorial-review",
+    "clinical-review",
+    "seo-qa",
+    "approved",
+    "published"
+  ],
   "requiredBefore": {
-    "verified": ["demographicClaims"],
-    "draft": ["uniqueContentEvidence", "searchDemandEvidence"],
-    "editorial-review": ["editorialApproval"],
-    "clinical-review": ["clinicalReview"],
-    "seo-qa": ["canonicalPath"],
-    "approved": ["approvedBy", "approvedOn"],
-    "published": ["publishedOn"]
+    "verified": [
+      "demographicClaims"
+    ],
+    "draft": [
+      "uniqueContentEvidence",
+      "searchDemandEvidence"
+    ],
+    "editorial-review": [
+      "editorialApproval"
+    ],
+    "clinical-review": [
+      "clinicalReview"
+    ],
+    "seo-qa": [
+      "canonicalPath"
+    ],
+    "approved": [
+      "approvedBy",
+      "approvedOn"
+    ],
+    "published": [
+      "publishedOn"
+    ]
   },
   "fieldRules": {
     "demographicClaims": "Every claim id must exist in census-claims.json and be verified:true. Tier official: value, denominator, year, definition, dataset, sourceUrl and verifiedOn all filled. Tier official-secondary (an official body citing the census, no denominator): the same without denominator plus verificationBasis and a named publication; the page text must attribute the figure to that publisher. Brief figures never qualify.",
@@ -19,6 +44,11 @@
     "canonicalPath": "Self-referencing /uk/<slug> path.",
     "approvedBy": "Named human approver.",
     "approvedOn": "ISO date.",
-    "publishedOn": "ISO date."
-  }
+    "publishedOn": "ISO date.",
+    "waivers": "Site-owner waivers { field, by, on, reason } are accepted only for searchDemandEvidence and clinicalReview. They are recorded, listed in the verifier output and never apply to demographicClaims, editorialApproval or the approvals."
+  },
+  "waivable": [
+    "searchDemandEvidence",
+    "clinicalReview"
+  ]
 }

@@ -8,7 +8,7 @@ Audit date: 2026-10-16. Base: `main` at `3bfee1c`. Method: read-only inspection 
 | Existing UK pages | `/uk`, `/uk/jak-zaplacic-za-leczenie-zebow-w-turcji`, `/uk/ceny-leczenia-zebow-w-turcji-w-funtach` (GBP at 0.85, 2026-10-03). Finance wording is blocked by `lib/finance-gate.ts` and `validate-seo` |
 | Route decision | The brief proposes `/wielka-brytania/`. That would duplicate the intent of `/uk` and cannibalise it. **Decision (operator): extend `/uk`** with `/uk/<city>` and region hubs `/uk/anglia`, `/uk/szkocja`, `/uk/walia`, `/uk/irlandia-polnocna` |
 | Canonical | `buildMetadata()` emits a self-referencing canonical per page |
-| hreflang | None on the site; all content is Polish. A UK-targeted Polish page has no reciprocal alternate, so none is added. `npm run test:geo` fails on any `hreflang` |
+| hreflang | None on the site; all content is Polish. A UK-targeted Polish page has no reciprocal alternate, so none was added at the time of the audit (superseded on 2026-10-17: every indexable page now has one self-referencing hreflang, see `19-publication-2026-10-17.md`). `npm run test:geo` fails on any `hreflang` |
 | Sitemap / llms | `app/sitemap.ts` and `lib/ai-content.ts` read `allUkPages`; a geo page enters both only by being in `ukArticles`, which now includes `publishedGeoContent` (empty) |
 | Schema | One `Dentist`+`MedicalClinic` with the Antalya address only. A UK-address clinic schema is forbidden and tested |
 | Lead form | name, channel, country (GB is an option), topic, message. Attribution is held in `sessionStorage` (`TrackedLink`); no new form field is needed for city |
