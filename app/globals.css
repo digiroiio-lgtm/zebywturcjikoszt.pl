@@ -825,11 +825,11 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .campaign-note-small { margin-top:6px; }
 }
 
-.consent-banner { position:fixed; inset:auto 12px 12px; z-index:60; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 20px; max-width:880px; margin-inline:auto; padding:14px 18px; border:1px solid var(--line); border-radius:12px; background:white; box-shadow:var(--shadow); font-size:15px; line-height:1.5; }
-.consent-banner p { flex:1 1 360px; margin:0; }
+.consent-banner { position:fixed; inset:auto 12px 12px; z-index:60; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; max-width:760px; margin-inline:auto; padding:10px 14px; border:1px solid var(--line); border-radius:12px; background:white; box-shadow:var(--shadow); font-size:13px; line-height:1.45; }
+.consent-banner p { flex:1 1 300px; margin:0; }
 .consent-banner a { color:var(--green-dark); }
 .consent-actions { display:flex; gap:10px; flex:0 0 auto; }
-.consent-button { min-height:44px; padding:0 22px; border:2px solid var(--ink); border-radius:8px; background:white; color:var(--ink); font:inherit; font-weight:700; cursor:pointer; }
+.consent-button { min-height:40px; padding:0 18px; border:2px solid var(--ink); border-radius:8px; background:white; color:var(--ink); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
 .consent-button:hover { background:var(--sand); }
 .consent-button:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
 .consent-settings:focus-visible { outline:3px solid white; outline-offset:3px; }
@@ -850,3 +850,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-numbers-list li { padding-left:14px; border-left:3px solid var(--green); }
 .home-numbers-list strong { color:var(--ink); }
 @media (max-width:760px) { .home-numbers-list { grid-template-columns:1fr; } }
+
+/* The closing-CTA paragraph colour is meant for the dark band, not for the light form card inside it (contrast 1.5:1). */
+.closing-cta .lead-form .consultation-intro,.closing-cta .lead-form .form-assurance,.closing-cta .lead-form .form-assurance p { color:#4b5563; }
+.closing-cta .lead-form .form-assurance-facts,.closing-cta .lead-form .form-privacy { color:#6b7280; }
