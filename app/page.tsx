@@ -48,6 +48,7 @@ export const metadata: Metadata = {
 };
 
 import { PriceHighlights } from "@/components/price-list";
+import { EntitySchema } from "@/components/entity-schema";
 
 const treatments = [
   { href: "/koszt", topic: "other", label: "Koszt leczenia", text: "Co wpływa na cenę i jak porównać pełny zakres wyceny.", image: "/images/leczenie/koszt.webp", alt: "Konsultacja w gabinecie: lekarz omawia z pacjentką plan i koszty leczenia" },
@@ -79,7 +80,7 @@ export default function Home() {
     <section className="closing-cta home-lead-section" id="home-lead-form" aria-label="Formularz wstępnej wyceny"><div className="shell narrow"><p className="eyebrow">Wstępna wycena</p>{homeCampaign && <CampaignFigure initial={homeCampaign} />}<LeadForm enabled={process.env.CONTACT_FORM_ENABLED !== "false"} context={{ leadSource: "OGZ-PL", ctaLocation: "home_form", sourcePagePath: "/" }} headingId="home-lead-form-title" /></div></section>
     <SourceList className="shell section-space sources" intro="Ceny, zespół i status recenzji pochodzą z poniższych stron i źródeł." sources={[{ label: "Cennik kliniki Akdeniz Dental (pozycje w EUR, z datą)", href: "/koszt#cennik" }, { label: "Nasi lekarze: zespół kliniki prowadzonej przez operatora serwisu", href: "/nasi-lekarze" }, { label: "Weryfikacja medyczna: zasady i status recenzji", href: "/weryfikacja-medyczna" }, { label: "Polityka redakcyjna: autorstwo, źródła i korekty", href: "/polityka-redakcyjna" }, { label: "Akdeniz Dental: oficjalna strona kliniki prowadzonej przez operatora serwisu", href: "https://akdenizdental.com" }]} />
     <section className="shell editorial-strip"><p><strong>Autor:</strong> Redakcja serwisu</p><p><strong>Publikacja:</strong> {PUBLISHED_DATE}</p><p><strong>Ostatnia aktualizacja:</strong> {new Date(`${HOME_UPDATED_ISO_DATE}T00:00:00Z`).toLocaleDateString("pl-PL", { timeZone: "UTC" })}</p><p><strong>Recenzent medyczny serwisu:</strong> <Link href={siteMedicalReviewer.profileUrl}>Lek. dent. {siteMedicalReviewer.name}</Link> · Akdeniz Dental, Antalya</p><p><strong>Recenzja medyczna:</strong> jeszcze nieprzeprowadzona</p><Link href="/polityka-redakcyjna">Standard redakcyjny</Link></section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+    <EntitySchema mode="full" /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebPage",
       "@id": `${SITE_URL}/#webpage`,
