@@ -11,6 +11,7 @@ import { SourceList } from "@/components/source-list";
 import { FaqSection } from "@/components/faq-section";
 
 import { CommercialNote } from "@/components/commercial-note";
+import { EntitySchema } from "@/components/entity-schema";
 const teamFaq = [
   { question: "Czy każdy lekarz z tej listy recenzuje treści serwisu?", answer: "Nie. Lista przedstawia zespół kliniki prowadzonej przez operatora serwisu. Recenzję medyczną wykonują tylko osoby wskazane w sekcji Eksperci, wyłącznie dla przypisanych im stron." },
   { question: "Czy obszar pracy lekarza oznacza tytuł specjalisty?", answer: "Nie. Obszary pracy pochodzą z profili kliniki i nie są niezależnie potwierdzonym tytułem specjalisty." },
@@ -49,6 +50,6 @@ export default function ClinicalTeam() {
     <ClinicProfiles />
     <FaqSection path="/nasi-lekarze" items={teamFaq} className="section-space" />
     <SourceList intro={`Biografie, wykształcenie i obszary pracy pochodzą z indywidualnych profili kliniki. Ostatnia aktualizacja danych: ${TEAM_SOURCE_DATE}.`} sources={[{ label: "Akdeniz Dental: zespół kliniki", href: TEAM_SOURCE_URL }, ...clinicalTeam.map((doctor) => ({ label: `Oficjalny profil: ${doctor.name}`, href: doctor.sourceUrl }))]} />
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <EntitySchema omitClinic /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;
 }

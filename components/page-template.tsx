@@ -36,6 +36,7 @@ import { caseImages } from "@/lib/gallery";
 import { TreatmentCostScope } from "./treatment-cost-scope";
 import { ContentFigure } from "./content-figure";
 import { figuresAfter } from "@/lib/page-figures";
+import { EntitySchema } from "@/components/entity-schema";
 
 /** URL fragment for a section heading: lower case, Polish letters transliterated. */
 function sectionId(title: string) {
@@ -193,6 +194,7 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
   const gallerySchema = page.slug === "przed-i-po" ? { "@context": "https://schema.org", "@type": "ImageGallery", "@id": `${pageUrl}#galeria`, name: "Zdjęcia przed i po", url: pageUrl, inLanguage: "pl-PL", image: caseImages.map((item) => ({ "@type": "ImageObject", contentUrl: `${SITE_URL}${item.src}`, name: `${item.label}: uśmiech przed i po`, description: "Zdjęcie przed i po leczeniu. Zakres leczenia nie został zweryfikowany; wynik jest indywidualny.", width: item.size, height: item.size, encodingFormat: "image/webp" })) } : null;
   return (
     <>
+      <EntitySchema mode={page.slug === "kontakt" ? "full" : "reference"} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {gallerySchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />}
       {priceSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(priceSchema) }} />}

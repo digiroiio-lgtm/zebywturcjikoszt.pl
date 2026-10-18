@@ -138,6 +138,27 @@ for (const [route, file] of routeFiles) {
     if (!knownRoutes.has(linkedRoute)) fail(`${route}: broken internal link to ${linkedRoute}.`);
   }
 
+  // Entity graph contract: the full WebSite/Organization/clinic definitions live on a few pages, every other page carries compact @id references.
+  {
+    const nodes = [];
+    for (const block of matches(html, /<script type="application\/ld\+json">([^<]+)<\/script>/g)) {
+      try { const data = JSON.parse(block); nodes.push(...(Array.isArray(data["@graph"]) ? data["@graph"] : [data])); } catch { /* reported below */ }
+    }
+    const typesOf = (node) => [].concat(node["@type"] ?? []);
+    const entityId = (kind) => nodes.filter((node) => (kind === "clinic" ? typesOf(node).includes("Dentist") : typesOf(node).includes(kind)) && node["@id"]);
+    const seenIds = new Map();
+    for (const node of nodes) if (node["@id"]) seenIds.set(node["@id"], (seenIds.get(node["@id"]) ?? 0) + 1);
+    const fullPages = new Set(["/", "/kontakt", "/nasi-lekarze"]);
+    for (const [kind, definitionKey] of [["WebSite", "inLanguage"], ["Organization", "knowsAbout"], ["clinic", "openingHoursSpecification"]]) {
+      const found = entityId(kind);
+      if (!found.length) { fail(`${route}: no ${kind} entity node (full definition or @id reference).`); continue; }
+      const full = found.some((node) => node[definitionKey] !== undefined);
+      if (full && !fullPages.has(route)) fail(`${route}: carries a full ${kind} definition; keep full entity objects on ${[...fullPages].join(", ")} and use an @id reference elsewhere.`);
+      if (!full && fullPages.has(route) && !(route === "/nasi-lekarze" && kind !== "clinic")) fail(`${route}: expected the full ${kind} definition on this page.`);
+    }
+    for (const [id, count] of seenIds) if (count > 1 && /\/#(website|organization)$/.test(id)) fail(`${route}: ${id} is defined ${count} times in one document.`);
+  }
+
   for (const block of matches(html, /<script type="application\/ld\+json">([^<]+)<\/script>/g)) {
     try {
       const data = JSON.parse(block);

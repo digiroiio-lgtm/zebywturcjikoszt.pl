@@ -7,6 +7,7 @@ import { SourceList } from "@/components/source-list";
 import { breadcrumbList, ogImagesFor, twitterImagesFor } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import { publishedTeamImages, supportRoles } from "@/lib/support-team";
+import { EntitySchema } from "@/components/entity-schema";
 
 const title = "Nasz zespół w Antalyi | Akdeniz Dental";
 const description = "Poznaj osoby wspierające pacjentów Akdeniz Dental w Antalyi: koordynację leczenia, kontakt z pacjentem, asystę stomatologiczną, laboratorium i organizację transferów.";
@@ -41,6 +42,6 @@ export default function SupportTeamPage() {
     <section className="support-section"><h2>Wsparcie organizacyjne a decyzje lekarza</h2><p>Koordynacja, rozmowa o cenie i transport pomagają zorganizować wizytę. Rozpoznanie, kwalifikację i plan leczenia omawiaj z lekarzem dentystą. Osoby wspierające organizację nie są przedstawiane jako lekarze ani recenzenci medyczni serwisu.</p><div className="button-row"><Link className="text-link" href="/nasi-lekarze">Wykształcenie i profile lekarzy →</Link><Link className="text-link" href="/poradniki/opieka-po-leczeniu">Jak przygotować opiekę po powrocie →</Link><Link className="text-link" href="/antalya">Zaplanuj pobyt w Antalyi →</Link></div></section>
     <SourceList intro="Strona opisuje role i pytania organizacyjne. Nie potwierdza kwalifikacji konkretnego pracownika, dostępności usług ani składu personelu podczas Twojej wizyty. Dane lekarzy i zasady odpowiedzialności przedstawiamy osobno." sources={[{ label: "Profile lekarzy i źródła zawodowe", href: "/nasi-lekarze" }, { label: "Wybór kliniki i zakres odpowiedzialności", href: "/jak-wybrac-klinike" }, { label: "Operator serwisu i kliniki", href: "/wlasciciel-serwisu" }]} />
     <section className="support-final"><h2>Porozmawiajmy o Twojej wizycie</h2><p>Zapytaj o osobę kontaktową, język rozmowy i zakres organizacji pobytu przed podjęciem decyzji.</p><Link className="button" href="/kontakt">{PRIMARY_CTA}</Link></section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+    <EntitySchema /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;
 }

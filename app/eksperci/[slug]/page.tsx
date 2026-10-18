@@ -9,6 +9,7 @@ import { SourceList } from "@/components/source-list";
 import { reviewedPagesBy } from "@/lib/medical-review";
 import { ogImagesFor, twitterImagesFor, breadcrumbList } from "@/lib/seo";
 import { CommercialNote } from "@/components/commercial-note";
+import { EntitySchema } from "@/components/entity-schema";
 export const dynamicParams = false;
 export function generateStaticParams() { return verifiedExperts.map(({ slug }) => ({ slug })); }
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -36,6 +37,6 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
     <SourceList intro={`${expert.sourceNote ?? "Strona kliniki opisuje biografię i obszary pracy, a publiczne profile zawodowe podają zawód i lokalizację. Profil w serwisie Teeth Done in Turkey opisuje rolę recenzenta na tamtej stronie; nie potwierdza recenzji treści tego serwisu. Źródła nie stanowią rekomendacji naszego serwisu."} Ostatnia aktualizacja źródeł: ${expert.lastVerified}.`} sources={expert.sources.map((source) => ({ label: source.label, href: source.url }))} />
     <section><h2>Jak czytać ten profil</h2><p>Profil potwierdza tożsamość zawodową i powiązania recenzenta, a nie jakość leczenia w klinice ani wynik leczenia konkretnego pacjenta. Recenzja dotyczy wyłącznie stron wymienionych poniżej i ma datę wykonania. Zasady opisują strony <Link className="text-link" href="/weryfikacja-medyczna">Weryfikacja medyczna</Link> i <Link className="text-link" href="/polityka-redakcyjna">Polityka redakcyjna</Link>.</p></section>
     <section><h2>Zweryfikowane treści</h2>{reviewedPages.length > 0 ? <ul>{reviewedPages.map((page) => <li key={page.slug}><Link href={`/${page.slug}`}>{page.title}</Link></li>)}</ul> : <p>Lista zweryfikowanych artykułów pojawi się po potwierdzeniu daty recenzji. Sam profil lekarza nie oznacza, że sprawdził treść danej strony.</p>}</section>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, breadcrumbList([{ name: "Eksperci", path: "/eksperci" }, { name: expert.name, path: expert.profileUrl }]), { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
+    <EntitySchema /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [schema, breadcrumbList([{ name: "Eksperci", path: "/eksperci" }, { name: expert.name, path: expert.profileUrl }]), { "@type": "ProfilePage", "@id": `${SITE_URL}${expert.profileUrl}`, url: `${SITE_URL}${expert.profileUrl}`, name: `Lek. dent. ${expert.name} – Recenzent medyczny`, mainEntity: { "@id": schema["@id"] } }] }) }} />
   </main>;
 }

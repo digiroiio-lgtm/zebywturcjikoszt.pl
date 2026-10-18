@@ -8,7 +8,7 @@ import { AiReferralTracker } from "@/components/ai-referral-tracker";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
-import { clinicSchema, indexableRobots } from "@/lib/seo";
+import { indexableRobots } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,15 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${SITE_URL}/#website`,
-    name: SITE_NAME,
-    url: SITE_URL,
-    inLanguage: "pl-PL",
-    publisher: { "@id": `${SITE_URL}/#organization` }
-  };
-  const organizationSchema = { "@context": "https://schema.org", "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: "Redakcja serwisu Zęby w Turcji", url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/apple-icon`, width: 180, height: 180 }, sameAs: ["https://akdenizdental.com"], parentOrganization: { "@id": clinicSchema["@id"] }, areaServed: { "@type": "Country", name: "Polska" }, knowsAbout: ["Leczenie zębów w Turcji", "Implanty zębowe", "Korony cyrkonowe", "Licówki", "All-on-4"] };
-  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><Analytics /><SpeedInsights /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...clinicSchema }) }} /></body></html>;
+  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><Analytics /><SpeedInsights /></body></html>;
 }
