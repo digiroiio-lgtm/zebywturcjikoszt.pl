@@ -22,6 +22,7 @@ import { clinicProfiles } from "@/lib/clinic-profiles";
 import { clinicalTeam } from "@/lib/clinical-team";
 import { siteMedicalReviewer } from "@/lib/evidence";
 import { ExpertQuotes } from "@/components/expert-quotes";
+import { HomeNumbers } from "@/components/home-numbers";
 import { FaqSection } from "@/components/faq-section";
 import { SourceList } from "@/components/source-list";
 
@@ -70,6 +71,7 @@ export default function Home() {
     <HomeClinicStrip />
     <CuratedCaseGallery />
     <PriceHighlights><div className="case-cta"><div><p><strong>Cena zabiegu a cały budżet</strong></p><p>Cena pojedynczej korony lub implantu nie jest ceną całego leczenia. Poproś o pisemną wycenę: diagnostyka, materiały, etapy i możliwe dopłaty. Osobno potwierdź lot, noclegi i transfery.</p><TrackedLink href="/koszt#cennik" event="home_budget_details_click" tracking={{ cta_location: "home_pricing", destination_path: "/koszt" }} className="text-link">Sprawdź pełny zakres kosztów →</TrackedLink></div><SectionCta location="home_pricing">{SECTION_CTA.prices}</SectionCta></div></PriceHighlights>
+    <HomeNumbers />
     <PolishReviewsSection />
     <div className="shell home-review-profiles">{clinicProfiles.map((profile) => <TrackedLink key={profile.key} href={profile.href} event="home_review_profile_click" tracking={{ cta_location: "home_patient_reviews", topic: profile.key }} className="text-link">{profile.label}: profil i opinie →</TrackedLink>)}<Link className="text-link" href="/opinie">Jak oceniać wiarygodność opinii →</Link></div>
     <section className="shell section-space" aria-labelledby="home-treatments-title"><div className="section-heading"><div><p className="eyebrow">Możliwości leczenia</p><h2 id="home-treatments-title">Od czego zacząć?</h2></div><p>Nie wiesz, od czego zacząć? Sprawdź informacje o kosztach, implantach, koronach, licówkach i pełnej odbudowie zębów.</p></div><div className="treatment-grid">{treatments.map((item, index) => <article className="treatment-card" key={item.href}><Link className="treatment-card-link" href={item.href}><div className="treatment-visual"><span>0{index + 1}</span><Image src={item.image} alt={item.alt} width={800} height={450} sizes="(max-width: 760px) 100vw, 360px" /></div><h3>{item.label}</h3><p>{item.text}</p><b>Przeczytaj przewodnik →</b></Link><SectionCta className="text-link treatment-card-quote" location={`home_treatment_${item.href.slice(1)}`} topic={item.topic}>{TREATMENT_CTA[item.href] ?? `Zapytaj o ${item.label.toLowerCase()}`} →</SectionCta></article>)}</div></section>
