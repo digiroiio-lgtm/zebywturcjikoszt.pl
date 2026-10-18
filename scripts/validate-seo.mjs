@@ -187,8 +187,15 @@ if (!financeGate || financeGate === "null") {
     const text = (await readFile(path.join(appDir, file), "utf8")).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ");
     for (const pattern of promoPatterns) if (pattern.test(text)) fail(`${route}: finance-promotion wording (${pattern}) while FINANCE_PRODUCT_CONFIRMED_DATE in lib/finance-gate.ts is not set.`);
   }
+  // Operator decision 2026-10-17: a neutral financing page exists. The payment guide says the service is not a lender; the financing page
+  // carries the mandatory limits (no approval promised, not financial advice, FCA check) and no amounts or rates (patterns above).
   const paymentRoute = "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji";
-  if (routeFiles.has(paymentRoute) && !(await readFile(path.join(appDir, routeFiles.get(paymentRoute)), "utf8")).includes("nie oferuje ani nie pośredniczy w kredytach")) fail(`${paymentRoute}: must state that the service does not offer or arrange credit while the finance gate is closed.`);
+  if (routeFiles.has(paymentRoute) && !(await readFile(path.join(appDir, routeFiles.get(paymentRoute)), "utf8")).includes("nie jest pożyczkodawcą")) fail(`${paymentRoute}: must state that the service is not a lender.`);
+  const financeRoute = "/uk/finansowanie-leczenia-zebow-w-turcji";
+  if (routeFiles.has(financeRoute)) {
+    const financeText = (await readFile(path.join(appDir, routeFiles.get(financeRoute)), "utf8")).replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+    for (const needed of ["nie jest pożyczkodawcą", "nie są pewne", "nie jest poradą finansową", "Financial Services Register", "APR"]) if (!financeText.includes(needed) && !(needed === "nie jest poradą finansową" && financeText.includes("porady finansowej"))) fail(`${financeRoute}: missing required statement "${needed}".`);
+  }
 }
 
 // A price-count claim ("Cennik 28 zabiegów") must equal the number of items in lib/pricing.ts.

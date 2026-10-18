@@ -25,7 +25,8 @@ export function buildMetadata(page: PageContent): Metadata {
   return {
     title: page.title.length > 45 ? { absolute: page.title } : page.title,
     description: page.description,
-    alternates: { canonical: url },
+    // Single-language site: only a self-referencing hreflang (UK-targeted Polish pages are pl-GB, the rest pl-PL); no reciprocal alternates exist.
+    alternates: { canonical: url, ...(page.noindex ? {} : { languages: { [page.slug === "uk" || page.slug.startsWith("uk/") ? "pl-GB" : "pl-PL"]: url } }) },
     robots: page.noindex ? { index: false, follow: true } : indexableRobots,
     openGraph: {
       title: page.title,

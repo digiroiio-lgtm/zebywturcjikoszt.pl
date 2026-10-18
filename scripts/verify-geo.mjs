@@ -69,6 +69,15 @@ for (const field of ['uniqueContentEvidence', 'searchDemandEvidence', 'editorial
   const broken = { ...full }; delete broken[field];
   if (!gateProblems(broken, workflow, [verifiedClaim]).length) fail(`the gate accepted a published record without ${field}`);
 }
+{
+  const waived = { ...full, waivers: [{ field: 'searchDemandEvidence', by: 'owner', on: '2026-10-17', reason: 'r' }, { field: 'clinicalReview', by: 'owner', on: '2026-10-17', reason: 'r' }] };
+  delete waived.searchDemandEvidence; delete waived.clinicalReview;
+  if (gateProblems(waived, workflow, [verifiedClaim]).length) fail('a valid owner waiver should satisfy searchDemandEvidence and clinicalReview');
+  const noEditorial = { ...waived, waivers: [...waived.waivers, { field: 'editorialApproval', by: 'owner', on: '2026-10-17', reason: 'r' }] }; delete noEditorial.editorialApproval;
+  if (!gateProblems(noEditorial, workflow, [verifiedClaim]).length) fail('editorialApproval must not be waivable');
+  const thinWaiver = { ...waived, waivers: [{ field: 'searchDemandEvidence', by: 'owner', on: '2026-10-17', reason: '' }, waived.waivers[1]] };
+  if (!gateProblems(thinWaiver, workflow, [verifiedClaim]).length) fail('a waiver without a reason must not pass');
+}
 if (!gateProblems(full, workflow, [{ ...verifiedClaim, verified: false }]).length) fail('the gate accepted an unverified census claim');
 if (!gateProblems(full, workflow, [{ ...verifiedClaim, source: 'brief' }]).length) fail('the gate accepted a brief-sourced claim');
 const secondary = { ...verifiedClaim, source: 'official-secondary', denominator: null, verificationBasis: 'b', corroboration: [{ publisher: 'Council', document: 'Doc', sourceUrl: 'https://example.org' }] };
@@ -127,7 +136,12 @@ if (existsSync(root + 'sitemap.xml.body')) {
   let links = 0;
   for (const file of htmlFiles) {
     const html = readFileSync(file, 'utf8');
-    if (/hreflang=/i.test(html)) fail(`${file}: hreflang found; geo pages are single-language and have no reciprocal alternates`);
+    // Single-language site: hreflang is allowed only as a self-reference (same URL as the canonical); a reciprocal alternate to another page is a failure.
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    for (const m of html.matchAll(/<link[^>]*rel="alternate"[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"|<link[^>]*hreflang="([^"]+)"[^>]*href="([^"]+)"/gi)) {
+      const href = m[2] ?? m[4];
+      if (href !== canonical) fail(`${file}: hreflang ${m[1] ?? m[3]} points to ${href}, not to its own URL`);
+    }
     for (const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) {
       const body = m[1];
       if (/"addressCountry":"GB"|"addressCountry":"UK"|"addressCountry":"United Kingdom"/i.test(body) && /Dentist|MedicalClinic/.test(body)) fail(`${file}: a clinic schema with a UK address`);
@@ -136,7 +150,7 @@ if (existsSync(root + 'sitemap.xml.body')) {
     if (/data-geo-preview/.test(html)) fail(`${file}: preview markup in the production build`);
   }
   for (const slug of geoSlugs) if (!published.has('uk/' + slug) && existsSync(`${root}uk/${slug}.html`)) fail(`unpublished geo page /uk/${slug} was prerendered`);
-  var outputNote = `${htmlFiles.length} built pages: no unpublished geo route, sitemap or llms entry, ${links} /uk links checked, no hreflang, no UK clinic schema`;
+  var outputNote = `${htmlFiles.length} built pages: no unpublished geo route, sitemap or llms entry, ${links} /uk links checked, only self-referencing hreflang, no UK clinic schema`;
 } else var outputNote = 'no build present, output checks skipped';
 
 if (failures.length) { console.error(`Geo check failed with ${failures.length} issue(s):`); for (const f of failures.slice(0, 40)) console.error('- ' + f); process.exit(1); }

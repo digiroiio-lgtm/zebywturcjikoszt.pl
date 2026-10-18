@@ -9,9 +9,10 @@ const llmsFull = read('llms-full.txt.body');
 // content-provenance.json is a dynamic route handler (no prerendered body), so its source is checked instead.
 assert(readFileSync('app/content-provenance.json/route.ts', 'utf8').includes('allUkPages'), 'content provenance includes the UK pages');
 
-const pages = [['uk', 2], ['uk/jak-zaplacic-za-leczenie-zebow-w-turcji', 3]];
+const pages = [['uk', 2], ['uk/jak-zaplacic-za-leczenie-zebow-w-turcji', 3], ['uk/finansowanie-leczenia-zebow-w-turcji', 3]];
 const gbpPage = 'uk/ceny-leczenia-zebow-w-turcji-w-funtach';
 if (existsSync(root + gbpPage + '.html')) pages.push([gbpPage, 3]);
+if (existsSync(root + 'uk/szkocja.html')) pages.push(['uk/szkocja', 3]);
 for (const [route, depth] of pages) {
   const html = read(route + '.html');
   const graph = schemas(html);
@@ -25,9 +26,9 @@ for (const [route, depth] of pages) {
   assert(llmsFull.includes(`${origin}/${route}`), route + ': llms-full');
   assert(graph.every((s) => !s.reviewedBy), route + ': no medical review claimed');
 }
-assert(readFileSync('components/tracked-link.tsx', 'utf8').includes('OGZ-UK'), 'TrackedLink derives the OGZ-UK lead source on /uk pages');
+assert(!readFileSync('components/tracked-link.tsx', 'utf8').includes('OGZ-UK'), 'UK pages share the OGZ-PL lead source');
 const payment = read('uk/jak-zaplacic-za-leczenie-zebow-w-turcji.html');
-assert(payment.includes('nie oferuje ani nie pośredniczy w kredytach'), 'payment guide states the service does not arrange credit');
+assert(payment.includes('nie jest pożyczkodawcą'), 'payment guide states the service is not a lender');
 for (const forbidden of [/0\s?%\s?APR/i, /gwarantowan/i, /bez\s+sprawdzania/i]) assert(!forbidden.test(payment.replace(/<[^>]+>/g, ' ')), 'payment guide must not contain ' + forbidden);
 if (existsSync(root + gbpPage + '.html')) {
   const gbp = read(gbpPage + '.html');
@@ -38,4 +39,4 @@ if (existsSync(root + gbpPage + '.html')) {
 } else {
   assert(!sitemap.includes(gbpPage), 'GBP page stays unpublished until a dated rate is set');
 }
-console.log(`UK section contract passed: ${pages.length} pages, breadcrumbs, canonical, sitemap, llms-full, OGZ-UK, finance wording gate.`);
+console.log(`UK section contract passed: ${pages.length} pages, breadcrumbs, canonical, sitemap, llms-full, OGZ-PL, finance wording gate.`);

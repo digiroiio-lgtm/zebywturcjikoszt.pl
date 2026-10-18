@@ -208,9 +208,9 @@
         "scotland/aberdeen-city/seaton",
         "scotland/aberdeen-city/old-aberdeen"
       ],
-      "stage": "verified",
-      "title": "Leczenie zębów w Turcji dla Polaków w Szkocji",
-      "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga, Glasgow, Dundee, Perth i Inverness: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
+      "stage": "published",
+      "title": "Zęby w Turcji dla Polaków w Szkocji",
+      "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga i Glasgow: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
       "draftedOn": "2026-10-16",
       "demographicClaims": [
         "sc2022/aberdeen/tillydrone",
@@ -241,12 +241,12 @@
       ],
       "content": {
         "slug": "uk/szkocja",
-        "title": "Leczenie zębów w Turcji dla Polaków w Szkocji",
-        "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga, Glasgow, Dundee, Perth i Inverness: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
+        "title": "Zęby w Turcji dla Polaków w Szkocji",
+        "description": "Mieszkasz w Szkocji? Przewodnik dla Polaków z Aberdeen, Edynburga i Glasgow: dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie.",
         "eyebrow": "Dla Polaków w UK",
         "h1": "Leczenie zębów w Turcji dla Polaków mieszkających w Szkocji",
         "lead": "Ten przewodnik jest dla Polaków mieszkających w Szkocji, którzy rozważają implanty, odbudowę zębów lub leczenie estetyczne w Antalyi. Leczenie odbywa się w Turcji; w Wielkiej Brytanii nie prowadzimy kliniki. Opisujemy to, co dla mieszkańców Szkocji jest szczególnie ważne: podróż, dwa pobyty, ceny w funtach, NHS Scotland i kontrolę po powrocie.",
-        "answer": "Z Szkocji na leczenie do Antalyi jedzie się z planem ustalonym z lekarzem po badaniu, a nie z samą ceną. Zanim kupisz bilety, ustal na piśmie zakres leczenia, liczbę pobytów (implanty często wymagają dwóch), co obejmuje cena i kto zajmie się kontrolą po powrocie. Karta GHIC nie obejmuje planowanego leczenia za granicą, a NHS Scotland nie zapewnia opieki po takim leczeniu.",
+        "answer": "Ze Szkocji jedzie się na leczenie do Antalyi z planem ustalonym z lekarzem po badaniu. Zanim kupisz bilety, ustal na piśmie zakres leczenia, liczbę pobytów (implanty często wymagają dwóch), co obejmuje cena i kto zajmie się kontrolą po powrocie. NHS Scotland nie ma obowiązku zapewnić opieki po zabiegu za granicą poza nagłymi wypadkami.",
         "sections": [
           {
             "title": "Dla kogo jest ten przewodnik",
@@ -405,8 +405,8 @@
             "answer": "Nie. Akdeniz Dental działa w Antalyi w Turcji i leczenie odbywa się tam. Ten przewodnik jest informacją dla osób ze Szkocji, które rozważają wyjazd."
           },
           {
-            "question": "Czy karta GHIC pokryje leczenie zębów w Turcji?",
-            "answer": "Nie. Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą. Sprawdź też warunki swojej polisy podróżnej."
+            "question": "Czy mieszkając w Szkocji mogę liczyć na refundację z NHS za leczenie w Turcji?",
+            "answer": "Nie można tego zakładać. Program S2 dotyczy publicznej opieki w UE, Szwajcarii, Norwegii, Islandii i Liechtensteinie i nie obejmuje prywatnej kliniki w Turcji. W sprawie leczenia poza tym obszarem NHS radzi skontaktować się z lokalnym NHS board."
           },
           {
             "question": "Czy NHS Scotland zajmie się opieką po leczeniu w Turcji?",
@@ -463,8 +463,203 @@
             "href": "https://www.glasgowairport.com/destinations/antalya/"
           }
         ],
-        "ctaLabel": "Poproś o wstępną ocenę",
+        "ctaLabel": "Otrzymaj bezpłatną wycenę",
         "ctaEvent": "uk_szkocja_cta"
+      },
+      "uniqueContentEvidence": "Przewodnik dla jednego regionu o odrębnej sytuacji pacjenta: dalsza podróż (połączenia lotnicze z Edynburga i Glasgow, brak oferty z Aberdeen według stron przewoźników), dwa pobyty przy dalekiej podróży, NHS Scotland (NHS inform), dane o Polakach w Aberdeen (urząd miejski). Zamiast osobnych stron miast jedna strona regionu; treść różni się od /uk i od stron o cenach.",
+      "waivers": [
+        {
+          "field": "searchDemandEvidence",
+          "by": "site owner",
+          "on": "2026-10-17",
+          "reason": "Brak daty z narzędzia słów kluczowych (Semrush bez jednostek API, Search Console bez zapytań z UK); właściciel serwisu decyduje o publikacji ze względu na grupę docelową; popyt zostanie zmierzony po publikacji."
+        },
+        {
+          "field": "clinicalReview",
+          "by": "site owner",
+          "on": "2026-10-17",
+          "reason": "Strona nie zawiera twierdzeń klinicznych poza ogólną informacją, że implanty mogą wymagać dwóch pobytów i że plan ustala lekarz po badaniu; przegląd kliniczny nie został wykonany."
+        }
+      ],
+      "editorialApproval": {
+        "by": "Właściciel serwisu (operator)",
+        "on": "2026-10-17"
+      },
+      "canonicalPath": "/uk/szkocja",
+      "approvedBy": "Właściciel serwisu (operator)",
+      "approvedOn": "2026-10-17",
+      "publishedOn": "2026-10-17"
+    },
+    {
+      "slug": "uk/anglia",
+      "kind": "region",
+      "locationIds": [
+        "england/ealing/ealing-broadway",
+        "england/ealing/south-ealing",
+        "england/ealing/northfields",
+        "england/ealing/acton",
+        "england/ealing/greenford",
+        "england/ealing/perivale",
+        "england/ealing/northolt",
+        "england/hammersmith-and-fulham/hammersmith",
+        "england/hammersmith-and-fulham/ravenscourt-park",
+        "england/hammersmith-and-fulham/polish-social-and-cultural-association-posk-238-246-king-street-london-w6-0rf",
+        "england/hounslow/hounslow-central",
+        "england/hounslow/hounslow-west",
+        "england/hounslow/brentford",
+        "england/brent/wembley",
+        "england/brent/willesden",
+        "england/barnet/hendon",
+        "england/haringey/tottenham",
+        "england/croydon/croydon-central",
+        "england/merton/mitcham",
+        "england/hillingdon/hayes",
+        "england/southampton/shirley",
+        "england/southampton/shirley-road",
+        "england/southampton/st-marys",
+        "england/southampton/portswood",
+        "england/southampton/southampton-city-centre",
+        "england/slough/slough-central",
+        "england/slough/langley",
+        "england/luton/luton-central",
+        "england/luton/bury-park",
+        "england/west-northamptonshire/northampton-town-centre",
+        "england/west-northamptonshire/abington",
+        "england/north-northamptonshire/corby",
+        "england/north-northamptonshire/wellingborough",
+        "england/north-northamptonshire/kettering",
+        "england/peterborough/central-peterborough",
+        "england/peterborough/millfield",
+        "england/peterborough/eastfield",
+        "england/peterborough/fletton",
+        "england/boston/boston-town-centre",
+        "england/south-holland/spalding",
+        "england/fenland/wisbech",
+        "england/nottingham/nottingham-city-centre",
+        "england/nottingham/radford",
+        "england/kingston-upon-hull/hull-city-centre",
+        "england/kingston-upon-hull/newington"
+      ],
+      "stage": "verified",
+      "demographicClaims": [],
+      "title": "Zęby w Turcji dla Polaków w Anglii",
+      "description": "Mieszkasz w Anglii? Przewodnik dla Polaków z Londynu, Slough, Luton, Peterborough, Northamptonshire, Boston, Nottingham, Hull i Southampton: lotniska, dwa pobyty, ceny w funtach, NHS i kontrola po powrocie.",
+      "draftedOn": "2026-10-17",
+      "blockers": [
+        "no verified Antalya flight data per airport (Heathrow, Gatwick, Luton, Stansted, East Midlands, Birmingham, Manchester, Humberside, Southampton): placeholders [DO UZUPEŁNIENIA] remain until carrier or airport pages are opened by a person",
+        "no dated search-demand evidence for England-focused Polish queries; owner waiver not granted for this record",
+        "no verified census figures for the English pilot authorities (the brief's TS024 figures are unverified and are not shown)",
+        "NHS England wording (GHIC, going abroad for treatment) is already cited from nhs.uk; an editor must confirm the page as a whole",
+        "no clinical review and no Polish editorial review; no UK ASA/CAP or UK GDPR/PECR review"
+      ],
+      "content": {
+        "slug": "uk/anglia",
+        "title": "Zęby w Turcji dla Polaków w Anglii",
+        "description": "Mieszkasz w Anglii? Przewodnik dla Polaków z Londynu, Slough, Luton, Peterborough, Northamptonshire, Boston, Nottingham, Hull i Southampton: lotniska, dwa pobyty, ceny w funtach, NHS i kontrola po powrocie.",
+        "eyebrow": "Dla Polaków w UK",
+        "h1": "Leczenie zębów w Turcji dla Polaków mieszkających w Anglii",
+        "lead": "Ten przewodnik jest dla Polaków mieszkających w Anglii, którzy rozważają implanty, odbudowę zębów lub leczenie estetyczne w Antalyi. Leczenie odbywa się w Turcji; w Wielkiej Brytanii nie prowadzimy kliniki. Zamiast osobnych stron dla każdego miasta zebraliśmy to, co różni się w zależności od lotniska, z którego lecisz: podróż, dwa pobyty, ceny w funtach, NHS i kontrolę po powrocie.",
+        "answer": "Z Anglii na leczenie do Antalyi jedzie się z planem ustalonym z lekarzem po badaniu, a nie z samą ceną. Zanim kupisz bilety, wybierz lotnisko, ustal na piśmie zakres leczenia, liczbę pobytów i kontrolę po powrocie. Karta GHIC nie obejmuje planowanego leczenia za granicą, a według NHS większość polis podróżnych też go nie obejmuje.",
+        "sections": [
+          {
+            "title": "Dla kogo jest ten przewodnik",
+            "paragraphs": [
+              "Dla Polaków mieszkających w Londynie (w tym w Ealing i Hounslow), Slough, Luton, Peterborough, Northamptonshire, Boston i okolicach Lincolnshire, Nottingham, Hull i Southampton oraz w innych częściach Anglii. Nie dzielimy go na osobne strony miast: pytania o plan leczenia, liczbę pobytów, ceny w funtach, ubezpieczenie i kontrolę są takie same, a różni się głównie droga na lotnisko.",
+              "Klinika Akdeniz Dental działa w Antalyi i obsługuje pacjentów także po polsku. Nie mamy gabinetu w Anglii ani w Wielkiej Brytanii."
+            ]
+          },
+          {
+            "title": "Z którego lotniska lecieć do Antalyi",
+            "paragraphs": [
+              "Wybór lotniska zależy od miejsca zamieszkania, sezonu i przewoźnika. Nie zakładamy, że z twojego najbliższego lotniska istnieje bezpośredni lot do Antalyi; sprawdź aktualny rozkład u przewoźnika, zanim kupisz bilety, i najpierw ustal harmonogram leczenia.",
+              "[DO UZUPEŁNIENIA: zweryfikowane połączenia do Antalyi z lotnisk Londynu (Heathrow, Gatwick, Luton, Stansted), East Midlands, Birmingham, Manchester, Humberside i Southampton: przewoźnik, sezonowość, źródło z datą odczytu]"
+            ]
+          },
+          {
+            "title": "Okolice Londynu, Slough i Luton",
+            "paragraphs": [
+              "Dla mieszkańców Londynu, Slough i Luton w grę wchodzi kilka lotnisk. [DO UZUPEŁNIENIA: które z nich mają bezpośrednie loty do Antalyi według stron przewoźników]. Całkowity budżet obejmuje dojazd na lotnisko, transfery w Antalyi, noclegi i możliwy drugi pobyt."
+            ]
+          },
+          {
+            "title": "Peterborough, Northamptonshire i Boston",
+            "paragraphs": [
+              "Z tych okolic najbliższe lotniska mogą leżeć w innych hrabstwach. [DO UZUPEŁNIENIA: lotniska brane pod uwagę i źródło połączeń]. Przy dojazdach z dalszych miejscowości policz osobno koszt dojazdu na obu pobytach."
+            ]
+          },
+          {
+            "title": "Nottingham, Hull i Southampton",
+            "paragraphs": [
+              "[DO UZUPEŁNIENIA: East Midlands, Humberside lub inne lotniska dla Nottingham i Hull oraz Southampton: przewoźnik, sezonowość i źródło]. Jeśli bezpośredniego lotu nie ma, ustal, ile kosztuje przesiadka i czy jest sens kupować bilety przed poznaniem planu leczenia."
+            ]
+          },
+          {
+            "title": "Dwa pobyty: dlaczego plan leczenia ma znaczenie",
+            "paragraphs": [
+              "Leczenie implantologiczne może wymagać rozdzielenia etapów na dwa pobyty: pierwszy na zabiegi chirurgiczne, drugi po okresie gojenia na etap protetyczny. Czy tak będzie u ciebie i jak długo trzeba czekać między etapami, ustala lekarz po badaniu i dokumentacji; nie zakładaj tego z góry.",
+              "Zapytaj z góry, ile pobytów przewiduje plan, co można zrobić w jednym przyjeździe i co się stanie, jeśli plan zmieni się po badaniu."
+            ]
+          },
+          {
+            "title": "Ceny w funtach",
+            "paragraphs": [
+              "Cennik kliniki jest w euro. Przeliczenie na funty jest orientacyjne, według kursu z podanej daty, i nie jest ofertą w funtach. Waluta rozliczenia, kurs i ewentualna prowizja muszą wynikać z pisemnej oferty. Pozycje cennika to nie automatycznie pełny plan leczenia."
+            ]
+          },
+          {
+            "title": "NHS a leczenie w Turcji",
+            "paragraphs": [
+              "Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą, a większość polis podróżnych też go nie obejmuje. Przed wyjazdem sprawdź warunki polisy i zapisz odpowiedź ubezpieczyciela.",
+              "NHS radzi przed wyjazdem na leczenie za granicą omówić plan z własnym lekarzem lub dentystą i ustalić, kto zajmie się kontrolą po powrocie."
+            ]
+          },
+          {
+            "title": "Kontrola po powrocie do Anglii",
+            "bullets": [
+              "ustal na piśmie, kto i jak przeprowadzi kontrole oraz co zrobić przy powikłaniach, zanim wpłacisz zaliczkę,",
+              "poproś o pełną dokumentację: plan leczenia, rodzaje i marki materiałów oraz implantów, zdjęcia rentgenowskie,",
+              "ustal, jak szybko możesz skontaktować się z kliniką po powrocie i w jakim języku,",
+              "zapytaj swojego dentystę w Anglii, czy podejmie się kontroli, zanim wyjedziesz,",
+              "zostań w Turcji tak długo, jak zaleci lekarz, zanim wrócisz do domu."
+            ]
+          },
+          {
+            "title": "Jak zaplanować decyzję",
+            "paragraphs": [
+              "Zacznij od wstępnej oceny na podstawie opisu, ale pamiętaj, że plan i cenę potwierdza lekarz po badaniu. Przez formularz nie przesyłaj dokumentacji medycznej."
+            ]
+          }
+        ],
+        "faq": [
+          {
+            "question": "Czy macie klinikę w Anglii lub w Wielkiej Brytanii?",
+            "answer": "Nie. Akdeniz Dental działa w Antalyi w Turcji i leczenie odbywa się tam. Ten przewodnik jest informacją dla osób z Anglii, które rozważają wyjazd."
+          },
+          {
+            "question": "Czy karta GHIC pokryje leczenie zębów w Turcji?",
+            "answer": "Nie. Według NHS karta GHIC nie obejmuje wyjazdu na planowane leczenie za granicą. Sprawdź też warunki swojej polisy podróżnej."
+          },
+          {
+            "question": "Z którego lotniska w Anglii lecieć do Antalyi?",
+            "answer": "To zależy od miejsca zamieszkania, sezonu i przewoźnika. Sprawdź aktualny rozkład u przewoźnika i najpierw ustal harmonogram leczenia, zanim kupisz bilety."
+          }
+        ],
+        "sources": [
+          {
+            "label": "NHS: Going abroad for medical treatment (leczenie za granicą)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/going-abroad-for-medical-treatment/"
+          },
+          {
+            "label": "NHS: lista kontrolna leczenia za granicą (Treatment abroad checklist)",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/"
+          },
+          {
+            "label": "NHS: karty GHIC i EHIC",
+            "href": "https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/"
+          }
+        ],
+        "ctaLabel": "Otrzymaj bezpłatną wycenę",
+        "ctaEvent": "uk_anglia_cta"
       }
     }
   ]

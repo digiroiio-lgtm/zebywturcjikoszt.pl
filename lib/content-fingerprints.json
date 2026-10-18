@@ -136,15 +136,15 @@
     "lastmod": "2026-10-02"
   },
   "/uk/ceny-leczenia-zebow-w-turcji-w-funtach": {
-    "hash": "4af02090cabcec35",
+    "hash": "11870f9d20a87916",
     "lastmod": "2026-10-17"
   },
   "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji": {
-    "hash": "90764ba539e888f4",
-    "lastmod": "2026-10-03"
+    "hash": "d7f0b5e6891667f1",
+    "lastmod": "2026-10-17"
   },
   "/uk": {
-    "hash": "349824cd34aee85e",
+    "hash": "f14b726b91967fa7",
     "lastmod": "2026-10-03"
   },
   "/weryfikacja-medyczna": {
@@ -154,5 +154,13 @@
   "/wlasciciel-serwisu": {
     "hash": "b5739f80ed4d910f",
     "lastmod": "2026-10-02"
+  },
+  "/uk/finansowanie-leczenia-zebow-w-turcji": {
+    "hash": "a62d06e90fdb879f",
+    "lastmod": "2026-10-17"
+  },
+  "/uk/szkocja": {
+    "hash": "3583c7605e41dce0",
+    "lastmod": "2026-10-17"
   }
 }

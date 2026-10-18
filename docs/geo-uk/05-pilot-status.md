@@ -12,3 +12,6 @@
 | Nottingham | 2 | Nottingham 7826 | none | research |
 | Hull | 2 | Kingston upon Hull 8564 | none | research |
 | Aberdeen | 31 | 13 ward-group shares | none | research |
+
+## Update 2026-10-17
+The English pilot places are folded into one region hub draft, `/uk/anglia` (preview only, flight sections open). Aberdeen is part of the published `/uk/szkocja`. No city page is published.
