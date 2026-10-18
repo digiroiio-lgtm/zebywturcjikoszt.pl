@@ -27,3 +27,4 @@ jobs:
       - run: npm run test:reviews
       - run: npm run test:uk
       - run: npm run test:consent
+      - run: npm run test:quotes
