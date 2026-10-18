@@ -2,6 +2,14 @@
 
 Status: draft for lawyer review. Nothing here is legal advice. Gate: `lib/legal-review.ts` (`LEGAL_REVIEW_CONFIRMED_DATE`).
 
+## 0. Analytics consent (Google Analytics 4)
+
+- GA4 (`G-CJN49C9YJJ`) is loaded from the root layout with Consent Mode v2: `ad_storage`, `ad_user_data`, `ad_personalization` and `analytics_storage` all start `denied` (inline script before `gtag("config")`, see `GTAG_INIT` in `app/layout.tsx`). Advertising storage is never granted.
+- `components/consent-banner.tsx` records the choice in `localStorage` (`consent-v1`: `granted` / `denied`) and sends `gtag("consent","update",{analytics_storage})`. The footer link "Ustawienia cookies" re-opens the banner. The campaign popup waits while the banner is open (`data-blocks-popup`).
+- `npm run test:consent` guards the defaults and runs in CI.
+- `/cookies` and `/polityka-prywatnosci` were updated to describe this. **The wording needs the lawyer's review** (art. 6(1)(a) GDPR / art. 173 Prawo telekomunikacyjne, Google as processor, transfers outside the EEA) before it is relied on.
+- Vercel Analytics stays cookieless and is not behind the banner.
+
 ## 1. Where data lives
 
 | Data | Lives in | May appear on the site / repo / JSON-LD / analytics |

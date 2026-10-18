@@ -58,6 +58,13 @@ export const clinicSchema = {
   knowsLanguage: serviceLanguages.map((language) => language.code),
   address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   geo: { "@type": "GeoCoordinates", ...CLINIC_GEO },
+  // Treatment names and the pages describing them; prices stay in lib/pricing.ts and on /koszt.
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Leczenie stomatologiczne w Akdeniz Dental",
+    url: `${SITE_URL}/koszt`,
+    itemListElement: [["Implanty zębowe", "/implanty"], ["Licówki", "/licowki"], ["Korony cyrkonowe", "/korony-cyrkonowe"], ["Odbudowa całej szczęki", "/cala-szczeka"], ["All-on-4", "/all-on-4"]].map(([name, path]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, url: `${SITE_URL}${path}` } }))
+  },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
   sameAs: clinicProfiles.map((profile) => profile.href),
   ...operatorSchemaFields(),
