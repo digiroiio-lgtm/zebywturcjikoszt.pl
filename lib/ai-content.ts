@@ -37,21 +37,48 @@ function lastContentUpdate() {
 export function llmsIndex() {
   return [`# ${SITE_NAME}`, `> ${context}`, "", "Język: pl-PL. Ostatnia aktualizacja treści: " + lastContentUpdate() + ". Canonical origin: " + SITE_URL, ...(OPERATOR.legalName ? [`Operator serwisu: ${OPERATOR.legalName}, ${operatorRows(OPERATOR, false).find((row) => row.label === "Adres")?.value ?? ""}. Szczegóły: ${SITE_URL}/o-nas`] : []), pricingScope,
     "Skład zespołu nie oznacza recenzji wszystkich treści. Status i data recenzji są przypisane konkretnej stronie. Zdjęcia przed i po nie mają jeszcze potwierdzonego zakresu klinicznego.",
-    "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description}`),
+    "", "## Przewodniki dla pacjentów", `- [Biblioteka poradników](${SITE_URL}/poradniki): stałe przewodniki dla pacjentów z Polski.`, ...patientGuides.map((page) => `- [${page.h1}](${SITE_URL}/${page.slug}): ${page.description} Markdown: ${markdownUrl(page.slug)}`),
     "", "## Pytania, lekarze i weryfikacja", `- [Pytania i odpowiedzi](${SITE_URL}${FAQ_PATH}): odpowiedzi z przewodników wraz z linkami do źródłowych stron.`, `- [Nasi lekarze](${SITE_URL}/nasi-lekarze): zespół kliniki prowadzonej przez operatora serwisu i źródła zawodowe.`, `- [Nasz zespół](${SITE_URL}/nasz-zespol): role organizacyjne i pytania o kontakt przed wizytą; nie jest imiennym wykazem personelu.`, ...clinicProfiles.map((profile) => `- [Akdeniz Dental w serwisie ${profile.label}](${profile.href}): zewnętrzny profil kliniki, ocena ${profile.rating}/5 (${profile.reviewCount} opinii) wg odczytu z ${RATINGS_CHECKED_ISO_DATE}; zmienia się w czasie, sprawdź w serwisie.`), `- Adres kliniki prowadzonej przez operatora serwisu (wg Map Google i Trustpilot): ${CLINIC_ADDRESS_TEXT}.`,
     ...verifiedExperts.map((expert) => `- [${expert.name}](${SITE_URL}${expert.profileUrl}): profil recenzenta i lista faktycznie zrecenzowanych stron.`),
     `- [Weryfikacja medyczna](${SITE_URL}/weryfikacja-medyczna): zasady i zakres recenzji.`, `- [Polityka redakcyjna](${SITE_URL}/polityka-redakcyjna): autorstwo, źródła i aktualizacje.`, `- [Metodologia](${SITE_URL}/metodologia): jak zbieramy, sprawdzamy i oznaczamy informacje.`, `- [Właściciel serwisu](${SITE_URL}/wlasciciel-serwisu): operator serwisu i jego powiązanie z kliniką.`, `- [Korekty](${SITE_URL}/korekty): zgłaszanie błędów i dziennik zmian.`, ...(credentialsPublished ? [`- [Dokumenty i licencje](${SITE_URL}/dokumenty-i-licencje): zweryfikowane dokumenty kliniki i lekarzy z linkami do rejestrów.`] : []), `- [Listy kontrolne](${SITE_URL}/listy-kontrolne): listy kontrolne dla pacjentów.`,
     "", "## Optional", `- [Pełny tekst przewodników](${SITE_URL}/llms-full.txt): tekst z tych samych danych co widoczne strony, z cenami, źródłami i datami recenzji.`, `- [Dane o pochodzeniu treści](${SITE_URL}/content-provenance.json): rekordy źródeł i recenzji poszczególnych stron.`, `- [Weryfikacja dokumentów](${SITE_URL}/clinic-verification.json): zweryfikowane dokumenty kliniki i lekarzy; puste listy oznaczają brak opublikowanych pozycji.`, `- [Sitemap](${SITE_URL}/sitemap.xml): adresy stron przeznaczonych do indeksowania.`, `- [Kanał RSS](${SITE_URL}/feed.xml): poradniki dla pacjentów z datami publikacji.`, `- [Kontakt](${SITE_URL}/kontakt): zapytania o konsultację; nie przesyłaj dokumentacji medycznej przez formularz.`, ""].join("\n");
 }
 
-export function llmsFull() {
-  const sections = patientGuides.map((page) => [
-    `## ${page.h1}`, `Canonical URL: ${SITE_URL}/${page.slug}`, `Aktualizacja treści: ${page.lastUpdated ?? UPDATED_ISO_DATE}.`, reviewSummary(page.slug), "", page.lead, "", page.answer,
+/** Body lines shared by llms-full.txt and the per-page Markdown files, so both say the same thing as the HTML page. */
+function guideLines(page: (typeof patientGuides)[number]) {
+  return [
+    page.lead, "", page.answer,
     ...page.sections.flatMap((section) => ["", `### ${section.title}`, ...(section.paragraphs ?? []), ...(section.bullets ?? []).map((item) => `- ${item}`), ...(section.cards ?? []).map((card) => `- ${card.title}: ${card.text}`), ...(section.table ? [`| ${section.table.headers.join(" | ")} |`, `| ${section.table.headers.map(() => "---").join(" | ")} |`, ...section.table.rows.map((row) => `| ${row.join(" | ")} |`)] : [])]),
     ...(page.faq?.length ? ["", "### Pytania i odpowiedzi", ...page.faq.flatMap((faq, index) => [`#### ${faq.question}`, faq.answer, `Źródło: ${SITE_URL}/${page.slug}#faq-${index + 1}`, ""])] : []),
-    ...(page.sources?.length ? ["### Źródła", ...page.sources.map((source) => `- [${source.label}](${absoluteUrl(source.href)})`)] : []), ""
+    ...(page.sources?.length ? ["### Źródła", ...page.sources.map((source) => `- [${source.label}](${absoluteUrl(source.href)})`)] : [])
+  ];
+}
+
+const pricingNote = `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`;
+const priceTable = ["| Pozycja | EUR | Około PLN |", "| --- | --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} | ${toPln(item.eur)} |`)];
+
+/** Slugs (including `uk/...`) that have a Markdown twin at `/<slug>.md`. */
+export const markdownSlugs = patientGuides.map((page) => page.slug);
+export const markdownUrl = (slug: string) => `${SITE_URL}/${slug}.md`;
+
+/** Standalone Markdown for one page: the same data as the HTML page, with canonical URL, date and review state up front. */
+export function guideMarkdown(slug: string) {
+  const page = patientGuides.find((guide) => guide.slug === slug);
+  if (!page) return null;
+  return [
+    "---", `title: ${page.h1}`, `canonical: ${SITE_URL}/${page.slug}`, "language: pl-PL", `last_updated: ${page.lastUpdated ?? UPDATED_ISO_DATE}`, `publisher: ${SITE_NAME}`, "---", "",
+    `# ${page.h1}`, `> ${page.description}`, "", `Canonical URL: ${SITE_URL}/${page.slug}`, `Aktualizacja treści: ${page.lastUpdated ?? UPDATED_ISO_DATE}.`, reviewSummary(page.slug), "",
+    ...guideLines(page),
+    ...(page.slug === "koszt" ? ["", "### Cennik kliniki", pricingNote, pricingScope, "", ...priceTable] : []),
+    "", "---", `Ta kopia Markdown jest generowana z tych samych danych co strona ${SITE_URL}/${page.slug}; pierwszeństwo ma strona canonical. ${context}`, ""
+  ].join("\n");
+}
+
+export function llmsFull() {
+  const sections = patientGuides.map((page) => [
+    `## ${page.h1}`, `Canonical URL: ${SITE_URL}/${page.slug}`, `Aktualizacja treści: ${page.lastUpdated ?? UPDATED_ISO_DATE}.`, reviewSummary(page.slug), "", ...guideLines(page), ""
   ].join("\n"));
   return [`# ${SITE_NAME}: przewodniki dla pacjentów`, `> ${context}`, "", "Ten tekst jest generowany z danych widocznych przewodników. Pierwszeństwo ma aktualna strona pod adresem canonical; informacje nie kwalifikują pacjenta do leczenia.", `Ostatnia aktualizacja treści: ${lastContentUpdate()}.`,
-    "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, `Data cennika: ${PRICING_UPDATED_ISO_DATE}. Waluta bazowa: EUR. Orientacyjny kurs: 1 EUR = ${EUR_PLN_RATE.toFixed(2)} PLN, ${EUR_PLN_RATE_TIMESTAMP}. Kurs nie jest aktualizowany automatycznie.`, ...(gbpPublished ? [`Przeliczenie na GBP (strona dla Polaków w UK): 1 EUR = ${EUR_GBP_RATE!.toFixed(2)} GBP, kurs z dnia ${EUR_GBP_RATE_TIMESTAMP}, źródło: ${EUR_GBP_RATE_SOURCE}, zaokrąglony do dwóch miejsc po przecinku. To przeliczenie, a nie oferta kliniki w GBP.`] : []), pricingScope,
-    "| Pozycja | EUR | Około PLN |", "| --- | --- | --- |", ...priceItems.map((item) => `| ${item.label} | ${item.eur.toFixed(2)} | ${toPln(item.eur)} |`), "", ...sections].join("\n");
+    "", "## Cennik kliniki", `Źródło: ${SITE_URL}/koszt#cennik`, pricingNote, ...(gbpPublished ? [`Przeliczenie na GBP (strona dla Polaków w UK): 1 EUR = ${EUR_GBP_RATE!.toFixed(2)} GBP, kurs z dnia ${EUR_GBP_RATE_TIMESTAMP}, źródło: ${EUR_GBP_RATE_SOURCE}, zaokrąglony do dwóch miejsc po przecinku. To przeliczenie, a nie oferta kliniki w GBP.`] : []), pricingScope,
+    ...priceTable, "", ...sections].join("\n");
 }
