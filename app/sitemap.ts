@@ -4,7 +4,7 @@ import type { MetadataRoute } from "next";
 import { HOME_UPDATED_ISO_DATE, pages, SITE_URL, UPDATED_ISO_DATE } from "@/lib/site";
 import { PRICING_UPDATED_ISO_DATE } from "@/lib/pricing";
 import { verifiedExperts } from "@/lib/evidence";
-import { FAQ_PUBLISHED_DATE } from "@/lib/ai-content";
+import { FAQ_UPDATED_DATE } from "@/lib/ai-content";
 import { TEAM_SOURCE_DATE, clinicalTeam } from "@/lib/clinical-team";
 import { caseImages } from "@/lib/gallery";
 import { pageFigures } from "@/lib/page-figures";
@@ -36,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...pageEntries,
     ...guideEntries,
     ...allUkPages.map((page): Entry => ({ url: abs(`/${page.slug}`), lastModified: day(page.lastUpdated!), ...withImages(page.slug) })),
-    { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_PUBLISHED_DATE) },
+    { url: abs("/pytania-i-odpowiedzi"), lastModified: day(FAQ_UPDATED_DATE) },
     { url: abs("/nasz-zespol"), lastModified: day(SUPPORT_TEAM_UPDATED) },
     { url: abs("/nasi-lekarze"), lastModified: day(TEAM_SOURCE_DATE), images: clinicalTeam.map((doctor) => abs(doctor.imageUrl)) },
     { url: abs("/eksperci"), lastModified: day(latest(expertDates)) },
