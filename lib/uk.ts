@@ -23,7 +23,7 @@ const moneySection75 = { label: "MoneyHelper: ochrona kartą, Section 75 i charg
 const fcaCheck = { label: "FCA: jak sprawdzić, czy firma jest autoryzowana", href: "https://www.fca.org.uk/consumers/how-check-firm-individual-authorised" };
 
 export const ukHub: PageContent = {
-  slug: "uk", published: UK_DATE, lastUpdated: UK_DATE, title: "Leczenie zębów w Turcji dla Polaków mieszkających w UK",
+  slug: "uk", published: UK_DATE, lastUpdated: FINANCE_DATE, title: "Leczenie zębów w Turcji dla Polaków mieszkających w UK",
   description: "Mieszkasz w Wielkiej Brytanii? Sprawdź, czym leczenie zębów w Antalyi różni się dla Polaków z UK: polisa, GHIC, płatność w funtach i kontrola po powrocie.",
   eyebrow: "Dla Polaków w UK", h1: "Leczenie zębów w Turcji dla Polaków mieszkających w UK",
   lead: "Wiele osób z Polski mieszka i pracuje w Wielkiej Brytanii. Ta sekcja zbiera to, co różni się od planu wyjazdu z Polski: ubezpieczenie, płatność, kontrola po powrocie i organizacja wizyt.",
