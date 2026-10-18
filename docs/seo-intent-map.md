@@ -131,3 +131,4 @@ Still waiting on data (not written, no placeholders): documented patient cases a
 
 ## UK section (2026-10-17)
 - `/uk/szkocja` published (owner waivers for search-demand evidence and clinical review recorded in `data/geo/uk/pages.json`); `/uk/finansowanie-leczenia-zebow-w-turcji` published (neutral, no amounts or rates). Lead source for UK pages is `OGZ-PL`; self-referencing hreflang on every indexable page (`pl-GB` for `/uk*`, `pl-PL` elsewhere). Details: `docs/geo-uk/19-publication-2026-10-17.md`.
+- `/uk/ceny-leczenia-zebow-w-turcji-w-funtach`: GBP rate refreshed on 2026-10-17 to 0.84 (owner-supplied Google reading, 22:09 UTC; not an official reference rate). Amounts in pounds are recalculated from `lib/pricing.ts`.

@@ -75,10 +75,10 @@ export function formatPln(eur: number) { return new Intl.NumberFormat("pl-PL", {
  * EUR to GBP conversion for the /uk pages. Both stay null until the site owner supplies a dated rate;
  * while null the GBP price page is not published. Do not fill with an undated or remembered rate.
  */
-export const EUR_GBP_RATE = 0.85 as number | null;
-export const EUR_GBP_RATE_TIMESTAMP = "2026-10-03" as string | null;
+export const EUR_GBP_RATE = 0.84 as number | null;
+export const EUR_GBP_RATE_TIMESTAMP = "2026-10-17" as string | null;
 /** Rate as supplied by the site owner (Google/Yahoo Finance reading, two decimals); not an official reference rate. */
-export const EUR_GBP_RATE_SOURCE = "Yahoo Finance, odczyt właściciela serwisu";
+export const EUR_GBP_RATE_SOURCE = "Google, odczyt właściciela serwisu z 17 października 2026, 22:09 UTC";
 export const gbpPublished = EUR_GBP_RATE !== null && EUR_GBP_RATE_TIMESTAMP !== null;
 export function toGbp(eur: number) {
   if (EUR_GBP_RATE === null) throw new Error("EUR_GBP_RATE is not set");

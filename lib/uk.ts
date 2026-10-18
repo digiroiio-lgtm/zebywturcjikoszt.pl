@@ -10,6 +10,8 @@ import { publishedGeoContent } from "./geo";
  */
 export const UK_STATUS_DATE = "3 października 2026";
 const UK_DATE = "2026-10-03";
+/** The GBP page changes whenever the owner supplies a new rate (last: 2026-10-17, 0.84). */
+const GBP_RATE_DATE = "2026-10-17";
 const FINANCE_DATE = "2026-10-17";
 
 const nhsGoing = { label: "NHS: Going abroad for medical treatment (leczenie za granicą)", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/going-abroad-for-medical-treatment/" };
@@ -70,13 +72,13 @@ const paymentGuide: PageContent = {
 };
 
 const gbpGuide: PageContent = {
-  slug: "uk/ceny-leczenia-zebow-w-turcji-w-funtach", published: UK_DATE, lastUpdated: UK_DATE, title: "Ile kosztuje leczenie zębów w Antalyi w funtach? Cennik GBP",
+  slug: "uk/ceny-leczenia-zebow-w-turcji-w-funtach", published: UK_DATE, lastUpdated: GBP_RATE_DATE, title: "Ile kosztuje leczenie zębów w Antalyi w funtach? Cennik GBP",
   description: "Cennik kliniki Akdeniz Dental w EUR przeliczony na funty z podaną datą kursu: przykładowe pozycje, czego tabela nie obejmuje i jak liczyć koszt płatności.",
   eyebrow: "Dla Polaków w UK", h1: "Ile kosztuje leczenie zębów w Antalyi w funtach?",
   lead: "Klinika podaje ceny w euro. Poniżej przeliczamy wybrane pozycje na funty po kursie z podaną datą, żeby ułatwić budżet osobom z UK. To przeliczenie, a nie oferta w funtach.",
   answer: "Cennik kliniki jest w euro, więc kwoty w funtach to przeliczenie orientacyjne po kursie z podaną datą, a nie oferta w GBP. Cena pozycji nie jest ceną całego leczenia, a hotel, lot i dodatkowe zabiegi wymagają osobnego potwierdzenia; bank może też doliczyć prowizję.",
   sections: [
-    { title: "Jak przeliczamy euro na funty?", paragraphs: ["Podstawą jest cennik kliniki w euro z datą wskazaną przy tabeli. Kwoty w funtach powstają przez przeliczenie po jednym kursie z podanym dniem. Kurs pochodzi z odczytu właściciela serwisu (Yahoo Finance), jest zaokrąglony do dwóch miejsc po przecinku i nie jest aktualizowany automatycznie, więc w dniu płatności może być inny."] },
+    { title: "Jak przeliczamy euro na funty?", paragraphs: ["Podstawą jest cennik kliniki w euro z datą wskazaną przy tabeli. Kwoty w funtach powstają przez przeliczenie po jednym kursie z podanym dniem. Kurs pochodzi z odczytu właściciela serwisu (Google), jest zaokrąglony do dwóch miejsc po przecinku i nie jest aktualizowany automatycznie, więc w dniu płatności może być inny."] },
     { title: "Czego ta tabela nie mówi", bullets: ["nie jest ceną kompletnego leczenia ani pakietu", "nie obejmuje łączników, koron, diagnostyki ani dodatkowych zabiegów, jeśli nie wynikają z oferty", "nie obejmuje lotu z UK, noclegu, transferów i kontroli", "nie uwzględnia kursu banku ani opłat za płatność zagraniczną"] },
     { title: "Waluta rozliczenia i prowizja", paragraphs: ["Walutę rozliczenia, kurs i prowizję ustal w pisemnej ofercie. Opcje płatności i ich ryzyka opisuje poradnik dla osób z UK, a sposób liczenia całego budżetu poradnik o całkowitym koszcie wyjazdu."] }
   ],
