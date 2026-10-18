@@ -187,6 +187,15 @@ for (const [, validUntil] of credentialSource.matchAll(/validUntil: "(\d{4}-\d{2
   else if (daysLeft < 60) console.warn(`WARNING: a credential in lib/credentials.ts expires on ${validUntil}.`);
 }
 
+const securityTxt = await readFile(path.join(process.cwd(), "public", ".well-known", "security.txt"), "utf8");
+const securityExpires = securityTxt.match(/^Expires:\s*(\S+)/m)?.[1];
+if (!securityExpires || !/^Contact:\s*\S+/m.test(securityTxt)) fail("public/.well-known/security.txt needs Contact and Expires fields (RFC 9116).");
+else {
+  const daysLeft = (new Date(securityExpires).getTime() - Date.now()) / 86400000;
+  if (!(daysLeft > 0)) fail(`public/.well-known/security.txt expired on ${securityExpires}. Renew the Expires field.`);
+  else if (daysLeft < 60) console.warn(`WARNING: security.txt expires on ${securityExpires}; renew it.`);
+}
+
 const legalReview = (await readFile(path.join(process.cwd(), "lib", "legal-review.ts"), "utf8")).match(/LEGAL_REVIEW_CONFIRMED_DATE: string \| null = (null|"\d{4}-\d{2}-\d{2}")/)?.[1];
 const evidenceSource = await readFile(path.join(process.cwd(), "lib", "evidence.ts"), "utf8");
 const patientContent = [];

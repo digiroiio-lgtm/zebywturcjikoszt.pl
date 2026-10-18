@@ -6,7 +6,7 @@ import { useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
 declare global {
-  interface Window { dataLayer?: Record<string, unknown>[]; gtag?: (command: "event", name: string, params: Record<string, string>) => void; }
+  interface Window { dataLayer?: Record<string, unknown>[]; gtag?: (command: "event" | "consent", name: string, params: Record<string, string>) => void; }
 }
 
 /** Only these keys are forwarded to Vercel Analytics (cookieless) and Google Analytics. They describe the page and the CTA, never the visitor. */

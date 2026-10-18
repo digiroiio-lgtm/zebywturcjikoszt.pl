@@ -23,5 +23,5 @@ Edit only `data/shorts.json`:
 - `npm run test:shorts` (part of `verify`) checks URL parsing, the approval/consent rules, no placeholder in production data, no iframe or YouTube reference in the homepage HTML, and, once videos exist, the section order.
 
 ## Open points for the operator / lawyer
-- Cookies and privacy policies say the site sets no cookies and uses no third-party tools; YouTube embeds after Play are a third-party service (Google). The policy text should mention them before the first video goes live (legal review gate: `lib/legal-review.ts`). The text was not changed here.
+- Cookies and privacy policies now describe GA4 (after consent) and the consent choice stored in localStorage; YouTube embeds after Play are a third-party service (Google). The policy text should mention them before the first video goes live (legal review gate: `lib/legal-review.ts`). The text was not changed here.
 - Written patient consent for each video, including voice and face, with a withdrawal route.

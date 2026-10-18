@@ -1,5 +1,6 @@
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import { clinicSchema } from "@/lib/seo";
+import { CLINIC_ADDRESS } from "@/lib/clinic-profiles";
 
 const websiteNode = {
   "@type": "WebSite",
@@ -16,6 +17,7 @@ const organizationNode = {
   name: "Redakcja serwisu Zęby w Turcji",
   url: SITE_URL,
   logo: { "@type": "ImageObject", url: `${SITE_URL}/apple-icon`, width: 180, height: 180 },
+  address: { "@type": "PostalAddress", ...CLINIC_ADDRESS },
   sameAs: ["https://akdenizdental.com"],
   parentOrganization: { "@id": clinicSchema["@id"] },
   areaServed: { "@type": "Country", name: "Polska" },
