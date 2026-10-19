@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -31,5 +32,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /><script dangerouslySetInnerHTML={{ __html: GTAG_INIT }} /><script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><Analytics /><SpeedInsights /><ConsentBanner /></body></html>;
+  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /><script dangerouslySetInnerHTML={{ __html: GTAG_INIT }} /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><Analytics /><SpeedInsights /><ConsentBanner /><Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" /></body></html>;
 }

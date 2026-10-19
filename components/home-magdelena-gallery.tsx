@@ -28,7 +28,7 @@ export function HomeMagdelenaGallery() {
         <button type="button" className="home-gallery-arrow home-gallery-prev" aria-label="Poprzednie zdjęcia" onClick={() => move(-1)}><span aria-hidden="true">‹</span></button>
         <ul className="home-gallery-track" ref={track} tabIndex={0} aria-label="Zdjęcia MAGDELENY, przewijane poziomo" onKeyDown={onKey}>
           {magdelenaPhotos.map((photo, index) => <li key={photo.n}>
-            <Image src={`/images/magdelena/magdelena-${photo.n}.webp`} alt={photo.alt} width={720} height={1063} sizes="(max-width: 760px) 132px, 216px" style={{ objectPosition: photo.position }} priority={index < 6} loading={index < 6 ? undefined : "lazy"} />
+            <Image src={`/images/magdelena/magdelena-${photo.n}.webp`} alt={photo.alt} width={720} height={1063} sizes="(max-width: 760px) 128px, 156px" style={{ objectPosition: photo.position }} preload={index === 0} loading={index === 0 ? undefined : "lazy"} />
           </li>)}
         </ul>
         <button type="button" className="home-gallery-arrow home-gallery-next" aria-label="Następne zdjęcia" onClick={() => move(1)}><span aria-hidden="true">›</span></button>

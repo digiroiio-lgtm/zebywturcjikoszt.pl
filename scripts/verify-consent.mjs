@@ -1,4 +1,4 @@
-// Guards Consent Mode v2: every consent type is denied before the first gtag config, gtag.js is in the server HTML, and the banner never grants advertising storage (run after `next build`).
+// Guards Consent Mode v2: every consent type is denied before the first gtag config, gtag.js loads after the page at browser idle, and the banner never grants advertising storage (run after `next build`).
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 
@@ -15,5 +15,6 @@ assert(init, 'server HTML must contain the consent default call');
 for (const type of ['ad_storage', 'ad_user_data', 'ad_personalization', 'analytics_storage']) assert(init.includes(`${type}:"denied"`), `${type} must default to denied`);
 assert(!init.includes('"granted"') || init.indexOf('"granted"') > init.indexOf('"default"'), 'no consent type may default to granted');
 assert(init.indexOf('"default"') < init.indexOf('gtag("config"'), 'consent default must run before gtag config');
-assert(/<script[^>]*src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-[A-Z0-9]+"/.test(html), 'gtag.js must be in the server HTML');
-console.log('Consent checks passed: all four types denied before config, gtag.js in the server HTML, banner never grants ad storage.');
+assert(!/<script[^>]*src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-[A-Z0-9]+"/.test(html), 'gtag.js must not compete with initial page resources');
+assert(html.includes('lazyOnload') && html.includes('https://www.googletagmanager.com/gtag/js?id=G-CJN49C9YJJ'), 'built page must retain the deferred analytics loader');
+console.log('Consent checks passed: all four types denied before config, gtag.js deferred to idle, banner never grants ad storage.');
