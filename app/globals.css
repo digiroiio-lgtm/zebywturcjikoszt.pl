@@ -471,7 +471,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-model-frame { position:relative; aspect-ratio:4/5; border-radius:26px; box-shadow:0 26px 60px rgba(179,18,42,.22),0 8px 22px rgba(22,18,19,.14); }
 .home-model-frame::before { content:""; position:absolute; inset:-14px; z-index:-1; border-radius:36px; background:linear-gradient(140deg,rgba(220,33,60,.32),rgba(123,31,162,.28)); filter:blur(22px); }
 .home-model-main { display:block; width:100%; height:100%; object-fit:cover; border-radius:26px; transition:transform .6s ease; }
-.home-model-mobile { display:none; }
+
 .home-model-card { position:absolute; width:34%; height:auto; aspect-ratio:4/5; object-fit:cover; border:4px solid white; border-radius:16px; box-shadow:0 12px 28px rgba(22,18,19,.28); }
 .home-model-card-top { top:7%; right:-9%; }
 .home-model-card-bottom { bottom:11%; left:-9%; }
@@ -510,8 +510,8 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .home-hero .hero-grid { gap:28px; }
   .home-identity-strip>.shell { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 16px; }
   .home-clinic-hero img { aspect-ratio:6/5; }
-  .home-model-main,.home-model-card { display:none; }
-  .home-model-mobile { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 28%; border-radius:20px; box-shadow:0 14px 34px rgba(179,18,42,.2); }
+  .home-model-card { display:none; }
+  .home-model-main { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 28%; border-radius:20px; box-shadow:0 14px 34px rgba(179,18,42,.2); }
   .home-model-frame { aspect-ratio:auto; box-shadow:none; }
   .home-model-frame::before { display:none; }
   .home-model-hero figcaption { margin-top:12px; }
