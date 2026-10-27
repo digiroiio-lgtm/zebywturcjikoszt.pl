@@ -132,3 +132,23 @@ Still waiting on data (not written, no placeholders): documented patient cases a
 ## UK section (2026-10-17)
 - `/uk/szkocja` published (owner waivers for search-demand evidence and clinical review recorded in `data/geo/uk/pages.json`); `/uk/finansowanie-leczenia-zebow-w-turcji` published (neutral, no amounts or rates). Lead source for UK pages is `OGZ-PL`; self-referencing hreflang on every indexable page (`pl-GB` for `/uk*`, `pl-PL` elsewhere). Details: `docs/geo-uk/19-publication-2026-10-17.md`.
 - `/uk/ceny-leczenia-zebow-w-turcji-w-funtach`: GBP rate refreshed on 2026-10-17 to 0.84 (owner-supplied Google reading, 22:09 UTC; not an official reference rate). Amounts in pounds are recalculated from `lib/pricing.ts`.
+
+## Non-brand positioning (2026-10-27)
+
+Goal: reach Polish residents researching dental treatment in Turkey before they know the clinic. Brand queries (`akdeniz dental`) are kept but are not the growth target.
+
+| Non-brand query | Owner |
+|---|---|
+| zęby w Turcji / leczenie zębów w Turcji | `/` |
+| zęby w Turcji cena / koszt | `/koszt` |
+| implanty zębów w Turcji cena | `/implanty` |
+| licówki w Turcji cena | `/licowki` |
+| All-on-4 Turcja cena | `/all-on-4` |
+| leczenie zębów Turcja opinie | `/opinie` |
+
+Rules:
+- Titles of non-brand owner pages do not carry the clinic name. The clinic is named once, as operator, in descriptions.
+- Head-only changes this round: `/koszt` title (brand suffix removed), `/all-on-4` title ("cena" instead of "koszt", no figure published), home meta description (leads with Polish patients, prices, trip organisation).
+- Brand-intent content stays on `/nasi-lekarze`, `/nasz-zespol` and the clinic sections of `/opinie`.
+- Flight, accommodation, day counts and a Polish-speaking coordinator stay unpublished until confirmed by the operator.
+- Measure: split Search Console queries into brand and non-brand and track position of the six queries above; re-read around 2026-11-14 to 2026-11-28.
