@@ -8,6 +8,8 @@ assert(lib.includes('URLSearchParams'), 'message must be encoded with URLSearchP
 assert(!/24\/7|całą dobę|w ciągu \d+ (minut|godzin)/i.test(lib), 'no unverified response-time or 24/7 claims');
 assert(!/campaign|Kampania/i.test(lib), 'general WhatsApp messages must not carry campaign text');
 for (const c of ['components/hero-whatsapp.tsx', 'components/treatment-whatsapp-cta.tsx', 'components/mobile-assessment-bar.tsx']) assert(!/campaign/i.test(readFileSync(c, 'utf8')), `${c}: WhatsApp buttons must not use the active campaign`);
+assert(lib.includes('Mieszkam w Wielkiej Brytanii'), 'UK pages use the UK general message');
+for (const c of ['components/footer-contact.tsx']) assert(!/campaign/i.test(readFileSync(c, 'utf8')), `${c}: footer WhatsApp must not use the active campaign`);
 const css = readFileSync('app/globals.css', 'utf8');
 assert(css.includes('body:has(dialog[open]) .whatsapp-floating'), 'widgets must hide while a dialog is open');
 
@@ -20,5 +22,9 @@ for (const [file, expectCta] of [['.next/server/app/implanty.html', true], ['.ne
   assert.equal(body.includes('treatment-whatsapp'), expectCta, `${file}: treatment CTA presence`);
   assert(!/Hollywood|Kampania|%C2%A3|£/.test(decodeURIComponent(body.match(/wa\.me\/\d+\?text=[^"']*/g)?.join(' ') ?? '').replace(/\+/g, ' ')), `${file}: wa.me link carries campaign or GBP text`);
   assert(body.includes('https://wa.me/905353998999?text=Dzie%C5%84+dobry'), `${file}: encoded Polish wa.me link missing`);
+}
+if (existsSync('.next/server/app/uk.html')) {
+  const uk = readFileSync('.next/server/app/uk.html', 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
+  assert(uk.includes('Mieszkam+w+Wielkiej+Brytanii'), 'uk.html: UK general message missing in wa.me link');
 }
 console.log('WhatsApp layout checks passed.');
