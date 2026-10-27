@@ -290,7 +290,7 @@ export const pages: Record<string, PageContent> = {
     ],
     sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Trustpilot: profil Akdeniz Dental Clinic (odczyt operatora)", href: trustpilotProfile.href }, { label: "Mapy Google: Antalya Akdeniz Dental Clinic (odczyt operatora)", href: googleProfile.href }],
     lastUpdated: "2026-10-17",
-    ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
+    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "opinie_cta"
   },
   "przed-i-po": {
     lastUpdated: "2026-10-17",

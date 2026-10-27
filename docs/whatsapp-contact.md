@@ -4,9 +4,9 @@
 - Larger screens: floating WhatsApp button bottom right; hidden while the footer is visible. Never together with the phone bar.
 - Treatment pages with a price block: "Zapytaj na WhatsApp" after the price/scope tables (`treatment_price`). No documented-cases section exists yet, so `treatment_case` is not placed.
 - Both widgets hide while any `<dialog>` is open (`body:has(dialog[open])`).
-- Number `+90 535 399 89 99` (`lib/whatsapp.ts`); message built with `URLSearchParams`, per treatment, with the active campaign label appended.
+- Number `+90 535 399 89 99` (`lib/whatsapp.ts`); message built with `URLSearchParams`, per treatment. No campaign text is appended (2026-10-27): campaign labels are priced in GBP and would mislead general enquiries from Poland. Campaign attribution belongs on the campaign's own link/form (`campaign` field of the lead form), not on the general WhatsApp buttons.
 - Campaign (`lib/campaigns.ts`): label "Christmas Hollywood Smile | 16 crowns | £2,390". The supplied image contains no price, term or validity date, so none is stated on the site. Original PNG: `assets-src/2026-10-17/`.
-- Analytics (`trackEvent`): `quote_cta_click`, `whatsapp_click` with page_path, button_location, treatment, campaign. No name, phone, health data or message text. A click is not a lead.
+- Analytics (`trackEvent`): `quote_cta_click` (with campaign), `whatsapp_click` with page_path, button_location, treatment (no campaign). No name, phone, health data or message text. A click is not a lead.
 
 ## Christmas campaign popup
 - Config: `lib/campaigns.ts` (`active`, `startsAt`, `endsAt`). Christmas Hollywood Smile runs 17.10.2026 00:00 to 01.01.2027 00:01, Antalya time (UTC+03:00), as supplied by the operator. The window is checked in the browser (popup, home-page photo, WhatsApp message), so it ends on time without a redeploy; `null` still means "not specified".

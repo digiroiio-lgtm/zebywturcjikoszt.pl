@@ -9,13 +9,13 @@ const TREATMENTS: Record<string, string> = {
   "full-arch": "odbudowę całej szczęki"
 };
 
-/** Message text only; never contains personal or health data. */
-export function whatsappMessage(topic = "", campaign?: string): string {
+/** Message text only; never contains personal or health data, and no promo labels (they are priced in GBP and must not reach the general buttons). */
+export function whatsappMessage(topic = ""): string {
   const treatment = TREATMENTS[topic];
   const base = treatment ? `Dzień dobry! Interesuje mnie leczenie w Akdeniz Dental w Antalyi: ${treatment}. Proszę o informacje dotyczące kosztów i kolejnych kroków.` : GENERIC;
-  return campaign ? `${base} Kampania: ${campaign}` : base;
+  return base;
 }
 
-export function whatsappUrl(topic = "", campaign?: string): string {
-  return `https://wa.me/${WHATSAPP_NUMBER}?${new URLSearchParams({ text: whatsappMessage(topic, campaign) }).toString()}`;
+export function whatsappUrl(topic = ""): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?${new URLSearchParams({ text: whatsappMessage(topic) }).toString()}`;
 }
