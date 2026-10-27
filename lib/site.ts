@@ -55,7 +55,7 @@ export const pages: Record<string, PageContent> = {
   koszt: {
     lastUpdated: "2026-10-17",
     slug: "koszt",
-    title: "Zęby w Turcji – ceny i koszty leczenia | Akdeniz Dental",
+    title: "Zęby w Turcji – ceny i koszty leczenia",
     description: `Zęby w Turcji cena i koszt zrobienia zębów: cennik ${priceItems.length} zabiegów w EUR i PLN (implanty, korony, licówki), z datą i kursem. Aktualizacja: 30.09.2026.`,
     eyebrow: "Koszt leczenia",
     h1: "Ile kosztuje zrobienie zębów w Turcji?",
@@ -240,7 +240,7 @@ export const pages: Record<string, PageContent> = {
   },
   "all-on-4": {
     lastUpdated: "2026-10-02",
-    slug: "all-on-4", title: "All-on-4 w Turcji – kwalifikacja, etapy i koszt",
+    slug: "all-on-4", title: "All-on-4 w Turcji – kwalifikacja, etapy i cena",
     description: "All-on-4 w Turcji: czym jest pełnołukowa odbudowa na czterech implantach, jak wygląda kwalifikacja i co powinien zawierać plan.",
     eyebrow: "Pełnołukowa odbudowa", h1: "All-on-4 w Turcji",
     lead: "All-on-4 to koncepcja pełnołukowej odbudowy protetycznej opartej na czterech implantach. Nie jest automatycznym rozwiązaniem dla każdej osoby z brakami zębowymi.",

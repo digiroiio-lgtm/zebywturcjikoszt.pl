@@ -22,9 +22,9 @@ export const viewport: Viewport = { themeColor: "#fdfcfc" };
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: "Leczenie zębów w Turcji – Ceny, implanty i korony", template: `%s | ${SITE_NAME}` },
-  description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.",
+  description: "Leczenie zębów w Turcji dla pacjentów z Polski: ceny, implanty, korony i licówki oraz organizacja wyjazdu do Antalyi. Klinika operatora: Akdeniz Dental.",
   robots: indexableRobots,
-  openGraph: { type: "website", locale: "pl_PL", siteName: SITE_NAME, title: "Leczenie zębów w Turcji – Ceny, implanty i korony", description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.", url: SITE_URL },
+  openGraph: { type: "website", locale: "pl_PL", siteName: SITE_NAME, title: "Leczenie zębów w Turcji – Ceny, implanty i korony", description: "Leczenie zębów w Turcji dla pacjentów z Polski: ceny, implanty, korony i licówki oraz organizacja wyjazdu do Antalyi. Klinika operatora: Akdeniz Dental.", url: SITE_URL },
   twitter: { card: "summary_large_image", title: "Leczenie zębów w Turcji – Ceny, implanty i korony", description: "Koszty, leczenie i świadomy wybór kliniki w Turcji." },
   applicationName: SITE_NAME,
   category: "health"

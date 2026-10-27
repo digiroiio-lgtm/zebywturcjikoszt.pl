@@ -45,7 +45,7 @@ const processSteps = [
 
 export const metadata: Metadata = {
   title: { absolute: "Leczenie zębów w Turcji – Ceny, implanty i korony" },
-  description: "Poznaj ceny implantów, koron cyrkonowych i innych zabiegów w Turcji. Leczenie w klinice Akdeniz Dental w Antalyi. Zaplanuj wizytę i uzyskaj wycenę.",
+  description: "Leczenie zębów w Turcji dla pacjentów z Polski: ceny, implanty, korony i licówki oraz organizacja wyjazdu do Antalyi. Klinika operatora: Akdeniz Dental.",
   alternates: { canonical: "/", languages: { "pl-PL": "/" } }
 };
 
