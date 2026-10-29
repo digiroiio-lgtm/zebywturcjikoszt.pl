@@ -106,7 +106,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/licowki", label: "Koszt licówek", text: "Zobacz, od czego zależy zakres i cena leczenia estetycznego." },
     { href: "/cala-szczeka", label: "Cała szczęka", text: "Poznaj różne drogi pełnej odbudowy uzębienia." },
     { href: "/all-on-4", label: "All-on-4", text: "Sprawdź, dlaczego nazwa metody nie wystarcza do porównania ofert." },
-    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Policz leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." }
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Policz leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
+    { href: "/antalya", label: "Zęby w Turcji w Antalyi", text: "Plan wizyt, godziny kliniki i to, co ustalić przed wyjazdem." }
   ],
   implanty: [
     { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
@@ -136,7 +137,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/przed-i-po", label: "Przed i po", text: "Sprawdź zasady oceny materiałów wizualnych." },
     { href: "/koszt", label: "Porównanie wycen", text: "Nie oceniaj oferty tylko na podstawie opinii i ceny końcowej." },
     { href: "/poradniki/rankingi-klinik-dentystycznych-w-turcji", label: "Jak czytać rankingi klinik", text: "Kto tworzy rankingi, według jakich kryteriów i na czym zarabia." },
-    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
+    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." },
+    { href: "/antalya", label: "Zęby w Turcji w Antalyi", text: "Jak wygląda leczenie na miejscu: etapy, godziny kliniki i kontrola przed powrotem." }
   ],
   "przed-i-po": [
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Sprawdź także lekarza i plan leczenia." },

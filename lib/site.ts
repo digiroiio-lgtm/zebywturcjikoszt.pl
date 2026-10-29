@@ -3,8 +3,10 @@ import { OPERATOR } from "./operator";
 import { clinicCredentials, credentialsPublished } from "./credentials";
 import { legalPages } from "./legal-content";
 import { RATINGS_CHECKED_DATE, clinicProfiles } from "./clinic-profiles";
-import { languagesSummary } from "./clinic-hours";
+import { CLINIC_TIME_ZONE_NOTE, hoursSummary, languagesSummary, openingHours, serviceLanguages } from "./clinic-hours";
 
+const clinicOpenDays = openingHours.filter((row) => row.opens).reduce((sum, row) => sum + row.schema.length, 0);
+const clinicHoursPerDay = Math.max(...openingHours.map((row) => (row.opens && row.closes ? Number.parseInt(row.closes) - Number.parseInt(row.opens) : 0)));
 const pctOf = (part: number, whole: number) => `${Math.round((part / whole) * 100)}%`;
 const priceOf = (id: string) => priceById(id).eur;
 const costPct = (partId: string, wholeId: string) => pctOf(priceOf(partId), priceOf(wholeId));
@@ -340,8 +342,8 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Poproś o wstępną ocenę", ctaText: "Zapytaj o możliwości leczenia w Twoim przypadku", ctaEvent: "before_after_hero_cta", ctaHref: "/kontakt?lead_source=OGZ-PL&cta_location=before_after_hero&page_path=%2Fprzed-i-po"
   },
   antalya: {
-    slug: "antalya", title: "Leczenie zębów w Antalyi – plan wyjazdu i wizyt",
-    description: "Jak zaplanować leczenie zębów w Antalyi: dokumentacja, harmonogram wizyt, ubezpieczenie, umowa i zaliczka, podróż oraz opieka po powrocie.",
+    slug: "antalya", title: "Zęby w Turcji – Antalya: leczenie, plan wizyt i wyjazdu",
+    description: "Zęby w Turcji w Antalyi: plan leczenia i wizyt, dokumentacja, ubezpieczenie, umowa i zaliczka, godziny kliniki oraz opieka po powrocie do Polski.",
     eyebrow: "Kierunek: Antalya", h1: "Leczenie zębów w Antalyi",
     lead: "Podróż do Antalyi warto zaplanować wokół wizyt i zaleceń lekarza. Zwiedzanie powinno zejść na dalszy plan, jeśli wymaga tego leczenie.",
     answerTitle: "Jak wygląda leczenie zębów w Antalyi?",
@@ -353,6 +355,11 @@ export const pages: Record<string, PageContent> = {
         ["3. Leczenie", "Wykonanie etapów zaplanowanych przez lekarza", "Kolejność etapów, przerwy na gojenie i możliwy kolejny pobyt"],
         ["4. Kontrola i powrót", "Kontrola przed lotem, dokumentacja i zasady kontaktu po powrocie", "Kto odpowiada za pomoc po powrocie i jak zgłaszać problem"]
       ] } },
+      { title: "Zęby w Turcji w Antalyi: klinika, godziny i języki", paragraphs: [
+        `Antalya leży na południowym wybrzeżu Turcji, nad Morzem Śródziemnym. Klinika Akdeniz Dental, prowadzona przez operatora serwisu, przyjmuje pacjentów w Antalyi ${hoursSummary}. To ${clinicOpenDays} dni w tygodniu po ${clinicHoursPerDay} godzin, czyli ${clinicOpenDays * clinicHoursPerDay} godzin tygodniowo. Godziny pochodzą ze strony kliniki z 3 października 2026 (${CLINIC_TIME_ZONE_NOTE}).`,
+        `Turcja nie zmienia czasu, więc różnica do Polski wynosi 2 godziny zimą i 1 godzinę latem. Godzina 9:00 w Antalyi to 7:00 w Polsce zimą i 8:00 latem; uwzględnij to, umawiając rozmowę lub odpisując na wiadomość.`,
+        `Klinika podaje obsługę pacjentów w ${serviceLanguages.length} językach: ${languagesSummary}. Rozmowa po polsku z lekarzem to co innego niż pomoc koordynatora, dlatego zapytaj o to przed rezerwacją. Zespół lekarzy poznasz na stronie „Nasi lekarze”, a zakres i koszt leczenia opisuje strona o kosztach.`
+      ] },
       { title: "Przed wyjazdem", bullets: ["przekaż dokumentację bezpiecznym kanałem wskazanym przez organizatora", "uzyskaj pisemny zakres wstępnego planu i kosztów", "nie rezerwuj zbyt krótkiego pobytu bez potwierdzenia harmonogramu", "sprawdź ważność dokumentów podróży i aktualne zalecenia konsularne", "zostaw czas na kontrolę przed lotem powrotnym"] },
       { title: "Na miejscu", cards: [
         { title: "Badanie i potwierdzenie planu", text: "Wstępna propozycja może zmienić się po badaniu klinicznym i diagnostyce." },
@@ -367,6 +374,8 @@ export const pages: Record<string, PageContent> = {
       { title: "Plan rozmowy z kliniką przed rezerwacją lotu", bullets: ["zakres wstępnego planu i etapy, które mogą wymagać kolejnego pobytu", "kto prowadzi leczenie i kto będzie dostępny po Twoim wyjeździe", "jak wygląda przekazanie dokumentacji, zdjęć RTG i listy użytych materiałów", "co klinika uznaje za zdarzenie wymagające szybkiego kontaktu po powrocie", "jakie czynności muszą zostać wykonane przed lotem powrotnym"] }
     ],
     faq: [
+      { question: "Gdzie w Antalyi przyjmuje klinika Akdeniz Dental i w jakich godzinach?", answer: `Według strony kliniki przyjmuje pacjentów w Antalyi ${hoursSummary}. Dokładny adres, dojazd i termin pierwszej wizyty ustal w pisemnej ofercie.` },
+      { question: "Czy w Antalyi lekarz mówi po polsku?", answer: `Klinika podaje obsługę w językach: ${languagesSummary}. To nie oznacza, że każdy lekarz prowadzi rozmowę po polsku. Zapytaj przed rezerwacją, kto będzie rozmawiał z Tobą po polsku i na którym etapie leczenia.` },
       { question: "Ile trwa leczenie zębów w Turcji i ile dni zostać w Antalyi?", answer: "Nie podajemy jednej liczby bez zweryfikowanego planu. Czas zależy od rodzaju leczenia, etapów, gojenia i wymaganych kontroli, a niektóre plany mogą wymagać więcej niż jednego pobytu." },
       { question: "Czy hotel i transfer w Antalyi są wliczone w ofertę?", answer: "Nie zostało to potwierdzone dla aktualnej oferty. Hotel i transfer powinny być wyraźnie wymienione w pisemnej wycenie, jeśli są wliczone." },
       { question: "Czy EKUZ obowiązuje w Turcji?", answer: "Nie. EKUZ dotyczy świadczeń w państwach UE i EFTA, a Turcja do nich nie należy. Sprawdź w polisie podróżnej, czy obejmuje planowe leczenie stomatologiczne i powikłania." },
@@ -381,9 +390,10 @@ export const pages: Record<string, PageContent> = {
       { label: "Ministerstwo Spraw Zagranicznych RP: informacje dla podróżujących do Turcji", href: "https://www.gov.pl/web/turcja/informacje-dla-podrozujacych" },
       { label: "pacjent.gov.pl: leczenie za granicą", href: "https://pacjent.gov.pl/leczenie-za-granica" },
       { label: "NFZ: EKUZ obowiązuje w państwach UE i EFTA", href: "https://www.nfz.gov.pl/dla-pacjenta/nasze-zdrowie-w-ue/leczenie-w-krajach-unii-europejskiej-i-efta/wypoczynek-w-panstwach-czlonkowskich-ueefta-ekuz/" },
-      { label: "Europejskie Centrum Konsumenckie: wyjazd zorganizowany i prawa konsumenta", href: "https://konsument.gov.pl/wyjazd-zorganizowany-prawa-konsumenta/" }
+      { label: "Europejskie Centrum Konsumenckie: wyjazd zorganizowany i prawa konsumenta", href: "https://konsument.gov.pl/wyjazd-zorganizowany-prawa-konsumenta/" },
+      { label: "Wikipedia: Antalya", href: "https://en.wikipedia.org/wiki/Antalya" }
     ],
-    lastUpdated: "2026-10-17",
+    lastUpdated: "2026-10-29",
     ctaLabel: "Zapytaj o plan wyjazdu", ctaEvent: "antalya_cta"
   },
   "jak-wybrac-klinike": {
