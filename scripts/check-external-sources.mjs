@@ -1,8 +1,10 @@
 // Usage: node scripts/check-external-sources.mjs [--dry]
 // Collects every external link from the visible source lists of the built pages (.next/server/app) and checks that each still resolves.
+// A link with no HTTP response at all (timeout, connection reset) is reported as "unreachable from CI" and does not fail the job; 404/410/5xx and unknown hosts do.
 // Not part of `npm run verify`: it needs network access and external sites can be flaky. Run it weekly (see .github/workflows/maintenance.yml).
-import { readdir, readFile } from "node:fs/promises";
+import { appendFile, readdir, readFile } from "node:fs/promises";
 import path from "node:path";
+import { checkUrl, classify } from "./source-link-status.mjs";
 
 const dry = process.argv.includes("--dry");
 const root = path.join(process.cwd(), ".next", "server", "app");
@@ -28,20 +30,19 @@ console.log(`${links.size} external source link(s) on ${new Set([...links.values
 if (dry) { for (const [url, pages] of links) console.log(`${url}  <- ${pages.join(", ")}`); process.exit(0); }
 
 const failures = [];
+const unreachable = [];
 for (const [url, pages] of links) {
-  let status = 0;
-  for (const method of ["HEAD", "GET"]) {
-    try {
-      const response = await fetch(url, { method, redirect: "follow", headers: { "User-Agent": "Mozilla/5.0 (compatible; source-check/1.0)" }, signal: AbortSignal.timeout(20000) });
-      status = response.status;
-      if (response.ok) break;
-    } catch { status = 0; }
-  }
-  const ok = status >= 200 && status < 400;
-  // 401/403/429 usually mean bot protection, not a dead link: report as a warning.
-  const warn = [401, 403, 429].includes(status);
-  console.log(`${ok ? "OK  " : warn ? "WARN" : "FAIL"}  ${status}  ${url}`);
-  if (!ok && !warn) failures.push(`${url} (${status || "no response"}) used on ${pages.join(", ")}`);
+  const { status, errorCode } = await checkUrl(url);
+  const kind = classify(status, errorCode);
+  const label = { ok: "OK  ", warn: "WARN", unreachable: "WARN", fail: "FAIL" }[kind];
+  console.log(`${label}  ${status}  ${url}${errorCode ? `  (${errorCode})` : ""}`);
+  if (kind === "fail") failures.push(`${url} (${status || errorCode || "no response"}) used on ${pages.join(", ")}`);
+  if (kind === "unreachable") unreachable.push(`${url} (${errorCode || "no response"}) used on ${pages.join(", ")}`);
+}
+if (unreachable.length) {
+  const note = `${unreachable.length} link(s) unreachable from this runner (no HTTP response; the host may block CI). Open them in a browser to confirm they still work:\n- ${unreachable.join("\n- ")}`;
+  console.warn(`\n${note}`);
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `### Source links unreachable from CI\n\n${unreachable.map((item) => `- ${item}`).join("\n")}\n`);
 }
 if (failures.length) { console.error(`\n${failures.length} broken source link(s):\n- ${failures.join("\n- ")}`); process.exit(1); }
-console.log("\nAll external source links resolved.");
+console.log(`\nNo broken source links${unreachable.length ? ` (${unreachable.length} unreachable from CI, see above)` : ": all resolved"}.`);
