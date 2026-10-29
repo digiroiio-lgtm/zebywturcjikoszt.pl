@@ -50,6 +50,15 @@ export const directoryListings: DirectoryListing[] = [
     notes: "URL supplied by the owner on 2026-10-30, who confirmed name, address and phone against the live page; Claude could not open it (no network access). Official registry page of the Antalya Provincial Health Directorate for the facility Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği. Record licence or authorisation details in lib/credentials.ts only from the page itself."
   },
   {
+    id: "getclinicturkey",
+    name: "GetClinicTurkey: Akdeniz Dental Clinic (porównywarka klinik)",
+    url: "https://getclinicturkey.com/clinic/akdeniz-dental-antalya/",
+    kind: "health-tourism-directory",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "Opened by the owner on 2026-10-30 (screenshots). The comparison site shows the clinic name, the address in the same form as lib/clinic-facts.ts, Mon-Sat 09:00-19:00 and 2 languages (English, Turkish). It states that the facility is on the Ministry of Health list of facilities holding an international health tourism authorisation certificate (22 October 2026 list, checked by the site on 26 October 2026). That is a third-party statement: it is NOT recorded as a credential until the owner opens the Ministry list itself and confirms the entry. The prices on that profile are the site's own planning ranges, not the clinic's."
+  },
+  {
     id: "facebook",
     name: "Facebook: Akdeniz Dental Clinic",
     url: "https://www.facebook.com/akdenizdentalclinic/",
