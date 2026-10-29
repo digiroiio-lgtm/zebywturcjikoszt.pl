@@ -1,18 +1,18 @@
 {
   "/all-on-4": {
-    "hash": "66e8af94e9187144",
+    "hash": "0d55ed08c88636f1",
     "lastmod": "2026-10-02"
   },
   "/antalya": {
-    "hash": "56496c3a1bf833ce",
+    "hash": "fd4a5df045cbd141",
     "lastmod": "2026-10-17"
   },
   "/cala-szczeka": {
-    "hash": "7194c3a78d810cd9",
+    "hash": "d78c14f037e10485",
     "lastmod": "2026-10-02"
   },
   "/cookies": {
-    "hash": "62c7d7fad8af1413",
+    "hash": "0f71270a3c19fc4a",
     "lastmod": "2026-10-17"
   },
   "/eksperci/mehmet-onur-merey": {
@@ -28,139 +28,143 @@
     "lastmod": "2026-09-30"
   },
   "/implanty": {
-    "hash": "fb673a715c79eeeb",
+    "hash": "5321fc97623e2ef5",
     "lastmod": "2026-09-30"
   },
   "/": {
-    "hash": "765538dc36707f96",
+    "hash": "a673a3152eb7a5b3",
     "lastmod": "2026-10-17"
   },
   "/jak-wybrac-klinike": {
-    "hash": "43b67a3d88935889",
+    "hash": "3d5f1f713e46eb47",
     "lastmod": "2026-10-17"
   },
   "/kontakt": {
-    "hash": "77a2bfc15bb8bd94",
+    "hash": "6eba4a24203a890a",
     "lastmod": "2026-10-02"
   },
   "/korekty": {
-    "hash": "0919a4d598b9edd7",
+    "hash": "c6e51968ac9de0b2",
     "lastmod": "2026-10-02"
   },
   "/korony-cyrkonowe": {
-    "hash": "2ae6344e76ad9d97",
+    "hash": "87ed1f3b63edc45b",
     "lastmod": "2026-09-30"
   },
   "/koszt": {
-    "hash": "45ddb434456f1415",
+    "hash": "128a4869974690e5",
     "lastmod": "2026-10-17"
   },
   "/licowki": {
-    "hash": "663c9e812ab4550b",
+    "hash": "e35739004a6b6dd2",
     "lastmod": "2026-09-30"
   },
   "/listy-kontrolne": {
-    "hash": "f3912796f18e8c4a",
+    "hash": "1dd72ddbe8eee4ee",
     "lastmod": "2026-10-02"
   },
   "/metodologia": {
-    "hash": "b30937c89f0ac90f",
+    "hash": "7ad0d743af8681c9",
     "lastmod": "2026-10-02"
   },
   "/nasi-lekarze": {
     "hash": "75e8317da0fa8125",
     "lastmod": "2026-09-30"
   },
+  "/nasz-zespol": {
+    "hash": "7a9ce6791f152f7f",
+    "lastmod": "2026-10-17"
+  },
   "/o-nas": {
-    "hash": "89c345384758b88c",
+    "hash": "16fdb4b80aecc0dc",
     "lastmod": "2026-10-02"
   },
   "/opinie": {
-    "hash": "a7892dce5eac89ec",
-    "lastmod": "2026-10-27"
+    "hash": "77a6042e09a8075c",
+    "lastmod": "2026-10-17"
   },
   "/polityka-prywatnosci": {
-    "hash": "38d34ad1dfd80c29",
+    "hash": "dbe1dc8bbc3d477d",
     "lastmod": "2026-10-17"
   },
   "/polityka-redakcyjna": {
-    "hash": "5249eba0247c4260",
+    "hash": "525be0674654b19c",
     "lastmod": "2026-10-02"
   },
   "/poradniki/calkowity-koszt-wyjazdu": {
-    "hash": "130869b2d5e0ac4a",
-    "lastmod": "2026-09-30"
+    "hash": "6c2dc929eb60d048",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/leczenie-zebow-w-turcji": {
-    "hash": "22c49c329213bd53",
-    "lastmod": "2026-09-30"
+    "hash": "0d555f264d723bf2",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/licowki-czy-korony": {
-    "hash": "c9516abace4d4c31",
-    "lastmod": "2026-09-30"
+    "hash": "abc0c8d93dd20ff8",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/opieka-po-leczeniu": {
-    "hash": "310458739cc62f8c",
-    "lastmod": "2026-09-30"
+    "hash": "34d41ddf1048f00a",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/pakiety-leczenia-zebow": {
-    "hash": "d6d64c490e1a18a4",
-    "lastmod": "2026-09-30"
+    "hash": "0ffd7396bb750745",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/rankingi-klinik-dentystycznych-w-turcji": {
-    "hash": "e8b7197856b7b54c",
-    "lastmod": "2026-10-03"
+    "hash": "9bc2bccae1d1e7b9",
+    "lastmod": "2026-10-17"
   },
   "/poradniki/tureckie-zeby": {
-    "hash": "4b99b45beb8f6955",
-    "lastmod": "2026-10-03"
+    "hash": "098873788bf41c69",
+    "lastmod": "2026-10-17"
   },
   "/poradniki": {
-    "hash": "29796a60e174efe0",
-    "lastmod": "2026-10-03"
+    "hash": "dc8ef0cff83434cb",
+    "lastmod": "2026-10-17"
   },
   "/przed-i-po": {
-    "hash": "8476c50d799b51e0",
+    "hash": "2cacf3f099c18dc3",
     "lastmod": "2026-10-17"
   },
   "/pytania-i-odpowiedzi": {
-    "hash": "3113ba0be98ae52c",
-    "lastmod": "2026-09-30"
+    "hash": "1dfa4303ddf9a62b",
+    "lastmod": "2026-10-17"
   },
   "/regulamin": {
-    "hash": "eb219b02a9e01f23",
+    "hash": "a41617299fea2e08",
     "lastmod": "2026-10-02"
   },
   "/reklamacje": {
-    "hash": "5128df4a3be46ef9",
+    "hash": "dcd1fbf688effaf4",
     "lastmod": "2026-10-02"
   },
   "/uk/ceny-leczenia-zebow-w-turcji-w-funtach": {
-    "hash": "11870f9d20a87916",
+    "hash": "771bb8b917c722bb",
+    "lastmod": "2026-10-17"
+  },
+  "/uk/finansowanie-leczenia-zebow-w-turcji": {
+    "hash": "c19dade2d9ece151",
     "lastmod": "2026-10-17"
   },
   "/uk/jak-zaplacic-za-leczenie-zebow-w-turcji": {
-    "hash": "d7f0b5e6891667f1",
-    "lastmod": "2026-10-17"
-  },
-  "/uk": {
-    "hash": "f14b726b91967fa7",
-    "lastmod": "2026-10-03"
-  },
-  "/weryfikacja-medyczna": {
-    "hash": "11b76835fcb16567",
-    "lastmod": "2026-10-02"
-  },
-  "/wlasciciel-serwisu": {
-    "hash": "b5739f80ed4d910f",
-    "lastmod": "2026-10-02"
-  },
-  "/uk/finansowanie-leczenia-zebow-w-turcji": {
-    "hash": "a62d06e90fdb879f",
+    "hash": "a6b76e6a35670df8",
     "lastmod": "2026-10-17"
   },
   "/uk/szkocja": {
-    "hash": "3583c7605e41dce0",
+    "hash": "b5ec5f796d0fc7a8",
     "lastmod": "2026-10-17"
+  },
+  "/uk": {
+    "hash": "d1505b76fd1b34b6",
+    "lastmod": "2026-10-17"
+  },
+  "/weryfikacja-medyczna": {
+    "hash": "f34ee2395209a4a7",
+    "lastmod": "2026-10-02"
+  },
+  "/wlasciciel-serwisu": {
+    "hash": "d45b5683088381db",
+    "lastmod": "2026-10-02"
   }
 }

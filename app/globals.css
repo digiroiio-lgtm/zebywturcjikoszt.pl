@@ -43,6 +43,7 @@ h1,h2,h3 { margin-top:0; line-height:1.13; letter-spacing:-.025em; }
 h1 { max-width:830px; margin-bottom:24px; font-family:Georgia,'Times New Roman',serif; font-size:clamp(42px,6vw,72px); font-weight:500; }
 h2 { font-family:Georgia,'Times New Roman',serif; font-size:clamp(30px,4vw,44px); font-weight:500; }
 h3 { font-size:19px; }
+.card-title { margin-top:0; font-size:19px; font-weight:700; line-height:1.13; letter-spacing:-.025em; }
 .hero-lead,.lead { max-width:720px; color:var(--muted); font-size:clamp(18px,2.2vw,22px); }
 .hero-lead { margin-bottom:30px; }
 .hero-partner { margin:0 0 24px; color:var(--ink); font-size:18px; font-weight:800; }
@@ -68,7 +69,7 @@ main:has(.home-hero) .closing-cta a:focus-visible { outline-color:white; }
 .treatment-visual { position:relative; overflow:hidden; margin-bottom:22px; border-radius:12px; background:var(--mint); }
 .treatment-visual>span { position:absolute; z-index:1; top:12px; left:12px; padding:4px 8px; border-radius:6px; background:rgba(255,255,255,.9); }
 .treatment-visual img { display:block; width:100%; height:auto; }
-.treatment-card h3 { margin:0 0 12px; font-size:24px; }
+.treatment-card h3,.treatment-card .card-title { margin:0 0 12px; font-size:24px; }
 .treatment-card p { min-height:75px; color:var(--muted); }
 .treatment-card b { color:var(--green-dark); font-size:14px; }
 .home-travel-card { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:32px; align-items:center; min-height:0; }
@@ -186,7 +187,7 @@ body:has(.case-lead-dialog[open]),body:has(.campaign-dialog[open]) { overflow:hi
 .check-list li::before { content:'✓'; position:absolute; left:17px; top:14px; width:21px; height:21px; display:grid; place-items:center; border-radius:50%; background:var(--mint); color:var(--green-dark); font-weight:900; }
 .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .info-card { padding:24px; border:1px solid var(--line); border-radius:12px; background:white; }
-.info-card h3 { margin-bottom:9px; }
+.info-card h3,.info-card .card-title { margin-bottom:9px; }
 .info-card p { margin:0; color:var(--muted); }
 .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
 table { width:100%; border-collapse:collapse; background:white; font-size:14px; }
@@ -245,7 +246,7 @@ tr:last-child td { border-bottom:0; }
 .price-highlight-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-bottom:28px; }
 .price-highlight-card { display:grid; gap:8px; padding:28px; border:1px solid var(--line); border-radius:16px; background:white; text-decoration:none; }
 .price-highlight-card:hover { border-color:var(--green); }
-.price-highlight-card h3 { min-height:44px; margin-bottom:12px; }
+.price-highlight-card h3,.price-highlight-card .card-title { min-height:44px; margin-bottom:12px; }
 .price-highlight-card strong { font-size:30px; line-height:1.2; }
 .price-highlight-card span { color:var(--green-dark); font-size:20px; font-weight:800; }
 .lead-form { max-width:720px; margin-inline:auto; padding:32px; border:0; border-radius:16px; background:#f8fafc; color:#111827; }
@@ -328,7 +329,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 }
 @media (max-width:760px) {
   .price-highlight-grid { grid-template-columns:1fr; }
-  .price-highlight-card h3 { min-height:0; }
+  .price-highlight-card h3,.price-highlight-card .card-title { min-height:0; }
   .pricing-table th,.pricing-table td { padding:12px 8px; font-size:12px; }
   .pricing-table td { white-space:normal; min-width:80px; }
   body:has(.mobile-assessment-bar) { padding-bottom:calc(84px + env(safe-area-inset-bottom,0px)); }
@@ -358,7 +359,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .shell { width:min(100% - 28px,1180px); } .site-header .button-small { display:none; } .mobile-menu { margin-left:auto; } .home-hero { padding-block:58px; }
   .hero-grid,.section-heading,.split-section { grid-template-columns:1fr; gap:34px; } h1 { font-size:42px; } .treatment-grid,.decision-grid,.case-grid,.case-grid-featured { grid-template-columns:1fr; }
   .home-travel-card { grid-template-columns:1fr; gap:0; }
-  .section-space,.soft-section { padding-block:65px; } .treatment-card { min-height:auto; } .treatment-card h3 { margin-top:25px; } .treatment-card p { min-height:auto; }
+  .section-space,.soft-section { padding-block:65px; } .treatment-card { min-height:auto; } .treatment-card h3,.treatment-card .card-title { margin-top:25px; } .treatment-card p { min-height:auto; }
   .content-layout { padding-block:48px 70px; } .cards,.form-grid,.related-grid,.visual-guide,.context-image-panel { grid-template-columns:1fr; } .form-grid .full { grid-column:auto; }
   .visual-proof-actions,.case-cta { align-items:stretch; flex-direction:column; } .visual-proof-actions .button,.case-cta .button { width:100%; } .case-card figcaption { padding:11px 13px 13px; }
   .case-lead-dialog { width:100%; max-width:none; max-height:92dvh; margin:auto 0 0; border-radius:18px 18px 0 0; } .case-lead-dialog-inner { max-height:92dvh; padding:28px 18px 24px; } .case-lead-dialog h2 { font-size:30px; } .dialog-intro { margin-right:38px; } .case-lead-dialog .lead-form { padding:0; }
@@ -454,7 +455,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .shorts-play:hover svg { transform:scale(1.08); }
 .shorts-play:focus-visible { outline:3px solid #ffffff; outline-offset:-6px; border-radius:20px; }
 .shorts-caption { padding:16px 4px 0; }
-.shorts-caption h3 { margin:0 0 6px; font-size:18px; line-height:1.3; }
+.shorts-caption h3,.shorts-caption .card-title { margin:0 0 6px; font-size:18px; line-height:1.3; }
 .shorts-caption p { margin:0 0 10px; color:var(--muted); font-size:14px; }
 .shorts-nav { display:none; }
 .shorts-note { max-width:760px; margin:26px 0 0; color:var(--muted); font-size:13px; }
@@ -484,7 +485,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-model-frame { position:relative; aspect-ratio:4/5; border-radius:26px; box-shadow:0 26px 60px rgba(179,18,42,.22),0 8px 22px rgba(22,18,19,.14); }
 .home-model-frame::before { content:""; position:absolute; inset:-14px; z-index:-1; border-radius:36px; background:linear-gradient(140deg,rgba(220,33,60,.32),rgba(123,31,162,.28)); filter:blur(22px); }
 .home-model-main { display:block; width:100%; height:100%; object-fit:cover; border-radius:26px; transition:transform .6s ease; }
-.home-model-mobile { display:none; }
+
 .home-model-card { position:absolute; width:34%; height:auto; aspect-ratio:4/5; object-fit:cover; border:4px solid white; border-radius:16px; box-shadow:0 12px 28px rgba(22,18,19,.28); }
 .home-model-card-top { top:7%; right:-9%; }
 .home-model-card-bottom { bottom:11%; left:-9%; }
@@ -509,7 +510,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-doctor-card img { display:block; width:100%; height:175px; object-fit:cover; object-position:center 22%; border-radius:10px; }
 .home-doctor-card>div:not(.home-doctor-photo) { display:flex; flex:1; flex-direction:column; min-width:0; padding-top:12px; }
 .home-doctor-card .mini-label { font-size:10px; letter-spacing:.08em; margin-bottom:5px; }
-.home-doctor-card h3 { margin-bottom:7px; font-size:18px; font-weight:600; line-height:1.3; overflow-wrap:break-word; }
+.home-doctor-card h3,.home-doctor-card .card-title { margin-bottom:7px; font-size:18px; font-weight:600; line-height:1.3; overflow-wrap:break-word; }
 .home-doctor-card .home-doctor-area { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.45; }
 .home-doctor-card .text-link { margin-top:auto; padding-block:4px; font-size:13px; }
 .home-partner-clinic>.microcopy { margin:20px 0 0; max-width:none; font-size:12px; }
@@ -523,8 +524,8 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .home-hero .hero-grid { gap:28px; }
   .home-identity-strip>.shell { grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 16px; }
   .home-clinic-hero img { aspect-ratio:6/5; }
-  .home-model-main,.home-model-card { display:none; }
-  .home-model-mobile { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 28%; border-radius:20px; box-shadow:0 14px 34px rgba(179,18,42,.2); }
+  .home-model-card { display:none; }
+  .home-model-main { display:block; width:100%; height:auto; aspect-ratio:1/1; object-fit:cover; object-position:center 28%; border-radius:20px; box-shadow:0 14px 34px rgba(179,18,42,.2); }
   .home-model-frame { aspect-ratio:auto; box-shadow:none; }
   .home-model-frame::before { display:none; }
   .home-model-hero figcaption { margin-top:12px; }
@@ -569,7 +570,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .home-doctor-grid { gap:14px; }
   .home-doctor-card { padding:12px; }
   .home-doctor-card img { height:160px; }
-  .home-doctor-card h3 { font-size:16px; }
+  .home-doctor-card h3,.home-doctor-card .card-title { font-size:16px; }
   .home-doctor-card .home-doctor-area { font-size:12px; }
   .home-doctor-card .text-link { font-size:12px; }
   .home-partner-clinic>.button-row { gap:12px 18px; }
@@ -652,7 +653,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .polish-review-copy summary { color:var(--green-dark); cursor:pointer; font-size:14px; }
 .polish-review-copy details blockquote { margin-top:12px; }
 .polish-review-author { margin-top:auto; }
-.polish-review-author h3 { margin:0 0 5px; font-size:17px; line-height:1.35; overflow-wrap:anywhere; }
+.polish-review-author h3,.polish-review-author .card-title { margin:0 0 5px; font-size:17px; line-height:1.35; overflow-wrap:anywhere; }
 .polish-review-author p { margin:0 0 16px; color:var(--muted); font-size:13px; }
 .polish-review-card>a { font-size:13px; }
 .polish-reviews-controls { display:flex; justify-content:flex-end; gap:10px; margin-top:8px; }
@@ -737,7 +738,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
   .price-highlights .section-heading>p { font-size:12px; line-height:1.4; }
   .price-highlight-grid { gap:6px; margin-bottom:10px; }
   .price-highlight-card { display:flex; align-items:baseline; justify-content:space-between; gap:8px; min-height:44px; padding:10px 12px; border-radius:10px; }
-  .price-highlight-card h3 { flex:1 1 auto; min-width:0; margin:0; font-size:15px; line-height:1.25; }
+  .price-highlight-card h3,.price-highlight-card .card-title { flex:1 1 auto; min-width:0; margin:0; font-size:15px; line-height:1.25; }
   .price-highlight-card strong { flex:none; font-size:15px; line-height:1.25; white-space:nowrap; }
   .price-highlight-card span { flex:none; font-size:14px; white-space:nowrap; }
   .price-highlights>.text-link { display:none; } /* same target (/koszt#cennik) as the link inside the budget note below */
@@ -767,7 +768,7 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .treatment-card-quote { display:inline-block; margin-top:14px; font-weight:800; }
 .process-steps { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin:0; padding:0; list-style:none; }
 .process-step { padding:22px; border:1px solid var(--line); border-radius:16px; background:white; }
-.process-step h3 { margin:6px 0 8px; font-size:19px; }
+.process-step h3,.process-step .card-title { margin:6px 0 8px; font-size:19px; }
 .process-step p { color:var(--muted); font-size:14px; }
 .home-process-note { max-width:760px; margin:20px 0; color:var(--muted); font-size:13px; }
 .home-lead-section { padding:72px 0; }
@@ -867,3 +868,4 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 /* The closing-CTA paragraph colour is meant for the dark band, not for the light form card inside it (contrast 1.5:1). */
 .closing-cta .lead-form .consultation-intro,.closing-cta .lead-form .form-assurance,.closing-cta .lead-form .form-assurance p { color:#4b5563; }
 .closing-cta .lead-form .form-assurance-facts,.closing-cta .lead-form .form-privacy { color:#6b7280; }
+.page-updated { margin:10px 0 0; color:var(--muted); font-size:14px; }

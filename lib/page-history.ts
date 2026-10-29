@@ -3,6 +3,7 @@ export type HistoryEntry = { date: string; note: string };
 /** Public change history per page. Add an entry whenever a page changes materially; entries must describe real changes. */
 export const pageHistory: Record<string, HistoryEntry[]> = {
   koszt: [
+    { date: "2026-10-29", note: "Dodano sekcje z porównaniem cen pozycji w procentach i rozkładem cennika, cytat lekarza oraz źródła zewnętrzne (FDA, NHS, ADA, Wikipedia)." },
     { date: "2026-10-03", note: "Dodano pytania o ceny dodatkowych zabiegów z cennika kliniki: leczenie kanałowe, wybielanie, wypełnienie, sedacja i znieczulenie, zatoka i kość, usunięcie zęba, higienizacja i dziąsła." },
     { date: "2026-10-03", note: "Dodano sekcję i pytania o opłacalność leczenia w Turcji w porównaniu z Polską, bez cen z Polski." },
     { date: "2026-10-02", note: "Dodano sekcję o zaliczce i warunkach płatności oraz źródło (UOKiK)." },
@@ -19,7 +20,7 @@ export const pageHistory: Record<string, HistoryEntry[]> = {
   "poradniki/rankingi-klinik-dentystycznych-w-turcji": [{ date: "2026-10-03", note: "Opublikowano poradnik o tym, jak powstają rankingi klinik i jak je czytać." }],
   "poradniki/tureckie-zeby": [{ date: "2026-10-03", note: "Opublikowano poradnik o tym, czym są „tureckie zęby”, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }],
   "uk/ceny-leczenia-zebow-w-turcji-w-funtach": [{ date: "2026-10-17", note: "Zaktualizowano kurs EUR/GBP do 0,84 (odczyt właściciela serwisu z 17 października 2026, 22:09 UTC) i przeliczone kwoty w funtach." }, { date: "2026-10-03", note: "Opublikowano przeliczenie wybranych pozycji cennika na funty po kursie 0,85 z dnia 3 października 2026 (Yahoo Finance, odczyt właściciela serwisu)." }],
-  uk: [{ date: "2026-10-03", note: "Opublikowano sekcję dla Polaków mieszkających w UK: GHIC i polisa, waluta płatności, kontrola po powrocie." }],
+  uk: [{ date: "2026-10-17", note: "Uzupełniono spis podstron sekcji o dwie nowe pozycje." }, { date: "2026-10-03", note: "Opublikowano sekcję dla Polaków mieszkających w UK: GHIC i polisa, waluta płatności, kontrola po powrocie." }],
   "uk/szkocja": [{ date: "2026-10-17", note: "Opublikowano przewodnik dla Polaków w Szkocji: podróż, dwa pobyty, ceny w funtach, NHS Scotland i kontrola po powrocie; dane o Aberdeen według urzędu miejskiego." }],
   "uk/finansowanie-leczenia-zebow-w-turcji": [{ date: "2026-10-17", note: "Opublikowano neutralną stronę o finansowaniu przez partnera: bez kwot, oprocentowania i rat, z pytaniami do pożyczkodawcy i ostrzeżeniami o ryzyku." }],
   "uk/jak-zaplacic-za-leczenie-zebow-w-turcji": [{ date: "2026-10-17", note: "Doprecyzowano rolę serwisu w finansowaniu (serwis nie jest pożyczkodawcą) i dodano odnośnik do strony o finansowaniu." }, { date: "2026-10-03", note: "Opublikowano poradnik o sposobach płatności i ich ryzykach; serwis nie oferuje ani nie pośredniczy w kredytach." }],

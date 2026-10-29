@@ -1,9 +1,15 @@
-import { formatEur, formatPln, priceById, priceItems, PRICING_UPDATED_ISO_DATE } from "./pricing";
+import { formatEur, formatPln, priceById, priceCategories, priceItems, PRICING_UPDATED_DATE, PRICING_UPDATED_ISO_DATE } from "./pricing";
 import { OPERATOR } from "./operator";
 import { clinicCredentials, credentialsPublished } from "./credentials";
 import { legalPages } from "./legal-content";
 import { RATINGS_CHECKED_DATE, clinicProfiles } from "./clinic-profiles";
 import { languagesSummary } from "./clinic-hours";
+
+const pctOf = (part: number, whole: number) => `${Math.round((part / whole) * 100)}%`;
+const priceOf = (id: string) => priceById(id).eur;
+const costPct = (partId: string, wholeId: string) => pctOf(priceOf(partId), priceOf(wholeId));
+const diffPct = (higherId: string, lowerId: string) => pctOf(priceOf(higherId) - priceOf(lowerId), priceOf(lowerId));
+const categoryShare = (id: string) => pctOf(priceCategories.find((category) => category.id === id)!.ids.length, priceItems.length);
 
 export const SITE_NAME = "Zęby w Turcji";
 const FALLBACK_SITE_URL = "https://leczeniezebowwturcji.pl";
@@ -53,7 +59,7 @@ const googleProfile = clinicProfiles.find((profile) => profile.key === "google-m
 
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: "2026-10-17",
+    lastUpdated: "2026-10-29",
     slug: "koszt",
     title: "Zęby w Turcji – ceny i koszty leczenia",
     description: `Zęby w Turcji cena i koszt zrobienia zębów: cennik ${priceItems.length} zabiegów w EUR i PLN (implanty, korony, licówki), z datą i kursem. Aktualizacja: 30.09.2026.`,
@@ -96,6 +102,15 @@ export const pages: Record<string, PageContent> = {
         ["Rozległe braki lub zniszczenie uzębienia", "Cała szczęka", "wariant leczenia, liczba etapów, odbudowa tymczasowa i docelowa"],
         ["Bezzębie i kwalifikacja do stałej odbudowy", "All-on-4", "diagnostyka, warunki anatomiczne, system implantów i rodzaj pracy"]
       ]}},
+      { title: "Porównanie cen pozycji w procentach", paragraphs: [
+        `Różnice między pozycjami cennika kliniki z ${PRICING_UPDATED_DATE} łatwiej ocenić w procentach niż w kwotach. Implant Straumann (${formatEur(priceOf("straumann"))}) kosztuje o ${diffPct("straumann", "aiser")} więcej niż implant Aiser (${formatEur(priceOf("aiser"))}), czyli Aiser jest o ${pctOf(priceOf("straumann") - priceOf("aiser"), priceOf("straumann"))} tańszy. Implant Medentika kosztuje tyle samo co Aiser. Sam implant to jednak tylko część planu: odbudowa kości (${formatEur(priceOf("bone-graft"))}) to ${costPct("bone-graft", "aiser")} ceny implantu Aiser, a podniesienie dna zatoki (${formatEur(priceOf("sinus-lift"))}) to ${costPct("sinus-lift", "aiser")} tej ceny. Oba zabiegi razem dodają ${pctOf(priceOf("bone-graft") + priceOf("sinus-lift"), priceOf("aiser"))} ceny implantu, ale tylko wtedy, gdy lekarz uzna je za potrzebne.`,
+        `Wśród odbudów estetycznych odbudowa E-max (${formatEur(priceOf("emax"))}) kosztuje o ${diffPct("emax", "composite-veneer")} więcej niż licówka kompozytowa (${formatEur(priceOf("composite-veneer"))}), a korona cyrkonowa (${formatEur(priceOf("zirconia-crown"))}) jest o ${pctOf(priceOf("emax") - priceOf("zirconia-crown"), priceOf("emax"))} tańsza od E-max. Pozycja „Veneer kuron” (${formatEur(priceOf("veneer-crown"))}) kosztuje o ${diffPct("veneer-crown", "composite-veneer")} więcej niż licówka kompozytowa. Suma implantu Straumann z jedną koroną cyrkonową (${formatEur(priceOf("straumann") + priceOf("zirconia-crown"))}) jest o ${pctOf(priceOf("straumann") - priceOf("aiser"), priceOf("aiser") + priceOf("zirconia-crown"))} wyższa niż suma implantu Aiser z jedną koroną (${formatEur(priceOf("aiser") + priceOf("zirconia-crown"))}). Porównanie dotyczy kwot z cennika, nie jakości ani wskazań do leczenia.`,
+        `W zabiegach dodatkowych sedacja (${formatEur(priceOf("sedation"))}) kosztuje o ${pctOf(priceOf("general-anesthesia") - priceOf("sedation"), priceOf("general-anesthesia"))} mniej niż znieczulenie ogólne (${formatEur(priceOf("general-anesthesia"))}), a powtórne leczenie kanałowe (${formatEur(priceOf("retreatment"))}) o ${diffPct("retreatment", "root-canal")} więcej niż leczenie kanałowe zęba jednokorzeniowego (${formatEur(priceOf("root-canal"))}). Skomplikowane usunięcie zęba (${formatEur(priceOf("complicated-extraction"))}) jest o ${diffPct("complicated-extraction", "extraction")} droższe od zwykłej ekstrakcji (${formatEur(priceOf("extraction"))}). Implant jarzmowy (${formatEur(priceOf("zygoma"))}) kosztuje o ${diffPct("zygoma", "straumann")} więcej niż implant Straumann. O wyborze zabiegu i metody znieczulenia decyduje lekarz po badaniu, a nie różnica w cenie.`
+      ]},
+      { title: "Jak rozkłada się cennik kliniki", paragraphs: [
+        `Cennik liczy ${priceItems.length} pozycji. Największa kategoria, implanty i chirurgia, to ${categoryShare("implanty-chirurgia")} pozycji, korony, licówki i odbudowy to ${categoryShare("korony-licowki")}, leczenie zębów i dziąseł ${categoryShare("leczenie-dziasel")}, higiena i estetyka ${categoryShare("higiena-estetyka")}, a sedacja i znieczulenie ${categoryShare("znieczulenie")}. Procenty zaokrąglono do pełnych liczb, więc ich suma może odbiegać od 100%.`,
+        `Pozycje do ${formatEur(100)} włącznie to ${pctOf(priceItems.filter((item) => item.eur <= 100).length, priceItems.length)} cennika (${priceItems.filter((item) => item.eur <= 100).length} z ${priceItems.length}), a pozycje od ${formatEur(1000)} w górę to ${pctOf(priceItems.filter((item) => item.eur >= 1000).length, priceItems.length)} (${priceItems.filter((item) => item.eur >= 1000).length} z ${priceItems.length}). Pozycja najdroższa (${formatEur(Math.max(...priceItems.map((item) => item.eur)))}) kosztuje ${(Math.max(...priceItems.map((item) => item.eur)) / Math.min(...priceItems.map((item) => item.eur))).toFixed(1).replace(".", ",")} raza więcej niż najtańsza (${formatEur(Math.min(...priceItems.map((item) => item.eur)))}), dlatego o koszcie całego leczenia decyduje zakres planu, a nie jedna kwota.`
+      ]},
       { title: "Zaliczka i warunki płatności", paragraphs: ["Przed wpłatą ustal na piśmie, czy płacisz zaliczkę, czy zadatek. Według UOKiK zaliczka jest wpłaconą wcześniej częścią ceny i podlega zwrotowi, gdy rezygnujesz z usługi, a zadatek w razie rezygnacji konsumenta może zostać zatrzymany przez wykonawcę. Zaliczka i zadatek nie mogą odpowiadać 100 proc. wynagrodzenia za usługę.", "Zapytaj także, na jaki zakres leczenia lub etap przeznaczona jest wpłata i kiedy można ją odzyskać po zmianie planu po badaniu klinicznym."] },
       { title: "Czy w Turcji opłaca się robić zęby? Turcja czy Polska", paragraphs: ["Odpowiedź zależy od całkowitego kosztu i ryzyka, a nie od ceny samego zabiegu. Cena pozycji w Turcji to tylko część rachunku.", "Porównanie z leczeniem w Polsce powinno obejmować po obu stronach: leczenie i diagnostykę, przejazdy i nocleg, liczbę wizyt i ewentualny drugi wyjazd, kontrole oraz koszt możliwej korekty. Niższa cena nie przesądza o tym, że dana opcja jest odpowiednia klinicznie.", "Nie publikujemy cen leczenia w Polsce ani procentu oszczędności, bo nie mamy zweryfikowanego źródła takich danych. Poproś o pisemne wyceny w Polsce i w Turcji dla tego samego zakresu leczenia i porównaj całość. Sposób liczenia budżetu wyjazdu opisuje poradnik o całkowitym koszcie."] }
     ],
@@ -114,7 +129,14 @@ export const pages: Record<string, PageContent> = {
       { question: "Ile kosztuje usunięcie zęba lub ósemki w Turcji?", answer: `Cennik kliniki podaje skomplikowane usunięcie zęba za ${formatEur(priceById("complicated-extraction").eur)} (około ${formatPln(priceById("complicated-extraction").eur)}). Zwykłe usunięcie nie jest osobną pozycją, a to, czy dana ósemka jest przypadkiem skomplikowanym, ocenia lekarz po badaniu.` },
       { question: "Ile kosztuje higienizacja i leczenie dziąseł w Turcji?", answer: `Cennik kliniki podaje higienizację całej jamy ustnej za ${formatEur(priceById("full-mouth-cleaning").eur)} (około ${formatPln(priceById("full-mouth-cleaning").eur)}), kiretaż periodontologiczny (jeden łuk) za ${formatEur(priceById("curettage").eur)} (około ${formatPln(priceById("curettage").eur)}) i gingiwektomię za ${formatEur(priceById("gingivectomy").eur)} (około ${formatPln(priceById("gingivectomy").eur)}). Zakres leczenia dziąseł ustala lekarz po badaniu.` }
     ],
-    sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }],
+    sources: [
+      { label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" },
+      { label: "FDA (USA): implanty dentystyczne, elementy systemu i odbudowa protetyczna", href: "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know" },
+      { label: "NHS (UK): lista kontrolna leczenia za granicą", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" },
+      { label: "American Dental Association: korony zębowe", href: "https://www.mouthhealthy.org/all-topics-a-z/crowns" },
+      { label: "Wikipedia: Dental implant (implant zębowy)", href: "https://en.wikipedia.org/wiki/Dental_implant" },
+      { label: "Wikipedia: Crown (dentistry) (korona zębowa)", href: "https://en.wikipedia.org/wiki/Crown_(dentistry)" }
+    ],
     ctaLabel: "Poproś o indywidualną wycenę", ctaText: "Poproś o indywidualną wycenę leczenia", ctaEvent: "cost_page_cta"
   },
   "korony-cyrkonowe": {

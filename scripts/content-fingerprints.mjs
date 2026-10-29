@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const appDir = path.join(process.cwd(), ".next", "server", "app");
+const appDir = process.env.FINGERPRINT_APP_DIR ?? path.join(process.cwd(), ".next", "server", "app");
 const baselinePath = path.join(process.cwd(), "lib", "content-fingerprints.json");
 const reviewed = new Set(["/implanty", "/licowki", "/all-on-4", "/cala-szczeka"]);
 
@@ -17,6 +17,21 @@ async function htmlFiles(dir, prefix = "") {
   return out;
 }
 
+
+// Only editorial text counts. Interface chrome (call-to-action buttons and links, forms, dialogs, carousel controls) is removed first, so relabelling a button never reads as a content change.
+const chrome = [
+  /<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g,
+  /<dialog[\s\S]*?<\/dialog>/g,
+  /<form[\s\S]*?<\/form>/g,
+  /<button[\s\S]*?<\/button>/g,
+  /<a\b[^>]*class="[^"]*\b(?:button|button-secondary|text-link-button|section-cta|mobile-bar)[^"]*"[^>]*>[\s\S]*?<\/a>/g
+];
+function editorialText(markup) {
+  let out = markup;
+  for (const pattern of chrome) out = out.replace(pattern, " ");
+  return out.replace(/<!-- -->/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
 const sitemap = await readFile(path.join(appDir, "sitemap.xml.body"), "utf8");
 const lastmod = new Map([...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map(([, block]) => [new URL(block.match(/<loc>([^<]+)<\/loc>/)[1]).pathname, block.match(/<lastmod>([^<]+)<\/lastmod>/)[1].slice(0, 10)]));
 const current = {};
@@ -25,7 +40,7 @@ for (const file of await htmlFiles(appDir)) {
   if (!lastmod.has(route)) continue;
   const html = await readFile(path.join(appDir, file), "utf8");
   const main = html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html;
-  const text = main.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, "").replace(/<!-- -->/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const text = editorialText(main);
   current[route] = { hash: createHash("sha1").update(text).digest("hex").slice(0, 16), lastmod: lastmod.get(route) };
 }
 
