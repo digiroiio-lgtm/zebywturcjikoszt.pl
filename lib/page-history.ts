@@ -3,6 +3,7 @@ export type HistoryEntry = { date: string; note: string };
 /** Public change history per page. Add an entry whenever a page changes materially; entries must describe real changes. */
 export const pageHistory: Record<string, HistoryEntry[]> = {
   koszt: [
+    { date: "2026-10-29", note: "Dodano sekcje o cenie implantów (z koroną i pozycjami dodatkowymi) oraz o porównaniu z Polską bez cen z Polski, i dwa pytania o sumę ceny implantu i korony oraz o różnicę Straumann–Aiser." },
     { date: "2026-10-29", note: "Dodano do źródeł przegląd systematyczny (PMC) dotyczący koncepcji All-on-4 oraz ujednolicono widoczną datę aktualizacji." },
     { date: "2026-10-29", note: "Dodano sekcje z porównaniem cen pozycji w procentach i rozkładem cennika, cytat lekarza oraz źródła zewnętrzne (FDA, NHS, ADA, Wikipedia)." },
     { date: "2026-10-03", note: "Dodano pytania o ceny dodatkowych zabiegów z cennika kliniki: leczenie kanałowe, wybielanie, wypełnienie, sedacja i znieczulenie, zatoka i kość, usunięcie zęba, higienizacja i dziąsła." },
