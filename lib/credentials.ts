@@ -36,6 +36,25 @@ export const clinicCredentials: OfficialCredential[] = [
     // The registry page shows the facility name, telephone, address and e-mail; it shows no licence number, so none is recorded.
     verifyUrl: "https://www.antalyasm.gov.tr/ozel-agiz-ve-dis-sagligi-merkezleri/ozel-antalya-akdeniz-agiz-ve-dis-sagligi-poliklinigi-detay/4120",
     checkedDate: "2026-10-30"
+  },
+  {
+    id: "ministry-health-tourism-authorisation-list",
+    kind: "health-tourism-authorisation",
+    title: "Wpis na liście placówek, które uzyskały zezwolenie na turystykę zdrowotną: Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği",
+    issuer: "T.C. Sağlık Bakanlığı (Ministerstwo Zdrowia Turcji)",
+    // Row 147 of "Sağlık Turizmi Yetki Belgesi Almaya Hak Kazanan Sağlık Tesisleri" (diger-saglik-tesisleripdf.pdf, 79 pages), opened by the owner on 2026-10-30.
+    // The list shows the facility name, type, address and telephone; it shows no certificate number or dates, so none are recorded.
+    verifyUrl: "https://dosyamerkez.saglik.gov.tr/Eklenti/56718/0/diger-saglik-tesisleripdf.pdf?_tag1=BBE51C2725E1DE83E73088BF0902691B84E5BF02",
+    checkedDate: "2026-10-30"
+  },
+  {
+    id: "ministry-health-tourism-authorisation-list-perge",
+    kind: "health-tourism-authorisation",
+    title: "Wpis na liście placówek, które uzyskały zezwolenie na turystykę zdrowotną: Özel Antalya Akdeniz Ağız Ve Diş Sağlığı Polikliniği – Perge Şubesi (oddział kliniki)",
+    issuer: "T.C. Sağlık Bakanlığı (Ministerstwo Zdrowia Turcji)",
+    // Row 148 of the same list; the owner confirmed on 2026-10-30 that the Perge branch is the clinic's own. No certificate number or dates are shown.
+    verifyUrl: "https://dosyamerkez.saglik.gov.tr/Eklenti/56718/0/diger-saglik-tesisleripdf.pdf?_tag1=BBE51C2725E1DE83E73088BF0902691B84E5BF02",
+    checkedDate: "2026-10-30"
   }
 ];
 
