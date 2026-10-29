@@ -54,6 +54,15 @@ const en = {
   long: `${CLINIC_NAME} is a dental clinic in Antalya, Turkey (${CLINIC_ADDRESS_TEXT}), run by ${clinicFacts.legalName}. It receives patients ${openDays} days a week, ${hoursPerDay} hours a day, Monday to Saturday, 9:00–19:00 Turkish time (UTC+3, no daylight saving), and serves patients in ${languagesEnText}. Treatment includes implants, zirconia crowns and veneers; the treatment plan is set by a dentist after an examination. A Polish-language information website, ${SITE_URL.replace("https://", "")}, with a commercial purpose and run by the same company, publishes the clinic's price list in EUR and PLN with dates, descriptions of treatment stages and its content verification rules.`
 };
 
+/** How the facility appears in the official registry of the Antalya Provincial Health Directorate (page checked by the owner on 2026-10-30). Kept so directories that copy the registry form are recognised; do not use it in place of the public contact data above. */
+export const officialRecord = {
+  name: CLINIC_OFFICIAL_NAME,
+  addressText: "ÇAYBAŞI MAH. 1358 SOK. PREMİER PLAZA NO:1B/101-102-103-104 MURATPAŞA",
+  phone: "(242) 504 40 40",
+  source: "https://www.antalyasm.gov.tr/ozel-agiz-ve-dis-sagligi-merkezleri/ozel-antalya-akdeniz-agiz-ve-dis-sagligi-poliklinigi-detay/4120",
+  checkedDate: "2026-10-30"
+};
+
 export const clinicDescriptions = { pl, en };
 
 /** Payload of /citation-kit.json. Only verified listings appear. */
@@ -65,6 +74,7 @@ export function citationKit() {
     url: clinicFacts.url,
     siteUrl: clinicFacts.siteUrl,
     address: { text: clinicFacts.addressText, ...clinicFacts.address },
+    officialRecord,
     geo: clinicFacts.geo,
     phone: clinicFacts.phone,
     whatsapp: clinicFacts.whatsapp,

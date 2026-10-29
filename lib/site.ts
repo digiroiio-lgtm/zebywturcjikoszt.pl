@@ -631,7 +631,7 @@ export const pages: Record<string, PageContent> = {
   ...legalPages,
   ...(credentialsPublished ? {
     "dokumenty-i-licencje": {
-      slug: "dokumenty-i-licencje", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Dokumenty i licencje kliniki Akdeniz Dental",
+      slug: "dokumenty-i-licencje", published: "2026-10-30", lastUpdated: "2026-10-30", title: "Dokumenty i licencje kliniki Akdeniz Dental",
       description: "Dokumenty kliniki Akdeniz Dental: zezwolenia, wpisy rejestrowe i dane lekarzy z numerami oraz linkami do rejestrów, w których można je sprawdzić samodzielnie.",
       eyebrow: "Transparentność", h1: "Dokumenty i licencje kliniki",
       lead: "Klinika Akdeniz Dental prowadzona przez operatora serwisu może wykazać się dokumentami. Publikujemy tu tylko te, które porównaliśmy z oficjalnym źródłem.",
