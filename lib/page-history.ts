@@ -3,6 +3,7 @@ export type HistoryEntry = { date: string; note: string };
 /** Public change history per page. Add an entry whenever a page changes materially; entries must describe real changes. */
 export const pageHistory: Record<string, HistoryEntry[]> = {
   koszt: [
+    { date: "2026-10-29", note: "Dodano sekcje z porównaniem cen pozycji w procentach i rozkładem cennika, cytat lekarza oraz źródła zewnętrzne (FDA, NHS, ADA, Wikipedia)." },
     { date: "2026-10-03", note: "Dodano pytania o ceny dodatkowych zabiegów z cennika kliniki: leczenie kanałowe, wybielanie, wypełnienie, sedacja i znieczulenie, zatoka i kość, usunięcie zęba, higienizacja i dziąsła." },
     { date: "2026-10-03", note: "Dodano sekcję i pytania o opłacalność leczenia w Turcji w porównaniu z Polską, bez cen z Polski." },
     { date: "2026-10-02", note: "Dodano sekcję o zaliczce i warunkach płatności oraz źródło (UOKiK)." },
