@@ -23,6 +23,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run check:sources
+      - run: npm run check:listings
 
   quarterly-review:
     if: github.event.schedule == '0 8 1 1,4,7,10 *' || github.event_name == 'workflow_dispatch'

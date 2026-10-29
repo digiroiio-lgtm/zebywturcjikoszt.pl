@@ -4,6 +4,7 @@ import type { PageContent } from "./site";
 import { PUBLISHED_ISO_DATE, SITE_URL, UPDATED_ISO_DATE } from "./site";
 import { operatorSchemaFields } from "./operator";
 import { clinicCredentials, hasCredentialSchema } from "./credentials";
+import { verifiedListings } from "./directory-listings";
 import { CLINIC_ADDRESS, CLINIC_GEO, CLINIC_ID, CLINIC_NAME, CLINIC_URL, clinicProfiles } from "./clinic-profiles";
 
 export const AI_TEXT_HEADERS = {
@@ -66,7 +67,7 @@ export const clinicSchema = {
     itemListElement: [["Implanty zębowe", "/implanty"], ["Licówki", "/licowki"], ["Korony cyrkonowe", "/korony-cyrkonowe"], ["Odbudowa całej szczęki", "/cala-szczeka"], ["All-on-4", "/all-on-4"]].map(([name, path]) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name, url: `${SITE_URL}${path}` } }))
   },
   hasMap: clinicProfiles.find((profile) => profile.key === "google-maps")!.href,
-  sameAs: clinicProfiles.map((profile) => profile.href),
+  sameAs: [...clinicProfiles.map((profile) => profile.href), ...verifiedListings().map((listing) => listing.url)],
   ...operatorSchemaFields(),
   ...hasCredentialSchema(clinicCredentials)
 };

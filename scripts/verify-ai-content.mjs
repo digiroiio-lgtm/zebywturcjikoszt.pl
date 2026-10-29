@@ -19,7 +19,7 @@ assert.match(full, /Kurs nie jest aktualizowany automatycznie/);
 assert.match(full, /nie automatycznie kompletnego leczenia/);
 // The AI-readable files must stay resolvable outside the site: absolute links only, every internal URL published, dates stated.
 const sitemapPaths = new Set([...read('sitemap.xml.body').matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
-const publishedFiles = new Set(['llms-full.txt', 'content-provenance.json', 'clinic-verification.json', 'sitemap.xml', 'feed.xml', 'llms.txt', 'robots.txt'].map((file) => `${origin}/${file}`));
+const publishedFiles = new Set(['llms-full.txt', 'content-provenance.json', 'clinic-verification.json', 'citation-kit.json', 'dane/cennik-kliniki.csv', 'dane/cennik-kliniki.json', 'sitemap.xml', 'feed.xml', 'llms.txt', 'robots.txt'].map((file) => `${origin}/${file}`));
 // Markdown twins (/<slug>.md) are published beside their HTML pages and are not in the sitemap by design.
 const markdownTwins = new Set([...sitemapPaths].filter((url) => url !== origin).map((url) => `${url}.md`));
 for (const [name, body] of [['llms.txt', index], ['llms-full.txt', full]]) {
