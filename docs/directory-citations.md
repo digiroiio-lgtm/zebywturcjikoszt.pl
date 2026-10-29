@@ -8,6 +8,10 @@ Purpose: the clinic appears in directories and portals with the same name, addre
 - The price list is published as data at `/dane/cennik-kliniki` (CSV and JSON), generated from `lib/pricing.ts`.
 - `npm run test:citations` (part of `npm run verify`) fails if the kit, the structured data, `llms.txt`, `clinic-verification.json` and the dataset disagree.
 
+## Listings already verified
+- HealthTürkiye (Ministry of Health portal profile) and WhatClinic, opened by the owner on 2026-10-30. Both are recorded in `lib/directory-listings.ts` with notes; the portal profile is not an authorisation document, and its page date is 25/04/2023.
+- The HealthTürkiye page uses the official facility name "Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği", which is why the kit carries `alternateNames` and `check:listings` accepts any of the names.
+
 ## Adding a listing
 1. Submit the listing by hand (Google Business Profile, Bing Places, Apple Business Connect, health-tourism directories, local business directories, diaspora portals). Use the kit text, not a rewritten version.
 2. Wait for the directory to publish it. Open the live page and compare name, address and phone with `/dane-kliniki`.

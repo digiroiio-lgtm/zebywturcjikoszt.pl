@@ -30,6 +30,7 @@ export default function CitationKitPage() {
   const nap = [
     { label: "Nazwa", value: clinicFacts.name },
     { label: "Nazwa prawna spółki", value: clinicFacts.legalName },
+    { label: "Inne nazwy w katalogach", value: clinicFacts.alternateNames.join("; ") },
     { label: "Adres", value: clinicFacts.addressText },
     { label: "Telefon", value: clinicFacts.phone },
     { label: "WhatsApp", value: clinicFacts.whatsapp },

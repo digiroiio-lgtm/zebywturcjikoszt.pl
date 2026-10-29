@@ -5,8 +5,11 @@ import { WHATSAPP_DISPLAY } from "./whatsapp";
 import { SITE_URL } from "./site";
 import { verifiedListings } from "./directory-listings";
 
+/** Official name of the licensed facility as it appears on the Ministry of Health portal (see lib/evidence.ts). Directories may list the clinic under this name. */
+export const CLINIC_OFFICIAL_NAME = "Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği";
+
 /** Date of the last change to the clinic data or the ready-made descriptions below (ISO). */
-export const CITATION_KIT_UPDATED = "2026-10-29";
+export const CITATION_KIT_UPDATED = "2026-10-30";
 
 const openDays = openingHours.filter((row) => row.opens).reduce((sum, row) => sum + row.schema.length, 0);
 const hoursPerDay = Math.max(...openingHours.map((row) => (row.opens && row.closes ? Number.parseInt(row.closes) - Number.parseInt(row.opens) : 0)));
@@ -22,6 +25,7 @@ const languagesEnText = serviceLanguages.map((language) => languagesEn[language.
 export const clinicFacts = {
   name: CLINIC_NAME,
   legalName: OPERATOR.legalName ?? CLINIC_NAME,
+  alternateNames: [CLINIC_OFFICIAL_NAME, "Antalya Akdeniz Dental Clinic"],
   url: CLINIC_URL,
   siteUrl: SITE_URL,
   addressText: CLINIC_ADDRESS_TEXT,
@@ -57,6 +61,7 @@ export function citationKit() {
   return {
     name: clinicFacts.name,
     legalName: clinicFacts.legalName,
+    alternateNames: clinicFacts.alternateNames,
     url: clinicFacts.url,
     siteUrl: clinicFacts.siteUrl,
     address: { text: clinicFacts.addressText, ...clinicFacts.address },
