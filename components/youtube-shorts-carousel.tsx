@@ -25,7 +25,7 @@ function ShortCard({ item }: { item: ShortsItem }) {
           </button>
         </>}
     </div>
-    <div className="shorts-caption"><h3>{item.title}</h3><p>{item.description}</p><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">Obejrzyj na YouTube<span className="sr-only"> (otwiera się w nowej karcie)</span></a></div>
+    <div className="shorts-caption"><p className="card-title">{item.title}</p><p>{item.description}</p><a className="text-link" href={item.url} target="_blank" rel="noopener noreferrer">Obejrzyj na YouTube<span className="sr-only"> (otwiera się w nowej karcie)</span></a></div>
   </li>;
 }
 
