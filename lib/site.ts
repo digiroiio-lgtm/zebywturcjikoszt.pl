@@ -135,7 +135,8 @@ export const pages: Record<string, PageContent> = {
       { label: "NHS (UK): lista kontrolna leczenia za granicą", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" },
       { label: "American Dental Association: korony zębowe", href: "https://www.mouthhealthy.org/all-topics-a-z/crowns" },
       { label: "Wikipedia: Dental implant (implant zębowy)", href: "https://en.wikipedia.org/wiki/Dental_implant" },
-      { label: "Wikipedia: Crown (dentistry) (korona zębowa)", href: "https://en.wikipedia.org/wiki/Crown_(dentistry)" }
+      { label: "Wikipedia: Crown (dentistry) (korona zębowa)", href: "https://en.wikipedia.org/wiki/Crown_%28dentistry%29" },
+      { label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }
     ],
     ctaLabel: "Poproś o indywidualną wycenę", ctaText: "Poproś o indywidualną wycenę leczenia", ctaEvent: "cost_page_cta"
   },
