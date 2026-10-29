@@ -35,7 +35,7 @@ export function PolishReviewsCarousel({ reviews }: { reviews: ReviewItem[] }) {
       {reviews.map((review) => <li className="polish-review-card" key={review.id}>
         <div className="polish-review-top"><span className="polish-review-stars" role="img" aria-label="Ocena autora: 5 na 5"><span aria-hidden="true">★★★★★</span></span><span className="mini-label">Trustpilot</span></div>
         <div className="polish-review-copy">{review.excerpt ? (review.excerpt.length > 160 ? <details><summary>Przeczytaj fragment opinii</summary><blockquote>{review.excerpt}</blockquote></details> : <blockquote>„{review.excerpt}”</blockquote>) : <p>Przeczytaj pełną opinię tej osoby bezpośrednio na Trustpilot.</p>}</div>
-        <div className="polish-review-author"><h3>{review.author}</h3><p><span className="sr-only">Data publikacji: </span><time dateTime={review.publishedAt}>{new Date(review.publishedAt).toLocaleDateString("pl-PL", { timeZone: "Europe/Warsaw" })}</time></p></div>
+        <div className="polish-review-author"><p className="card-title">{review.author}</p><p><span className="sr-only">Data publikacji: </span><time dateTime={review.publishedAt}>{new Date(review.publishedAt).toLocaleDateString("pl-PL", { timeZone: "Europe/Warsaw" })}</time></p></div>
         <a href={review.sourceUrl} className="text-link" target="_blank" rel="noopener noreferrer">Zobacz opinię u źródła →<span className="sr-only">: {review.author} (nowa karta)</span></a>
       </li>)}
     </ul>
