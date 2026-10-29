@@ -15,6 +15,8 @@ export const absoluteUrl = (href: string) => (href.startsWith("/") ? `${SITE_URL
 
 export const FAQ_PATH = "/pytania-i-odpowiedzi";
 export const FAQ_PUBLISHED_DATE = "2026-09-30";
+/** Last change to the collected answers (17 Oct 2026: the UK financing answer now names the financing partner). Drives the sitemap lastmod. */
+export const FAQ_UPDATED_DATE = "2026-10-17";
 const guideSlugs = ["koszt", "implanty", "korony-cyrkonowe", "licowki", "cala-szczeka", "all-on-4", "antalya", "jak-wybrac-klinike", "opinie", "przed-i-po"];
 export const patientGuides = [...guideSlugs.map((slug) => pages[slug]), ...Object.values(newGuides), ...allUkPages];
 export const faqGroups = patientGuides.filter((page) => page.faq?.length);

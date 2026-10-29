@@ -9,6 +9,9 @@ const decode = (s) => s.replace(/&amp;/g, '&').replace(/&#x27;/g, "'").replace(/
 const strip = (html) => html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '');
 const mainOf = (html) => strip(html).match(/<main[\s\S]*<\/main>/)?.[0] ?? '';
 const text = (html) => decode(html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+// Template blocks every page shares (editorial metadata, change log, sources, forms, buttons) must not count towards the doorway-similarity check.
+const templateBlocks = [/<dl[\s\S]*?<\/dl>/g, /<p class="mini-label">Historia zmian<\/p><ul>[\s\S]*?<\/ul>/g, /<section[^>]*class="[^"]*\bsources\b[^"]*"[\s\S]*?<\/section>/g, /<dialog[\s\S]*?<\/dialog>/g, /<form[\s\S]*?<\/form>/g, /<button[\s\S]*?<\/button>/g];
+const contentOf = (main) => templateBlocks.reduce((out, pattern) => out.replace(pattern, ' '), main);
 const MIN_WORDS = (slug) => (slug === 'uk' ? 700 : 600);
 
 const pages = files.map(([slug, file]) => {
@@ -16,11 +19,11 @@ const pages = files.map(([slug, file]) => {
   const main = mainOf(raw);
   const h1s = [...main.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => text(m[1]));
   const heads = [...main.matchAll(/<h([1-6])[^>]*>([\s\S]*?)<\/h\1>/g)].map((m) => ({ level: Number(m[1]), text: text(m[2]) }));
-  return { slug, raw, main, h1s, heads, words: text(main).split(' ').filter(Boolean), title: decode(raw.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''), description: decode(raw.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '') };
+  return { slug, raw, main, h1s, heads, words: text(main).split(' ').filter(Boolean), contentWords: text(contentOf(main)).split(' ').filter(Boolean), title: decode(raw.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''), description: decode(raw.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? '') };
 });
 
 const shingles = (words) => { const set = new Set(); for (let i = 0; i + 5 <= words.length; i += 1) set.add(words.slice(i, i + 5).join(' ').toLowerCase()); return set; };
-const similarity = (a, b) => { const sa = shingles(a.words), sb = shingles(b.words); let hit = 0; for (const x of sa) if (sb.has(x)) hit += 1; return hit / Math.min(sa.size, sb.size); };
+const similarity = (a, b) => { const sa = shingles(a.contentWords), sb = shingles(b.contentWords); let hit = 0; for (const x of sa) if (sb.has(x)) hit += 1; return hit / Math.min(sa.size, sb.size); };
 const otherH1 = new Map();
 for (const f of readdirSync(root).filter((x) => x.endsWith('.html') && x !== 'uk.html')) for (const m of strip(readFileSync(root + f, 'utf8')).matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)) otherH1.set(text(m[1]), f);
 
@@ -55,6 +58,7 @@ for (const page of pages) {
 }
 for (let i = 0; i < pages.length; i += 1) for (let j = i + 1; j < pages.length; j += 1) {
   const s = similarity(pages[i], pages[j]);
+  if (process.env.SHOW_SIM) console.log(pages[i].slug, pages[j].slug, (s*100).toFixed(1));
   assert(s < 0.3, `${pages[i].slug} and ${pages[j].slug} are ${(s * 100).toFixed(0)}% alike (template or doorway risk)`);
 }
 console.log(`UK quality passed for ${pages.length} pages: ${report.join('; ')}.`);
