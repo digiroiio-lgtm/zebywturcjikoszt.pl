@@ -86,6 +86,15 @@ export const directoryListings: DirectoryListing[] = [
     notes: "URL supplied by the owner on 2026-10-30, who confirmed name, address and phone against the live page."
   },
   {
+    id: "antalya-explore",
+    name: "Antalya Explore: Antalya Akdeniz Dental Clinic",
+    url: "https://antalyaexplore.com/tr/kesfetmek/antalya-akdeniz-dental-clinic/",
+    kind: "local-directory",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "Turkish tourism portal page; URL supplied by the owner on 2026-10-30, who asked for it to be added. Claude could not open it (no network access); the weekly check:listings run looks for the clinic name, the legal name or an alternate name on the page."
+  },
+  {
     id: "find-com-tr",
     name: "Find.com.tr: DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ",
     url: "https://www.find.com.tr/Company/dentakdenizagizvedissagligihizmetlerilimitedsirketi",
