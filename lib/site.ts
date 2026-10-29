@@ -311,8 +311,8 @@ export const pages: Record<string, PageContent> = {
       { question: "Jakie są opinie o Akdeniz Dental w Antalyi?", answer: `Na Trustpilot klinika Akdeniz Dental ma ocenę ${trustpilotProfile.rating}/5 (${trustpilotProfile.reviewCount} opinii), a w Mapach Google ${googleProfile.rating}/5 (${googleProfile.reviewCount} opinii), według odczytu z ${RATINGS_CHECKED_DATE}. Oceny zmieniają się w czasie i pochodzą od użytkowników tych platform. Operator serwisu prowadzi tę klinikę, więc sprawdź profile samodzielnie.` }
     ],
     sources: [{ label: "UOKiK: fałszywe opinie (Fake opinions? Stop!)", href: "https://uokik.gov.pl/en/fake-opinions-stop" }, { label: "Trustpilot: profil Akdeniz Dental Clinic (odczyt operatora)", href: trustpilotProfile.href }, { label: "Mapy Google: Antalya Akdeniz Dental Clinic (odczyt operatora)", href: googleProfile.href }],
-    lastUpdated: "2026-10-17",
-    ctaLabel: "Przejdź do listy kontroli kliniki", ctaEvent: "clinic_check_cta", ctaHref: "/jak-wybrac-klinike"
+    lastUpdated: "2026-10-27",
+    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "opinie_cta"
   },
   "przed-i-po": {
     lastUpdated: "2026-10-17",
