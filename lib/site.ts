@@ -155,6 +155,7 @@ export const pages: Record<string, PageContent> = {
       { label: "NHS (UK): lista kontrolna leczenia za granicą", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" },
       { label: "American Dental Association: korony zębowe", href: "https://www.mouthhealthy.org/all-topics-a-z/crowns" },
       { label: "Wikipedia: Dental implant (implant zębowy)", href: "https://en.wikipedia.org/wiki/Dental_implant" },
+      { label: "Dane cennika kliniki (CSV i JSON) z datą i kursem", href: "/dane/cennik-kliniki" },
       { label: "Wikipedia: Crown (dentistry) (korona zębowa)", href: "https://en.wikipedia.org/wiki/Crown_%28dentistry%29" },
       { label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }
     ],
