@@ -49,7 +49,7 @@ for (const url of matches(llms, /\]\((https:\/\/[^)\s]+)\)/g)) {
   const parsed = new URL(url);
   if (parsed.origin !== sitemapOrigin) continue;
   const linked = normalisePath(parsed.pathname);
-  if (/^\/(llms-full\.txt|content-provenance\.json|clinic-verification\.json|sitemap\.xml|feed\.xml)$/.test(linked)) continue;
+  if (/^\/(llms-full\.txt|content-provenance\.json|clinic-verification\.json|citation-kit\.json|dane\/cennik-kliniki\.(csv|json)|sitemap\.xml|feed\.xml)$/.test(linked)) continue;
   if (!sitemapPaths.has(linked)) fail(`llms.txt links to ${linked}, which is not in the sitemap.`);
 }
 if (!sitemap.includes("image:loc")) fail("Sitemap contains no image entries.");
@@ -135,6 +135,8 @@ for (const [route, file] of routeFiles) {
     if (/[?&;](lead_source|cta_location|page_path|guide_source)=/.test(href)) fail(`${route}: internal link carries tracking parameters (${href.slice(0, 80)}); pass them via TrackedLink instead.`);
     if (linkedRoute.startsWith("/_next/") || linkedRoute.startsWith("/api/") || ["/icon", "/apple-icon", "/manifest.webmanifest", "/opengraph-image", "/twitter-image"].includes(linkedRoute)) continue;
     if (linkedRoute.startsWith("/images/") && existsSync(path.join(process.cwd(), "public", linkedRoute))) continue;
+    // Static route handlers (citation-kit.json, dataset CSV/JSON) are built as <path>.body next to the HTML pages.
+    if (existsSync(path.join(appDir, `${linkedRoute}.body`))) continue;
     if (!knownRoutes.has(linkedRoute)) fail(`${route}: broken internal link to ${linkedRoute}.`);
   }
 

@@ -4,7 +4,7 @@ export const CLINIC_URL = "https://akdenizdental.com";
 export const CLINIC_ID = `${CLINIC_URL}/#organization`;
 export const RATINGS_CHECKED_ISO_DATE = "2026-10-02";
 export const RATINGS_CHECKED_DATE = "2 października 2026";
-export const CLINIC_ADDRESS = { streetAddress: "Çaybaşı Mah. 1358. Sk. Premier Plaza D:1 B Blok", postalCode: "07100", addressLocality: "Muratpaşa", addressRegion: "Antalya", addressCountry: "TR" };
+export const CLINIC_ADDRESS = { streetAddress: "Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok", postalCode: "07100", addressLocality: "Muratpaşa", addressRegion: "Antalya", addressCountry: "TR" };
 export const CLINIC_ADDRESS_TEXT = "Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100 Muratpaşa/Antalya, Turcja";
 export const CLINIC_GEO = { latitude: 36.8881905, longitude: 30.7220551 };
 

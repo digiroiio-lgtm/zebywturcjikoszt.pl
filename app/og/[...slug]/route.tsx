@@ -15,6 +15,8 @@ const standalone: Card[] = [
   { slug: "nasz-zespol", eyebrow: "Organizacja wizyty", h1: "Poznaj zespół Akdeniz Dental w Antalyi" },
   { slug: "nasi-lekarze", eyebrow: "Zespół kliniki", h1: "Nasi lekarze: zespół Akdeniz Dental w Antalyi" },
   { slug: "eksperci", eyebrow: "Recenzja medyczna", h1: "Eksperci serwisu" },
+  { slug: "dane-kliniki", eyebrow: "Dla katalogów i redakcji", h1: "Dane kliniki Akdeniz Dental do katalogów i redakcji" },
+  { slug: "dane/cennik-kliniki", eyebrow: "Dane do cytowania", h1: "Cennik kliniki Akdeniz Dental: dane CSV i JSON" },
   ...verifiedExperts.map((expert) => ({ slug: `eksperci/${expert.slug}`, eyebrow: "Recenzent medyczny", h1: `Lek. dent. ${expert.name}` }))
 ];
 const indexable: Card[] = [...[...Object.values(pages), ...Object.values(newGuides), ...allUkPages].filter((page) => !page.noindex), ...standalone];

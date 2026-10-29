@@ -869,3 +869,13 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .closing-cta .lead-form .consultation-intro,.closing-cta .lead-form .form-assurance,.closing-cta .lead-form .form-assurance p { color:#4b5563; }
 .closing-cta .lead-form .form-assurance-facts,.closing-cta .lead-form .form-privacy { color:#6b7280; }
 .page-updated { margin:10px 0 0; color:var(--muted); font-size:14px; }
+.kit-nap { display:grid; gap:10px; margin:16px 0; }
+.kit-nap div { display:grid; grid-template-columns:minmax(120px,200px) 1fr; gap:6px 16px; padding:10px 0; border-bottom:1px solid var(--line); }
+.kit-nap dt { color:var(--muted); font-size:14px; font-weight:700; }
+.kit-nap dd { margin:0; overflow-wrap:anywhere; }
+.kit-block { margin:14px 0; padding:16px 18px; border:1px solid var(--line); border-radius:12px; background:white; }
+.kit-block-head { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.kit-block-head .mini-label { margin:0; }
+.kit-copy { padding:6px 12px; border:1px solid var(--line); border-radius:8px; background:white; font:inherit; font-size:14px; cursor:pointer; }
+.kit-text { margin:10px 0 0; }
+@media (max-width:560px) { .kit-nap div { grid-template-columns:1fr; } }
