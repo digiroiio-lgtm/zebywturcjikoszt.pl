@@ -13,6 +13,7 @@ const digits = (value) => value.replace(/\D/g, '');
 // 1. The kit itself.
 const kit = JSON.parse(read('citation-kit.json.body'));
 for (const key of ['name', 'legalName', 'phone', 'email']) assert(kit[key], `kit.${key} must not be empty`);
+assert(kit.officialBranch?.name && kit.officialBranch?.addressText && /^https:\/\/dosyamerkez\.saglik\.gov\.tr\//.test(kit.officialBranch.source), 'kit must carry the official branch record');
 assert(kit.officialRecord?.phone && kit.officialRecord?.addressText && /^https:\/\/www\.antalyasm\.gov\.tr\//.test(kit.officialRecord.source), 'kit must carry the official registry record');
 assert(Array.isArray(kit.alternateNames) && kit.alternateNames.length > 0, 'kit must list the alternate (official) facility names');
 assert(kit.address.text && kit.address.streetAddress && kit.address.postalCode && kit.address.addressLocality, 'kit address must be complete');

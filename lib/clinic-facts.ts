@@ -63,6 +63,15 @@ export const officialRecord = {
   checkedDate: "2026-10-30"
 };
 
+/** Second site named in the Ministry's health tourism list (row 148); the owner confirmed on 2026-10-30 that it is the clinic's own branch. Official wording, not the public NAP. */
+export const officialBranch = {
+  name: "Özel Antalya Akdeniz Ağız Ve Diş Sağlığı Polikliniği – Perge Şubesi",
+  addressText: "Meydankavağı Mah. Perge Bulv. Atmaca İş Merkezi No: 56 Daire: 1 Muratpaşa/Antalya",
+  phone: "0555 721 16 73",
+  source: "https://dosyamerkez.saglik.gov.tr/Eklenti/56718/0/diger-saglik-tesisleripdf.pdf?_tag1=BBE51C2725E1DE83E73088BF0902691B84E5BF02",
+  checkedDate: "2026-10-30"
+};
+
 export const clinicDescriptions = { pl, en };
 
 /** Payload of /citation-kit.json. Only verified listings appear. */
@@ -75,6 +84,7 @@ export function citationKit() {
     siteUrl: clinicFacts.siteUrl,
     address: { text: clinicFacts.addressText, ...clinicFacts.address },
     officialRecord,
+    officialBranch,
     geo: clinicFacts.geo,
     phone: clinicFacts.phone,
     whatsapp: clinicFacts.whatsapp,
