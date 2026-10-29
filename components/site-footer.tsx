@@ -2,6 +2,7 @@ import Link from "next/link";
 import { OPERATOR, operatorIsPublished, operatorRows } from "@/lib/operator";
 import { credentialsPublished } from "@/lib/credentials";
 import { ConsentSettingsButton } from "./consent-banner";
+import { verifiedListings } from "@/lib/directory-listings";
 import { FooterContact } from "./footer-contact";
 
 export function SiteFooter() {
@@ -22,6 +23,7 @@ export function SiteFooter() {
         </details>
       </div>
       <div className="shell footer-bottom">
+        {verifiedListings().some((listing) => listing.kind === "social-profile") && <p className="footer-social">Klinika w mediach społecznościowych: {verifiedListings().filter((listing) => listing.kind === "social-profile").map((listing, index) => <span key={listing.id}>{index > 0 && " · "}<a href={listing.url} rel="me noopener noreferrer" target="_blank">{listing.id === "facebook" ? "Facebook" : listing.id === "instagram" ? "Instagram" : listing.name}</a></span>)}</p>}
         <p className="footer-brand">Zęby w Turcji</p>
         <p>Rzetelne informacje dla osób z Polski rozważających leczenie stomatologiczne w Turcji.</p>
         <p className="footer-note">Serwis informacyjny o celu komercyjnym. Nie zastępuje badania ani porady lekarza dentysty.</p>

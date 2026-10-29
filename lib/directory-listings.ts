@@ -5,7 +5,7 @@
  * its name, address and phone match lib/clinic-facts.ts. Unverified entries are never published, never added to
  * structured data and never listed in citation-kit.json. While the list is empty nothing is rendered.
  */
-export type DirectoryKind = "google-business" | "bing-places" | "apple-business" | "health-tourism-directory" | "local-directory" | "diaspora-portal" | "social-profile";
+export type DirectoryKind = "official-registry" | "google-business" | "bing-places" | "apple-business" | "health-tourism-directory" | "local-directory" | "diaspora-portal" | "social-profile";
 
 export type DirectoryListing = {
   id: string;
@@ -39,10 +39,65 @@ export const directoryListings: DirectoryListing[] = [
     verified: true,
     verifiedDate: "2026-10-30",
     notes: "Opened by the owner on 2026-10-30. Name, address (Çaybaşı, 1358. Sk. Premier Plaza D:1 B Blok, 07100) and Mon–Sat 9:00–19:00 hours match; the phone is hidden behind a button. The listing is unclaimed and has no description, photos or reviews yet."
+  },
+  {
+    id: "antalya-sm-registry",
+    name: "Antalya İl Sağlık Müdürlüğü: wpis w rejestrze prywatnych ośrodków stomatologicznych",
+    url: "https://www.antalyasm.gov.tr/ozel-agiz-ve-dis-sagligi-merkezleri/ozel-antalya-akdeniz-agiz-ve-dis-sagligi-poliklinigi-detay/4120",
+    kind: "official-registry",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "URL supplied by the owner on 2026-10-30, who confirmed name, address and phone against the live page; Claude could not open it (no network access). Official registry page of the Antalya Provincial Health Directorate for the facility Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği. Record licence or authorisation details in lib/credentials.ts only from the page itself."
+  },
+  {
+    id: "facebook",
+    name: "Facebook: Akdeniz Dental Clinic",
+    url: "https://www.facebook.com/akdenizdentalclinic/",
+    kind: "social-profile",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "Clinic's own profile; URL supplied and confirmed by the owner on 2026-10-30 (the locale parameter was removed)."
+  },
+  {
+    id: "instagram",
+    name: "Instagram: akdenizdentalclinic",
+    url: "https://www.instagram.com/akdenizdentalclinic/",
+    kind: "social-profile",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "Clinic's own profile; URL supplied and confirmed by the owner on 2026-10-30."
+  },
+  {
+    id: "yandex-maps",
+    name: "Yandex Haritalar: Akdeniz Dental Clinic",
+    url: "https://yandex.com.tr/maps/org/akdeniz_dental_clinic/38986351325/",
+    kind: "local-directory",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "URL supplied by the owner on 2026-10-30, who confirmed name, address and phone against the live page (gallery and map parameters removed from the URL)."
+  },
+  {
+    id: "iyifirma",
+    name: "İyi Firma: Akdeniz Dental Clinic Muratpaşa",
+    url: "https://iyifirma.com/akdeniz-dental-clinic-muratpasa/",
+    kind: "local-directory",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "URL supplied by the owner on 2026-10-30, who confirmed name, address and phone against the live page."
+  },
+  {
+    id: "find-com-tr",
+    name: "Find.com.tr: DENT AKDENİZ AĞIZ VE DİŞ SAĞLIĞI HİZMETLERİ LİMİTED ŞİRKETİ",
+    url: "https://www.find.com.tr/Company/dentakdenizagizvedissagligihizmetlerilimitedsirketi",
+    kind: "local-directory",
+    verified: true,
+    verifiedDate: "2026-10-30",
+    notes: "Company directory entry for the operator's legal entity; URL supplied by the owner on 2026-10-30, who confirmed the details against the live page."
   }
 ];
 
 export const DIRECTORY_KIND_LABEL: Record<DirectoryKind, string> = {
+  "official-registry": "Rejestr urzędowy (Turcja)",
   "google-business": "Profil w Google",
   "bing-places": "Bing Places",
   "apple-business": "Apple Business Connect",

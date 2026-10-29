@@ -12,6 +12,9 @@ Purpose: the clinic appears in directories and portals with the same name, addre
 - HealthTürkiye (Ministry of Health portal profile) and WhatClinic, opened by the owner on 2026-10-30. Both are recorded in `lib/directory-listings.ts` with notes; the portal profile is not an authorisation document, and its page date is 25/04/2023.
 - The HealthTürkiye page uses the official facility name "Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği", which is why the kit carries `alternateNames` and `check:listings` accepts any of the names.
 
+- Added on 2026-10-30 from URLs supplied and confirmed by the owner (Claude could not open them): the Antalya Provincial Health Directorate registry page, Facebook, Instagram, Yandex Maps, İyi Firma and the Find.com.tr company entry. The Trustpilot profile and the Google Maps listing are already in `clinicProfiles`; the clinic's own contact page (akdenizdental.com/pl/contact-us) is the clinic's website, not a listing.
+- Social profiles (`kind: "social-profile"`) also appear as links in the footer; remove or edit the entry here and the footer follows.
+
 ## Adding a listing
 1. Submit the listing by hand (Google Business Profile, Bing Places, Apple Business Connect, health-tourism directories, local business directories, diaspora portals). Use the kit text, not a rewritten version.
 2. Wait for the directory to publish it. Open the live page and compare name, address and phone with `/dane-kliniki`.

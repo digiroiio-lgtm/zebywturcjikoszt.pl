@@ -2,7 +2,7 @@
 // Opens every VERIFIED directory listing from the built citation-kit.json and checks that the page still names the clinic
 // and, where it shows them, the address and phone. Run weekly (see .github/workflows/maintenance.yml) after `next build`.
 //   no response (timeout, reset)      -> WARN "unreachable from CI"
-//   page loads but no clinic name is found -> FAIL (the listing was removed, renamed or hijacked); the kit name and its alternate
+//   page loads but no clinic name is found -> FAIL (WARN for social profiles) (the listing was removed, renamed or hijacked); the kit name and its alternate
 //                                              names (official facility name) are all accepted. Pages with almost no text in the raw HTML
 //                                              (rendered with JavaScript) cannot be judged and give a WARN.
 //   phone or address not on the page  -> WARN (many directories load them with JavaScript or hide them)
@@ -27,8 +27,10 @@ for (const listing of kit.listings) {
   let body = "";
   try { body = plain(await (await fetch(listing.url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; listing-check/1.0)" }, signal: AbortSignal.timeout(20000) })).text()); } catch { warnings.push(`${listing.name}: page body could not be read`); continue; }
   if (body.length < 1500) { warnings.push(`${listing.name} (${listing.url}): too little text in the raw HTML to check (probably rendered with JavaScript)`); console.log(`WARN  ${listing.name}: page text not readable without JavaScript`); continue; }
-  const names = [kit.name, ...(kit.alternateNames ?? [])].map((name) => name.toLowerCase());
-  if (!names.some((name) => body.includes(name))) { failures.push(`${listing.name} (${listing.url}): none of the clinic names (${[kit.name, ...(kit.alternateNames ?? [])].join(" / ")}) is on the page`); console.log(`FAIL  ${listing.name}: name missing`); continue; }
+  const names = [kit.name, kit.legalName, ...(kit.alternateNames ?? [])].map((name) => name.toLowerCase());
+  // Social networks show a login wall to scripts, so a missing name there is only a warning.
+  if (!names.some((name) => body.includes(name)) && listing.kind === "social-profile") { warnings.push(`${listing.name} (${listing.url}): clinic name not found in the raw page (social networks hide content from scripts)`); console.log(`WARN  ${listing.name}: name not readable`); continue; }
+  if (!names.some((name) => body.includes(name))) { failures.push(`${listing.name} (${listing.url}): none of the clinic names (${[kit.name, kit.legalName, ...(kit.alternateNames ?? [])].join(" / ")}) is on the page`); console.log(`FAIL  ${listing.name}: name missing`); continue; }
   const missing = [];
   if (!body.replace(/\D/g, "").includes(phoneTail)) missing.push("phone");
   if (!streetTokens.every((token) => body.includes(token))) missing.push("address");
