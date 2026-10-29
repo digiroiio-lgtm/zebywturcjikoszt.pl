@@ -5,8 +5,11 @@ import { WHATSAPP_DISPLAY } from "./whatsapp";
 import { SITE_URL } from "./site";
 import { verifiedListings } from "./directory-listings";
 
+/** Official name of the licensed facility as it appears on the Ministry of Health portal (see lib/evidence.ts). Directories may list the clinic under this name. */
+export const CLINIC_OFFICIAL_NAME = "Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği";
+
 /** Date of the last change to the clinic data or the ready-made descriptions below (ISO). */
-export const CITATION_KIT_UPDATED = "2026-10-29";
+export const CITATION_KIT_UPDATED = "2026-10-30";
 
 const openDays = openingHours.filter((row) => row.opens).reduce((sum, row) => sum + row.schema.length, 0);
 const hoursPerDay = Math.max(...openingHours.map((row) => (row.opens && row.closes ? Number.parseInt(row.closes) - Number.parseInt(row.opens) : 0)));
@@ -22,6 +25,7 @@ const languagesEnText = serviceLanguages.map((language) => languagesEn[language.
 export const clinicFacts = {
   name: CLINIC_NAME,
   legalName: OPERATOR.legalName ?? CLINIC_NAME,
+  alternateNames: [CLINIC_OFFICIAL_NAME, "Antalya Akdeniz Dental Clinic"],
   url: CLINIC_URL,
   siteUrl: SITE_URL,
   addressText: CLINIC_ADDRESS_TEXT,
@@ -50,6 +54,15 @@ const en = {
   long: `${CLINIC_NAME} is a dental clinic in Antalya, Turkey (${CLINIC_ADDRESS_TEXT}), run by ${clinicFacts.legalName}. It receives patients ${openDays} days a week, ${hoursPerDay} hours a day, Monday to Saturday, 9:00–19:00 Turkish time (UTC+3, no daylight saving), and serves patients in ${languagesEnText}. Treatment includes implants, zirconia crowns and veneers; the treatment plan is set by a dentist after an examination. A Polish-language information website, ${SITE_URL.replace("https://", "")}, with a commercial purpose and run by the same company, publishes the clinic's price list in EUR and PLN with dates, descriptions of treatment stages and its content verification rules.`
 };
 
+/** How the facility appears in the official registry of the Antalya Provincial Health Directorate (page checked by the owner on 2026-10-30). Kept so directories that copy the registry form are recognised; do not use it in place of the public contact data above. */
+export const officialRecord = {
+  name: CLINIC_OFFICIAL_NAME,
+  addressText: "ÇAYBAŞI MAH. 1358 SOK. PREMİER PLAZA NO:1B/101-102-103-104 MURATPAŞA",
+  phone: "(242) 504 40 40",
+  source: "https://www.antalyasm.gov.tr/ozel-agiz-ve-dis-sagligi-merkezleri/ozel-antalya-akdeniz-agiz-ve-dis-sagligi-poliklinigi-detay/4120",
+  checkedDate: "2026-10-30"
+};
+
 export const clinicDescriptions = { pl, en };
 
 /** Payload of /citation-kit.json. Only verified listings appear. */
@@ -57,9 +70,11 @@ export function citationKit() {
   return {
     name: clinicFacts.name,
     legalName: clinicFacts.legalName,
+    alternateNames: clinicFacts.alternateNames,
     url: clinicFacts.url,
     siteUrl: clinicFacts.siteUrl,
     address: { text: clinicFacts.addressText, ...clinicFacts.address },
+    officialRecord,
     geo: clinicFacts.geo,
     phone: clinicFacts.phone,
     whatsapp: clinicFacts.whatsapp,

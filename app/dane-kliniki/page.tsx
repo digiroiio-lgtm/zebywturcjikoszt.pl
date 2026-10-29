@@ -4,7 +4,7 @@ import { CommercialNote } from "@/components/commercial-note";
 import { SourceList } from "@/components/source-list";
 import { CopyBlock } from "@/components/copy-block";
 import { EntitySchema } from "@/components/entity-schema";
-import { CITATION_KIT_UPDATED, clinicDescriptions, clinicFacts } from "@/lib/clinic-facts";
+import { CITATION_KIT_UPDATED, clinicDescriptions, clinicFacts, officialRecord } from "@/lib/clinic-facts";
 import { DIRECTORY_KIND_LABEL, verifiedListings } from "@/lib/directory-listings";
 import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { breadcrumbList, ogImagesFor, twitterImagesFor } from "@/lib/seo";
@@ -30,6 +30,7 @@ export default function CitationKitPage() {
   const nap = [
     { label: "Nazwa", value: clinicFacts.name },
     { label: "Nazwa prawna spółki", value: clinicFacts.legalName },
+    { label: "Inne nazwy w katalogach", value: clinicFacts.alternateNames.join("; ") },
     { label: "Adres", value: clinicFacts.addressText },
     { label: "Telefon", value: clinicFacts.phone },
     { label: "WhatsApp", value: clinicFacts.whatsapp },
@@ -37,6 +38,7 @@ export default function CitationKitPage() {
     { label: "Godziny", value: `${clinicFacts.hoursSummary} (${clinicFacts.timeZoneNote})` },
     { label: "Języki obsługi", value: clinicFacts.languages.map((language) => language.label).join(", ") },
     { label: "Współrzędne", value: `${clinicFacts.geo.latitude}, ${clinicFacts.geo.longitude}` },
+    { label: "Zapis w rejestrze urzędowym", value: `${officialRecord.name}; ${officialRecord.addressText}; tel. ${officialRecord.phone} (Antalya İl Sağlık Müdürlüğü, sprawdzono ${new Date(`${officialRecord.checkedDate}T00:00:00Z`).toLocaleDateString("pl-PL", { timeZone: "UTC" })})` },
     { label: "Strona kliniki", value: clinicFacts.url },
     { label: "Serwis informacyjny", value: clinicFacts.siteUrl }
   ];

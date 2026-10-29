@@ -98,7 +98,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
   "korony-cyrkonowe": [
     { href: "/koszt", label: "Pełny cennik", text: "Sprawdź ceny dodatkowego leczenia i zasady wyceny." },
     { href: "/licowki", label: "Licówki a korony", text: "Porównaj różne rodzaje odbudowy." },
-    { href: "/implanty#zakres-implantu", label: "Korona na implancie", text: "Sprawdź elementy pełnej odbudowy na implancie." }
+    { href: "/implanty#zakres-implantu", label: "Korona na implancie", text: "Sprawdź elementy pełnej odbudowy na implancie." },
+    { href: "/poradniki/licowki-czy-korony", label: "Licówki czy korony", text: "Jak wybrać rodzaj odbudowy i na co zwrócić uwagę przy cenie." }
   ],
   koszt: [
     { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },
@@ -107,7 +108,9 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/cala-szczeka", label: "Cała szczęka", text: "Poznaj różne drogi pełnej odbudowy uzębienia." },
     { href: "/all-on-4", label: "All-on-4", text: "Sprawdź, dlaczego nazwa metody nie wystarcza do porównania ofert." },
     { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Policz leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
-    { href: "/antalya", label: "Zęby w Turcji w Antalyi", text: "Plan wizyt, godziny kliniki i to, co ustalić przed wyjazdem." }
+    { href: "/antalya", label: "Zęby w Turcji w Antalyi", text: "Plan wizyt, godziny kliniki i to, co ustalić przed wyjazdem." },
+    { href: "/poradniki/pakiety-leczenia-zebow", label: "Pakiety leczenia", text: "Co sprawdzić w pakiecie: zakres ceny, wyłączenia, hotel i transfery." },
+    { href: "/poradniki/licowki-czy-korony", label: "Licówki czy korony", text: "Jak wybrać odbudowę i co wpływa na cenę." }
   ],
   implanty: [
     { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },

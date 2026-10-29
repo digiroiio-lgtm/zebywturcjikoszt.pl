@@ -6,7 +6,7 @@
  * patients; scans must have personal data masked. While both lists are empty nothing is rendered, no page is
  * published and no structured data is emitted.
  */
-export type CredentialKind = "health-tourism-authorisation" | "clinic-licence" | "trade-registry" | "diploma" | "specialty" | "professional-register";
+export type CredentialKind = "health-facility-registry" | "health-tourism-authorisation" | "clinic-licence" | "trade-registry" | "diploma" | "specialty" | "professional-register";
 
 export type OfficialCredential = {
   id: string;
@@ -27,7 +27,17 @@ export type OfficialCredential = {
   document?: { src: string; alt: string; width: number; height: number };
 };
 
-export const clinicCredentials: OfficialCredential[] = [];
+export const clinicCredentials: OfficialCredential[] = [
+  {
+    id: "antalya-sm-oral-dental-centres",
+    kind: "health-facility-registry",
+    title: "Wpis w wykazie prywatnych ośrodków zdrowia jamy ustnej i zębów: Özel Antalya Akdeniz Ağız ve Diş Sağlığı Polikliniği",
+    issuer: "T.C. Sağlık Bakanlığı, Antalya İl Sağlık Müdürlüğü (Ministerstwo Zdrowia Turcji, wojewódzka dyrekcja zdrowia w Antalyi)",
+    // The registry page shows the facility name, telephone, address and e-mail; it shows no licence number, so none is recorded.
+    verifyUrl: "https://www.antalyasm.gov.tr/ozel-agiz-ve-dis-sagligi-merkezleri/ozel-antalya-akdeniz-agiz-ve-dis-sagligi-poliklinigi-detay/4120",
+    checkedDate: "2026-10-30"
+  }
+];
 
 /** Keyed by clinicalTeam slug. */
 export const doctorCredentials: Record<string, OfficialCredential[]> = {};
@@ -35,6 +45,7 @@ export const doctorCredentials: Record<string, OfficialCredential[]> = {};
 export const credentialsPublished = clinicCredentials.length > 0;
 
 export const CREDENTIAL_KIND_LABEL: Record<CredentialKind, string> = {
+  "health-facility-registry": "Wykaz placówek zdrowia (Turcja)",
   "health-tourism-authorisation": "Zezwolenie turystyki zdrowotnej",
   "clinic-licence": "Licencja kliniki",
   "trade-registry": "Rejestr przedsiębiorców",

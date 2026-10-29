@@ -155,6 +155,7 @@ export const pages: Record<string, PageContent> = {
       { label: "NHS (UK): lista kontrolna leczenia za granicą", href: "https://www.nhs.uk/using-the-nhs/healthcare-abroad/going-abroad-for-treatment/treatment-abroad-checklist/" },
       { label: "American Dental Association: korony zębowe", href: "https://www.mouthhealthy.org/all-topics-a-z/crowns" },
       { label: "Wikipedia: Dental implant (implant zębowy)", href: "https://en.wikipedia.org/wiki/Dental_implant" },
+      { label: "Dane cennika kliniki (CSV i JSON) z datą i kursem", href: "/dane/cennik-kliniki" },
       { label: "Wikipedia: Crown (dentistry) (korona zębowa)", href: "https://en.wikipedia.org/wiki/Crown_%28dentistry%29" },
       { label: "Survival rates of axial and tilted implants in the rehabilitation of edentulous jaws using the All-on-four™ concept: A systematic review (PMC)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8061444/" }
     ],
@@ -630,7 +631,7 @@ export const pages: Record<string, PageContent> = {
   ...legalPages,
   ...(credentialsPublished ? {
     "dokumenty-i-licencje": {
-      slug: "dokumenty-i-licencje", published: "2026-10-02", lastUpdated: "2026-10-02", title: "Dokumenty i licencje kliniki Akdeniz Dental",
+      slug: "dokumenty-i-licencje", published: "2026-10-30", lastUpdated: "2026-10-30", title: "Dokumenty i licencje kliniki Akdeniz Dental",
       description: "Dokumenty kliniki Akdeniz Dental: zezwolenia, wpisy rejestrowe i dane lekarzy z numerami oraz linkami do rejestrów, w których można je sprawdzić samodzielnie.",
       eyebrow: "Transparentność", h1: "Dokumenty i licencje kliniki",
       lead: "Klinika Akdeniz Dental prowadzona przez operatora serwisu może wykazać się dokumentami. Publikujemy tu tylko te, które porównaliśmy z oficjalnym źródłem.",

@@ -2,6 +2,7 @@ export type HistoryEntry = { date: string; note: string };
 
 /** Public change history per page. Add an entry whenever a page changes materially; entries must describe real changes. */
 export const pageHistory: Record<string, HistoryEntry[]> = {
+  "dokumenty-i-licencje": [{ date: "2026-10-30", note: "Opublikowano stronę z pierwszym wpisem rejestrowym: kliniki w wykazie prywatnych ośrodków zdrowia jamy ustnej i zębów Antalya İl Sağlık Müdürlüğü, sprawdzonym 30 października 2026." }],
   koszt: [
     { date: "2026-10-29", note: "Dodano sekcje o cenie implantów (z koroną i pozycjami dodatkowymi) oraz o porównaniu z Polską bez cen z Polski, i dwa pytania o sumę ceny implantu i korony oraz o różnicę Straumann–Aiser." },
     { date: "2026-10-29", note: "Dodano do źródeł przegląd systematyczny (PMC) dotyczący koncepcji All-on-4 oraz ujednolicono widoczną datę aktualizacji." },

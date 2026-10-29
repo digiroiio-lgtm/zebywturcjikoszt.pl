@@ -2,6 +2,7 @@ import Link from "next/link";
 import { OPERATOR, operatorIsPublished, operatorRows } from "@/lib/operator";
 import { credentialsPublished } from "@/lib/credentials";
 import { ConsentSettingsButton } from "./consent-banner";
+import { verifiedListings } from "@/lib/directory-listings";
 import { FooterContact } from "./footer-contact";
 
 export function SiteFooter() {
@@ -9,7 +10,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="shell"><FooterContact /></div>
       <div className="shell footer-grid">
-        <nav className="footer-group" aria-labelledby="footer-treatments"><p className="footer-heading" id="footer-treatments">Leczenie i ceny</p><Link href="/koszt">Koszt leczenia</Link><Link href="/implanty">Implanty</Link><Link href="/korony-cyrkonowe">Korony cyrkonowe</Link><Link href="/licowki">Licówki</Link><Link href="/cala-szczeka">Cała szczęka</Link><Link href="/all-on-4">All-on-4</Link></nav>
+        <nav className="footer-group" aria-labelledby="footer-treatments"><p className="footer-heading" id="footer-treatments">Leczenie i ceny</p><Link href="/koszt">Koszt leczenia</Link><Link href="/implanty">Implanty</Link><Link href="/korony-cyrkonowe">Korony cyrkonowe</Link><Link href="/licowki">Licówki</Link><Link href="/cala-szczeka">Cała szczęka</Link><Link href="/all-on-4">All-on-4</Link><Link href="/dane/cennik-kliniki">Dane cennika (CSV, JSON)</Link></nav>
         <nav className="footer-group" aria-labelledby="footer-patients"><p className="footer-heading" id="footer-patients">Dla pacjentów</p><Link href="/poradniki">Poradniki dla pacjentów</Link><Link href="/jak-wybrac-klinike">Jak wybrać klinikę</Link><Link href="/opinie">Opinie</Link><Link href="/przed-i-po">Przed i po</Link><Link href="/antalya">Plan wyjazdu do Antalyi</Link><Link href="/poradniki/opieka-po-leczeniu">Opieka po leczeniu</Link><Link href="/pytania-i-odpowiedzi">Pytania i odpowiedzi</Link></nav>
         <nav className="footer-group" aria-labelledby="footer-abroad"><p className="footer-heading" id="footer-abroad">Polacy za granicą</p><Link href="/uk">Dla Polaków w UK</Link><Link href="/uk/finansowanie-leczenia-zebow-w-turcji">Finansowanie leczenia</Link></nav>
         <nav className="footer-group" aria-labelledby="footer-about"><p className="footer-heading" id="footer-about">O nas i kontakt</p><Link href="/o-nas">O nas</Link><Link href="/nasi-lekarze">Nasi lekarze</Link><Link href="/nasz-zespol">Nasz zespół</Link><Link href="/kontakt">Kontakt</Link><Link href="/dane-kliniki">Dane kliniki</Link><Link href="/wlasciciel-serwisu">Właściciel serwisu</Link><Link href="/reklamacje">Reklamacje</Link></nav>
@@ -22,6 +23,7 @@ export function SiteFooter() {
         </details>
       </div>
       <div className="shell footer-bottom">
+        {verifiedListings().some((listing) => listing.kind === "social-profile") && <p className="footer-social">Klinika w mediach społecznościowych: {verifiedListings().filter((listing) => listing.kind === "social-profile").map((listing, index) => <span key={listing.id}>{index > 0 && " · "}<a href={listing.url} rel="me noopener noreferrer" target="_blank">{listing.id === "facebook" ? "Facebook" : listing.id === "instagram" ? "Instagram" : listing.name}</a></span>)}</p>}
         <p className="footer-brand">Zęby w Turcji</p>
         <p>Rzetelne informacje dla osób z Polski rozważających leczenie stomatologiczne w Turcji.</p>
         <p className="footer-note">Serwis informacyjny o celu komercyjnym. Nie zastępuje badania ani porady lekarza dentysty.</p>
