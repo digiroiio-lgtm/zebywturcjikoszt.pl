@@ -651,7 +651,13 @@ export const pages: Record<string, PageContent> = {
 
 export const legalSlugs = ["polityka-prywatnosci", "cookies", "regulamin", "reklamacje"];
 
-export const primaryNav = [
-  { label: "Poradniki", href: "/poradniki" }, { label: "Koszt", href: "/koszt" }, { label: "Implanty", href: "/implanty" }, { label: "Korony", href: "/korony-cyrkonowe" },
-  { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "Opinie", href: "/opinie" }, { label: "Antalya", href: "/antalya" }
+export type NavLink = { label: string; href: string };
+/** Treatment pages grouped under one "Leczenie" menu so the header stays short and every treatment is one click away. */
+export const treatmentNav: NavLink[] = [
+  { label: "Implanty", href: "/implanty" }, { label: "Korony cyrkonowe", href: "/korony-cyrkonowe" }, { label: "Licówki", href: "/licowki" },
+  { label: "Cała szczęka", href: "/cala-szczeka" }, { label: "All-on-4", href: "/all-on-4" }
 ];
+export const primaryNav: { before: NavLink[]; after: NavLink[] } = {
+  before: [{ label: "Poradniki", href: "/poradniki" }, { label: "Koszt", href: "/koszt" }],
+  after: [{ label: "Opinie", href: "/opinie" }, { label: "Antalya", href: "/antalya" }]
+};
