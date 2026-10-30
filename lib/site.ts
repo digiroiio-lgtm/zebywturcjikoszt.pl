@@ -43,10 +43,12 @@ export type PageContent = {
   sections: ContentSection[];
   faq?: { question: string; answer: string }[];
   sources?: { label: string; href: string }[];
+  /** On the form page it is the button label. On every other page it only switches the hero button on and is never shown. */
   ctaLabel?: string;
-  /** Text of the two on-page assessment buttons (hero and closing); defaults to "Poproś o wstępną wycenę". Separate from ctaLabel, which only labels the form page. */
+  /** Text of the two on-page assessment buttons (hero and closing); defaults to PRIMARY_CTA ("Otrzymaj bezpłatną wycenę"). */
   ctaText?: string;
   ctaEvent?: string;
+  /** Overrides the hero button destination only. Always set ctaText with it so the label names the new destination (scripts/verify-cta.mjs enforces this). */
   ctaHref?: string;
   schemaType?: "MedicalWebPage" | "WebPage" | "ContactPage";
   noindex?: boolean;
