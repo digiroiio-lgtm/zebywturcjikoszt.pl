@@ -483,7 +483,7 @@ export const pages: Record<string, PageContent> = {
     ],
     sources: [{ label: "UOKiK: Zadatek czy zaliczka? Porady UOKiK", href: "https://archiwum.uokik.gov.pl/aktualnosci.php?news_id=11145" }, nhsAbroad],
     lastUpdated: "2026-10-17",
-    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "clinic_check_cta"
+    ctaLabel: "Poproś o wstępną ocenę", ctaEvent: "jak_wybrac_klinike_cta"
   },
   "o-nas": {
     slug: "o-nas", title: "O serwisie Zęby w Turcji", description: "Czym jest serwis Zęby w Turcji: cel komercyjny, relacja z kliniką Akdeniz Dental, zasady transparentności, źródła treści i zakres odpowiedzialności.",
