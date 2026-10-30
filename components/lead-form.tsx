@@ -7,7 +7,7 @@ import { contactPromiseLines } from "@/lib/contact-promise";
 import { contactChannels, leadTopics, topicFromPath, type ContactChannelId } from "@/lib/lead-options";
 import { readAttribution, trackEvent } from "./tracked-link";
 import { WhatsAppIcon } from "./whatsapp-icon";
-import { CTA_ASSURANCE, SUBMIT_CTA } from "@/lib/cta";
+import { CTA_ASSURANCE, SUBMIT_CTA, WHATSAPP_CTA, WHATSAPP_NEW_TAB } from "@/lib/cta";
 import { campaigns } from "@/lib/campaigns";
 import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 import { LEAD_ENGAGED_KEY, POPUP_DISMISSED_KEY, readStoredCampaign, storeCampaign, clearStoredCampaign } from "@/lib/campaign-state";
@@ -165,7 +165,7 @@ export function LeadForm({ enabled, context = {}, headingId, heading = "Twoja be
     <p>Skontaktujemy się z Tobą wybranym kanałem.</p>
     <p className="form-success-whatsapp">Chcesz skontaktować się z nami szybciej? Możesz również napisać na WhatsApp.</p>
     <div className="form-success-actions">
-      <a className="whatsapp-button" href={whatsappHref} target="_blank" rel="noopener noreferrer" onClick={trackWhatsapp}><WhatsAppIcon /><span>Napisz na WhatsApp</span></a>
+      <a className="whatsapp-button" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label={`${WHATSAPP_CTA} ${WHATSAPP_NEW_TAB}`} onClick={trackWhatsapp}><WhatsAppIcon /><span>{WHATSAPP_CTA}</span></a>
       <button type="button" className="button button-secondary" onClick={closeSuccess}>Zamknij</button>
     </div>
   </div>;

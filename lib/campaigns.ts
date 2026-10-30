@@ -8,6 +8,8 @@ export type Campaign = {
   name: string;
   /** What the visitor sees in the form (Polish, no price); `name` stays the tracking and notification label. */
   displayName: string;
+  /** Who the offer is for. The price is in GBP, so it is shown only on the UK pages; "pl" and "all" need an owner-supplied PLN/EUR offer. */
+  audience: "uk" | "pl" | "all";
   active: boolean;
   startsAt: string | null;
   endsAt: string | null;
@@ -36,6 +38,7 @@ export const christmasCampaign: Campaign = {
   id: "christmas-hollywood-smile",
   name: "Christmas Hollywood Smile | 16 crowns | £2,390",
   displayName: "Oferta świąteczna: 16 koron cyrkonowych",
+  audience: "uk",
   active: true,
   // Operator-supplied, Antalya time (UTC+03:00): 17.10.2026 to 01.01.2027 00:01.
   startsAt: "2026-10-17T00:00:00+03:00",
@@ -70,5 +73,14 @@ export function isCampaignLive(campaign: Campaign, now = Date.now()): boolean {
 }
 
 export function activeCampaign(now = Date.now()): Campaign | undefined { return campaigns.find((campaign) => isCampaignLive(campaign, now)); }
+
+/** UK section: /uk and everything below it. Every other page serves the Polish audience. */
+export const isUkPath = (pathname: string) => pathname === "/uk" || pathname.startsWith("/uk/");
+
+/** The live campaign meant for the audience of this page, so a GBP offer never reaches the Polish pages. */
+export function activeCampaignForPath(pathname: string, now = Date.now()): Campaign | undefined {
+  const audience = isUkPath(pathname) ? "uk" : "pl";
+  return campaigns.find((campaign) => isCampaignLive(campaign, now) && (campaign.audience === "all" || campaign.audience === audience));
+}
 /** Names the lead API accepts, so an arbitrary string can never be written into a lead notification as a "campaign". */
 export const knownCampaignNames: string[] = campaigns.map((campaign) => campaign.name);

@@ -2,6 +2,11 @@
 export const PRIMARY_CTA = "Otrzymaj bezpłatną wycenę";
 export const SUBMIT_CTA = "Wyślij zapytanie o bezpłatną wycenę";
 export const HEADER_CTA = "Bezpłatna wycena";
+/** One wording per WhatsApp button. The hero keeps its own line (it carries the Polish-language promise); the sticky bar shows the short visible label to fit 40 % width, but its accessible name is the standard one. */
+export const WHATSAPP_CTA = "Napisz na WhatsApp";
+export const WHATSAPP_CTA_SHORT = "WhatsApp";
+export const WHATSAPP_HERO_CTA = "Porozmawiaj po polsku na WhatsApp";
+export const WHATSAPP_NEW_TAB = "(otwiera się w nowej karcie)";
 export const CTA_ASSURANCE = "Wstępna wycena • Kontakt po polsku • Bez zobowiązań";
 export const FINAL_PLAN_NOTE = "Ostateczny plan leczenia wymaga konsultacji i odpowiedniej diagnostyki.";
 

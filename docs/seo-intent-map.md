@@ -152,3 +152,10 @@ Rules:
 - Brand-intent content stays on `/nasi-lekarze`, `/nasz-zespol` and the clinic sections of `/opinie`.
 - Flight, accommodation, day counts and a Polish-speaking coordinator stay unpublished until confirmed by the operator.
 - Measure: split Search Console queries into brand and non-brand and track position of the six queries above; re-read around 2026-11-14 to 2026-11-28.
+
+## `/koszt` strengthened instead of a new price URL (2026-10-30)
+- A draft asked for `/koszt-zebow-w-turcji`. Rejected as a duplicate of `/koszt`, which already owns "zęby w Turcji koszt/cena" and holds the dated EUR/PLN list (same rule as 2026-10-17: no `/cena`, `/cennik` copies).
+- Search Console baseline (sc-domain, 1 Aug–29 Oct 2026, tiny volumes): `/koszt` 61 impressions, avg position 58.7, 0 clicks; "zeby w turcji koszt" 4 impr., pos 63.5; "implanty zębów w turcji cena" 1 impr., pos 89 (owner `/implanty`); "wszystko na 4 implantach w turcji" 2 impr., pos 77.5 (owner `/all-on-4`); "wyjmowane protezy zębowe w antalyi" 2 impr., pos 95 (no page); "akdeniz dental clinic opinie" 44 impr., pos 6.8 (`/opinie`).
+- Changes: title, meta description, H1 and lead aligned with the query wording; sections "Implant zęba w Turcji: cena" (price-list items only, abutment/crown inclusion stated as unconfirmed) and "Cała szczęka i All-on-4: dlaczego nie ma jednej ceny" (no total); `/opinie` added to the related links.
+- Not published (no verified data): All-on-4 total, removable denture price, days of stay, warranty, hotel/transfer, Poland price comparison. "Licówka porcelanowa / e-max" is not equated with the list item "Odbudowa E-max".
+- P2: removable dentures (`protezy zębowe Antalya`) page only after the operator confirms availability, scope and price (see `docs/operator-facts-checklist.md`).

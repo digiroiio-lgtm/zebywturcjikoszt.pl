@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { activeCampaign } from "@/lib/campaigns";
+import { activeCampaignForPath } from "@/lib/campaigns";
 import { LEAD_ENGAGED_KEY, POPUP_DISMISSED_KEY, POPUP_SECONDS_KEY, POPUP_SHOWN_KEY, storeCampaign } from "@/lib/campaign-state";
 import { trackEvent } from "./tracked-link";
 
@@ -24,7 +24,7 @@ function snoozed() {
 }
 
 /**
- * Christmas campaign popup. Opens once per session when the visitor has spent 20 s (counted across client-side
+ * Campaign popup, shown only on pages of the campaign's audience (the Christmas offer is priced in GBP: /uk pages). Opens once per session when the visitor has spent 20 s (counted across client-side
  * navigation, visible tab only) AND reached 35 % of the current page; either may happen first, never on load.
  * Waits while another dialog is open; stays away once the lead form was started or sent, and for 7 days after closing.
  */
@@ -35,7 +35,7 @@ export function CampaignPopup() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const returnFocus = useRef<HTMLElement | null>(null);
   const openRef = useRef(false);
-  const campaign = activeCampaign();
+  const campaign = activeCampaignForPath(pathname);
 
   useEffect(() => {
     if (!campaign || EXCLUDED.includes(pathname)) return;

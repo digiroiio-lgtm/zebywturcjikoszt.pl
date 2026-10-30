@@ -59,5 +59,12 @@ Açılacak yer: `/antalya` (yeni "Dojazd" bölümü). Burada rakam yazmadan önc
 - Tipik uçuş süresi (kaynak)?
 - Antalya Havalimanı → klinik arası yaklaşık süre?
 
+## 7. Protez ve tam çene paketi (yeni sayfa/bölüm için)
+Açılacak yer: `/koszt`, `/all-on-4`, ileride bir protez sayfası (GSC: "wyjmowane protezy zębowe w antalyi", "protezy zębowe antalya").
+- Hareketli (çıkarılabilir) protez yapılıyor mu? Hangi tipler, çene başına fiyat ve kapsam (ölçü, deneme, düzeltme)?
+- All-on-4: yazılı paket fiyatı var mı? Kaç implant, geçici protez, kalıcı protez, tarih ve geçerlilik süresi? (Fiyat listesinde yalnızca implant, titanyum bar vb. ayrı kalemler var.)
+- Lamina: "porselen/e-max lamina" ile fiyat listesindeki "E-MAX" kalemi aynı şey mi? Diş başına fiyat nedir?
+- Implant + kron: bağlantı parçası (abutment) ve kron implant fiyatına dahil mi?
+
 ## Sonraki adım
 Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.

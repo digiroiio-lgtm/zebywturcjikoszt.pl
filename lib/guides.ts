@@ -139,5 +139,8 @@ export const newGuides: Record<string, PageContent> = {
 for (const guide of Object.values(newGuides)) { guide.published ??= GUIDES_DATE; guide.lastUpdated ??= GUIDES_DATE; guide.schemaType = "MedicalWebPage"; }
 export const GUIDES_LATEST_DATE = Object.values(newGuides).map((guide) => guide.lastUpdated!).reduce((a, b) => (a > b ? a : b));
 export const allGuidePages = [...Object.values(newGuides), ...guideCards.filter((card) => !card.href.startsWith("/poradniki/")).map((card) => pages[card.href.slice(1)])];
-export function guideHref(path: string, source: string) { return `${path}${path.includes("?") ? "&" : "?"}guide_source=${encodeURIComponent(source)}`; }
+export function guideHref(path: string, source: string) {
+  const [base, hash] = path.split("#");
+  return `${base}${base.includes("?") ? "&" : "?"}guide_source=${encodeURIComponent(source)}${hash ? `#${hash}` : ""}`;
+}
 export function guideAssessmentHref(source: string, location: string, leadSource = "OGZ-PL") { return `/kontakt?lead_source=${leadSource}&cta_location=${location}&page_path=${encodeURIComponent(source)}&guide_source=${encodeURIComponent(source)}`; }
