@@ -85,7 +85,7 @@ No HIGH-overlap pair is published.
 - Arithmetic subtotals use the central EUR prices and the disclosed dated PLN conversion. They are not confirmed quotes or complete package prices.
 - Implant scope must distinguish the implant, abutment, crown, diagnostics and temporary work. Unconfirmed inclusions are explicitly identified.
 - Full-arch and All-on-4 package totals remain unpublished until written scope, included and excluded services, date, validity and approval are supplied.
-- New crown content has its actual publication date. Medical review recorded 2026-10-30: Mustafa Akça, evidence `operator-confirmation:2026-10-30:medical-review` (operator's statement in the conversation, as for the other reviewed pages). Editing the crown page text or setting its `lastUpdated` after 2026-10-30 withdraws the approval until the reviewer re-confirms.
+- New crown content has its actual publication date. Medical review recorded for the date of the page text, 2026-09-30: Mustafa Akça, review date = the page's `lastUpdated`, as for the other reviewed pages. Evidence `operator-confirmation:2026-10-30:medical-review` (operator's statement in the conversation, 2026-10-30). Editing the crown page text or setting its `lastUpdated` after 2026-09-30 withdraws the approval until the reviewer re-confirms. Mustafa Akça's `lastVerified` and the other reviews are unchanged.
 
 ## Search-cluster prioritisation (2026-10-17)
 

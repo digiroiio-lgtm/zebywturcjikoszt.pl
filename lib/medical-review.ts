@@ -13,14 +13,15 @@ export type ReviewState =
 // The operator assigned implanty and all-on-4 specifically to Mehmet Onur Merey.
 // On 2026-10-02 the operator confirmed that Mehmet Onur Merey (all-on-4) and Mustafa Akça (cala-szczeka)
 // approved the updated text, which added a literature section and a PMC source on 2026-10-02.
-// On 2026-10-30 the operator confirmed in the conversation that Mustafa Akça reviewed the current text of korony-cyrkonowe
-// (crown price 150 EUR from the 30.09.2026 price list, scope and FAQ) on 2026-10-30 and supplied that date as the actual review date.
+// On 2026-10-30 the operator confirmed in the conversation that Mustafa Akça's review of korony-cyrkonowe belongs to the date of the
+// page text (2026-09-30: crown price 150 EUR from the 30.09.2026 price list, scope and FAQ) and supplied 2026-09-30 as the review date.
+// The review date therefore equals the page's own lastUpdated; the evidence reference keeps the date the confirmation was given.
 export const pageReviews: Record<string, ReviewState> = {
   implanty: { reviewStatus: "reviewed", reviewer: "mehmet-onur-merey", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
   licowki: { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-09-30:medical-review" },
   "cala-szczeka": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-10-02", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-10-02:medical-review" },
   "all-on-4": { reviewStatus: "reviewed", reviewer: "mehmet-onur-merey", reviewDate: "2026-10-02", lastUpdated: "2026-09-19", approvalReference: "operator-confirmation:2026-10-02:medical-review" },
-  "korony-cyrkonowe": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-10-30", lastUpdated: "2026-09-30", approvalReference: "operator-confirmation:2026-10-30:medical-review" }
+  "korony-cyrkonowe": { reviewStatus: "reviewed", reviewer: "mustafa-akca", reviewDate: "2026-09-30", lastUpdated: "2026-09-30", approvalReference: "operator-confirmation:2026-10-30:medical-review" }
 };
 
 export function reviewFor(slug: string, lastUpdated: string): ReviewState {

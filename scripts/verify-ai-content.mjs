@@ -47,7 +47,7 @@ for (const question of faq.mainEntity) {
   assert.equal(question.acceptedAnswer.text, original.acceptedAnswer.text);
   assert(full.includes(original.acceptedAnswer.text));
 }
-for (const [slug, reviewer, reviewDate] of [['implanty','mehmet-onur-merey','2026-09-30'],['licowki','mustafa-akca','2026-09-30'],['all-on-4','mehmet-onur-merey','2026-10-02'],['cala-szczeka','mustafa-akca','2026-10-02'],['korony-cyrkonowe','mustafa-akca','2026-10-30']]) {
+for (const [slug, reviewer, reviewDate] of [['implanty','mehmet-onur-merey','2026-09-30'],['licowki','mustafa-akca','2026-09-30'],['all-on-4','mehmet-onur-merey','2026-10-02'],['cala-szczeka','mustafa-akca','2026-10-02'],['korony-cyrkonowe','mustafa-akca','2026-09-30']]) {
   const page = schemas(read(slug + '.html')).find((s) => s['@type'] === 'MedicalWebPage');
   assert.equal(page.lastReviewed, reviewDate);
   assert.equal(page.reviewedBy['@id'], `${origin}/eksperci/${reviewer}/#person`);
