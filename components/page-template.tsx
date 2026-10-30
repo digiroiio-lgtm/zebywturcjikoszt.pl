@@ -110,7 +110,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Policz leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
     { href: "/antalya", label: "Zęby w Turcji w Antalyi", text: "Plan wizyt, godziny kliniki i to, co ustalić przed wyjazdem." },
     { href: "/poradniki/pakiety-leczenia-zebow", label: "Pakiety leczenia", text: "Co sprawdzić w pakiecie: zakres ceny, wyłączenia, hotel i transfery." },
-    { href: "/poradniki/licowki-czy-korony", label: "Licówki czy korony", text: "Jak wybrać odbudowę i co wpływa na cenę." }
+    { href: "/poradniki/licowki-czy-korony", label: "Licówki czy korony", text: "Jak wybrać odbudowę i co wpływa na cenę." },
+    { href: "/opinie", label: "Jak oceniać opinie", text: "Oceny kliniki z datą odczytu i zasady czytania opinii pacjentów." }
   ],
   implanty: [
     { href: "/korony-cyrkonowe", label: "Korony cyrkonowe", text: "Cena 150 EUR, zakres i przykładowe sumy w EUR i PLN." },

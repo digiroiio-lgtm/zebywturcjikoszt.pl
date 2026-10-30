@@ -63,13 +63,13 @@ const googleProfile = clinicProfiles.find((profile) => profile.key === "google-m
 
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: "2026-10-29",
+    lastUpdated: "2026-10-30",
     slug: "koszt",
-    title: "Zęby w Turcji – ceny i koszty leczenia",
-    description: `Zęby w Turcji cena i koszt zrobienia zębów: cennik ${priceItems.length} zabiegów w EUR i PLN (implanty, korony, licówki), z datą i kursem. Aktualizacja: 30.09.2026.`,
+    title: "Koszt zębów w Turcji: cennik implantów i koron 2026",
+    description: "Ile kosztuje leczenie zębów w Turcji? Cennik implantów, koron i licówek w EUR i PLN z datą 30.09.2026 oraz co wpływa na końcową kwotę.",
     eyebrow: "Koszt leczenia",
-    h1: "Ile kosztuje zrobienie zębów w Turcji?",
-    lead: "Cena zależy od diagnozy, liczby leczonych zębów, rodzaju odbudowy, materiałów i etapów terapii. Rzetelna wycena powinna opierać się na dokumentacji i jasno określać zakres.",
+    h1: "Koszt zębów w Turcji: ile zapłacisz za leczenie w Antalyi?",
+    lead: `Cena leczenia zębów w Turcji zależy od zakresu zabiegu, użytych materiałów i liczby wizyt. Poniżej znajdziesz pozycje cennika kliniki w EUR i orientacyjnie w PLN oraz to, co warto sprawdzić przed decyzją. Cennik z ${PRICING_UPDATED_DATE}.`,
     answerTitle: "Ile kosztuje leczenie zębów w Turcji?",
     answer: `Ceny podajemy w EUR i orientacyjnie w PLN (1 EUR = 4,37 PLN z 30.09.2026). Korona cyrkonowa kosztuje ${formatEur(priceById("zirconia-crown").eur)}, implant Aiser lub Medentika ${formatEur(priceById("aiser").eur)}, Straumann ${formatEur(priceById("straumann").eur)}. To ceny pozycji cennika, a nie całego leczenia.`,
     schemaType: "MedicalWebPage",
@@ -96,6 +96,7 @@ export const pages: Record<string, PageContent> = {
         "Nie podajemy cen implantów z Polski, bo nie mamy zweryfikowanego i datowanego źródła. Porównanie ma sens tylko dla tego samego zakresu: system implantu, łącznik, korona, diagnostyka, ewentualna odbudowa kości, kontrole i możliwa korekta. Poproś o pisemne wyceny tego samego zakresu z obu stron i zsumuj także podróż, nocleg i drugi pobyt, jeśli plan go wymaga.",
         "Ryzyko w leczeniu implantologicznym nie wynika z kraju, tylko z kwalifikacji, planu i opieki po zabiegu. Przed wpłatą ustal na piśmie, jaki system implantu zostanie użyty, kto prowadzi leczenie, jak wygląda kontrola po powrocie, kto odpowiada za problem i jakie dokumenty otrzymasz z zastosowanymi materiałami. Informacje z cennika nie są kwalifikacją do zabiegu, o której decyduje lekarz po badaniu."
       ]},
+      { title: "Cała szczęka i All-on-4: dlaczego nie ma jednej ceny", paragraphs: ["Dla całej szczęki i All-on-4 nie publikujemy łącznej kwoty, bo zależy ona od wariantu leczenia, liczby implantów, odbudowy tymczasowej i docelowej oraz zabiegów dodatkowych. Pisemna oferta powinna wskazywać zakres, wyłączenia, datę i termin ważności. Szczegóły znajdziesz na stronach o All-on-4 i o całej szczęce."] },
       { title: "Co powinno znaleźć się w wycenie", cards: [
         { title: "Zakres kliniczny", text: "Rozpoznanie, proponowane leczenie, liczba zębów lub implantów oraz możliwe alternatywy." },
         { title: "Materiały i systemy", text: "Rodzaj odbudowy, marka systemu implantologicznego i elementy protetyczne, jeśli dotyczą planu." },
