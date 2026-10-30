@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { TrackedLink, trackEvent } from "./tracked-link";
 import { WhatsAppIcon } from "./whatsapp-icon";
 import { whatsappUrl } from "@/lib/whatsapp";
-import { HEADER_CTA } from "@/lib/cta";
+import { HEADER_CTA, WHATSAPP_CTA, WHATSAPP_CTA_SHORT, WHATSAPP_NEW_TAB } from "@/lib/cta";
 import { topicFromPath } from "@/lib/lead-options";
 
 /** One contact component: a two-action bar on phones (quote 60 % / WhatsApp 40 %) and a floating WhatsApp button on larger screens; CSS shows exactly one of them. */
@@ -37,7 +37,7 @@ export function MobileAssessmentBar() {
   const guide = pathname.startsWith("/poradniki");
   const label = HEADER_CTA;
   const context = { ...(topic ? { treatment: topic } : {}) };
-  const whatsapp = (location: string) => <a className="whatsapp-button" href={whatsappUrl(topic, audience)} target="_blank" rel="noopener noreferrer" aria-label="Zapytaj na WhatsApp (otwiera się w nowej karcie)" onClick={() => trackEvent("whatsapp_click", { button_location: location, ...context })}><WhatsAppIcon /><span>WhatsApp</span></a>;
+  const whatsapp = (location: string) => <a className="whatsapp-button" href={whatsappUrl(topic, audience)} target="_blank" rel="noopener noreferrer" aria-label={`${WHATSAPP_CTA} ${WHATSAPP_NEW_TAB}`} onClick={() => trackEvent("whatsapp_click", { button_location: location, ...context })}><WhatsAppIcon /><span>{WHATSAPP_CTA_SHORT}</span></a>;
 
   return <>
     {pathname !== "/kontakt" && <nav className="mobile-assessment-bar" aria-label="Kontakt w sprawie leczenia" data-hidden={home && heroCtaInView ? "true" : undefined}>

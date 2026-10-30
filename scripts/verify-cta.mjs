@@ -47,6 +47,23 @@ if (existsSync(appDir)) {
       if (href.startsWith('/')) singleTarget.get(label)?.add(href); // in-page form anchors (home) are intentional
     }
   }
+  // 3. WhatsApp buttons use the standard wording (lib/cta.ts); the accessible name always contains the visible text.
+  const cta = readFileSync('lib/cta.ts', 'utf8');
+  const standard = ['WHATSAPP_CTA', 'WHATSAPP_CTA_SHORT', 'WHATSAPP_HERO_CTA'].map((name) => cta.match(new RegExp(`${name} = "([^"]+)"`))?.[1]);
+  assert(standard.every(Boolean), 'lib/cta.ts must define WHATSAPP_CTA, WHATSAPP_CTA_SHORT and WHATSAPP_HERO_CTA');
+  const [waStandard, waShort, waHero] = standard;
+  let waLinks = 0;
+  for (const file of htmlFilesIn(appDir)) {
+    const html = readFileSync(file, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
+    for (const [, attrs, inner] of html.matchAll(/<a\s([^>]*?href="https:\/\/wa\.me\/[^"]*"[^>]*)>([\s\S]*?)<\/a>/g)) {
+      const label = inner.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      const aria = attrs.match(/aria-label="([^"]*)"/)?.[1];
+      waLinks += 1;
+      assert([waStandard, waShort, waHero].includes(label), `${file}: WhatsApp button "${label}" is not one of the standard labels`);
+      if (aria) assert(aria.includes(label), `${file}: accessible name "${aria}" must contain the visible text "${label}"`);
+    }
+  }
+  assert(waLinks > 0, 'no WhatsApp buttons found in the built pages');
   for (const [label, targets] of singleTarget) assert(targets.size <= 1, `"${label}" has several targets: ${[...targets].join(', ')}`);
   assert.deepEqual([...singleTarget.get('Bezpłatna wycena')], ['/kontakt#assessment-form'], '"Bezpłatna wycena" must go to /kontakt#assessment-form everywhere');
   assert.deepEqual([...singleTarget.get('Zobacz ceny leczenia')], ['/koszt#cennik'], '"Zobacz ceny leczenia" must go to /koszt#cennik everywhere');
