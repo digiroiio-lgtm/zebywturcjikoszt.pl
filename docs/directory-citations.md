@@ -41,3 +41,6 @@ The competitor page scores the clinic 2 of 15 criteria. The missing items are fa
 - Submit in bulk or with tools that fill forms automatically; directories forbid it and search engines treat it as spam.
 - Buy links or listings, or rewrite the clinic's name, address or description per directory.
 - Add claims that are not on the site (rankings, awards, licences, guarantees). Licences appear only after `lib/credentials.ts` has verified entries.
+
+## Dataset licence
+The price dataset (`/dane/cennik-kliniki`, CSV and JSON) is published under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), stated on the page and in the Dataset JSON-LD as `license`. `creator` and `publisher` are typed Organization objects: bare `@id` references are rejected by Search Console's Dataset parser.

@@ -3,11 +3,11 @@ import Link from "next/link";
 import { CommercialNote } from "@/components/commercial-note";
 import { SourceList } from "@/components/source-list";
 import { EntitySchema } from "@/components/entity-schema";
-import { CLINIC_ID } from "@/lib/clinic-profiles";
+import { CLINIC_ID, CLINIC_NAME, CLINIC_URL } from "@/lib/clinic-profiles";
 import { DATASET_PATH, priceRows } from "@/lib/price-dataset";
 import { EUR_PLN_RATE, EUR_PLN_RATE_TIMESTAMP, PRICING_UPDATED_DATE, PRICING_UPDATED_ISO_DATE, formatEur, formatPln } from "@/lib/pricing";
 import { breadcrumbList, ogImagesFor, twitterImagesFor } from "@/lib/seo";
-import { SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const rows = priceRows();
 const title = "Cennik kliniki Akdeniz Dental: dane CSV i JSON";
@@ -27,7 +27,8 @@ export default function PriceDatasetPage() {
       "@type": "Dataset", "@id": `${url}#dataset`, name: "Cennik kliniki Akdeniz Dental w Antalyi (pozycje w EUR)",
       description: "Pozycje cennika kliniki z orientacyjnym przeliczeniem na PLN. To ceny pozycji, a nie cena całego leczenia, pakietu ani wyjazdu.",
       url, inLanguage: "pl-PL", dateModified: PRICING_UPDATED_ISO_DATE, isAccessibleForFree: true,
-      creator: { "@id": CLINIC_ID }, publisher: { "@id": `${SITE_URL}/#organization` },
+      creator: { "@type": "Organization", "@id": CLINIC_ID, name: CLINIC_NAME, url: CLINIC_URL }, publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization`, name: SITE_NAME, url: SITE_URL },
+      license: "https://creativecommons.org/licenses/by/4.0/",
       keywords: ["cennik", "leczenie zębów w Turcji", "implanty", "korony cyrkonowe", "licówki", "EUR", "PLN"],
       variableMeasured: ["price_eur", "approx_price_pln"],
       distribution: [
@@ -50,7 +51,7 @@ export default function PriceDatasetPage() {
     </section>
     <section aria-labelledby="dataset-cite-title">
       <h2 id="dataset-cite-title">Jak cytować</h2>
-      <p>Możesz przytaczać te dane w artykułach, zestawieniach i opracowaniach. Podaj źródło, link do tej strony i datę cennika, na przykład: <em>Cennik kliniki Akdeniz Dental, stan na {PRICING_UPDATED_DATE}, {url}</em>. Zaznacz, że chodzi o ceny pozycji, a nie całego leczenia, oraz że klinika jest prowadzona przez spółkę, która prowadzi także serwis.</p>
+      <p>Możesz przytaczać te dane w artykułach, zestawieniach i opracowaniach. Podaj źródło, link do tej strony i datę cennika, na przykład: <em>Cennik kliniki Akdeniz Dental, stan na {PRICING_UPDATED_DATE}, {url}</em>. Dane są dostępne na licencji <a className="text-link" href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>: wymagane jest podanie źródła. Zaznacz, że chodzi o ceny pozycji, a nie całego leczenia, oraz że klinika jest prowadzona przez spółkę, która prowadzi także serwis.</p>
     </section>
     <section aria-labelledby="dataset-table-title">
       <h2 id="dataset-table-title">Pozycje cennika</h2>

@@ -55,6 +55,7 @@ for (const item of items) assert(csv.some((line) => line.startsWith(`${item.id},
 for (const path of ['dane/cennik-kliniki.csv', 'dane/cennik-kliniki.json']) assert.equal(JSON.parse(read(`${path}.meta`)).status, 200, `${path} must answer 200`);
 const dataset = read('dane/cennik-kliniki.html');
 assert(dataset.includes('"@type":"Dataset"') && dataset.includes('/dane/cennik-kliniki.csv') && dataset.includes('/dane/cennik-kliniki.json'), 'dataset page needs Dataset schema with both distributions');
+assert(dataset.includes('"license":"https://creativecommons.org/licenses/by/4.0/"') && /"creator":\{"@type":"Organization"[^}]*"name":/.test(dataset), 'dataset schema needs a license and a typed, named creator');
 assert(/nie jest cen[aą] całego leczenia/.test(text(dataset)), 'dataset page must state that item prices are not the price of the whole treatment');
 
 // 4. Both pages are published in the sitemap.
