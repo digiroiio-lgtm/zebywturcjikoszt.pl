@@ -810,6 +810,30 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-gallery-foot { display:flex; align-items:center; gap:12px 18px; margin-top:10px; flex-wrap:wrap; }
 .home-gallery-foot .button { min-height:42px; padding:0 20px; font-size:14px; }
 .home-gallery-foot p { margin:0; color:var(--muted); font-size:13px; }
+/* Smile gallery: five vertical Instagram screenshots side by side (scrolls below 1100 px). */
+.home-smile-gallery .section-heading { margin-bottom:30px; }
+.smile-gallery-stage { position:relative; }
+.smile-gallery-track { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; margin:0; padding:2px; list-style:none; }
+.smile-gallery-track:focus-visible { outline:3px solid var(--green-dark); outline-offset:4px; border-radius:16px; }
+.smile-gallery-track li { min-width:0; overflow:hidden; border:1px solid var(--line); border-radius:14px; background:var(--ink); box-shadow:0 12px 30px rgba(22,18,19,.08); }
+.smile-gallery-track img { display:block; width:100%; height:auto; }
+.smile-gallery-arrow { display:none; }
+.smile-gallery-foot { display:flex; align-items:center; flex-wrap:wrap; gap:14px 24px; margin-top:26px; }
+.home-smile-gallery .microcopy { margin:14px 0 0; }
+@media (max-width:1100px) {
+  .smile-gallery-track { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:30%; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .smile-gallery-track::-webkit-scrollbar { display:none; }
+  .smile-gallery-track li { scroll-snap-align:start; }
+}
+@media (min-width:761px) and (max-width:1100px) and (hover:hover) {
+  .home-smile-gallery[data-scrollable="true"] .smile-gallery-arrow { display:grid; }
+}
+@media (max-width:760px) {
+  .smile-gallery-track { grid-auto-columns:62%; gap:12px; }
+  .home-smile-gallery .section-heading { margin-bottom:22px; }
+  .smile-gallery-foot .button { width:100%; }
+}
+
 @media (max-width:760px) {
   .home-gallery-inner { width:calc(100% - 32px); }
   .home-gallery { padding:12px 0 14px; }
