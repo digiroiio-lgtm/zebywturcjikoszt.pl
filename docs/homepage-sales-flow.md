@@ -9,6 +9,7 @@ Each section answers one patient question and ends with the next easy step. The 
 | 3 | Before/after (`visual-proof-title`) | Is my result possible? | "Poznaj swoje możliwości" (form, topic: other) |
 | 4 | Prices (`price-highlights-title`) | Does it fit my budget? | "Poproś o łączną wycenę" (form) |
 | 5 | Polish reviews (`polish-reviews-title`) + external profile links | Do similar patients trust them? | profile links |
+| 5b | Smile gallery (`home-smile-gallery-title`) | Do patients like me end up happy? | "Zapytaj o możliwości leczenia" (form), clinic Instagram link |
 | 6 | Treatments (`home-treatments-title`) | What do I need? | per card: guide, or "Poproś o wycenę: {treatment}" (form, topic preselected) |
 | 7 | Doctors (`home-doctors-title`) | Why this clinic? | "Poproś o wstępną ocenę" (form) |
 | 8 | Videos (`patient-stories-title`) | What does it look like in practice? | play |
