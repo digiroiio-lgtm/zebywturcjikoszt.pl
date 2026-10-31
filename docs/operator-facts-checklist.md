@@ -67,4 +67,4 @@ Açılacak yer: `/koszt`, `/all-on-4`, ileride bir protez sayfası (GSC: "wyjmow
 - Implant + kron: bağlantı parçası (abutment) ve kron implant fiyatına dahil mi?
 
 ## Sonraki adım
-Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.
+Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`, `/korony-cyrkonowe`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.
