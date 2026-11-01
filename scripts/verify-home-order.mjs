@@ -10,7 +10,7 @@ const shortsApproved = body.includes('patient-stories-title');
 
 const order = [
   'id="home-gallery-title"', 'class="home-hero"', 'id="home-intent-title"', 'id="home-trust-title"', 'id="home-clinic-strip-title"', 'id="visual-proof-title"', 'id="price-highlights-title"',
-  'id="polish-reviews-title"', 'id="home-smile-gallery-title"', 'id="home-treatments-title"', 'id="home-doctors-title"', ...(shortsApproved ? ['id="patient-stories-title"'] : []),
+  'id="polish-reviews-title"', 'id="home-smile-gallery-title"', 'id="home-treatments-title"', 'id="home-full-mouth-title"', 'id="home-doctors-title"', ...(shortsApproved ? ['id="patient-stories-title"'] : []),
   'id="home-process-title"', 'id="home-aftercare-title"', 'id="home-lead-form"'
 ];
 let previous = -1;

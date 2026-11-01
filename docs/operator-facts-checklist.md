@@ -66,5 +66,22 @@ Açılacak yer: `/koszt`, `/all-on-4`, ileride bir protez sayfası (GSC: "wyjmow
 - Lamina: "porselen/e-max lamina" ile fiyat listesindeki "E-MAX" kalemi aynı şey mi? Diş başına fiyat nedir?
 - Implant + kron: bağlantı parçası (abutment) ve kron implant fiyatına dahil mi?
 
+## 8. Doktorlar ve All-on-6 (dış denetim 2026-11-01 sonrası)
+Açılacak yer: `/nasi-lekarze`, `/eksperci/<doktor>`, ana sayfa doktor kartları, `lib/clinical-team.ts`; All-on-6 için yeni bir sayfa (`docs/seo-intent-map.md`: doğrulanmış hizmet ve kanıt gelene kadar ertelenmiş).
+
+Sitede şu an her doktor için yalnızca alan, tek satır eğitim, "kliniğe göre" odak ve resmî profil bağlantısı var. Aşağıdakiler yalnızca resmî belge/kayıt veya kliniğin kendi sayfasıyla doğrulanabiliyorsa eklenir (`lib/credentials.ts` kuralı):
+- Diploma: üniversite, mezuniyet yılı, diploma/kayıt belgesi (kişisel veri maskeli).
+- Uzmanlık: unvan ve belge (yalnızca gerçekten uzmanlık belgesi varsa "uzman" denir; yoksa "çalışma alanı").
+- Mesleki kayıt/oda üyeliği (örn. Türk Diş Hekimleri Birliği, il odası) ve doğrulama bağlantısı.
+- Deneyim: yıl sayısı veya çalıştığı yerler, hangi tarihte ve hangi kaynaktan.
+- Konuştuğu diller (özellikle Lehçe/İngilizce/Almanca).
+- Her doktor için hangi tedavilere bakıyor (implant, protez, estetik) ve Polonyalı hastalarla çalışıyor mu.
+
+All-on-6 için (sayfa yazılmadan önce):
+- Klinik All-on-6 yapıyor mu? Hangi hastalara, hangi koşullarda (kemik, zgryz)?
+- Kaç implant, geçici protez, kalıcı protez; kaç ziyaret ve aralarında kaç ay?
+- Yazılı paket fiyatı var mı (tarih, kapsam, geçerlilik)? Yoksa sayfada fiyat verilmez.
+- Sayfayı hangi hekim inceleyecek (ad, tarih); incelemeden önce sayfa "onaysız" etiketiyle çıkar.
+
 ## Sonraki adım
 Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.

@@ -11,6 +11,7 @@ Each section answers one patient question and ends with the next easy step. The 
 | 5 | Polish reviews (`polish-reviews-title`) + external profile links | Do similar patients trust them? | profile links |
 | 5b | Smile gallery (`home-smile-gallery-title`) | Do patients like me end up happy? | "Zapytaj o możliwości leczenia" (form), clinic Instagram link |
 | 6 | Treatments (`home-treatments-title`) | What do I need? | per card: guide, or "Poproś o wycenę: {treatment}" (form, topic preselected) |
+| 6b | Full mouth (`home-full-mouth-title`) | I need many teeth: what are my options? | per option: All-on-4, comparison page, price page; "Zapytaj o całą szczękę" (form, topic `full-arch`) |
 | 7 | Doctors (`home-doctors-title`) | Why this clinic? | "Poproś o wstępną ocenę" (form) |
 | 8 | Videos (`patient-stories-title`) | What does it look like in practice? | play |
 | 9 | Process (`home-process-title`) | How do I start? | per step links, "Zacznij od zapytania" |

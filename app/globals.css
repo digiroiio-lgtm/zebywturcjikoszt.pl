@@ -810,6 +810,21 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 .home-gallery-foot { display:flex; align-items:center; gap:12px 18px; margin-top:10px; flex-wrap:wrap; }
 .home-gallery-foot .button { min-height:42px; padding:0 20px; font-size:14px; }
 .home-gallery-foot p { margin:0; color:var(--muted); font-size:13px; }
+/* Full-mouth entry on the home page. */
+.home-full-mouth { padding-top:0; }
+.home-full-mouth-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:44px; align-items:center; padding:36px; border:1px solid var(--line); border-radius:20px; background:var(--sand); }
+.home-full-mouth-visual { margin:0; overflow:hidden; border-radius:16px; background:white; }
+.home-full-mouth-visual img { display:block; width:100%; height:auto; }
+.home-full-mouth h2 { margin-bottom:14px; }
+.home-full-mouth-lead { margin:0 0 20px; color:var(--muted); }
+.home-full-mouth-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin:0 0 22px; padding:0; list-style:none; }
+.home-full-mouth-list li { display:flex; flex-direction:column; gap:8px; padding:16px; border:1px solid var(--line); border-radius:14px; background:white; }
+.home-full-mouth-list h3 { margin:0; font-size:18px; }
+.home-full-mouth-list p { margin:0; color:var(--muted); font-size:14px; line-height:1.5; }
+.home-full-mouth-list .text-link { margin-top:auto; font-size:14px; }
+.home-full-mouth .microcopy { margin:12px 0 0; }
+@media (max-width:1100px) { .home-full-mouth-grid { grid-template-columns:1fr; gap:26px; padding:26px; } .home-full-mouth-visual { max-width:420px; } .home-full-mouth-list { grid-template-columns:1fr; } }
+@media (max-width:760px) { .home-full-mouth-grid { padding:18px; } .home-full-mouth .button-row .button { width:100%; } }
 /* Smile gallery: five vertical Instagram screenshots side by side (scrolls below 1100 px). */
 .home-smile-gallery .section-heading { margin-bottom:30px; }
 .smile-gallery-stage { position:relative; }
@@ -868,8 +883,10 @@ input:focus,select:focus,textarea:focus { outline:3px solid rgba(220,33,60,.16);
 @media (max-width:760px) { .home-intent { padding:12px 0; } .home-intent-list { grid-template-columns:1fr; gap:8px; } .home-intent-card { padding:12px 40px 12px 14px; } .home-intent-card span { display:none; } }
 
 .cta-assurance { margin:10px 0 0; color:var(--ink); font-size:14px; font-weight:700; }
-.hero-whatsapp { gap:8px; }
-.hero-whatsapp svg { color:#0b6e63; }
+.hero-whatsapp { gap:8px; border-color:#0b6e63; background:white; color:#0b5f56; box-shadow:none; font-size:15px; }
+.hero-whatsapp:hover { background:#eefaf7; }
+.hero-whatsapp:focus-visible { outline:3px solid var(--ink); outline-offset:3px; }
+.hero-whatsapp svg { flex:none; color:#0b6e63; }
 .polish-reviews-cta { margin:18px 0 0; }
 /* Short phones: give the copy room so the disclaimer is reachable with little or no scrolling. */
 @media (max-width:760px) and (max-height:650px) {
