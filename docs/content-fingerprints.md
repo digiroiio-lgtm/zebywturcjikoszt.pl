@@ -20,5 +20,5 @@ Why: the build is deterministic (two consecutive builds give identical hashes), 
 ## Using it
 
 - After an editorial change: bump `lastUpdated` in the content record, rebuild, run `npm run fingerprints:update` (writes the baseline for all pages).
-- Medically reviewed pages (`/implanty`, `/licowki`, `/all-on-4`, `/cala-szczeka`): a `lastUpdated` later than the review date removes the approval, so the warning says so. Do not bump their dates for non-editorial changes.
+- Medically reviewed pages (`/implanty`, `/licowki`, `/all-on-4`, `/cala-szczeka`, `/korony-cyrkonowe`): a `lastUpdated` later than the review date removes the approval, so the warning says so. Do not bump their dates for non-editorial changes.
 - `FINGERPRINT_APP_DIR` points the script at another build output (for comparing two builds).

@@ -84,4 +84,4 @@ All-on-6 için (sayfa yazılmadan önce):
 - Sayfayı hangi hekim inceleyecek (ad, tarih); incelemeden önce sayfa "onaysız" etiketiyle çıkar.
 
 ## Sonraki adım
-Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.
+Cevaplar geldiğinde sayfa bazında Lehçe taslaklar hazırlanır, tek tek onaya sunulur, `npm run verify` ile doğrulanır. Doktor onaylı sayfalarda (`/implanty`, `/licowki`, `/cala-szczeka`, `/all-on-4`, `/korony-cyrkonowe`) gövde değişikliği hekimin yeniden onayını gerektirir; bu bilgiler bu sayfalara eklenmez, `/antalya`, `/koszt` ve rehberlere eklenir.

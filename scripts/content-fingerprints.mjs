@@ -6,7 +6,7 @@ import path from "node:path";
 
 const appDir = process.env.FINGERPRINT_APP_DIR ?? path.join(process.cwd(), ".next", "server", "app");
 const baselinePath = path.join(process.cwd(), "lib", "content-fingerprints.json");
-const reviewed = new Set(["/implanty", "/licowki", "/all-on-4", "/cala-szczeka"]);
+const reviewed = new Set(["/implanty", "/licowki", "/all-on-4", "/cala-szczeka", "/korony-cyrkonowe"]);
 
 async function htmlFiles(dir, prefix = "") {
   const out = [];
