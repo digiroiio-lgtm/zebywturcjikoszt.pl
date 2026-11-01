@@ -148,7 +148,8 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/jak-wybrac-klinike", label: "Jak wybrać klinikę", text: "Sprawdź także lekarza i plan leczenia." },
     { href: "/opinie", label: "Jak oceniać opinie", text: "Odróżnij relację pacjenta od materiału reklamowego." },
     { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
-    { href: "/implanty", label: "Implanty", text: "Co obejmuje cena implantu i jak wygląda pełny plan leczenia." }
+    { href: "/implanty", label: "Implanty", text: "Co obejmuje cena implantu i jak wygląda pełny plan leczenia." },
+    { href: "/poradniki/licowki-czy-korony", label: "Licówki czy korony", text: "Jak czytać zdjęcia: różnice w zakresie odbudowy i przygotowaniu zębów." }
   ],
   kontakt: [
     { href: "/koszt", label: "Cennik i zasady wyceny", text: "Ceny pozycji w EUR i to, czego cena nie obejmuje." },
@@ -160,7 +161,10 @@ const contextualLinks: Record<string, { href: string; label: string; text: strin
     { href: "/koszt", label: "Koszt całego wyjazdu", text: "Uwzględnij leczenie, podróż, pobyt i możliwe korekty." },
     { href: "/jak-wybrac-klinike", label: "Wybór kliniki", text: "Sprawdź placówkę i odpowiedzialność przed rezerwacją lotu." },
     { href: "/implanty", label: "Implanty", text: "Zobacz, dlaczego leczenie może wymagać więcej niż jednego pobytu." },
-    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." }
+    { href: "/poradniki/tureckie-zeby", label: "Tureckie zęby", text: "Sprawdź, jakie problemy opisują stomatolodzy i jak ocenić ryzyko." },
+    { href: "/poradniki/calkowity-koszt-wyjazdu", label: "Budżet całego wyjazdu", text: "Leczenie, podróż, noclegi, kontrole i możliwy drugi pobyt." },
+    { href: "/poradniki/pakiety-leczenia-zebow", label: "Pakiety leczenia", text: "Co sprawdzić w ofercie: zakres ceny, hotel, transfery i wyłączenia." },
+    { href: "/poradniki/opieka-po-leczeniu", label: "Opieka po leczeniu", text: "Dokumentacja, kontrole i kontakt po powrocie do Polski." }
   ],
   "jak-wybrac-klinike": [
     { href: "/uk", label: "Dla Polaków w UK", text: "Co jest inne, gdy mieszkasz w Wielkiej Brytanii." },
