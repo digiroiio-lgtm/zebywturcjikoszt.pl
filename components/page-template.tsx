@@ -227,8 +227,11 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
           <div className="article-main">
             {page.slug === "koszt" && <p className="page-updated"><strong>Ostatnia aktualizacja:</strong> {new Date(`${review.lastUpdated}T00:00:00Z`).toLocaleDateString("pl-PL", { timeZone: "UTC" })}</p>}
             <section className="direct-answer" aria-labelledby="direct-answer-title"><p className="mini-label">Krótka odpowiedź</p><h2 id="direct-answer-title">{page.answerTitle ?? `Krótko: ${page.h1}`}</h2><p>{page.slug === "kontakt" && formEnabled ? "Opisz krótko, czego potrzebujesz. Po otrzymaniu zapytania możemy wskazać, jakie informacje są potrzebne do wstępnej oceny. Plan leczenia ustala lekarz po badaniu." : page.answer}</p></section>
+            {page.slug === "koszt" && <PriceList slug={page.slug} />}
+            {page.slug === "koszt" && <p><Link className="text-link" href="/implanty">Sprawdź cenę implantu, łącznika i korony</Link></p>}
+            {page.slug === "implanty" && <p><Link className="text-link" href="/koszt">Policz koszt leczenia i wszystkich wyjazdów</Link> · <Link className="text-link" href="/cala-szczeka">Porównaj opcje odbudowy całej szczęki</Link></p>}
             <DirectAnswerVisual slug={page.slug} />
-            <PriceList slug={page.slug} />
+            {page.slug !== "koszt" && <PriceList slug={page.slug} />}
             {(pricesForPage(page.slug).length > 0 || page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach") && <ExitIntentOffer slug={page.slug} leadSource={"OGZ-PL"} />}
             {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
             {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
