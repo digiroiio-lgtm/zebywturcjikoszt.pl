@@ -63,17 +63,18 @@ const googleProfile = clinicProfiles.find((profile) => profile.key === "google-m
 
 export const pages: Record<string, PageContent> = {
   koszt: {
-    lastUpdated: "2026-10-30",
+    lastUpdated: "2026-11-04",
     slug: "koszt",
-    title: "Koszt zębów w Turcji: cennik implantów i koron 2026",
-    description: "Ile kosztuje leczenie zębów w Turcji? Cennik implantów, koron i licówek w EUR i PLN z datą 30.09.2026 oraz co wpływa na końcową kwotę.",
+    title: "Koszt leczenia zębów w Turcji: budżet leczenia i wyjazdu",
+    description: "Policz całkowity koszt leczenia zębów w Turcji: oferta kliniki, wszystkie wizyty, transport, noclegi i opieka po powrocie.",
     eyebrow: "Koszt leczenia",
-    h1: "Koszt zębów w Turcji: ile zapłacisz za leczenie w Antalyi?",
-    lead: `Cena leczenia zębów w Turcji zależy od zakresu zabiegu, użytych materiałów i liczby wizyt. Poniżej znajdziesz pozycje cennika kliniki w EUR i orientacyjnie w PLN oraz to, co warto sprawdzić przed decyzją. Cennik z ${PRICING_UPDATED_DATE}.`,
+    h1: "Ile kosztuje leczenie zębów w Turcji? Budżet całego wyjazdu",
+    lead: "Zacznij od pisemnej oferty kliniki. Osobno policz każdy wyjazd i wydatki po powrocie. Cennik Akdeniz Dental na tej stronie jest przykładem stawek jednej kliniki.",
     answerTitle: "Ile kosztuje leczenie zębów w Turcji?",
-    answer: `Ceny podajemy w EUR i orientacyjnie w PLN (1 EUR = 4,37 PLN z 30.09.2026). Korona cyrkonowa kosztuje ${formatEur(priceById("zirconia-crown").eur)}, implant Aiser lub Medentika ${formatEur(priceById("aiser").eur)}, Straumann ${formatEur(priceById("straumann").eur)}. To ceny pozycji cennika, a nie całego leczenia.`,
+    answer: "Całkowity budżet obejmuje pisemną wycenę leczenia, koszt wszystkich pobytów i wydatki po powrocie. Porównuj oferty o tym samym zakresie i osobno zaznacz koszty, których klinika jeszcze nie potwierdziła.",
     schemaType: "MedicalWebPage",
     sections: [
+      { title: "Budżet całego wyjazdu w trzech częściach", bullets: ["Leczenie: wpisz kwotę pisemnej oferty i zaznacz możliwe dopłaty, których zakres ustali lekarz.","Wyjazd: dla każdego pobytu policz lot, noclegi, transfery i lokalne wydatki. Odlicz pozycję tylko wtedy, gdy pisemna oferta potwierdza jej włączenie.","Powrót: ustal, gdzie odbędą się kontrole i kto pokryje koszt ewentualnej dodatkowej wizyty. Porównuj oferty w tej samej walucie."] },
       { title: "Koszt: jeden ząb, kilka koron, implant, cała szczęka", paragraphs: ["Każdy z tych przypadków liczy się inaczej. Poniżej wskazujemy pozycję cennika i to, co trzeba doliczyć; sum nie podajemy tam, gdzie zależą od planu lekarza."], table: { headers: ["Potrzeba", "Pozycja cennika (EUR)", "Co zwykle trzeba doliczyć"], rows: [
         ["Jeden ząb (korona)", `korona cyrkonowa ${formatEur(priceById("zirconia-crown").eur)}`, "leczenie kanałowe, wkład lub odbudowa zęba, jeśli plan je przewiduje"],
         ["Kilka koron", `cena jednej korony × liczba zębów`, "etap przygotowania zębów i ewentualne leczenie dodatkowe"],
@@ -198,15 +199,16 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Zapytaj o zakres wyceny koron", ctaEvent: "zirconia_crown_cta"
   },
   implanty: {
-    lastUpdated: PRICING_UPDATED_ISO_DATE,
+    lastUpdated: "2026-11-04",
     slug: "implanty",
-    title: "Implanty zębów w Turcji – ceny i zakres leczenia",
-    description: "Implanty w Turcji: Aiser i Medentika 450 EUR, Straumann 900 EUR. Ceny w PLN, zakres implantu, łącznika i korony oraz przykładowe sumy i pełna wycena z odbudową.",
-    eyebrow: "Leczenie implantologiczne", h1: "Implanty zębów w Turcji",
-    lead: "Implant zastępuje korzeń brakującego zęba i stanowi podporę dla odbudowy protetycznej. To, czy implant będzie odpowiedni i ile wizyt będzie potrzebnych, zależy od oceny lekarza.",
+    title: "Implanty w Turcji: jak porównać ceny i oferty",
+    description: "Porównaj oferty implantów w Turcji według zakresu: implant, łącznik, korona, diagnostyka, liczba wizyt i opieka po powrocie.",
+    eyebrow: "Leczenie implantologiczne", h1: "Implanty w Turcji: jak porównać oferty leczenia",
+    lead: "Dwie oferty implantów mogą obejmować różne elementy. Rozpisz każdą na te same pozycje, zanim porównasz kwoty.",
     answer: "Plan implantologiczny powinien wynikać z badania, obrazowania i oceny ogólnego stanu zdrowia. Cenę można rzetelnie ocenić dopiero wtedy, gdy wiadomo, jaki system implantów, odbudowę i zabiegi obejmuje plan.",
     schemaType: "MedicalWebPage",
     sections: [
+      { title: "Porównanie ofert implantologicznych krok po kroku", bullets: ["Zapisz osobno liczbę implantów, system, łączniki i rodzaj odbudowy. Puste pole oznacz jako brak informacji.","Porównaj diagnostykę, pracę tymczasową i zabiegi dodatkowe w tym samym zakresie.","Dolicz koszty wszystkich pobytów i sprawdź, kto odpowiada za kontakt po powrocie."] },
       { title: "Jak planuje się leczenie implantologiczne?", cards: [
         { title: "1. Badania i dokumentacja", text: "Wywiad, zdjęcia i badania obrazowe pomagają przygotować wstępną ocenę." },
         { title: "2. Kwalifikacja", text: "Lekarz ocenia warunki miejscowe, ryzyka oraz możliwe alternatywy." },
