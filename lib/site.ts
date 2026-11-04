@@ -65,16 +65,16 @@ export const pages: Record<string, PageContent> = {
   koszt: {
     lastUpdated: "2026-11-04",
     slug: "koszt",
-    title: "Koszt leczenia zębów w Turcji: budżet leczenia i wyjazdu",
+    title: "Ile kosztuje leczenie zębów w Turcji? Ceny i koszty wyjazdu",
     description: "Policz całkowity koszt leczenia zębów w Turcji: oferta kliniki, wszystkie wizyty, transport, noclegi i opieka po powrocie.",
     eyebrow: "Koszt leczenia",
-    h1: "Ile kosztuje leczenie zębów w Turcji? Budżet całego wyjazdu",
+    h1: "Ile kosztuje leczenie zębów w Turcji?",
     lead: "Zacznij od pisemnej oferty kliniki. Osobno policz każdy wyjazd i wydatki po powrocie. Cennik Akdeniz Dental na tej stronie jest przykładem stawek jednej kliniki.",
     answerTitle: "Ile kosztuje leczenie zębów w Turcji?",
     answer: "Całkowity budżet obejmuje pisemną wycenę leczenia, koszt wszystkich pobytów i wydatki po powrocie. Porównuj oferty o tym samym zakresie i osobno zaznacz koszty, których klinika jeszcze nie potwierdziła.",
     schemaType: "MedicalWebPage",
     sections: [
-      { title: "Budżet całego wyjazdu w trzech częściach", bullets: ["Leczenie: wpisz kwotę pisemnej oferty i zaznacz możliwe dopłaty, których zakres ustali lekarz.","Wyjazd: dla każdego pobytu policz lot, noclegi, transfery i lokalne wydatki. Odlicz pozycję tylko wtedy, gdy pisemna oferta potwierdza jej włączenie.","Powrót: ustal, gdzie odbędą się kontrole i kto pokryje koszt ewentualnej dodatkowej wizyty. Porównuj oferty w tej samej walucie."] },
+      { title: "Budżet całego wyjazdu w trzech częściach", table: { headers: ["Część budżetu","Co uwzględnić"], rows: [["Leczenie","Pozycje z pisemnej wyceny oraz możliwe dopłaty po badaniu."],["Podróż i nocleg","Lot, noclegi i transfer na każdą wizytę. Odejmij pozycje wliczone w ofertę."],["Druga wizyta","Osobno policz drugi lot i pobyt, jeśli plan przewiduje powrót do kliniki."],["Opieka po powrocie","Ustal miejsce kontroli oraz odpowiedzialność za koszty dodatkowej wizyty."]] } },
       { title: "Koszt: jeden ząb, kilka koron, implant, cała szczęka", paragraphs: ["Każdy z tych przypadków liczy się inaczej. Poniżej wskazujemy pozycję cennika i to, co trzeba doliczyć; sum nie podajemy tam, gdzie zależą od planu lekarza."], table: { headers: ["Potrzeba", "Pozycja cennika (EUR)", "Co zwykle trzeba doliczyć"], rows: [
         ["Jeden ząb (korona)", `korona cyrkonowa ${formatEur(priceById("zirconia-crown").eur)}`, "leczenie kanałowe, wkład lub odbudowa zęba, jeśli plan je przewiduje"],
         ["Kilka koron", `cena jednej korony × liczba zębów`, "etap przygotowania zębów i ewentualne leczenie dodatkowe"],
@@ -201,14 +201,14 @@ export const pages: Record<string, PageContent> = {
   implanty: {
     lastUpdated: "2026-11-04",
     slug: "implanty",
-    title: "Implanty w Turcji: jak porównać ceny i oferty",
+    title: "Implanty zębów w Turcji: cena i co obejmuje wycena",
     description: "Porównaj oferty implantów w Turcji według zakresu: implant, łącznik, korona, diagnostyka, liczba wizyt i opieka po powrocie.",
-    eyebrow: "Leczenie implantologiczne", h1: "Implanty w Turcji: jak porównać oferty leczenia",
+    eyebrow: "Leczenie implantologiczne", h1: "Ile kosztuje implant jednego zęba w Turcji?",
     lead: "Dwie oferty implantów mogą obejmować różne elementy. Rozpisz każdą na te same pozycje, zanim porównasz kwoty.",
     answer: "Plan implantologiczny powinien wynikać z badania, obrazowania i oceny ogólnego stanu zdrowia. Cenę można rzetelnie ocenić dopiero wtedy, gdy wiadomo, jaki system implantów, odbudowę i zabiegi obejmuje plan.",
     schemaType: "MedicalWebPage",
     sections: [
-      { title: "Porównanie ofert implantologicznych krok po kroku", bullets: ["Zapisz osobno liczbę implantów, system, łączniki i rodzaj odbudowy. Puste pole oznacz jako brak informacji.","Porównaj diagnostykę, pracę tymczasową i zabiegi dodatkowe w tym samym zakresie.","Dolicz koszty wszystkich pobytów i sprawdź, kto odpowiada za kontakt po powrocie."] },
+      { title: "Porównanie ofert implantologicznych krok po kroku", table: { headers: ["Pozycja","Co sprawdzić w ofercie na jeden ząb"], rows: [["Implant","Sprawdź, czy cena dotyczy samego implantu i czy oferta wymienia jego markę i model."],["Łącznik (abutment)","Ustal, czy jest wliczony w cenę, wyceniony osobno czy jeszcze nieokreślony."],["Korona na implancie","Sprawdź materiał, cenę i to, czy oferta obejmuje pracę tymczasową."],["Badania i dodatkowe wizyty","Zapisz koszty poza wyceną i sprawdź, ile pobytów przewiduje plan."]] } },
       { title: "Jak planuje się leczenie implantologiczne?", cards: [
         { title: "1. Badania i dokumentacja", text: "Wywiad, zdjęcia i badania obrazowe pomagają przygotować wstępną ocenę." },
         { title: "2. Kwalifikacja", text: "Lekarz ocenia warunki miejscowe, ryzyka oraz możliwe alternatywy." },
