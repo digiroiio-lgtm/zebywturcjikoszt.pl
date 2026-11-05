@@ -9,7 +9,8 @@ import { trackEvent } from "./tracked-link";
 
 /**
  * Five vertical Instagram screenshots side by side. On wide screens all five fit in one row; on narrower ones the row scrolls
- * (native scroll-snap, arrows for mouse users). The track is a keyboard stop only while it actually scrolls.
+ * (native scroll-snap, arrows for mouse users). The track is a keyboard stop only while it actually scrolls. Keep it a plain list:
+ * a `role` on the `ul` (e.g. region) orphans the `li` items and fails the list and ARIA audits.
  */
 export function HomeSmileGallery() {
   const track = useRef<HTMLUListElement>(null);
@@ -42,7 +43,7 @@ export function HomeSmileGallery() {
     </div>
     <div className="smile-gallery-stage">
       <button type="button" className="home-gallery-arrow home-gallery-prev smile-gallery-arrow" aria-label="Poprzednie zdjęcia" onClick={() => move(-1)}><span aria-hidden="true">‹</span></button>
-      <ul className="smile-gallery-track" ref={track} {...(scrollable ? { tabIndex: 0, role: "region", "aria-label": "Galeria uśmiechów pacjentów, przewijana poziomo" } : {})} onKeyDown={onKey}>
+      <ul className="smile-gallery-track" ref={track} {...(scrollable ? { tabIndex: 0, "aria-label": "Galeria uśmiechów pacjentów, przewijana poziomo" } : {})} onKeyDown={onKey}>
         {smileGalleryImages.map((image) => <li key={image.n}>
           <Image src={`/images/smile-galeria/smile-gallery-${image.n}.webp`} alt={image.alt} width={SMILE_GALLERY_WIDTH} height={SMILE_GALLERY_HEIGHT} sizes="(max-width: 760px) 62vw, (max-width: 1100px) 30vw, 224px" loading="lazy" unoptimized />
         </li>)}

@@ -39,4 +39,5 @@ for (let n = 1; n <= 5; n += 1) {
   assert(kb < 120, `smile-gallery-0${n}.webp is ${Math.round(kb)} KB; keep each image under 120 KB`);
 }
 assert(!/instagram\.com\/[^"]*"[^>]*><img/.test(gallery), 'gallery images must not link out');
+assert(/<ul[^>]*smile-gallery-track[^>]*>/.test(gallery) && !/<ul[^>]*smile-gallery-track[^>]*\srole=/.test(gallery), 'the gallery list must keep its list role (no role attribute on the ul)');
 console.log(`Home order check passed: ${order.length} sections in the agreed order, one h1, ownership disclosure present${shortsApproved ? '' : ', no Shorts section'}.`);
