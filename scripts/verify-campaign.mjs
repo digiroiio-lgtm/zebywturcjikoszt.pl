@@ -5,7 +5,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 
 const popup = readFileSync('components/campaign-popup.tsx', 'utf8');
-assert(/MIN_SECONDS = 20/.test(popup) && /MIN_SCROLL = 0\.35/.test(popup), 'popup needs 20 s and 35 % scroll');
+assert(/MIN_SECONDS = 20/.test(popup) && /MIN_SCROLL = 0\.5;/.test(popup), 'popup needs 20 s and 50 % scroll');
 assert(/SNOOZE_MS = 7 \* 24 \* 60 \* 60 \* 1000/.test(popup), 'popup must snooze for 7 days');
 assert(popup.includes('POPUP_SHOWN_KEY') && popup.includes('dialog[open]'), 'once per session and wait for other modals');
 const config = readFileSync('lib/campaigns.ts', 'utf8');

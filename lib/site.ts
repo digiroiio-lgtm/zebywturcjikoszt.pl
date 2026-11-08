@@ -310,8 +310,8 @@ export const pages: Record<string, PageContent> = {
     ctaLabel: "Zapytaj o kwalifikację do All-on-4", ctaEvent: "all_on_4_cta"
   },
   opinie: {
-    slug: "opinie", title: "Akdeniz Dental Clinic w Antalyi: opinie pacjentów",
-    description: "Sprawdź opinie o Akdeniz Dental Clinic w Antalyi. Zobacz dane z Google i Trustpilot, linki do opinii po polsku i wskazówki, jak ocenić ich wiarygodność.",
+    slug: "opinie", title: `Akdeniz Dental Clinic Antalya: opinie (Google ${googleProfile.rating}/5, ${googleProfile.reviewCount} ocen)`,
+    description: `Opinie o Akdeniz Dental Clinic w Antalyi: Google ${googleProfile.rating}/5 (${googleProfile.reviewCount} ocen), Trustpilot ${trustpilotProfile.rating}/5. Opinie po polsku, jak je sprawdzić i bezpłatna wstępna wycena.`,
     eyebrow: "Opinie i doświadczenia", h1: "Zęby w Turcji: jak oceniać opinie",
     lead: "Opinie pomagają poznać organizację wyjazdu i komunikację, ale nie potwierdzają kwalifikacji medycznej ani jakości leczenia w Twoim przypadku.",
     answerTitle: "Jak czytać opinie o klinice?",

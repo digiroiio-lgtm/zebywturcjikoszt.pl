@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CommercialNote } from "@/components/commercial-note";
 import { SourceList } from "@/components/source-list";
+import { TrustLeadCta } from "@/components/trust-lead-cta";
 import { EntitySchema } from "@/components/entity-schema";
 import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { DATASET_PATH, priceRows } from "@/lib/price-dataset";
@@ -58,6 +59,7 @@ export default function PriceDatasetPage() {
         <tbody>{rows.map((row) => <tr key={row.id}><td>{row.label}</td><td>{formatEur(row.eur)}</td><td>{formatPln(row.eur)}</td></tr>)}</tbody></table></div>
       <p>Opis pozycji, przykładowe sumy i wyjaśnienie, czego cena nie obejmuje, znajdziesz na stronie <Link className="text-link" href="/koszt#cennik">koszt leczenia zębów w Turcji</Link>.</p>
     </section>
+    <TrustLeadCta location="price_dataset" title="Ile może kosztować Twoje leczenie?" text="Ceny w tabeli dotyczą pojedynczych pozycji. Opisz swoje potrzeby, a przygotujemy wstępną wycenę całego planu." />
     <SourceList intro="Cennik pochodzi od kliniki; poniżej strony, które go opisują i wyjaśniają zakres." sources={[{ label: "Koszt leczenia zębów w Turcji: cennik, przykładowe sumy i zakres ceny", href: "/koszt#cennik" }, { label: "Metodologia: jak zbieramy, sprawdzamy i oznaczamy informacje", href: "/metodologia" }, { label: "Akdeniz Dental: oficjalna strona kliniki", href: "https://akdenizdental.com" }]} />
     <EntitySchema /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   </main>;

@@ -7,7 +7,7 @@ import { LEAD_ENGAGED_KEY, POPUP_DISMISSED_KEY, POPUP_SECONDS_KEY, POPUP_SHOWN_K
 import { trackEvent } from "./tracked-link";
 
 const MIN_SECONDS = 20;
-const MIN_SCROLL = 0.35;
+const MIN_SCROLL = 0.5;
 const SNOOZE_MS = 7 * 24 * 60 * 60 * 1000;
 const EXCLUDED = ["/kontakt", "/cookies", "/polityka-prywatnosci", "/regulamin", "/reklamacje"];
 const LOCATION = "campaign_popup";
@@ -25,7 +25,7 @@ function snoozed() {
 
 /**
  * Campaign popup, shown only on pages of the campaign's audience (the Christmas offer is priced in GBP: /uk pages). Opens once per session when the visitor has spent 20 s (counted across client-side
- * navigation, visible tab only) AND reached 35 % of the current page; either may happen first, never on load.
+ * navigation, visible tab only) AND reached half (50 %) of the current page; either may happen first, never on load.
  * Waits while another dialog is open; stays away once the lead form was started or sent, and for 7 days after closing.
  */
 export function CampaignPopup() {

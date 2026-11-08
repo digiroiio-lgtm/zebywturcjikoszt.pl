@@ -22,6 +22,7 @@ import { AntalyaJourneyImages } from "./context-images";
 import { TrustPanel } from "./trust-panel";
 import { PriceList } from "./price-list";
 import { TreatmentWhatsappCta } from "./treatment-whatsapp-cta";
+import { TrustLeadCta } from "./trust-lead-cta";
 import { ClinicProfiles } from "./clinic-profiles";
 import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { PolishReviewsSection } from "./polish-reviews-section";
@@ -234,11 +235,14 @@ export function PageTemplate({ page, formEnabled, guide = false, section }: { pa
             {page.slug !== "koszt" && <PriceList slug={page.slug} />}
             {(pricesForPage(page.slug).length > 0 || page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach") && <ExitIntentOffer slug={page.slug} leadSource={"OGZ-PL"} />}
             {(page.slug === "o-nas" || ["polityka-prywatnosci", "regulamin", "reklamacje", "cookies"].includes(page.slug)) && <OperatorDetails />}
+            {page.slug === "reklamacje" && <TrustLeadCta location="reklamacje_page" title="Masz pytania przed leczeniem?" text="Jeśli dopiero planujesz leczenie i chcesz wiedzieć, jak wygląda opieka i kontakt z kliniką, napisz do nas po polsku." />}
             {page.slug === "kontakt" && <OperatorDetails showContact={false} />}
             {page.slug === "kontakt" && <OpeningHours />}
             {page.slug === "dokumenty-i-licencje" && <CredentialList credentials={clinicCredentials} />}
+            {page.slug === "dokumenty-i-licencje" && <TrustLeadCta location="credentials_after_list" title="Dokumenty sprawdzone. Co dalej?" text="Zapytaj o wstępną wycenę leczenia w klinice, której wpis rejestrowy widzisz powyżej. Kontakt po polsku, bez zobowiązań." />}
             {(page.slug === "opinie" || page.slug === "jak-wybrac-klinike") && <ClinicProfiles />}
             {page.slug === "opinie" && <PolishReviewsSection embedded />}
+            {page.slug === "opinie" && <TrustLeadCta location="opinie_after_reviews" title="Sprawdziłeś opinie? Zapytaj o swój plan" text="Opisz po polsku, czego potrzebujesz. Odpowiemy z wstępną wyceną i kolejnymi krokami; ostateczny plan ustala lekarz po badaniu." />}
             {guide && <GuidePrices slug={page.slug} />}
             {page.slug === "uk/ceny-leczenia-zebow-w-turcji-w-funtach" && <GbpPrices />}
             <TreatmentCostScope slug={page.slug} />
