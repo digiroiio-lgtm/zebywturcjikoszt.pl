@@ -40,7 +40,12 @@ export function ConsentBanner() {
 
   function choose(next: Choice) {
     try { localStorage.setItem(CONSENT_STORAGE_KEY, next); } catch { /* the choice then only lasts for this page view */ }
-    try { window.gtag?.("consent", "update", { analytics_storage: next }); } catch { /* analytics is optional */ }
+    try {
+      window.gtag?.("consent", "update", { analytics_storage: next });
+      // Before consent GA only received cookieless pings, so the session it starts now has no landing page ("(not set)"
+      // in GA4). Re-send the current page view once, right after granting, so the session is attributed to this page.
+      if (next === "granted" && choice !== "granted") window.gtag?.("event", "page_view", { page_location: window.location.href, page_title: document.title });
+    } catch { /* analytics is optional */ }
     setReopened(false);
     window.dispatchEvent(new Event(CHANGED));
   }
