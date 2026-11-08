@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { CampaignPopup } from "@/components/campaign-popup";
 import { MobileAssessmentBar } from "@/components/mobile-assessment-bar";
 import { AiReferralTracker } from "@/components/ai-referral-tracker";
+import { AttributionCleaner } from "@/components/tracked-link";
 import { ConsentBanner } from "@/components/consent-banner";
 import { CONSENT_STORAGE_KEY } from "@/lib/consent";
 import { Analytics } from "@vercel/analytics/next";
@@ -32,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /><script dangerouslySetInnerHTML={{ __html: GTAG_INIT }} /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><Analytics /><SpeedInsights /><ConsentBanner /><Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" /></body></html>;
+  return <html lang="pl-PL"><head><link rel="alternate" type="text/plain" href={`${SITE_URL}/llms-full.txt`} title="Tekst przewodników i źródeł" /><link rel="alternate" type="application/rss+xml" href={`${SITE_URL}/feed.xml`} title="Poradniki: Zęby w Turcji" /><script dangerouslySetInnerHTML={{ __html: GTAG_INIT }} /></head><body><a className="skip-link" href="#main-content">Przejdź do treści</a><SiteHeader /><div id="main-content">{children}</div><SiteFooter /><MobileAssessmentBar /><CampaignPopup /><AiReferralTracker /><AttributionCleaner /><Analytics /><SpeedInsights /><ConsentBanner /><Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="lazyOnload" /></body></html>;
 }

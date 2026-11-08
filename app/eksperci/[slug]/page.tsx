@@ -10,6 +10,7 @@ import { reviewedPagesBy } from "@/lib/medical-review";
 import { CLINIC_ID } from "@/lib/clinic-profiles";
 import { ogImagesFor, twitterImagesFor, breadcrumbList } from "@/lib/seo";
 import { CommercialNote } from "@/components/commercial-note";
+import { TrustLeadCta } from "@/components/trust-lead-cta";
 import { EntitySchema } from "@/components/entity-schema";
 export const dynamicParams = false;
 export function generateStaticParams() { return verifiedExperts.map(({ slug }) => ({ slug })); }
@@ -30,6 +31,7 @@ export default async function ExpertProfile({ params }: { params: Promise<{ slug
     <p className="eyebrow">Recenzent medyczny serwisu</p><h1>Lek. dent. {expert.name}</h1><p className="lead">{expert.introduction ?? "Dentysta oraz założyciel i właściciel Akdeniz Dental w Antalyi, w Turcji."}</p><CommercialNote />
     {doctor && <Image className="reviewer-portrait" src={doctor.imageUrl} alt={`Lek. dent. ${expert.name} – Akdeniz Dental`} width={300} height={300} sizes="300px" />}
     <p><Link className="text-link" href="/nasi-lekarze">Poznaj zespół kliniki prowadzonej przez operatora serwisu →</Link></p>
+    <TrustLeadCta location="expert_profile" title="Chcesz skonsultować swój przypadek?" text="Zapytaj o wstępną wycenę w Akdeniz Dental w Antalyi, klinice prowadzonej przez operatora serwisu. Kontakt po polsku, bez zobowiązań." />
     <section><h2>Biografia i wykształcenie</h2><p>{expert.biography}</p></section>
     <section><h2>Doświadczenie zawodowe</h2><p>{expert.experience ?? "Publiczny profil kliniki opisuje go jako dentystę oraz założyciela i właściciela placówki. Dane o studiach i roli w klinice pochodzą od samej kliniki. Nie wskazują na formalnie potwierdzoną specjalizację stomatologiczną."}</p></section>
     <section><h2>Obszary zainteresowania zawodowego</h2><p>Według profilu Akdeniz Dental Clinic są to:</p><ul>{expert.professionalFocus.map((focus) => <li key={focus}>{focus}</li>)}</ul><p>Są to obszary pracy opisane przez klinikę, nie tytuły specjalisty.</p></section>

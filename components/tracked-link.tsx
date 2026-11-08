@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { track } from "@vercel/analytics";
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 import type { ReactNode } from "react";
 
 declare global {
@@ -77,6 +77,28 @@ function rememberAttribution(cleanHref: string, fromHref: Attribution, tracking:
     ...((fromHref.cta_location ?? tracking.cta_location) ? { cta_location: fromHref.cta_location ?? tracking.cta_location } : {})
   };
   try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ ...(guide ? { guide_source: guide } : {}), cta })); } catch { /* attribution is best effort */ }
+}
+
+/**
+ * Older links (and URLs Google indexed from them) still carry lead_source / cta_location / page_path / guide_source.
+ * Keep that context in sessionStorage for the lead form, then drop the parameters from the address bar so the clean
+ * canonical URL is what visitors copy, share and link to.
+ */
+export function adoptUrlAttribution() {
+  const url = new URL(window.location.href);
+  if (!ATTRIBUTION_KEYS.some((key) => url.searchParams.has(key))) return;
+  const attribution = readAttribution();
+  const { guide_source: guide, ...rest } = attribution;
+  const cta: StoredCta = { target: url.pathname, at: Date.now(), ...rest };
+  try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ ...(guide ? { guide_source: guide } : readStore().guide_source ? { guide_source: readStore().guide_source } : {}), cta })); } catch { return; /* without storage the parameters stay: they are the only copy */ }
+  for (const key of ATTRIBUTION_KEYS) url.searchParams.delete(key);
+  try { window.history.replaceState(window.history.state, "", url.pathname + url.search + url.hash); } catch { /* cosmetic only */ }
+}
+
+/** Mounted once in the root layout. */
+export function AttributionCleaner() {
+  useEffect(() => { adoptUrlAttribution(); }, []);
+  return null;
 }
 
 export function trackEvent(event: string, details: Record<string, string> = {}) {
