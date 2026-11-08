@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 import { knownCampaignNames } from "@/lib/campaigns";
 
 function validPhone(value: string) {
@@ -80,6 +81,9 @@ export async function POST(request: NextRequest) {
     // Formspree's React client recognises a `next` URL as its success receipt.
     const confirmed = !result?.error && !result?.errors?.length && (result?.ok === true || typeof result?.next === "string");
     if (!confirmed) return NextResponse.json({ error: "Nie otrzymaliśmy potwierdzenia wysłania. Spróbuj ponownie później." }, { status: 502 });
+    // Count every delivered lead in Vercel Web Analytics (cookieless), so lead totals do not depend on the visitor's GA consent.
+    // Only page and CTA context is sent, never contact details or the message.
+    try { await track("lead_delivered", { lead_source: leadSource, cta_location: ctaLocation, source_page_path: sourcePagePath, landing_page: landingPage, topic: topic || "none", campaign: campaign || "none" }, { request }); } catch { /* analytics must never fail a delivered lead */ }
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Nie udało się połączyć. Sprawdź połączenie i spróbuj ponownie." }, { status: 502 });
