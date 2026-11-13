@@ -2,6 +2,7 @@ import Link from "next/link";
 import { clinicProfiles, RATINGS_CHECKED_DATE, RATINGS_CHECKED_ISO_DATE } from "@/lib/clinic-profiles";
 import { clinicalTeam, TEAM_SOURCE_DATE, TEAM_SOURCE_URL } from "@/lib/clinical-team";
 import { openingHours, serviceLanguages } from "@/lib/clinic-hours";
+import { pageReviews } from "@/lib/medical-review";
 import { EUR_PLN_RATE, PRICING_UPDATED_DATE, PRICING_UPDATED_ISO_DATE, formatEur, formatPln, priceById, priceCategories, priceItems } from "@/lib/pricing";
 
 /**
@@ -26,6 +27,12 @@ export function HomeNumbers() {
   const sinus = priceById("sinus-lift");
   const implantsAndSurgery = priceCategories.find((category) => category.id === "implanty-chirurgia")!;
   const hoursPerWeek = openDays * 10;
+  const from400 = priceItems.filter((item) => item.eur >= 400).length;
+  const cheapest = priceItems.reduce((low, item) => (item.eur < low.eur ? item : low));
+  const dearest = priceItems.reduce((high, item) => (item.eur > high.eur ? item : high));
+  const upTo150 = priceItems.filter((item) => item.eur <= 150).length;
+  const reviewed = Object.values(pageReviews).flatMap((state) => (state.reviewStatus === "reviewed" && state.lastUpdated <= state.reviewDate ? [state] : []));
+  const latestReview = reviewed.map((state) => state.reviewDate).sort().at(-1)!;
   const trustpilot = clinicProfiles.find((profile) => profile.key === "trustpilot")!;
   const google = clinicProfiles.find((profile) => profile.key === "google-maps")!;
   return <section className="shell section-space home-numbers" aria-labelledby="home-numbers-title">
@@ -52,6 +59,11 @@ export function HomeNumbers() {
       <li><strong>{pct(anesthesia.eur - sedation.eur, anesthesia.eur)} mniej</strong> kosztuje sedacja ({formatEur(sedation.eur)}) niż znieczulenie ogólne ({formatEur(anesthesia.eur)}); o wyborze metody decyduje lekarz, nie cena.</li>
       <li><strong>{pct(retreat.eur - canal.eur, canal.eur)} więcej</strong> kosztuje powtórne leczenie kanałowe ({formatEur(retreat.eur)}) niż pierwsze leczenie kanałowe zęba jednokorzeniowego ({formatEur(canal.eur)}).</li>
       <li><strong>{pct(hard.eur - plain.eur, plain.eur)} więcej</strong> kosztuje skomplikowane usunięcie zęba ({formatEur(hard.eur)}) niż zwykła ekstrakcja ({formatEur(plain.eur)}); o rodzaju zabiegu decyduje lekarz po badaniu.</li>
+      <li><strong>{formatEur(cheapest.eur)}</strong> ({formatPln(cheapest.eur)}) kosztuje najtańsza pozycja cennika ({cheapest.label.toLowerCase()}), a <strong>{formatEur(dearest.eur)}</strong> ({formatPln(dearest.eur)}) najdroższa ({dearest.label.toLowerCase()}); cena „leczenia w Turcji” zależy od zakresu, nie od jednej stawki.</li>
+      <li><strong>{from400} z {priceItems.length} pozycji</strong> ({pct(from400, priceItems.length)}) kosztuje {formatEur(400)} lub więcej; to m.in. implanty, sedacja, znieczulenie ogólne i belka tytanowa.</li>
+      <li><strong>{upTo150} z {priceItems.length} pozycji</strong> ({pct(upTo150, priceItems.length)}) kosztuje {formatEur(150)} lub mniej; w tej grupie jest m.in. korona cyrkonowa.</li>
+      <li><strong>{reviewed.length} stron o leczeniu</strong> ma zatwierdzoną recenzję lekarza dentysty; ostatnią odnotowano <time dateTime={latestReview}>{new Date(`${latestReview}T00:00:00Z`).toLocaleDateString("pl-PL", { timeZone: "UTC" })}</time>, a zmiana treści strony po tej dacie wycofuje zatwierdzenie (<Link href="/weryfikacja-medyczna">zasady weryfikacji</Link>).</li>
+      <li><strong>{Number(trustpilot.reviewCount) + Number(google.reviewCount)} opinii</strong> łącznie ({trustpilot.reviewCount} w Trustpilot i {google.reviewCount} w Mapach Google) było widocznych w dniu odczytu, <time dateTime={RATINGS_CHECKED_ISO_DATE}>{RATINGS_CHECKED_DATE}</time>; to liczba zgłoszeń na dwóch platformach, nie liczba pacjentów.</li>
     </ul>
     <p className="microcopy">Przeliczenie na PLN: 1 EUR = {String(EUR_PLN_RATE).replace(".", ",")} PLN, kurs z <time dateTime={PRICING_UPDATED_ISO_DATE}>{PRICING_UPDATED_DATE}</time>, nieaktualizowany automatycznie; kurs płatności może być inny.</p>
   </section>;
